@@ -1,235 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>GifGang</title>
-    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/iconfont.css') }}">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.css') }}" />
-    <script src="{{ url_for('static', filename='js/uikit.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/uikit-icons.js') }}"></script>
-    <script src="https://kit.fontawesome.com/287f1de716.js" crossorigin="anonymous"></script>
+
+    <style>
+        @font-face {
+            font-family: 'Calluna';
+            src: url("{{ url_for('static', filename='fonts/callunasansregular-webfont.woff') }}") format('woff');
+        }
+
+        body {
+            background: url(//subtlepatterns.com/patterns/scribble_light.png);
+            font-family: Calluna, Arial, sans-serif;
+            min-height: 1000px;
+        }
+
+        #columns {
+            column-width: 320px;
+            column-gap: 15px;
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        div#columns figure {
+            background: #fefefe;
+            border: 2px solid #fcfcfc;
+            box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+            margin: 0 2px 15px;
+            padding: 15px;
+            padding-bottom: 10px;
+            transition: opacity .4s ease-in-out;
+            display: inline-block;
+            /* column-break-inside: avoid; */
+        }
+
+        div#columns figure img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 5px;
+        }
+
+        div#columns figure figcaption {
+            font-size: .9rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        div#columns small {
+            font-size: 1rem;
+            float: right;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        div#columns small a {
+            color: #666;
+            text-decoration: none;
+            transition: .4s color;
+        }
+
+        div#columns:hover figure:not(:hover) {
+            opacity: 0.4;
+        }
+
+        @media screen and (max-width: 750px) {
+            #columns {
+                column-gap: 0px;
+            }
+
+            #columns figure {
+                width: 100%;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="uk-container uk-container-expand uk-margin" style="background-image: url(/static/img/doodad.png)">
-
-        <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
-            <div class="uk-navbar-left">
-
-                <a class="uk-link-reset" href="/">
-                    <h1 class="uk-heading-medium uk-margin-right">GifGang</h1>
-                </a>
-
-
-            </div>
-
-
-            <div class="uk-navbar-right">
-                <a class="uk-button uk-button-default uk-text-uppercase"><i
-                        class="fa-brands fa-discord fa-lg uk-margin-small-right"></i>Add the bot</a>
-            </div>
-        </nav>
-
-        <div class="uk-container">
-            <div class="uk-align-center uk-text-center">
-                <div class="uk-align-center uk-text-center" uk-grid>
-                    <div><span class="uk-heading-small">I want to search for </span></div>
-
-                    <div class="uk-margin">
-                        <form class="uk-search uk-search-default uk-width-large uk-search-large">
-                            <input class="uk-search-input" type="search" placeholder="Search">
-                        </form>
+    <script async type="text/javascript" src="{{ url_for('static', filename='js/main.min.js') }}"></script>
+    <div id="root">
+        <div class="BaseApp">
+            <div class="TopBarComponent TopSearchBar">
+                <div class="TopBar">
+                    <div class="container">
+                        <a class="navbar-brand" itemprop="url" activeClassName="current" href="/">
+                            <img src="/assets/img/tenor-logo-white.svg" width="80" height="22" alt="Tenor"
+                                itemprop="logo"></a>
+                        <div class="search-bar-wrapper">
+                            <form class="SearchBar"><input name="q" value="" placeholder="Search for Images and GIFs"
+                                    autocomplete="off"><span class="iconfont-search" aria-hidden="true"></span></form>
+                        </div>
                     </div>
-                    <div>
-                        <span
-                            uk-tooltip="title: Searches may contain images not suitable for children under the age of 18, enable Safe Search to filter harmful material.; pos: bottom"><i
-                                class="fa-solid fa-circle-question"></i></span>
-                        <span class="uk-margin-right uk-text-meta">Enable Safe Search</span>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+                </div>
+            </div>
+            <div id="view">
+                <div class="FeaturedPage">
+                    <span></span>
+                    <div class="container page">
+                        <div class="related-terms-container">
+                            <h2 class="related-title">Pinned</h2>
+                            <div class="Carousel tags">
+                                <div class="carousel-container TagList">
+                                    <div class="frames-container" style="left:-0px;">
+                                        <div class="TrendsTag"><a activeClassName="current" href="/search/moon-gifs">
+                                                <div class="img"
+                                                    style="background-image:url(https://media.tenor.com/images/fb4fe5f7da7fdaa2efc6c57fb897e669/tenor.gif);">
+                                                </div>
+                                                <div class="info"><span class="searchterm">moon
+                                                        <!---->
+                                                    </span></div>
+                                            </a></div>
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="/search/bridgerton-gifs">
+                                                <div class="img"
+                                                    style="background-image:url(https://media.tenor.com/images/1bb9266be53b865a199416243a87db46/tenor.gif);">
+                                                </div>
+                                                <div class="info"><span class="searchterm">bridgerton
+                                                        <!---->
+                                                    </span></div>
+                                            </a></div>
+                                        <div class="TrendsTag"><a activeClassName="current" href="/search/duke-gifs">
+                                                <div class="img"
+                                                    style="background-image:url(https://media.tenor.com/images/8e7944d5c44fe61cd7dd040f54a3b5f1/tenor.gif);">
+                                                </div>
+                                                <div class="info"><span class="searchterm">duke
+                                                        <!---->
+                                                    </span></div>
+                                            </a></div>
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="/search/happy-mothers-day-gifs">
+                                                <div class="img"
+                                                    style="background-image:url(https://media.tenor.com/images/c1f076c7fc2b852a0521c7cd038891a4/tenor.gif);">
+                                                </div>
+                                                <div class="info"><span class="searchterm">happy mothers day
+                                                        <!---->
+                                                    </span></div>
+                                            </a></div>
+                                        <div class="TrendsTag"><a activeClassName="current" href="/search/kirby-gifs">
+                                                <div class="img"
+                                                    style="background-image:url(https://media.tenor.com/images/ac4730748c6191f2b12433a5009219fc/tenor.gif);">
+                                                </div>
+                                                <div class="info"><span class="searchterm">kirby
+                                                        <!---->
+                                                    </span></div>
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <h2>Random</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cinderella.jpg">
+                                        <figcaption>Cinderella wearing European fashion of the mid-1860’s</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/rapunzel.jpg">
+                                        <figcaption>Rapunzel, clothed in 1820’s period fashion</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/belle.jpg">
+                                        <figcaption>Belle, based on 1770’s French court fashion</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mulan_2.jpg">
+                                        <figcaption>Mulan, based on the Ming Dynasty period</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sleeping-beauty.jpg">
+                                        <figcaption>Sleeping Beauty, based on European fashions in 1485</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pocahontas_2.jpg">
+                                        <figcaption>Pocahontas based on 17th century Powhatan costume</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/snow-white.jpg">
+                                        <figcaption>Snow White, based on 16th century German fashion</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ariel.jpg">
+                                        <figcaption>Ariel wearing an evening gown of the 1890’s</figcaption>
+                                    </figure>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
+                                        <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
+                                    </figure>
+                                    <small>Art &copy; <a href="//clairehummel.com">Claire Hummel</a></small>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="uk-container uk-container-expand">
-
-        <h1 class="uk-heading-divider">Popular Catagories</h1>
-
-        <div class="uk-slider-container-offset" uk-slider="finite: true">
-
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-
-                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
-
-                    <li>
-                        <a>
-                            <div class="uk-card uk-card-default uk-card-hover"
-                                style="background-image: url(/static/img/tech.gif)">
-                                <div class="uk-card-body">
-                                    <div class="uk-clearfix">
-                                        <div class="uk-float-right uk-padding-remove">
-                                            <i class="fa-solid fa-microchip fa-4x"></i>
-                                        </div>
-                                        <div class="uk-float-left">
-                                            <h1 class="uk-heading-small">Tech</h1>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div class="uk-card uk-card-default uk-card-hover"
-                                style="background-image: url(/static/img/happy.gif)">
-                                <div class="uk-card-body">
-                                    <div class="uk-clearfix">
-                                        <div class="uk-float-right uk-padding-remove">
-                                            <i class="fa-solid fa-face-laugh-beam fa-4x"></i>
-                                        </div>
-                                        <div class="uk-float-left">
-                                            <h1 class="uk-heading-small">Happy</h1>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{  }}">
-                            <div class="uk-card uk-card-default uk-card-hover"
-                                style="background-image: url(/static/img/dance.gif)">
-                                <div class="uk-card-body">
-                                    <div class="uk-clearfix">
-                                        <div class="uk-float-right uk-padding-remove">
-                                            <i class="fa-solid fa-music fa-4x"></i>
-                                        </div>
-                                        <div class="uk-float-left">
-                                            <h1 class="uk-heading-small">Dance</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div class="uk-card uk-card-default uk-card-hover"
-                                style="background-image: url(/static/img/lewd.gif)">
-                                <div class="uk-card-body">
-                                    <div class="uk-clearfix">
-                                        <div class="uk-float-right uk-padding-remove">
-                                            <i class="fa-solid fa-cat fa-4x"></i>
-                                        </div>
-                                        <div class="uk-float-left">
-                                            <h1 class="uk-heading-small">Lewd</h1>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div class="uk-card uk-card-default uk-card-hover">
-                                <div class="uk-card-body">
-                                    <div class="uk-clearfix">
-                                        <div class="uk-float-right uk-padding-remove">
-
-                                        </div>
-                                        <div class="uk-float-left">
-                                            <h1 class="uk-heading-small">Explore...</h1>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-            </div>
-
-        </div>
-    </div>
-
-    <div class="uk-container uk-container-xlarge">
-        <div class="uk-grid-small" uk-grid>
-            <div class="uk-width-1-2">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">View all content</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">Staff picks</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">New content</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">Most liked</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">Most viewed</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">Tech</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-width-1-4">
-                <div class="uk-card uk-card-default uk-card-body">
-                    <div class="uk-card-body">
-                        <h1 class="uk-text-lead">Tech</h1>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
 </body>
 
 </html>
