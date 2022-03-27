@@ -14,6 +14,26 @@
             font-family: 'Calluna';
             src: url("{{ url_for('static', filename='fonts/callunasansregular-webfont.woff') }}") format('woff');
         }
+
+        #pinno1 {
+            background-image: url("{{ url_for('static', filename='img/index/anime.jpg') }}");
+        }
+
+        #pinno2 {
+            background-image: url("{{ url_for('static', filename='img/index/cat.jpg') }}");
+        }
+
+        #pinno3 {
+            background-image: url("{{ url_for('static', filename='img/index/dog.png') }}");
+        }
+
+        #pinno4 {
+            background-image: url("{{ url_for('static', filename='img/index/women.jpg') }}");
+        }
+
+        #pinno5 {
+            background-image: url("{{ url_for('static', filename='img/index/men.jpg') }}");
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/content.css') }}">
 
@@ -55,12 +75,11 @@
 
                                         <!-- Pin No.1 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/moon-gifs">
-                                                <div class="img"
-                                                    style="background-image:url(https://media.tenor.com/images/fb4fe5f7da7fdaa2efc6c57fb897e669/tenor.gif);">
+                                                <div class="img" id="pinno1">
                                                 </div>
                                                 <div class="info">
                                                     <span class="searchterm">
-                                                        moon
+                                                        Anime
                                                     </span>
                                                 </div>
                                             </a>
@@ -69,12 +88,11 @@
                                         <!-- Pin No.2 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="/search/bridgerton-gifs">
-                                                <div class="img"
-                                                    style="background-image:url(https://media.tenor.com/images/1bb9266be53b865a199416243a87db46/tenor.gif);">
+                                                <div class="img" id="pinno2">
                                                 </div>
                                                 <div class="info">
                                                     <span class="searchterm">
-                                                        bridgerton
+                                                        Cats
                                                     </span>
                                                 </div>
                                             </a>
@@ -82,12 +100,11 @@
 
                                         <!-- Pin No.3 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/duke-gifs">
-                                                <div class="img"
-                                                    style="background-image:url(https://media.tenor.com/images/8e7944d5c44fe61cd7dd040f54a3b5f1/tenor.gif);">
+                                                <div class="img" id="pinno3">
                                                 </div>
                                                 <div class="info">
                                                     <span class="searchterm">
-                                                        duke
+                                                        Dogs
                                                     </span>
                                                 </div>
                                             </a>
@@ -97,12 +114,11 @@
                                         <!-- Pin No.4 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="/search/happy-mothers-day-gifs">
-                                                <div class="img"
-                                                    style="background-image:url(https://media.tenor.com/images/c1f076c7fc2b852a0521c7cd038891a4/tenor.gif);">
+                                                <div class="img" id="pinno4">
                                                 </div>
                                                 <div class="info">
                                                     <span class="searchterm">
-                                                        happy mothers day
+                                                        Women
                                                     </span>
                                                 </div>
                                             </a>
@@ -110,11 +126,10 @@
 
                                         <!-- Pin No.5 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/kirby-gifs">
-                                                <div class="img"
-                                                    style="background-image:url(https://media.tenor.com/images/ac4730748c6191f2b12433a5009219fc/tenor.gif);">
+                                                <div class="img" id="pinno5">
                                                 </div>
                                                 <div class="info"><span class="searchterm">
-                                                        kirby
+                                                        Men
                                                     </span>
                                                 </div>
                                             </a>
@@ -135,55 +150,11 @@
                                 <!-- Content/Images will Start here -->
                                 <div id="columns">
 
+                                    {% for picsum_url in picsum_api_links %}
                                     <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cinderella.jpg">
-                                        <figcaption>Cinderella wearing European fashion of the mid-1860’s</figcaption>
+                                        <img src="{{ picsum_url }}">
                                     </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/rapunzel.jpg">
-                                        <figcaption>Rapunzel, clothed in 1820’s period fashion</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/belle.jpg">
-                                        <figcaption>Belle, based on 1770’s French court fashion</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/mulan_2.jpg">
-                                        <figcaption>Mulan, based on the Ming Dynasty period</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sleeping-beauty.jpg">
-                                        <figcaption>Sleeping Beauty, based on European fashions in 1485</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/pocahontas_2.jpg">
-                                        <figcaption>Pocahontas based on 17th century Powhatan costume</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/snow-white.jpg">
-                                        <figcaption>Snow White, based on 16th century German fashion</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ariel.jpg">
-                                        <figcaption>Ariel wearing an evening gown of the 1890’s</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
-                                        <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
-                                    </figure>
-
-                                    <figure>
-                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
-                                        <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
-                                    </figure>
+                                    {% endfor %}
 
                                     <!-- Credits -->
                                     <small>Made by &copy;
