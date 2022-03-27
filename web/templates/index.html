@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/iconfont.css') }}">
     <meta charset="UTF-8">
@@ -85,14 +87,14 @@
 
 <body>
     <script async type="text/javascript" src="{{ url_for('static', filename='js/main.min.js') }}"></script>
+
     <div id="root">
         <div class="BaseApp">
+
+            <!-- Search Bar -->
             <div class="TopBarComponent TopSearchBar">
                 <div class="TopBar">
                     <div class="container">
-                        <a class="navbar-brand" itemprop="url" activeClassName="current" href="/">
-                            <img src="/assets/img/tenor-logo-white.svg" width="80" height="22" alt="Tenor"
-                                itemprop="logo"></a>
                         <div class="search-bar-wrapper">
                             <form class="SearchBar"><input name="q" value="" placeholder="Search for Images and GIFs"
                                     autocomplete="off"><span class="iconfont-search" aria-hidden="true"></span></form>
@@ -100,68 +102,105 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Content Starts Here -->
             <div id="view">
                 <div class="FeaturedPage">
                     <span></span>
                     <div class="container page">
                         <div class="related-terms-container">
+
+                            <!-- Pinned Content List -->
+                            <!-- only 3 will be displayed on mobile -->
+                            <!-- all 5 will be displayed on desktop -->
                             <h2 class="related-title">Pinned</h2>
+
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
                                     <div class="frames-container" style="left:-0px;">
+
+                                        <!-- Pin No.1 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/moon-gifs">
                                                 <div class="img"
                                                     style="background-image:url(https://media.tenor.com/images/fb4fe5f7da7fdaa2efc6c57fb897e669/tenor.gif);">
                                                 </div>
-                                                <div class="info"><span class="searchterm">moon
-                                                        <!---->
-                                                    </span></div>
-                                            </a></div>
+                                                <div class="info">
+                                                    <span class="searchterm">
+                                                        moon
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <!-- Pin No.2 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="/search/bridgerton-gifs">
                                                 <div class="img"
                                                     style="background-image:url(https://media.tenor.com/images/1bb9266be53b865a199416243a87db46/tenor.gif);">
                                                 </div>
-                                                <div class="info"><span class="searchterm">bridgerton
-                                                        <!---->
-                                                    </span></div>
-                                            </a></div>
+                                                <div class="info">
+                                                    <span class="searchterm">
+                                                        bridgerton
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <!-- Pin No.3 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/duke-gifs">
                                                 <div class="img"
                                                     style="background-image:url(https://media.tenor.com/images/8e7944d5c44fe61cd7dd040f54a3b5f1/tenor.gif);">
                                                 </div>
-                                                <div class="info"><span class="searchterm">duke
-                                                        <!---->
-                                                    </span></div>
-                                            </a></div>
+                                                <div class="info">
+                                                    <span class="searchterm">
+                                                        duke
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+
+                                        <!-- Pin No.4 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="/search/happy-mothers-day-gifs">
                                                 <div class="img"
                                                     style="background-image:url(https://media.tenor.com/images/c1f076c7fc2b852a0521c7cd038891a4/tenor.gif);">
                                                 </div>
-                                                <div class="info"><span class="searchterm">happy mothers day
-                                                        <!---->
-                                                    </span></div>
-                                            </a></div>
+                                                <div class="info">
+                                                    <span class="searchterm">
+                                                        happy mothers day
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <!-- Pin No.5 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/kirby-gifs">
                                                 <div class="img"
                                                     style="background-image:url(https://media.tenor.com/images/ac4730748c6191f2b12433a5009219fc/tenor.gif);">
                                                 </div>
-                                                <div class="info"><span class="searchterm">kirby
-                                                        <!---->
-                                                    </span></div>
-                                            </a></div>
+                                                <div class="info"><span class="searchterm">
+                                                        kirby
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
+                        <!-- Random Images and GIFs -->
                         <h2>Random</h2>
 
                         <div class="homepage">
                             <div class="center-container featured">
 
+                                <!-- Content/Images will Start here -->
                                 <div id="columns">
+
                                     <figure>
                                         <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/cinderella.jpg">
                                         <figcaption>Cinderella wearing European fashion of the mid-1860’s</figcaption>
@@ -206,7 +245,19 @@
                                         <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
                                         <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
                                     </figure>
-                                    <small>Art &copy; <a href="//clairehummel.com">Claire Hummel</a></small>
+
+                                    <figure>
+                                        <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/tiana.jpg">
+                                        <figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>
+                                    </figure>
+
+                                    <!-- Credits -->
+                                    <small>Made by &copy;
+                                        <a href="http://hirusha.xyz">
+                                            Hirusha Adikari
+                                        </a>
+                                    </small>
+
                                 </div>
 
                             </div>
