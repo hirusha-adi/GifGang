@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>GifGang</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/css/uikit.css" />
-        <script src="/assets/js/uikit.js"></script>
-        <script src="/assets/js/uikit-icons.js"></script>
-        <script src="https://kit.fontawesome.com/287f1de716.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="uk-container uk-container-expand uk-margin" style="background-image: url(/assets/img/doodad.png)">
-            
-            <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
-                <div class="uk-navbar-left">
 
-                    <a class="uk-link-reset" href="/"><h1 class="uk-heading-medium uk-margin-right">GifGang</h1></a>
+<head>
+    <title>GifGang</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.css') }}" />
+    <script src="{{ url_for('static', filename='js/uikit.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/uikit-icons.js') }}"></script>
+    <script src="https://kit.fontawesome.com/287f1de716.js" crossorigin="anonymous"></script>
+</head>
 
-            
-                </div>
+<body>
+    <div class="uk-container uk-container-expand uk-margin" style="background-image: url(/static/img/doodad.png)">
+
+        <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <a class="uk-link-reset" href="/">
+                    <h1 class="uk-heading-medium uk-margin-right">GifGang</h1>
+                </a>
 
 
-                <div class="uk-navbar-right">
-                    <a class="uk-button uk-button-default uk-text-uppercase"><i class="fa-brands fa-discord fa-lg uk-margin-small-right"></i>Add the bot</a>
-                </div>
-            </nav>
+            </div>
 
-            <div class="uk-container">
-                <div class="uk-align-center uk-text-center">
-                    <div class="uk-align-center uk-text-center" uk-grid>
-                        <div><span class="uk-heading-small">I want to search for </span></div>
-                        
-                        <div class="uk-margin">
-                            <form class="uk-search uk-search-default uk-width-large uk-search-large">
-                                <input class="uk-search-input" type="search" placeholder="Search">
-                            </form>
-                        </div>
-                        <div>
-                            <span uk-tooltip="title: Searches may contain images not suitable for children under the age of 18, enable Safe Search to filter harmful material.; pos: bottom"><i class="fa-solid fa-circle-question"></i></span>
-                            <span class="uk-margin-right uk-text-meta">Enable Safe Search</span>
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                            </label> 
-                        </div>
-                        
+
+            <div class="uk-navbar-right">
+                <a class="uk-button uk-button-default uk-text-uppercase"><i
+                        class="fa-brands fa-discord fa-lg uk-margin-small-right"></i>Add the bot</a>
+            </div>
+        </nav>
+
+        <div class="uk-container">
+            <div class="uk-align-center uk-text-center">
+                <div class="uk-align-center uk-text-center" uk-grid>
+                    <div><span class="uk-heading-small">I want to search for </span></div>
+
+                    <div class="uk-margin">
+                        <form class="uk-search uk-search-default uk-width-large uk-search-large">
+                            <input class="uk-search-input" type="search" placeholder="Search">
+                        </form>
                     </div>
+                    <div>
+                        <span
+                            uk-tooltip="title: Searches may contain images not suitable for children under the age of 18, enable Safe Search to filter harmful material.; pos: bottom"><i
+                                class="fa-solid fa-circle-question"></i></span>
+                        <span class="uk-margin-right uk-text-meta">Enable Safe Search</span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="uk-container uk-container-expand">
+    <div class="uk-container uk-container-expand">
 
-            <h1 class="uk-heading-divider">Popular Catagories</h1>
+        <h1 class="uk-heading-divider">Popular Catagories</h1>
 
-            <div class="uk-slider-container-offset" uk-slider="finite: true">
+        <div class="uk-slider-container-offset" uk-slider="finite: true">
 
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-            
-                    <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
-                        
-                        <li>
-                            <a><div class="uk-card uk-card-default uk-card-hover" style="background-image: url(/assets/img/tech.gif)">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
+
+                    <li>
+                        <a>
+                            <div class="uk-card uk-card-default uk-card-hover"
+                                style="background-image: url(/static/img/tech.gif)">
                                 <div class="uk-card-body">
                                     <div class="uk-clearfix">
                                         <div class="uk-float-right uk-padding-remove">
@@ -71,13 +80,16 @@
                                             <h1 class="uk-heading-small">Tech</h1>
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                            </div></a>
-                        </li>
-                        <li>
-                            <a><div class="uk-card uk-card-default uk-card-hover" style="background-image: url(/assets/img/happy.gif)">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="uk-card uk-card-default uk-card-hover"
+                                style="background-image: url(/static/img/happy.gif)">
                                 <div class="uk-card-body">
                                     <div class="uk-clearfix">
                                         <div class="uk-float-right uk-padding-remove">
@@ -87,13 +99,16 @@
                                             <h1 class="uk-heading-small">Happy</h1>
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                            </div></a>
-                        </li>
-                        <li>
-                            <a><div class="uk-card uk-card-default uk-card-hover" style="background-image: url(/assets/img/dance.gif)">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{  }}">
+                            <div class="uk-card uk-card-default uk-card-hover"
+                                style="background-image: url(/static/img/dance.gif)">
                                 <div class="uk-card-body">
                                     <div class="uk-clearfix">
                                         <div class="uk-float-right uk-padding-remove">
@@ -103,13 +118,14 @@
                                             <h1 class="uk-heading-small">Dance</h1>
                                         </div>
                                     </div>
-                                    
-                                    
                                 </div>
-                            </div></a>
-                        </li>
-                        <li>
-                            <a><div class="uk-card uk-card-default uk-card-hover" style="background-image: url(/assets/img/lewd.gif)">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="uk-card uk-card-default uk-card-hover"
+                                style="background-image: url(/static/img/lewd.gif)">
                                 <div class="uk-card-body">
                                     <div class="uk-clearfix">
                                         <div class="uk-float-right uk-padding-remove">
@@ -119,97 +135,101 @@
                                             <h1 class="uk-heading-small">Lewd</h1>
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                            </div></a>
-                        </li>
-                        <li>
-                            <a><div class="uk-card uk-card-default uk-card-hover">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <div class="uk-card uk-card-default uk-card-hover">
                                 <div class="uk-card-body">
                                     <div class="uk-clearfix">
                                         <div class="uk-float-right uk-padding-remove">
-                                            
+
                                         </div>
                                         <div class="uk-float-left">
                                             <h1 class="uk-heading-small">Explore...</h1>
                                         </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                            </div></a>
-                        </li>
-            
-                </div>
-            
+                            </div>
+                        </a>
+                    </li>
+
             </div>
+
         </div>
+    </div>
 
-        <div class="uk-container uk-container-xlarge">
-            <div class="uk-grid-small" uk-grid>
-                <div class="uk-width-1-2">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">View all content</h1>
-                        </div>
+    <div class="uk-container uk-container-xlarge">
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">View all content</h1>
                     </div>
                 </div>
-
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">Staff picks</h1>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">New content</h1>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">Most liked</h1>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">Most viewed</h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">Tech</h1>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="uk-width-1-4">
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <div class="uk-card-body">
-                            <h1 class="uk-text-lead">Tech</h1>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">Staff picks</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">New content</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">Most liked</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">Most viewed</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">Tech</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-width-1-4">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <div class="uk-card-body">
+                        <h1 class="uk-text-lead">Tech</h1>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </div>
 
-        
 
-    
-    
-    </body>
+
+
+
+</body>
+
 </html>
