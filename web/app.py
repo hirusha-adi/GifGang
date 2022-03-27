@@ -2,7 +2,7 @@ import os
 from re import L
 
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 from utils import FileNames, Settings
 
