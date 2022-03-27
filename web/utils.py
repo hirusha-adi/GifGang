@@ -6,6 +6,51 @@ class FileNames:
     _cwd = os.getcwd()
 
     web_server_settings = os.path.join(_cwd, "config.json")
+    secrets = os.path.join(_cwd, "secrets.json")
+
+
+class Secrets:
+    with open(FileNames.secrets, "r", encoding="utf-8") as _file:
+        _data = json.load(_file)
+
+    # giphy
+    try:
+        giphy_usage = _data["giphy"]["usage"]
+        giphy_usage = True
+    except KeyError:
+        giphy_usage = False
+
+    try:
+        giphy_api_key = _data["giphy"]["api_key"]
+    except KeyError:
+        giphy_usage = False
+
+    try:
+        giphy_random = _data["giphy"]["random"]
+        giphy_random_limit = _data["giphy"]["random"]
+        giphy_trending = _data["giphy"]["trending"]
+        giphy_trending_limit = _data["giphy"]["trending_limit"]
+        giphy_api_url_base = _data["giphy"]["api_url_base"]
+    except KeyError:
+        giphy_random = False
+        giphy_random_limit = 9
+        giphy_trending = True
+        giphy_api_url_base = "https://api.giphy.com/v1/gifs/"
+
+    # picsum
+    try:
+        picsum_usage = _data["picsum"]["usage"]
+    except KeyError:
+        usage = False
+    try:
+        picsum_limit = _data["picsum"]["limit"]
+    except KeyError:
+        picsum_limit = 30
+
+    try:
+        picsum_api_url = _data["picsum"]["api_url"]
+    except KeyError:
+        picsum_api_url = "https://picsum.photos/200/300?random="
 
 
 class Settings:
