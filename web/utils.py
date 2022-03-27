@@ -6,10 +6,10 @@ class FileNames:
     _cwd = os.getcwd()
 
     web_server_settings = os.path.join(_cwd, "config.json")
-    secrets = os.path.join(_cwd, "secrets.json")
+    secrets = os.path.join(_cwd, "settings.json")
 
 
-class Secrets:
+class Settings:
     with open(FileNames.secrets, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
 
@@ -53,7 +53,7 @@ class Secrets:
         picsum_api_url = "https://picsum.photos/200/300?random="
 
 
-class Settings:
+class Config:
     _cwd = os.getcwd()
 
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:

@@ -3,7 +3,7 @@ import random
 import logging
 from flask import Flask, render_template, send_from_directory
 
-from utils import FileNames, Settings, Secrets
+from utils import FileNames, Config, Settings
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -15,22 +15,22 @@ def index():
 
     url_list = []
 
-    if Secrets.giphy_usage:
-        if Secrets.giphy_random:
-            for _ in range(Secrets.giphy_random_limit):
+    if Settings.giphy_usage:
+        if Settings.giphy_random:
+            for _ in range(Settings.giphy_random_limit):
                 data = requests.get(
-                    f"{Secrets.giphy_api_url_base}random?api_key={Secrets.giphy_api_key}").json()
+                    f"{Settings.giphy_api_url_base}random?api_key={Settings.giphy_api_key}").json()
                 url_list.append(
                     {
                         "url": data["data"]["images"]["original"]["url"],
                         "title": data["data"]["title"]
                     }
                 )
-        if Secrets.giphy_trending:
+        if Settings.giphy_trending:
             offset = random.randint(
-                1, 4990 - int(Secrets.giphy_trending_limit))
+                1, 4990 - int(Settings.giphy_trending_limit))
             data = requests.get(
-                f"{Secrets.giphy_api_url_base}trending?api_key={Secrets.giphy_api_key}&limit={Secrets.giphy_trending_limit}&offset={offset}").json()
+                f"{Settings.giphy_api_url_base}trending?api_key={Settings.giphy_api_key}&limit={Settings.giphy_trending_limit}&offset={offset}").json()
             for item in data["data"]:
                 url_list.append(
                     {
@@ -39,17 +39,17 @@ def index():
                     }
                 )
 
-    if Secrets.picsum_usage:
-        for number in range(int(Secrets.picsum_limit)):
-            url_list.append(str(Secrets.picsum_api_url) + str(number))
+    if Settings.picsum_usage:
+        for number in range(int(Settings.picsum_limit)):
+            url_list.append(str(Settings.picsum_api_url) + str(number))
 
     return render_template("index.html", url_list=url_list)
 
 
 def runWebServer():
-    app.run(Settings.host,
-            port=Settings.port,
-            debug=Settings.debug)
+    app.run(Config.host,
+            port=Config.port,
+            debug=Config.debug)
 
 
 if __name__ == "__main__":
