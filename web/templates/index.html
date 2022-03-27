@@ -150,14 +150,15 @@
                                 <!-- Content/Images will Start here -->
                                 <div id="columns">
 
-                                    {% for picsum_url in picsum_api_links %}
+                                    {% for img_or_gif_url in url_list %}
                                     <figure>
                                         <img src="{{ picsum_url }}">
                                     </figure>
                                     {% endfor %}
 
                                     <!-- Credits -->
-                                    <small>Made by &copy;
+                                    <small>
+                                        Made by &copy;
                                         <a href="http://hirusha.xyz">
                                             Hirusha Adikari
                                         </a>
