@@ -150,10 +150,19 @@
                                 <!-- Content/Images will Start here -->
                                 <div id="columns">
 
-                                    {% for img_or_gif_url in url_list %}
+                                    {% for img_or_gif in url_list %}
+
+                                    {% if img_or_gif is string %}
                                     <figure>
-                                        <img src="{{ picsum_url }}">
+                                        <img src="{{ img_or_gif }}">
                                     </figure>
+                                    {% elif img_or_gif is mapping %}
+                                    <figure>
+                                        <img src="{{ img_or_gif['url'] }}">
+                                        <figcaption>{{ img_or_gif['title'] }}</figcaption>
+                                    </figure>
+                                    {% endif %}
+
                                     {% endfor %}
 
                                     <!-- Credits -->
