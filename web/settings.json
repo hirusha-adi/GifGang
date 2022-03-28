@@ -6,7 +6,7 @@
         "trending": true,
         "trending_limit": 30,
         "api_url_base": "https://api.giphy.com/v1/gifs/",
-        "api_key": "discord webhook test"
+        "api_key": ""
     },
     "picsum": {
         "usage": false,
