@@ -7,9 +7,19 @@ class FileNames:
 
     web_server_settings = os.path.join(_cwd, "config.json")
     secrets = os.path.join(_cwd, "settings.json")
+    url_list_file = os.path.join(_cwd, "website.json")
 
     print(f"[+] Detected `config.json` at {web_server_settings}")
     print(f"[+] Detected `settings.json` at {secrets}")
+
+
+class WebsiteData:
+    with open(FileNames.url_list_file, "r", encoding="utf-8") as _file:
+        _data = json.load(_file)
+
+        print("[+] Loaded `website.json`")
+
+    pins = _data["pins"]
 
 
 class Settings:
