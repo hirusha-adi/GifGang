@@ -47,6 +47,8 @@ def index():
 
 
 def runWebServer():
+    print(
+        f"[+] The server will run on:\n\t[*] Link: http://{Config.host}:{Config.port}/\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
     app.run(Config.host,
             port=Config.port,
             debug=Config.debug)

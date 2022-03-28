@@ -8,17 +8,22 @@ class FileNames:
     web_server_settings = os.path.join(_cwd, "config.json")
     secrets = os.path.join(_cwd, "settings.json")
 
+    print(f"[+] Detected `config.json` at {web_server_settings}")
+    print(f"[+] Detected `settings.json` at {secrets}")
+
 
 class Settings:
     with open(FileNames.secrets, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
 
+        print("[+] Loaded `settings.json`")
+
     # giphy
     try:
-        giphy_usage = _data["giphy"]["usage"]
-        giphy_usage = True
+        giphy_usage: bool = _data["giphy"]["usage"]
+        giphy_usage: bool = True
     except KeyError:
-        giphy_usage = False
+        giphy_usage: bool = False
 
     try:
         giphy_api_key = _data["giphy"]["api_key"]
@@ -39,9 +44,9 @@ class Settings:
 
     # picsum
     try:
-        picsum_usage = _data["picsum"]["usage"]
+        picsum_usage: bool = _data["picsum"]["usage"]
     except KeyError:
-        usage = False
+        picsum_usage: bool = False
     try:
         picsum_limit = _data["picsum"]["limit"]
     except KeyError:
@@ -52,12 +57,20 @@ class Settings:
     except KeyError:
         picsum_api_url = "https://picsum.photos/200/300?random="
 
+    print("[+] APIs that will be used:")
+    if giphy_usage:
+        print("\t[1] GIPHY")
+    if picsum_usage:
+        print("\t[2] PICSUM")
+
 
 class Config:
     _cwd = os.getcwd()
 
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:
         data = json.load(_file)
+
+        print("[+] Loaded `config.json`")
 
     try:
         host = data["host"]
