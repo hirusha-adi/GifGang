@@ -3,7 +3,7 @@ import random
 import logging
 from flask import Flask, render_template, send_from_directory
 
-from utils import FileNames, Config, Settings
+from utils import FileNames, Config, Settings, WebsiteData
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -54,6 +54,14 @@ def index():
             url_list.append(str(Settings.picsum_api_url) + str(number))
 
     return render_template("index.html", url_list=url_list)
+
+
+@app.route("/pins")
+def pins():
+    return render_template(
+        "pins.html",
+        all_pins_list=WebsiteData.pins["all_list"]
+    )
 
 
 def runWebServer():
