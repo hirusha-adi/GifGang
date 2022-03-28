@@ -18,26 +18,36 @@ def index():
     if Settings.giphy_usage:
         if Settings.giphy_random:
             for _ in range(Settings.giphy_random_limit):
-                data = requests.get(
-                    f"{Settings.giphy_api_url_base}random?api_key={Settings.giphy_api_key}").json()
-                url_list.append(
-                    {
-                        "url": data["data"]["images"]["original"]["url"],
-                        "title": data["data"]["title"]
-                    }
-                )
+                r = requests.get(
+                    f"{Settings.giphy_api_url_base}random?api_key={Settings.giphy_api_key}")
+                if 300 > r.status_code >= 200:
+                    try:
+                        data = r.json()
+                        url_list.append(
+                            {
+                                "url": data["data"]["images"]["original"]["url"],
+                                "title": data["data"]["title"]
+                            }
+                        )
+                    except Exception as e:
+                        print(e)
         if Settings.giphy_trending:
             offset = random.randint(
                 1, 4990 - int(Settings.giphy_trending_limit))
-            data = requests.get(
-                f"{Settings.giphy_api_url_base}trending?api_key={Settings.giphy_api_key}&limit={Settings.giphy_trending_limit}&offset={offset}").json()
-            for item in data["data"]:
-                url_list.append(
-                    {
-                        "url": item["images"]["original"]["url"],
-                        "title": item["title"]
-                    }
-                )
+            r = requests.get(
+                f"{Settings.giphy_api_url_base}trending?api_key={Settings.giphy_api_key}&limit={Settings.giphy_trending_limit}&offset={offset}")
+            if 300 > r.status_code >= 200:
+                try:
+                    data = r.json()
+                    for item in data["data"]:
+                        url_list.append(
+                            {
+                                "url": item["images"]["original"]["url"],
+                                "title": item["title"]
+                            }
+                        )
+                except Exception as e:
+                    print(e)
 
     if Settings.picsum_usage:
         for number in range(int(Settings.picsum_limit)):
