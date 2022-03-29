@@ -1,7 +1,7 @@
 import requests
 import random
 import logging
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, redirect, render_template, send_from_directory, url_for
 
 from utils import FileNames, Config, Settings, WebsiteData
 
@@ -62,6 +62,19 @@ def pins():
         "pins.html",
         all_pins_list=WebsiteData.pins["all_list"]
     )
+
+
+@app.route("/search")
+def search_no_parameter():
+    return redirect(url_for('index'))
+
+
+@app.route("/search/<query>")
+def search(query):
+    if query is None:
+        query = "random"
+    print(query)
+    return render_template("search.html")
 
 
 def runWebServer():
