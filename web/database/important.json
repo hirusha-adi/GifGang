@@ -5,7 +5,7 @@
         "api_key": "RdVt37DOfYSBpyBHMWDZaPlJMfbzMkRe"
     },
     "picsum": {
-        "usage": false,
+        "usage": true,
         "api_url_base": "https://picsum.photos/"
     }
 }
