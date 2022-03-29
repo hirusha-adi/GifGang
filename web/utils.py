@@ -41,8 +41,15 @@ class Important:
     picsum_usage = _picsum["usage"]
     picsum_api_url_base = _picsum["api_url_base"]
 
+    _imgur = _data["imgur"]
+    imgur_usage = _imgur["usage"]
+    imgur_auth_key = _imgur["auth_key"]
+    imgur_client_id = _imgur["client_id"]
+    imgur_clinet_secret = _imgur["clinet_secret"]
 
 # Settings needed for hosting the website
+
+
 class Config:
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:
         data = json.load(_file)
