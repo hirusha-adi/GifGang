@@ -1,4 +1,32 @@
 {
+    "index": {
+        "api_usage": {
+            "giphy": {
+                "usage": true,
+                "random": true,
+                "random_limit": 6,
+                "random_api_url": "https://api.giphy.com/v1/gifs/random",
+                "trending": true,
+                "trending_limit": 30,
+                "trending_api_url": "https://api.giphy.com/v1/gifs/trending"
+            },
+            "picsum": {
+                "usage": true,
+                "limit": 30,
+                "api_url": "https://picsum.photos/200/300?random="
+            }
+        }
+    },
+    "search": {
+        "api_usage": {
+            "giphy": {
+                "usage": true,
+                "search": "https://api.giphy.com/v1/gifs/search",
+                "limit": 15,
+                "offset": 0
+            }
+        }
+    },
     "pins": {
         "all_list": [
             {

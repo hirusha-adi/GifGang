@@ -3,7 +3,7 @@ import random
 import logging
 from flask import Flask, redirect, render_template, send_from_directory, url_for
 
-from utils import FileNames, Config, Settings, WebsiteData
+from utils import FileNames, Config, Important, WebsiteData
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -15,43 +15,46 @@ def index():
 
     url_list = []
 
-    if Settings.giphy_usage:
-        if Settings.giphy_random:
-            for _ in range(Settings.giphy_random_limit):
+    if Important.giphy_usage:
+        if WebsiteData.index["api_usage"]["giphy"]["usage"]:
+            if WebsiteData.index["api_usage"]["giphy"]["random"]:
+                for _ in range(int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])):
+                    r = requests.get(
+                        f'{WebsiteData.index["api_usage"]["giphy"]["random_api_url"]}?api_key={Important.giphy_api_key}')
+                    if 300 > r.status_code >= 200:
+                        try:
+                            data = r.json()
+                            url_list.append(
+                                {
+                                    "url": data["data"]["images"]["original"]["url"],
+                                    "title": data["data"]["title"]
+                                }
+                            )
+                        except Exception as e:
+                            print(e)
+            if WebsiteData.index["api_usage"]["giphy"]["trending"]:
+                offset = random.randint(
+                    1, 4990 - int(WebsiteData.index["api_usage"]["giphy"]["trending_limit"]))
                 r = requests.get(
-                    f"{Settings.giphy_api_url_base}random?api_key={Settings.giphy_api_key}")
+                    f'{WebsiteData.index["api_usage"]["giphy"]["trending_api_url"]}?api_key={Important.giphy_api_key}&limit={WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}&offset={offset}')
                 if 300 > r.status_code >= 200:
                     try:
                         data = r.json()
-                        url_list.append(
-                            {
-                                "url": data["data"]["images"]["original"]["url"],
-                                "title": data["data"]["title"]
-                            }
-                        )
+                        for item in data["data"]:
+                            url_list.append(
+                                {
+                                    "url": item["images"]["original"]["url"],
+                                    "title": item["title"]
+                                }
+                            )
                     except Exception as e:
                         print(e)
-        if Settings.giphy_trending:
-            offset = random.randint(
-                1, 4990 - int(Settings.giphy_trending_limit))
-            r = requests.get(
-                f"{Settings.giphy_api_url_base}trending?api_key={Settings.giphy_api_key}&limit={Settings.giphy_trending_limit}&offset={offset}")
-            if 300 > r.status_code >= 200:
-                try:
-                    data = r.json()
-                    for item in data["data"]:
-                        url_list.append(
-                            {
-                                "url": item["images"]["original"]["url"],
-                                "title": item["title"]
-                            }
-                        )
-                except Exception as e:
-                    print(e)
 
-    if Settings.picsum_usage:
-        for number in range(int(Settings.picsum_limit)):
-            url_list.append(str(Settings.picsum_api_url) + str(number))
+    if Important.picsum_usage:
+        if WebsiteData.index["api_usage"]["picsum"]["usage"]:
+            for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
+                url_list.append(
+                    str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
 
     return render_template("index.html", url_list=url_list)
 

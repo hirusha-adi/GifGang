@@ -2,112 +2,78 @@ import json
 import os
 
 
+# The file names and paths of the needed json config files and others
 class FileNames:
     _cwd = os.getcwd()
 
-    web_server_settings = os.path.join(_cwd, "config.json")
-    secrets = os.path.join(_cwd, "settings.json")
-    url_list_file = os.path.join(_cwd, "website.json")
+    web_server_settings = os.path.join(_cwd, "database", "config.json")
+    important_info_file = os.path.join(_cwd, "database", "important.json")
+    website_info_file = os.path.join(_cwd, "database", "website.json")
 
     print(f"[+] Detected `config.json` at {web_server_settings}")
-    print(f"[+] Detected `settings.json` at {secrets}")
+    print(f"[+] Detected `settings.json` at {important_info_file}")
+    print(f"[+] Detected `website.json` at {website_info_file}")
 
 
+# Store website data
 class WebsiteData:
-    with open(FileNames.url_list_file, "r", encoding="utf-8") as _file:
+    with open(FileNames.website_info_file, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
-
         print("[+] Loaded `website.json`")
 
+    index = _data["index"]
     pins = _data["pins"]
 
 
-class Settings:
-    with open(FileNames.secrets, "r", encoding="utf-8") as _file:
+# Store the main website settings like API keys, etc...
+class Important:
+    with open(FileNames.important_info_file, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
 
-        print("[+] Loaded `settings.json`")
+        print("[+] Loaded `secrets.json`")
 
-    # giphy
-    try:
-        giphy_usage: bool = _data["giphy"]["usage"]
-        giphy_usage: bool = True
-    except KeyError:
-        giphy_usage: bool = False
+    _giphy = _data["giphy"]
+    giphy_usage = _giphy["usage"]
+    giphy_api_url_base = _giphy["api_url_base"]
+    giphy_api_key = _giphy["api_key"]
 
-    try:
-        giphy_api_key = _data["giphy"]["api_key"]
-    except KeyError:
-        giphy_usage = False
-
-    try:
-        giphy_random = _data["giphy"]["random"]
-        giphy_random_limit = _data["giphy"]["random"]
-        giphy_trending = _data["giphy"]["trending"]
-        giphy_trending_limit = _data["giphy"]["trending_limit"]
-        giphy_api_url_base = _data["giphy"]["api_url_base"]
-    except KeyError:
-        giphy_random = False
-        giphy_random_limit = 9
-        giphy_trending = True
-        giphy_api_url_base = "https://api.giphy.com/v1/gifs/"
-
-    # picsum
-    try:
-        picsum_usage: bool = _data["picsum"]["usage"]
-    except KeyError:
-        picsum_usage: bool = False
-    try:
-        picsum_limit = _data["picsum"]["limit"]
-    except KeyError:
-        picsum_limit = 30
-
-    try:
-        picsum_api_url = _data["picsum"]["api_url"]
-    except KeyError:
-        picsum_api_url = "https://picsum.photos/200/300?random="
-
-    print("[+] APIs that will be used:")
-    if giphy_usage:
-        print("\t[1] GIPHY")
-    if picsum_usage:
-        print("\t[2] PICSUM")
+    _picsum = _data["picsum"]
+    picsum_usage = _picsum["usage"]
+    picsum_api_url_base = _picsum["api_url_base"]
 
 
+# Settings needed for hosting the website
 class Config:
-    _cwd = os.getcwd()
-
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:
         data = json.load(_file)
-
         print("[+] Loaded `config.json`")
 
     try:
-        host = data["host"]
+        host: str = data["host"]
         if not(len(str(host).split(".")) == 4):
-            host = "0.0.0.0"
+            host: str = "0.0.0.0"
     except KeyError:
-        host = "0.0.0.0"
+        host: str = "0.0.0.0"
 
     try:
         port = data["port"]
         try:
-            port = int(port)
+            port: int = int(port)
         except ValueError:
-            port = 8080
+            port: int = 8080
     except KeyError:
-        port = 8080
+        port: int = 8080
 
     try:
         debug = data["debug"]
         if isinstance(debug, str):
             if debug.lower() in ("true", "t", "yes", "y"):
-                debug = True
+                debug: bool = True
             else:
-                debug = False
+                debug: bool = False
         elif isinstance(debug, bool):
             pass
         else:
-            debug = False
+            debug: bool = False
     except KeyError:
-        debug = False
+        debug: bool = False
