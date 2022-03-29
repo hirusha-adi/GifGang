@@ -13,10 +13,11 @@ log.setLevel(logging.ERROR)
 @app.route("/")
 def index():
 
-    url_list = []
-
+    giphy_url_list = []
+    giphy_usage = False
     if Important.giphy_usage:
         if WebsiteData.index["api_usage"]["giphy"]["usage"]:
+            giphy_usage = True
             if WebsiteData.index["api_usage"]["giphy"]["random"]:
                 for _ in range(int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])):
                     r = requests.get(
@@ -24,7 +25,7 @@ def index():
                     if 300 > r.status_code >= 200:
                         try:
                             data = r.json()
-                            url_list.append(
+                            giphy_url_list.append(
                                 {
                                     "url": data["data"]["images"]["original"]["url"],
                                     "title": data["data"]["title"]
@@ -41,7 +42,7 @@ def index():
                     try:
                         data = r.json()
                         for item in data["data"]:
-                            url_list.append(
+                            giphy_url_list.append(
                                 {
                                     "url": item["images"]["original"]["url"],
                                     "title": item["title"]
@@ -50,13 +51,24 @@ def index():
                     except Exception as e:
                         print(e)
 
+    picsum_url_list = []
+    picsum_usage = False
     if Important.picsum_usage:
         if WebsiteData.index["api_usage"]["picsum"]["usage"]:
+            picsum_usage = True
             for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
-                url_list.append(
+                picsum_url_list.append(
                     str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
+    print(giphy_url_list)
+    print(picsum_url_list)
+    return render_template(
+        "index.html",
+        giphy_usage=giphy_usage,
+        giphy_url_list=giphy_url_list,
+        picsum_usage=picsum_usage,
+        picsum_url_list=picsum_url_list
 
-    return render_template("index.html", url_list=url_list)
+    )
 
 
 @app.route("/pins")
