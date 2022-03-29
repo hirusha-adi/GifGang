@@ -2,8 +2,183 @@
     "pins": {
         "all_list": [
             {
+                "name": "Anime",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958370328604725298/flattencrop_downwebpautojpeg_quality70.png?size=4096",
+                "url": "shit lord"
+            },
+            {
                 "name": "Bussiness",
                 "img": "https://cdn.discordapp.com/attachments/957630505086517308/958048256099778610/Business.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Beach",
+                "img": "https://cdn.discordapp.com/attachments/957630505086517308/958048458181316638/photo-1507525428034-b723cf961d3e.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Wallpapers",
+                "img": "https://cdn.discordapp.com/attachments/957630505086517308/958048810414800926/wp1964775.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Flowers",
+                "img": "https://cdn.discordapp.com/attachments/957630505086517308/958049086714564719/rose-729509__480.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Nature",
+                "img": "https://cdn.discordapp.com/attachments/957630505086517308/958049725850984508/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "People",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363013658861568/people-persons-peoples.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Food",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363111805579314/healthy-eating-ingredients-732x549-thumbnail.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Sad",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363325203353650/181031-depression-mn-1030.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Computer",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363420195958804/photo-1587831990711-23ca6441447b.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Office",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363567025946654/400x225_cmsv2_fe66c856-3d59-5b23-8755-4aa2f5852eed-6025914.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Happy",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363654594637914/happy.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "City",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363758521118740/photo-1477959858617-67f85cf4f1df.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Family",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958363859767406612/200821-800x533r1-family.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Summer",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364012448464927/GetImage.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Black and White",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364138671833142/calla-lily-flower-picture-id1334493548.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Coffee",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364271379624006/mug-on-plate-filled-with-coffee-surrounded-by-coffee-beans-picture-id157528129.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Design",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364404074823701/leading-by-design_thumb_1536x1536.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Travel",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364561856139304/shutterstock-1041475570.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Cars",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364716995067924/maxresdefault.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Dogs",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364859433639956/dog-puppy-on-garden-royalty-free-image-1586966191.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Cats",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958364938974400542/Thinking-of-getting-a-cat.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Books",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365089742868570/open-book-pages-fanned-out.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Fitness",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365195384795198/fitness-pic.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Music",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365302683467796/122602733_gettyimages-168259014.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "School",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365380164845618/school.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "House",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365460456439898/pexels-photo-106399.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Money",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365613724667904/1b-1024x680.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Water",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365739583156324/b8a1309a-ba53-48c7-bca3-9c36aab2338a.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Work",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365873394032660/stress-work-191008-800x450.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Men",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958365991560183858/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Women",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958369047945281536/shutterstock_1444581284-scaled.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Love",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958369675987779674/image-20160511-18171-kulas4.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Couple",
+                "img": "",
+                "url": "shit lord"
+            },
+            {
+                "name": "Winter",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958369921690124338/Snow-man.png?size=4096",
+                "url": "shit lord"
+            },
+            {
+                "name": "Autumn",
+                "img": "https://cdn.discordapp.com/attachments/877796755234783273/958370009304936518/falling-autumn-leaves-before-sunset-picture-id1176602671.png?size=4096",
                 "url": "shit lord"
             }
         ]
