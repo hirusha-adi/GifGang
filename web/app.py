@@ -1,9 +1,12 @@
-import requests
-import random
 import logging
-from flask import Flask, redirect, render_template, send_from_directory, url_for
+import random
 
-from utils import FileNames, Config, Important, WebsiteData
+import requests
+from flask import (Flask, redirect, render_template, send_from_directory,
+                   url_for)
+from imgurpython import ImgurClient
+
+from utils import Config, FileNames, Important, WebsiteData
 
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
@@ -18,6 +21,8 @@ def index():
     if Important.giphy_usage:
         if WebsiteData.index["api_usage"]["giphy"]["usage"]:
             giphy_usage = True
+
+            # Random
             if WebsiteData.index["api_usage"]["giphy"]["random"]:
                 for _ in range(int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])):
                     r = requests.get(
@@ -33,6 +38,8 @@ def index():
                             )
                         except Exception as e:
                             print(e)
+
+            # Trending
             if WebsiteData.index["api_usage"]["giphy"]["trending"]:
                 offset = random.randint(
                     1, 4990 - int(WebsiteData.index["api_usage"]["giphy"]["trending_limit"]))
@@ -59,14 +66,30 @@ def index():
             for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
                 picsum_url_list.append(
                     str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
-    print(giphy_url_list)
-    print(picsum_url_list)
+
+    imgur_url_list = []
+    imgur_usage = False
+    if Important.imgur_usage:
+        if WebsiteData.index["api_usage"]["imgur"]["usage"]:
+            imgur_usage = True
+            client = ImgurClient(Important.imgur_client_id,
+                                 Important.imgur_clinet_secret)
+            try:
+                items = client.gallery()
+            except:
+                imgur_usage = False
+
+            if imgur_usage:
+                imgur_url_list = [item.link for item in items]
+
     return render_template(
         "index.html",
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
         picsum_usage=picsum_usage,
-        picsum_url_list=picsum_url_list
+        picsum_url_list=picsum_url_list,
+        imgur_usage=imgur_usage,
+        imgur_url_list=imgur_url_list
 
     )
 
