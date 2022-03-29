@@ -16,23 +16,23 @@
         }
 
         #pinno1 {
-            background-image: url("{{ url_for('static', filename='img/index/anime.jpg') }}");
+            background-image: url("{{ url_for('static', filename='img/main_pins/anime.jpg') }}");
         }
 
         #pinno2 {
-            background-image: url("{{ url_for('static', filename='img/index/cat.jpg') }}");
+            background-image: url("{{ url_for('static', filename='img/main_pins/cat.jpg') }}");
         }
 
         #pinno3 {
-            background-image: url("{{ url_for('static', filename='img/index/dog.png') }}");
+            background-image: url("{{ url_for('static', filename='img/main_pins/dog.png') }}");
         }
 
         #pinno4 {
-            background-image: url("{{ url_for('static', filename='img/index/women.jpg') }}");
+            background-image: url("{{ url_for('static', filename='img/main_pins/women.jpg') }}");
         }
 
         #pinno5 {
-            background-image: url("{{ url_for('static', filename='img/index/pin.jpg') }}");
+            background-image: url("{{ url_for('static', filename='img/main_pins/pin.jpg') }}");
         }
     </style>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/content.css') }}">
@@ -72,6 +72,18 @@
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
                                     <div class="frames-container" style="left:-0px;">
+
+                                        <!-- Pin No.5 -->
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('pins') }}">
+                                                <div class="img" id="pinno5">
+                                                </div>
+                                                <div class="info"><span class="searchterm">
+                                                        View All Pins
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
 
                                         <!-- Pin No.1 -->
                                         <div class="TrendsTag"><a activeClassName="current" href="/search/moon-gifs">
@@ -119,18 +131,6 @@
                                                 <div class="info">
                                                     <span class="searchterm">
                                                         Women
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Pin No.5 -->
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('pins') }}">
-                                                <div class="img" id="pinno5">
-                                                </div>
-                                                <div class="info"><span class="searchterm">
-                                                        View All Pins
                                                     </span>
                                                 </div>
                                             </a>
