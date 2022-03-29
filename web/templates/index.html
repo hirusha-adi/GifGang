@@ -142,42 +142,56 @@
 
                         </div>
 
-                        <!-- Random Images and GIFs -->
-                        <h2>Random</h2>
+                        <!-- From GIPHY API -->
+                        {% if giphy_usage == True %}
+                        <h2>GIPHY</h2>
 
                         <div class="homepage">
                             <div class="center-container featured">
 
-                                <!-- Content/Images will Start here -->
                                 <div id="columns">
 
-                                    {% for img_or_gif in url_list %}
-
-                                    {% if img_or_gif is string %}
+                                    {% for one_gif in giphy_url_list %}
                                     <figure>
-                                        <img src="{{ img_or_gif }}">
+                                        <img src="{{ one_gif['url'] }}">
+                                        <figcaption>{{ one_gif['title'] }}</figcaption>
                                     </figure>
-                                    {% elif img_or_gif is mapping %}
-                                    <figure>
-                                        <img src="{{ img_or_gif['url'] }}">
-                                        <figcaption>{{ img_or_gif['title'] }}</figcaption>
-                                    </figure>
-                                    {% endif %}
-
                                     {% endfor %}
-
-                                    <!-- Credits -->
-                                    <small>
-                                        Made by &copy;
-                                        <a href="http://hirusha.xyz">
-                                            Hirusha Adikari
-                                        </a>
-                                    </small>
 
                                 </div>
 
                             </div>
                         </div>
+                        {% endif %}
+
+                        {% if picsum_usage == True %}
+                        <!-- From PICSUM API -->
+                        <h2>PICSUM</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_image in picsum_url_list %}
+                                    <figure>
+                                        <img src="{{ one_image }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Credits -->
+                        <small>
+                            Made by &copy;
+                            <a href="http://hirusha.xyz">
+                                Hirusha Adikari
+                            </a>
+                        </small>
 
                     </div>
                 </div>
