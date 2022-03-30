@@ -1,11 +1,9 @@
-from utils import Important
-from imgurpython import ImgurClient
+from utils import Important as I
+import requests
 
-client_id = Important.imgur_client_id
-client_secret = Important.imgur_clinet_secret
+r = requests.get(
+    f"https://g.tenor.com/v1/trending?key={I.tenor_api_key}&limit=1").json()
 
-client = ImgurClient(client_id, client_secret)
-
-# Example request
-items = client.gallery()
-list1 = [item.link for item in items]
+print(r["results"][0]["title"])
+print(r["results"][0]["content_description"])
+print(r["results"][0]["media"][0]["gif"]["url"])
