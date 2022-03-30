@@ -15,6 +15,14 @@
                 "limit": 30,
                 "api_url": "https://picsum.photos/200/300?random="
             },
+            "tenor": {
+                "usage": true,
+                "limit": 30,
+                "locale": "en_US",
+                "ar_range": "all",
+                "contentfilter": "off",
+                "api_url": "https://g.tenor.com/v1/random"
+            },
             "imgur": {
                 "usage": true,
                 "limit": 30
