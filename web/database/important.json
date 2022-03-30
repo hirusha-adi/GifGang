@@ -12,6 +12,10 @@
         "usage": true,
         "api_key": ""
     },
+    "unsplash": {
+        "usage": false,
+        "api_key": ""
+    },
     "imgur": {
         "usage": false,
         "auth_key": "",
