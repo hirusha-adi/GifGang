@@ -67,6 +67,25 @@ def index():
                 picsum_url_list.append(
                     str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
 
+    tenor_url_list = []
+    tenor_usage = False
+    if Important.tenor_usage:
+        if WebsiteData.index["api_usage"]["imgur"]["usage"]:
+            tenor_usage = True
+            r = requests.get(
+                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["results"]:
+                    tenor_url_list.append(
+                        {
+                            "title": str(result["content_description"]),
+                            "url": result["media"][0]["gif"]["url"]
+                        }
+                    )
+            else:
+                tenor_usage = False
+
     imgur_url_list = []
     imgur_usage = False
     if Important.imgur_usage:
@@ -90,8 +109,9 @@ def index():
         picsum_url_list=picsum_url_list,
         imgur_usage=imgur_usage,
         imgur_url_list=imgur_url_list[:int(
-            WebsiteData.index["api_usage"]["imgur"]["limit"])]
-
+            WebsiteData.index["api_usage"]["imgur"]["limit"])],
+        tenor_usage=tenor_usage,
+        tenor_url_list=tenor_url_list
     )
 
 
