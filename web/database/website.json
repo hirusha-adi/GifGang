@@ -16,7 +16,8 @@
                 "api_url": "https://picsum.photos/200/300?random="
             },
             "imgur": {
-                "usage": true
+                "usage": true,
+                "limit": 30
             }
         }
     },

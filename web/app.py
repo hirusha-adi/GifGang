@@ -89,7 +89,8 @@ def index():
         picsum_usage=picsum_usage,
         picsum_url_list=picsum_url_list,
         imgur_usage=imgur_usage,
-        imgur_url_list=imgur_url_list
+        imgur_url_list=imgur_url_list[:int(
+            WebsiteData.index["api_usage"]["imgur"]["limit"])]
 
     )
 
