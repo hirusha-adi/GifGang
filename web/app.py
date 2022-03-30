@@ -86,6 +86,41 @@ def index():
             else:
                 tenor_usage = False
 
+    unsplash_url_list = []
+    unsplash_usage = False
+    if Important.unsplash_usage:
+        if WebsiteData.index["api_usage"]["unsplash"]["usage"]:
+            unsplash_usage = True
+            final_url = WebsiteData.index["api_usage"]["unsplash"]["api_url"]
+
+            final_url += f'?client_id={Important.unsplash_api_key}'
+            final_url += f'&count={WebsiteData.index["api_usage"]["unsplash"]["limit"]}'
+
+            if isinstance(WebsiteData.index["api_usage"]["unsplash"]["username"], bool):
+                pass
+            elif isinstance(WebsiteData.index["api_usage"]["unsplash"]["username"], str):
+                if WebsiteData.index["api_usage"]["unsplash"]["username"].strip():
+                    final_url += f'&username={WebsiteData.index["api_usage"]["unsplash"]["username"]}'
+
+            if isinstance(WebsiteData.index["api_usage"]["unsplash"]["orientation"], bool):
+                pass
+            elif isinstance(WebsiteData.index["api_usage"]["unsplash"]["orientation"], str):
+                if WebsiteData.index["api_usage"]["unsplash"]["orientation"].strip():
+                    final_url += f'&orientation={WebsiteData.index["api_usage"]["unsplash"]["orientation"]}'
+
+            r = requests.get(final_url)
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["results"]:
+                    tenor_url_list.append(
+                        {
+                            "title": "Will be updated soon",
+                            "url": "Will be u updated soon"
+                        }
+                    )
+            else:
+                tenor_usage = False
+
     imgur_url_list = []
     imgur_usage = False
     if Important.imgur_usage:
@@ -111,7 +146,9 @@ def index():
         imgur_url_list=imgur_url_list[:int(
             WebsiteData.index["api_usage"]["imgur"]["limit"])],
         tenor_usage=tenor_usage,
-        tenor_url_list=tenor_url_list
+        tenor_url_list=tenor_url_list,
+        unsplash_usage=unsplash_usage,
+        unsplash_url_list=unsplash_url_list
     )
 
 
