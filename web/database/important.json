@@ -1,11 +1,21 @@
 {
     "giphy": {
-        "usage": true,
+        "usage": false,
         "api_url_base": "https://api.giphy.com/v1/gifs/",
-        "api_key": "RdVt37DOfYSBpyBHMWDZaPlJMfbzMkRe"
+        "api_key": ""
     },
     "picsum": {
-        "usage": true,
+        "usage": false,
         "api_url_base": "https://picsum.photos/"
+    },
+    "tenor": {
+        "usage": true,
+        "api_key": ""
+    },
+    "imgur": {
+        "usage": false,
+        "auth_key": "",
+        "client_id": "",
+        "clinet_secret": ""
     }
 }
