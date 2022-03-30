@@ -45,6 +45,10 @@ class Important:
     tenor_usage = _tenor["usage"]
     tenor_api_key = _tenor["api_key"]
 
+    _unsplash = _data["unsplash"]
+    unsplash_usage = _unsplash["usage"]
+    unsplash_api_key = _unsplash["api_key"]
+
     _imgur = _data["imgur"]
     imgur_usage = _imgur["usage"]
     imgur_auth_key = _imgur["auth_key"]
