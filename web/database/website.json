@@ -23,6 +23,14 @@
                 "contentfilter": "off",
                 "api_url": "https://g.tenor.com/v1/random"
             },
+            "unsplash": {
+                "usage": true,
+                "limit": 30,
+                "username": false,
+                "orientation": false,
+                "content_filter": "low",
+                "api_url": "https://api.unsplash.com/photos/random"
+            },
             "imgur": {
                 "usage": true,
                 "limit": 30
