@@ -185,6 +185,27 @@
                         </div>
                         {% endif %}
 
+                        {% if imgur_usage == True %}
+                        <!-- From Imgur API -->
+                        <h2>Imgur</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_image in imgur_url_list %}
+                                    <figure>
+                                        <img src="{{ one_image }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         <!-- Credits -->
                         <small>
                             Made by &copy;
