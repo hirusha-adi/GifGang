@@ -263,11 +263,32 @@ def search(query):
         if len(giphy_url_list) == 0:
             giphy_usage = False
 
+    tenor_url_list = []
+    tenor_usage = False
+    if Important.tenor_usage:
+        if WebsiteData.search["api_usage"]["imgur"]["usage"]:
+            tenor_usage = True
+            r = requests.get(
+                f'{WebsiteData.search["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.search["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.search["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.search["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.search["api_usage"]["tenor"]["contentfilter"]}&q={query}')
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["results"]:
+                    tenor_url_list.append(
+                        {
+                            "title": str(result["content_description"]),
+                            "url": result["media"][0]["gif"]["url"]
+                        }
+                    )
+            else:
+                tenor_usage = False
+
     return render_template(
         "search.html",
         web_title=WebsiteData.search["title"],
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
+        tenor_usage=tenor_usage,
+        tenor_url_list=tenor_url_list
     )
 
 
