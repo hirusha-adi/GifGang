@@ -77,8 +77,13 @@
                 "offset": 0,
                 "api_url": "https://api.giphy.com/v1/gifs/search"
             },
-            "sample": {
-                "usage": "123"
+            "tenor": {
+                "usage": true,
+                "limit": 30,
+                "locale": "en_US",
+                "ar_range": "all",
+                "contentfilter": "off",
+                "api_url": "https://g.tenor.com/v1/search"
             }
         }
     },
