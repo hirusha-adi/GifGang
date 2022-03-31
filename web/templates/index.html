@@ -250,6 +250,27 @@
                         </div>
                         {% endif %}
 
+                        {% if dogceo_usage == True %}
+                        <!-- From Dog.CEO API -->
+                        <h2>Dog.CEO</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_gif in dogceo_url_list %}
+                                    <figure>
+                                        <img src="{{ one_gif }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         {% if imgur_usage == True %}
                         <!-- From Imgur API -->
                         <h2>Imgur</h2>
