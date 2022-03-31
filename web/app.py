@@ -250,6 +250,41 @@ def search(query):
     if query is None:
         return redirect(url_for('index'))
 
+    thecatapi_url_list = []
+    thecatapi_usage = False
+
+    if WebsiteData.search["custom_api_usage"]:
+        query_lowered = str(query).lower()
+        if query in WebsiteData.search["custom_api_data_all_keywords_list"]:
+            for one_custom in WebsiteData.search["custom_api_data"]:
+                if query_lowered in one_custom["keywords"]:
+
+                    # The Cat API
+                    if one_custom["api_info"]["name"] == "theCatAPI":
+                        if Important.thecatapi_usage:  # global check
+                            if one_custom["api_info"]["usage"]:  # local check
+                                thecatapi_usage = True
+                                r = requests.get(
+                                    str(one_custom["api_info"]["api_url"])
+                                    + "?limit=" +
+                                    str(one_custom["api_info"]["limit"]) +
+                                    "&size=" + str(one_custom["api_info"]["size"]) +
+                                    "&mime_types=" +
+                                    str(one_custom["api_info"]["mime_types"]) +
+                                    "&order=" +
+                                    str(one_custom["api_info"]["order"]) +
+                                    "&has_breeds=" +
+                                    str(one_custom["api_info"]["has_breeds"])
+                                )
+                                if 300 > r.status_code >= 200:
+                                    data = r.json()
+                                    for result in data:
+                                        thecatapi_url_list.append(
+                                            result["url"])
+                                else:
+                                    thecatapi_usage = False
+
+    # GIPHY and TENOR will be used to search, no matter what is entered if enabled by json
     giphy_url_list = []
     giphy_usage = False
     if Important.giphy_usage:
@@ -300,7 +335,9 @@ def search(query):
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
         tenor_usage=tenor_usage,
-        tenor_url_list=tenor_url_list
+        tenor_url_list=tenor_url_list,
+        thecatapi_usage=thecatapi_usage,
+        thecatapi_url_list=thecatapi_url_list
     )
 
 
