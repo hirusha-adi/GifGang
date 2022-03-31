@@ -58,7 +58,8 @@
 
                                     {% for one_obj in all_pins_list %}
                                     <!-- Iterate through all pins -->
-                                    <div class="TrendsTag"><a activeClassName="current" href="{{ one_obj.url }}">
+                                    <div class="TrendsTag">
+                                        <a activeClassName="current" href="{{ url_for('search', query=one_obj.name) }}">
                                             <div class="img" style='background-image: url("{{ one_obj.img }}")'>
                                             </div>
                                             <div class="info">
