@@ -31,6 +31,15 @@
                 "content_filter": "low",
                 "api_url": "https://api.unsplash.com/photos/random"
             },
+            "theCatAPI": {
+                "usage": true,
+                "size": "med",
+                "mime_types": "jpg,gif,png",
+                "order": "RANDOM",
+                "limit": 30,
+                "has_breeds": 0,
+                "api_url": "https://api.thecatapi.com/v1/images/search"
+            },
             "imgur": {
                 "usage": true,
                 "limit": 30
