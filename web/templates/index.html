@@ -296,6 +296,27 @@
                         </div>
                         {% endif %}
 
+                        {% if nekoslife_usage == True %}
+                        <!-- From Nekos Life API -->
+                        <h2>Anime - Nekos Life</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_image in nekoslife_url_list %}
+                                    <figure>
+                                        <img src="{{ one_image }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         <!-- Credits -->
                         <small>
                             Made by &copy;
