@@ -9,12 +9,21 @@
         "api_url_base": "https://picsum.photos/"
     },
     "tenor": {
-        "usage": true,
+        "usage": false,
         "api_key": ""
     },
     "unsplash": {
         "usage": false,
         "api_key": ""
+    },
+    "theCatAPI": {
+        "usage": true,
+        "size": "med",
+        "mime_types": "jpg,gif,png",
+        "order": "RANDOM",
+        "limit": 30,
+        "has_breeds": 0,
+        "api_url": "https://api.thecatapi.com/v1/images/search"
     },
     "imgur": {
         "usage": false,
