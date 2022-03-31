@@ -52,6 +52,9 @@ class Important:
     _thecatapi = _data["theCatAPI"]
     thecatapi_usage = _thecatapi["usage"]
 
+    _dogceo = _data["dogCEO"]
+    dogceo_usage = _dogceo["usage"]
+
     _imgur = _data["imgur"]
     imgur_usage = _imgur["usage"]
     imgur_auth_key = _imgur["auth_key"]
