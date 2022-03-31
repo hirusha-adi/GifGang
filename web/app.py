@@ -125,7 +125,7 @@ def index():
     thecatapi_usage = False
     if Important.thecatapi_usage:
         if WebsiteData.index["api_usage"]["theCatAPI"]["usage"]:
-            thecatapi_usage = False
+            thecatapi_usage = True
             r = requests.get(
                 str(WebsiteData.index["api_usage"]["theCatAPI"]["api_url"])
                 + "?limit=" +
