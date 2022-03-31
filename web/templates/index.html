@@ -275,16 +275,16 @@
                         </div>
                         {% endif %}
 
-                        {% if imgur_usage == True %}
-                        <!-- From Imgur API -->
-                        <h2>Imgur</h2>
+                        {% if nekoslife_usage == True %}
+                        <!-- From Nekos Life API -->
+                        <h2>Anime - Nekos Life</h2>
 
                         <div class="homepage">
                             <div class="center-container featured">
 
                                 <div id="columns">
 
-                                    {% for one_image in imgur_url_list %}
+                                    {% for one_image in nekoslife_url_list %}
                                     <figure>
                                         <img src="{{ one_image }}">
                                     </figure>
@@ -296,16 +296,16 @@
                         </div>
                         {% endif %}
 
-                        {% if nekoslife_usage == True %}
-                        <!-- From Nekos Life API -->
-                        <h2>Anime - Nekos Life</h2>
+                        {% if imgur_usage == True %}
+                        <!-- From Imgur API -->
+                        <h2>Imgur</h2>
 
                         <div class="homepage">
                             <div class="center-container featured">
 
                                 <div id="columns">
 
-                                    {% for one_image in nekoslife_url_list %}
+                                    {% for one_image in imgur_url_list %}
                                     <figure>
                                         <img src="{{ one_image }}">
                                     </figure>
