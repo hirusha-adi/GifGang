@@ -23,6 +23,7 @@ class WebsiteData:
 
     index = _data["index"]
     pins = _data["pins"]
+    search = _data["search"]
 
 
 # Store the main website settings like API keys, etc...
