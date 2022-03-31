@@ -148,6 +148,27 @@
 
                         </div>
 
+                        <!-- From theCatAPI -->
+                        {% if thecatapi_usage == True %}
+                        <h2>TheCatAPI</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_gif in thecatapi_url_list %}
+                                    <figure>
+                                        <img src="{{ one_gif }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         <!-- From GIPHY API -->
                         {% if giphy_usage == True %}
                         <h2>GIPHY</h2>
