@@ -145,6 +145,23 @@ def index():
             else:
                 thecatapi_usage = False
 
+    dogceo_url_list = []
+    dogceo_usage = False
+    if Important.dogceo_usage:
+        if WebsiteData.index["api_usage"]["dogCEO"]["usage"]:
+            dogceo_usage = True
+            r = requests.get(
+                str(WebsiteData.index["api_usage"]["dogCEO"]["api_url"])
+                + "/" +
+                str(WebsiteData.index["api_usage"]["dogCEO"]["limit"])
+            )
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["message"]:
+                    dogceo_url_list.append(result)
+            else:
+                dogceo_usage = False
+
     imgur_url_list = []
     imgur_usage = False
     if Important.imgur_usage:
@@ -174,7 +191,9 @@ def index():
         unsplash_usage=unsplash_usage,
         unsplash_url_list=unsplash_url_list,
         thecatapi_usage=thecatapi_usage,
-        thecatapi_url_list=thecatapi_url_list
+        thecatapi_url_list=thecatapi_url_list,
+        dogceo_usage=dogceo_usage,
+        dogceo_url_list=dogceo_url_list
     )
 
 
