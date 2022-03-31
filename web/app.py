@@ -179,6 +179,7 @@ def index():
 
     return render_template(
         "index.html",
+        web_title=WebsiteData.index["title"],
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
         picsum_usage=picsum_usage,

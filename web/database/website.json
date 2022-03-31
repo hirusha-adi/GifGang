@@ -1,5 +1,6 @@
 {
     "index": {
+        "title": "GifGang",
         "api_usage": {
             "giphy": {
                 "usage": true,
