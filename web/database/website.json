@@ -73,9 +73,12 @@
         "api_usage": {
             "giphy": {
                 "usage": true,
-                "search": "https://api.giphy.com/v1/gifs/search",
                 "limit": 15,
-                "offset": 0
+                "offset": 0,
+                "api_url": "https://api.giphy.com/v1/gifs/search"
+            },
+            "sample": {
+                "usage": "123"
             }
         }
     },
