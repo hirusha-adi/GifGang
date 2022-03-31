@@ -208,8 +208,8 @@
                         {% endif %}
 
                         {% if unsplash_usage == True %}
-                        <!-- From Imgur API -->
-                        <h2>Imgur</h2>
+                        <!-- From Unsplash API -->
+                        <h2>Unsplash</h2>
 
                         <div class="homepage">
                             <div class="center-container featured">
@@ -220,6 +220,27 @@
                                     <figure>
                                         <img src="{{ one_gif['url'] }}">
                                         <figcaption>{{ one_gif['title'] }}</figcaption>
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if thecatapi_usage == True %}
+                        <!-- From TheCatAPI API -->
+                        <h2>TheCatAPI</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_gif in thecatapi_url_list %}
+                                    <figure>
+                                        <img src="{{ one_gif }}">
                                     </figure>
                                     {% endfor %}
 
