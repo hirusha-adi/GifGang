@@ -230,6 +230,11 @@ def search_no_parameter():
     return redirect(url_for('index'))
 
 
+@app.route("/anime")
+def anime():
+    return "hello"
+
+
 @app.route("/search/<query>")
 def search(query):
     if query is None:
@@ -247,7 +252,6 @@ def search(query):
             if 300 > r.status_code >= 200:
                 try:
                     data = r.json()
-                    print(data)
                     for item in data["data"]:
                         giphy_url_list.append(
                             {
@@ -282,7 +286,7 @@ def search(query):
 
     return render_template(
         "search.html",
-        web_title=WebsiteData.search["title"],
+        web_title=WebsiteData.search["title"].format(query=query),
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
         tenor_usage=tenor_usage,
