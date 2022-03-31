@@ -235,11 +235,6 @@ def anime():
     return "anime"
 
 
-@app.route("/cats")
-def cats():
-    return "cats"
-
-
 @app.route("/dogs")
 def dogs():
     return "dogs"
