@@ -49,6 +49,9 @@ class Important:
     unsplash_usage = _unsplash["usage"]
     unsplash_api_key = _unsplash["api_key"]
 
+    _thecatapi = _data["theCatAPI"]
+    thecatapi_usage = _thecatapi["usage"]
+
     _imgur = _data["imgur"]
     imgur_usage = _imgur["usage"]
     imgur_auth_key = _imgur["auth_key"]
