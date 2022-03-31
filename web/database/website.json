@@ -87,6 +87,25 @@
             }
         }
     },
+    "cats": {
+        "title": "Cats | GifGang",
+        "api_usage": {
+            "giphy": {
+                "usage": true,
+                "limit": 15,
+                "offset": 0,
+                "api_url": "https://api.giphy.com/v1/gifs/search"
+            },
+            "tenor": {
+                "usage": true,
+                "limit": 30,
+                "locale": "en_US",
+                "ar_range": "all",
+                "contentfilter": "off",
+                "api_url": "https://g.tenor.com/v1/search"
+            }
+        }
+    },
     "pins": {
         "all_list": [
             {
