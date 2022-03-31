@@ -121,6 +121,30 @@ def index():
             else:
                 tenor_usage = False
 
+    thecatapi_url_list = []
+    thecatapi_usage = False
+    if Important.thecatapi_usage:
+        if WebsiteData.index["api_usage"]["theCatAPI"]["usage"]:
+            thecatapi_usage = False
+            r = requests.get(
+                str(WebsiteData.index["api_usage"]["theCatAPI"]["api_url"])
+                + "?limit=" +
+                str(WebsiteData.index["api_usage"]["theCatAPI"]["limit"]) +
+                "&size=" + str(WebsiteData.index["api_usage"]["theCatAPI"]["size"]) +
+                "&mime_types=" +
+                str(WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]) +
+                "&order=" +
+                str(WebsiteData.index["api_usage"]["theCatAPI"]["order"]) +
+                "&has_breeds=" +
+                str(WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"])
+            )
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data:
+                    thecatapi_url_list.append(result["url"])
+            else:
+                thecatapi_usage = False
+
     imgur_url_list = []
     imgur_usage = False
     if Important.imgur_usage:
@@ -148,7 +172,9 @@ def index():
         tenor_usage=tenor_usage,
         tenor_url_list=tenor_url_list,
         unsplash_usage=unsplash_usage,
-        unsplash_url_list=unsplash_url_list
+        unsplash_url_list=unsplash_url_list,
+        thecatapi_usage=thecatapi_usage,
+        thecatapi_url_list=thecatapi_url_list
     )
 
 
