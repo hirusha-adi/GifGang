@@ -17,6 +17,9 @@
         "api_key": ""
     },
     "theCatAPI": {
+        "usage": false
+    },
+    "dogCEO": {
         "usage": true
     },
     "imgur": {
