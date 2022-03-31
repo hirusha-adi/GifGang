@@ -2,7 +2,7 @@ import logging
 import random
 
 import requests
-from flask import (Flask, redirect, render_template, send_from_directory,
+from flask import (Flask, redirect, render_template,
                    url_for)
 from imgurpython import ImgurClient
 
@@ -162,6 +162,23 @@ def index():
             else:
                 dogceo_usage = False
 
+    nekoslife_url_list = []
+    nekoslife_usage = False
+    if Important.nekoslife_usage:
+        if WebsiteData.index["api_usage"]["nekoslife"]["usage"]:
+            nekoslife_usage = True
+            _limit = int(
+                WebsiteData.index["api_usage"]["nekoslife"]["limit"]) - 1
+            while len(nekoslife_url_list) <= _limit:
+                r1 = requests.get(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"][random.randint(
+                    0, int(len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]))-1)])
+                if 300 > r1.status_code >= 200:
+                    data = r1.json()
+                    try:
+                        nekoslife_url_list.append(data["url"])
+                    except KeyError:
+                        nekoslife_url_list.append(data["neko"])
+
     imgur_url_list = []
     imgur_usage = False
     if Important.imgur_usage:
@@ -194,7 +211,9 @@ def index():
         thecatapi_usage=thecatapi_usage,
         thecatapi_url_list=thecatapi_url_list,
         dogceo_usage=dogceo_usage,
-        dogceo_url_list=dogceo_url_list
+        dogceo_url_list=dogceo_url_list,
+        nekoslife_usage=nekoslife_usage,
+        nekoslife_url_list=nekoslife_url_list
     )
 
 
