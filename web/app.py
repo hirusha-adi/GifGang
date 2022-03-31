@@ -233,8 +233,10 @@ def search_no_parameter():
 @app.route("/search/<query>")
 def search(query):
     if query is None:
-        query = "random"
+        return redirect(url_for('index'))
+
     print(query)
+
     return render_template("search.html")
 
 
