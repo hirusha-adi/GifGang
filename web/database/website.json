@@ -40,6 +40,11 @@
                 "has_breeds": 0,
                 "api_url": "https://api.thecatapi.com/v1/images/search"
             },
+            "dogCEO": {
+                "usage": true,
+                "limit": 30,
+                "api_url": "https://dog.ceo/api/breed/boxer/images/random"
+            },
             "imgur": {
                 "usage": true,
                 "limit": 30
