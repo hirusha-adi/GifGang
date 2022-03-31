@@ -225,7 +225,7 @@ def pins():
     )
 
 
-@app.route("/search")
+@app.route("/search2")
 def search_no_parameter():
     return redirect(url_for('index'))
 
@@ -234,8 +234,6 @@ def search_no_parameter():
 def search(query):
     if query is None:
         return redirect(url_for('index'))
-
-    print(query)
 
     giphy_url_list = []
     giphy_usage = False
