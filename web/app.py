@@ -237,7 +237,38 @@ def search(query):
 
     print(query)
 
-    return render_template("search.html")
+    giphy_url_list = []
+    giphy_usage = False
+    if Important.giphy_usage:
+        if WebsiteData.search["api_usage"]["giphy"]["usage"]:
+            giphy_usage = True
+            offset = random.randint(
+                1, 4990 - int(WebsiteData.search["api_usage"]["giphy"]["limit"]))
+            r = requests.get(
+                f'{WebsiteData.search["api_usage"]["giphy"]["api_url"]}?api_key={Important.giphy_api_key}&limit={WebsiteData.search["api_usage"]["giphy"]["limit"]}&offset={offset}&q={query}')
+            if 300 > r.status_code >= 200:
+                try:
+                    data = r.json()
+                    print(data)
+                    for item in data["data"]:
+                        giphy_url_list.append(
+                            {
+                                "url": item["images"]["original"]["url"],
+                                "title": item["title"]
+                            }
+                        )
+                except Exception as e:
+                    print(e)
+
+        if len(giphy_url_list) == 0:
+            giphy_usage = False
+
+    return render_template(
+        "search.html",
+        web_title=WebsiteData.search["title"],
+        giphy_usage=giphy_usage,
+        giphy_url_list=giphy_url_list,
+    )
 
 
 def runWebServer():
