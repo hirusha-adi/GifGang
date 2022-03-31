@@ -232,7 +232,22 @@ def search_no_parameter():
 
 @app.route("/anime")
 def anime():
-    return "hello"
+    return "anime"
+
+
+@app.route("/cats")
+def cats():
+    return "cats"
+
+
+@app.route("/dogs")
+def dogs():
+    return "dogs"
+
+
+@app.route("/restricted")
+def restricted():
+    return "restricted"
 
 
 @app.route("/search/<query>")
