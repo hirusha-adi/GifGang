@@ -4,7 +4,7 @@
         "api_usage": {
             "giphy": {
                 "usage": true,
-                "random": true,
+                "random": false,
                 "random_limit": 6,
                 "random_api_url": "https://api.giphy.com/v1/gifs/random",
                 "trending": true,
@@ -25,7 +25,7 @@
                 "api_url": "https://g.tenor.com/v1/random"
             },
             "unsplash": {
-                "usage": true,
+                "usage": false,
                 "limit": 30,
                 "username": false,
                 "orientation": false,
@@ -47,7 +47,7 @@
                 "api_url": "https://dog.ceo/api/breeds/image/random"
             },
             "nekoslife": {
-                "usage": true,
+                "usage": false,
                 "limit": 6,
                 "api_url_list": [
                     "https://nekos.life/api/hug",
@@ -63,7 +63,7 @@
                 ]
             },
             "imgur": {
-                "usage": true,
+                "usage": false,
                 "limit": 30
             }
         }
@@ -312,7 +312,15 @@
                 "usage": true,
                 "limit": 30,
                 "thumbsize": "big",
-                "order": "top-weekly"
+                "order": "top-weekly",
+                "api_url": "https://www.eporner.com/api/v2/video/search/"
+            },
+            "redtube": {
+                "usage": true,
+                "limit": 30,
+                "data": "redtube.Videos.searchVideos",
+                "thumbsize": "big",
+                "api_url": "https://api.redtube.com/"
             },
             "random_search_word": [
                 "amateur",
