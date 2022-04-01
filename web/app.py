@@ -255,9 +255,9 @@ def search(query):
 
     if WebsiteData.search["custom_api_usage"]:
         query_lowered = str(query).lower()
-        if query in WebsiteData.search["custom_api_data_all_keywords_list"]:
+        if any(word in query_lowered.split() for word in WebsiteData.search["custom_api_data_all_keywords_list"]):
             for one_custom in WebsiteData.search["custom_api_data"]:
-                if query_lowered in one_custom["keywords"]:
+                if any(word in query_lowered.split() for word in one_custom["keywords"]):
 
                     # The Cat API
                     if one_custom["api_info"]["name"] == "theCatAPI":
