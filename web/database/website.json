@@ -304,5 +304,52 @@
                 "img": "https://cdn.discordapp.com/attachments/877796755234783273/958370009304936518/falling-autumn-leaves-before-sunset-picture-id1176602671.png?size=4096"
             }
         ]
+    },
+    "adult_index": {
+        "title": "NSFW | GifGang",
+        "api_usage": {
+            "eporner": {
+                "usage": true,
+                "limit": 30,
+                "thumbsize": "big",
+                "order": "top-weekly",
+                "random_search_word": [
+                    "amateur",
+                    "anal",
+                    "asian",
+                    "blonde",
+                    "bigtits",
+                    "blowjob",
+                    "creampie",
+                    "cumshot",
+                    "double penetration",
+                    "ebony",
+                    "facials",
+                    "group",
+                    "hentai",
+                    "interracial",
+                    "latina",
+                    "japanese",
+                    "lingerie",
+                    "lesbian",
+                    "masturbation",
+                    "mature",
+                    "milf",
+                    "pov",
+                    "public",
+                    "redhead",
+                    "squirting",
+                    "wildcrazy",
+                    "teens",
+                    "cuckold",
+                    "oral",
+                    "cumshot facial",
+                    "pussy",
+                    "pussy licking",
+                    "deep throat",
+                    "cum on tits"
+                ]
+            }
+        }
     }
 }
