@@ -397,7 +397,7 @@ def search(query):
 
 @app.route("/adult")
 def adult_index():
-    return render_template("adult.html")
+    return render_template("adult_index.html")
 
 
 def runWebServer():
