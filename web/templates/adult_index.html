@@ -21,8 +21,32 @@ Pinned
 
             {% for one_gif in eporner_list %}
             <figure>
-                <img src="{{ one_gif['url'] }}">
                 <a href="{{ one_gif['src_url'] }}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ one_gif['url'] }}">
+                    <figcaption>{{ one_gif['title'] }}</figcaption>
+                </a>
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From RedTube API -->
+{% if redtube_usage == True %}
+<h2>EPORNER</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in redtube_list %}
+            <figure>
+                <a href="{{ one_gif['src_url'] }}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ one_gif['url'] }}">
                     <figcaption>{{ one_gif['title'] }}</figcaption>
                 </a>
             </figure>
