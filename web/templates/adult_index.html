@@ -10,19 +10,21 @@ Pinned
 
 {% block content %}
 
-<!-- From GIPHY API -->
-{% if giphy_usage == True %}
-<h2>GIPHY</h2>
+<!-- From Eporner API -->
+{% if eporner_usage == True %}
+<h2>EPORNER</h2>
 
 <div class="homepage">
     <div class="center-container featured">
 
         <div id="columns">
 
-            {% for one_gif in giphy_url_list %}
+            {% for one_gif in eporner_list %}
             <figure>
                 <img src="{{ one_gif['url'] }}">
-                <figcaption>{{ one_gif['title'] }}</figcaption>
+                <a href="{{ one_gif['src_url'] }}" target="_blank" rel="noopener noreferrer">
+                    <figcaption>{{ one_gif['title'] }}</figcaption>
+                </a>
             </figure>
             {% endfor %}
 
