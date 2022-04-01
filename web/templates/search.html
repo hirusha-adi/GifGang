@@ -91,7 +91,7 @@
 
                                         <!-- Pin No.2 -->
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('anime') }}">
+                                                href="{{ url_for('search', query='Anime') }}">
                                                 <div class="img" id="pinno1">
                                                 </div>
                                                 <div class="info">
@@ -169,7 +169,7 @@
                         </div>
                         {% endif %}
 
-                        <!-- From dogCEO -->
+                        <!-- From dogCEO API -->
                         {% if dogceo_usage == True %}
                         <h2>Dog.CEO</h2>
 
@@ -179,6 +179,27 @@
                                 <div id="columns">
 
                                     {% for one_gif in dogceo_url_list %}
+                                    <figure>
+                                        <img src="{{ one_gif }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- From Nekos.Life API -->
+                        {% if nekoslife_usage == True %}
+                        <h2>Dog.CEO</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_gif in nekoslife_url_list %}
                                     <figure>
                                         <img src="{{ one_gif }}">
                                     </figure>
