@@ -249,11 +249,6 @@ def search_post():
     return redirect(url_for('search', query=query))
 
 
-@app.route("/anime")
-def anime():
-    return "anime"
-
-
 @app.route("/restricted")
 def restricted():
     return "restricted"
