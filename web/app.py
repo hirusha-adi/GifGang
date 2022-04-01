@@ -249,6 +249,8 @@ def search(query):
     thecatapi_usage = False
     dogceo_url_list = []
     dogceo_usage = False
+    nekoslife_url_list = []
+    nekoslife_usage = False
 
     if WebsiteData.search["custom_api_usage"]:
         query_lowered = str(query).lower()
@@ -298,6 +300,25 @@ def search(query):
                                         dogceo_url_list.append(result)
                                 else:
                                     dogceo_usage = False
+
+                    # Anime Stuff - (nekoslife)
+                    if one_custom["api_info"]["name"] == "nekoslife":
+                        if Important.nekoslife_usage:
+                            if one_custom["api_info"]["usage"]:
+                                nekoslife_usage = True
+                                _limit = int(
+                                    one_custom["api_info"]["limit"]) - 1
+                                while len(nekoslife_url_list) <= _limit:
+                                    r1 = requests.get(one_custom["api_info"]["api_url_list"][random.randint(
+                                        0, int(len(one_custom["api_info"]["api_url_list"]))-1)])
+                                    if 300 > r1.status_code >= 200:
+                                        data = r1.json()
+                                        try:
+                                            nekoslife_url_list.append(
+                                                data["url"])
+                                        except KeyError:
+                                            nekoslife_url_list.append(
+                                                data["neko"])
 
     # GIPHY and TENOR will be used to search, no matter what is entered if enabled by json
     giphy_url_list = []
@@ -354,7 +375,9 @@ def search(query):
         thecatapi_usage=thecatapi_usage,
         thecatapi_url_list=thecatapi_url_list,
         dogceo_usage=dogceo_usage,
-        dogceo_url_list=dogceo_url_list
+        dogceo_url_list=dogceo_url_list,
+        nekoslife_usage=nekoslife_usage,
+        nekoslife_url_list=nekoslife_url_list
     )
 
 
