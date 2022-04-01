@@ -235,11 +235,6 @@ def anime():
     return "anime"
 
 
-@app.route("/dogs")
-def dogs():
-    return "dogs"
-
-
 @app.route("/restricted")
 def restricted():
     return "restricted"
@@ -252,10 +247,13 @@ def search(query):
 
     thecatapi_url_list = []
     thecatapi_usage = False
+    dogceo_url_list = []
+    dogceo_usage = False
 
     if WebsiteData.search["custom_api_usage"]:
         query_lowered = str(query).lower()
         if any(word in query_lowered.split() for word in WebsiteData.search["custom_api_data_all_keywords_list"]):
+
             for one_custom in WebsiteData.search["custom_api_data"]:
                 if any(word in query_lowered.split() for word in one_custom["keywords"]):
 
@@ -283,6 +281,23 @@ def search(query):
                                             result["url"])
                                 else:
                                     thecatapi_usage = False
+
+                    # dogCEO API
+                    if one_custom["api_info"]["name"] == "dogCEO":
+                        if Important.dogceo_usage:
+                            if one_custom["api_info"]["usage"]:
+                                dogceo_usage = True
+                                r = requests.get(
+                                    str(one_custom["api_info"]["api_url"])
+                                    + "/" +
+                                    str(one_custom["api_info"]["limit"])
+                                )
+                                if 300 > r.status_code >= 200:
+                                    data = r.json()
+                                    for result in data["message"]:
+                                        dogceo_url_list.append(result)
+                                else:
+                                    dogceo_usage = False
 
     # GIPHY and TENOR will be used to search, no matter what is entered if enabled by json
     giphy_url_list = []
@@ -337,7 +352,9 @@ def search(query):
         tenor_usage=tenor_usage,
         tenor_url_list=tenor_url_list,
         thecatapi_usage=thecatapi_usage,
-        thecatapi_url_list=thecatapi_url_list
+        thecatapi_url_list=thecatapi_url_list,
+        dogceo_usage=dogceo_usage,
+        dogceo_url_list=dogceo_url_list
     )
 
 
