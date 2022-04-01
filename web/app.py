@@ -241,6 +241,9 @@ def search_post():
         except:
             return redirect(url_for('index'))
 
+    if (query is None) or len(str(query)) == 0:
+        return redirect(url_for('index'))
+
     return redirect(url_for('search', query=query))
 
 
