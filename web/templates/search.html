@@ -117,7 +117,7 @@
 
                                         <!-- Pin No.4 -->
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('dogs') }}">
+                                                href="{{ url_for('search', query='Dogs') }}">
                                                 <div class="img" id="pinno3">
                                                 </div>
                                                 <div class="info">
@@ -158,6 +158,27 @@
                                 <div id="columns">
 
                                     {% for one_gif in thecatapi_url_list %}
+                                    <figure>
+                                        <img src="{{ one_gif }}">
+                                    </figure>
+                                    {% endfor %}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- From dogCEO -->
+                        {% if dogceo_usage == True %}
+                        <h2>Dog.CEO</h2>
+
+                        <div class="homepage">
+                            <div class="center-container featured">
+
+                                <div id="columns">
+
+                                    {% for one_gif in dogceo_url_list %}
                                     <figure>
                                         <img src="{{ one_gif }}">
                                     </figure>
