@@ -244,6 +244,8 @@ def search_post():
     if (query is None) or len(str(query)) == 0:
         return redirect(url_for('index'))
 
+    query = query.replace("/", "%2F")
+
     return redirect(url_for('search', query=query))
 
 
