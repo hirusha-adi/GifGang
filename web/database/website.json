@@ -44,7 +44,7 @@
             "dogCEO": {
                 "usage": true,
                 "limit": 30,
-                "api_url": "https://dog.ceo/api/breed/boxer/images/random"
+                "api_url": "https://dog.ceo/api/breeds/image/random"
             },
             "nekoslife": {
                 "usage": true,
@@ -91,7 +91,9 @@
             {
                 "keywords": [
                     "cat",
-                    "cats"
+                    "cats",
+                    "meow",
+                    "pussy"
                 ],
                 "api_info": {
                     "usage": true,
@@ -103,11 +105,31 @@
                     "has_breeds": 0,
                     "api_url": "https://api.thecatapi.com/v1/images/search"
                 }
+            },
+            {
+                "keywords": [
+                    "dog",
+                    "dogs",
+                    "bark",
+                    "doge"
+                ],
+                "api_info": {
+                    "usage": true,
+                    "name": "dogCEO",
+                    "limit": 30,
+                    "api_url": "https://dog.ceo/api/breeds/image/random"
+                }
             }
         ],
         "custom_api_data_all_keywords_list": [
             "cat",
-            "cats"
+            "cats",
+            "meow",
+            "pussy",
+            "dog",
+            "dogs",
+            "bark",
+            "doge"
         ]
     },
     "pins": {
