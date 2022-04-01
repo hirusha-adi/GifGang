@@ -426,7 +426,7 @@ def adult_index():
                         }
                     )
             else:
-                dogceo_usage = False
+                eporner_usage = False
 
     return render_template(
         "adult_index.html",
