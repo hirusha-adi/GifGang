@@ -1,89 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+{% block title %}
+{{ web_title }}
+{% endblock %}
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/iconfont.css') }}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block pins_title %}
+Main Pins
+{% endblock %}
 
-    <style>
-        @font-face {
-            font-family: 'Calluna';
-            src: url("{{ url_for('static', filename='fonts/callunasansregular-webfont.woff') }}") format('woff');
-        }
+{% block content %}
+<!-- Pinned Content List Starts Here -->
+<div class="related-terms-container">
 
-        #sampletestshitidk {
-            background-image: url("{{ url_for('static', filename='img/index/anime.jpg') }}");
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/content.css') }}">
+    <h2 class="related-title">Other Pins</h2>
 
-</head>
+    <div class="Carousel tags">
+        <div class="frames-container" style="left:-0px;">
 
-<body>
-    <script async type="text/javascript" src="{{ url_for('static', filename='js/main.min.js') }}"></script>
-
-    <div id="root">
-        <div class="BaseApp">
-
-            <!-- Search Bar -->
-            <div class="TopBarComponent TopSearchBar">
-                <div class="TopBar">
-                    <div class="container">
-                        <div class="search-bar-wrapper">
-                            <form class="SearchBar"><input name="q" value="" placeholder="Search for Images and GIFs"
-                                    autocomplete="off"><span class="iconfont-search" aria-hidden="true"></span></form>
-                        </div>
+            {% for one_obj in all_pins_list %}
+            <!-- Iterate through all pins -->
+            <div class="TrendsTag">
+                <a activeClassName="current" href="{{ url_for('search', query=one_obj.name) }}">
+                    <div class="img" style='background-image: url("{{ one_obj.img }}")'>
                     </div>
-                </div>
-            </div>
-
-            <!-- Content Starts Here -->
-            <div id="view">
-                <div class="FeaturedPage">
-                    <span></span>
-                    <div class="container page">
-
-                        <!-- Pinned Content List Starts Here -->
-
-                        <div class="related-terms-container">
-
-                            <h2 class="related-title">Pinned</h2>
-
-                            <div class="Carousel tags">
-                                <div class="frames-container" style="left:-0px;">
-
-                                    {% for one_obj in all_pins_list %}
-                                    <!-- Iterate through all pins -->
-                                    <div class="TrendsTag">
-                                        <a activeClassName="current" href="{{ url_for('search', query=one_obj.name) }}">
-                                            <div class="img" style='background-image: url("{{ one_obj.img }}")'>
-                                            </div>
-                                            <div class="info">
-                                                <span class="searchterm">
-                                                    {{ one_obj.name }}
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Pinned Content List Ends Here -->
-
-
+                    <div class="info">
+                        <span class="searchterm">
+                            {{ one_obj.name }}
+                        </span>
                     </div>
-                </div>
+                </a>
             </div>
+            {% endfor %}
+
         </div>
     </div>
-</body>
 
-</html>
+</div>
+<!-- Pinned Content List Ends Here -->
+
+{% endblock %}
