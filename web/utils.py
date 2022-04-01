@@ -71,6 +71,9 @@ class Important:
     _eporner = _data["eporner"]
     eporner_usage = _eporner["usage"]
 
+    _redtube = _data["redtube"]
+    redtube_usage = _redtube["usage"]
+
 # Settings needed for hosting the website
 
 
