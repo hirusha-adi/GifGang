@@ -70,7 +70,7 @@ def index():
     tenor_url_list = []
     tenor_usage = False
     if Important.tenor_usage:
-        if WebsiteData.index["api_usage"]["imgur"]["usage"]:
+        if WebsiteData.index["api_usage"]["tenor"]["usage"]:
             tenor_usage = True
             r = requests.get(
                 f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
@@ -363,7 +363,7 @@ def search(query):
     tenor_url_list = []
     tenor_usage = False
     if Important.tenor_usage:
-        if WebsiteData.search["api_usage"]["imgur"]["usage"]:
+        if WebsiteData.search["api_usage"]["tenor"]["usage"]:
             tenor_usage = True
             r = requests.get(
                 f'{WebsiteData.search["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.search["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.search["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.search["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.search["api_usage"]["tenor"]["contentfilter"]}&q={query}')
@@ -404,14 +404,14 @@ def adult_index():
     if Important.eporner_usage:
         if WebsiteData.adult_index["api_usage"]["eporner"]["usage"]:
             eporner_usage = True
-            _final_url = "https://www.eporner.com/api/v2/video/search/"
+            _final_url = WebsiteData.adult_index["api_usage"]["eporner"]["api_url"]
             _final_url += f'?per_page={int(WebsiteData.adult_index["api_usage"]["eporner"]["limit"]) + 2}'
             _final_url += f'&thumbsize={WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"]}'
             _final_url += f'&order={WebsiteData.adult_index["api_usage"]["eporner"]["order"]}'
             _final_url += f'&format=json'
 
             _random_search_text = random.choice(
-                WebsiteData.adult_index["api_usage"]["eporner"]["random_search_word"])
+                WebsiteData.adult_index["api_usage"]["random_search_word"])
             _final_url += f'&query={_random_search_text}'
 
             r = requests.get(_final_url)
@@ -428,12 +428,41 @@ def adult_index():
             else:
                 eporner_usage = False
 
+    redtube_usage = False
+    redtube_list = []
+    if Important.redtube_usage:
+        if WebsiteData.adult_index["api_usage"]["redtube"]["usage"]:
+            redtube_usage = True
+            _final_url = WebsiteData.adult_index["api_usage"]["redtube"]["api_url"]
+            _final_url += f'?data={WebsiteData.adult_index["api_usage"]["redtube"]["data"]}'
+            _final_url += f'&thumbsize={WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"]}'
+            _final_url += f'&search=json'
+
+            _random_search_text = random.choice(
+                WebsiteData.adult_index["api_usage"]["random_search_word"])
+            _final_url += f'&search={_random_search_text}'
+            r = requests.get(_final_url)
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["videos"]:
+                    redtube_list.append(
+                        {
+                            "title": result["video"]["title"],
+                            "url": result["video"]["default_thumb"],
+                            "src_url": result["video"]["url"]
+                        }
+                    )
+            else:
+                redtube_usage = False
+
     return render_template(
         "adult_index.html",
         web_title=WebsiteData.adult_index["title"],
         eporner_usage=eporner_usage,
         eporner_list=eporner_list[:int(
             WebsiteData.adult_index["api_usage"]["eporner"]["limit"])],
+        redtube_usage=redtube_usage,
+        redtube_list=redtube_list
     )
 
 
