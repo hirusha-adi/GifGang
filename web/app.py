@@ -3,7 +3,7 @@ import random
 
 import requests
 from flask import (Flask, redirect, render_template,
-                   url_for)
+                   url_for, request)
 from imgurpython import ImgurClient
 
 from utils import Config, FileNames, Important, WebsiteData
@@ -225,9 +225,23 @@ def pins():
     )
 
 
-@app.route("/search2")
-def search_no_parameter():
-    return redirect(url_for('index'))
+@app.route("/search_post", methods=['POST'])
+def search_post():
+    try:
+        try:
+            query = request.form['q']
+        except KeyError:
+            query = request.form['query']
+    except KeyError:
+        try:
+            try:
+                query = request.args.get("q")
+            except KeyError:
+                query = request.args.get("query")
+        except:
+            return redirect(url_for('index'))
+
+    return redirect(url_for('search', query=query))
 
 
 @app.route("/anime")
