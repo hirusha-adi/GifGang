@@ -397,7 +397,44 @@ def search(query):
 
 @app.route("/adult")
 def adult_index():
-    return render_template("adult_index.html")
+
+    # E-Porner API
+    eporner_usage = False
+    eporner_list = []
+    if Important.eporner_usage:
+        if WebsiteData.adult_index["api_usage"]["eporner"]["usage"]:
+            eporner_usage = True
+            _final_url = "https://www.eporner.com/api/v2/video/search/"
+            _final_url += f'?per_page={int(WebsiteData.adult_index["api_usage"]["eporner"]["limit"]) + 2}'
+            _final_url += f'&thumbsize={WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"]}'
+            _final_url += f'&order={WebsiteData.adult_index["api_usage"]["eporner"]["order"]}'
+            _final_url += f'&format=json'
+
+            _random_search_text = random.choice(
+                WebsiteData.adult_index["api_usage"]["eporner"]["random_search_word"])
+            _final_url += f'&query={_random_search_text}'
+
+            r = requests.get(_final_url)
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["videos"]:
+                    eporner_list.append(
+                        {
+                            "title": result["title"],
+                            "url": result["default_thumb"]["src"],
+                            "src_url": result["url"]
+                        }
+                    )
+            else:
+                dogceo_usage = False
+
+    return render_template(
+        "adult_index.html",
+        web_title=WebsiteData.adult_index["title"],
+        eporner_usage=eporner_usage,
+        eporner_list=eporner_list[:int(
+            WebsiteData.adult_index["api_usage"]["eporner"]["limit"])],
+    )
 
 
 def runWebServer():
