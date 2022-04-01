@@ -119,6 +119,29 @@
                     "limit": 30,
                     "api_url": "https://dog.ceo/api/breeds/image/random"
                 }
+            },
+            {
+                "keywords": [
+                    "anime",
+                    "manga"
+                ],
+                "api_info": {
+                    "usage": true,
+                    "name": "nekoslife",
+                    "limit": 3,
+                    "api_url_list": [
+                        "https://nekos.life/api/hug",
+                        "https://nekos.life/api/kiss",
+                        "https://nekos.life/api/lizard",
+                        "https://nekos.life/api/neko",
+                        "https://nekos.life/api/pat",
+                        "https://nekos.life/api/v2/img/slap",
+                        "https://nekos.life/api/v2/img/cuddle",
+                        "https://nekos.life/api/v2/img/avatar",
+                        "https://nekos.life/api/v2/img/poke",
+                        "https://nekos.life/api/v2/img/feed"
+                    ]
+                }
             }
         ],
         "custom_api_data_all_keywords_list": [
@@ -129,7 +152,9 @@
             "dog",
             "dogs",
             "bark",
-            "doge"
+            "doge",
+            "anime",
+            "manga"
         ]
     },
     "pins": {
