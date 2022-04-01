@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <title>{% block title %} {% endblock %}</title>
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
@@ -11,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSS for fonts 1 (iconfont) -->
     <style>
         @font-face {
             font-family: "iconfont";
@@ -253,6 +255,7 @@
         }
     </style>
 
+    <!-- CSS - Custom for images for Main Pins -->
     <style>
         @font-face {
             font-family: 'Calluna';
@@ -288,7 +291,7 @@
     <div id="root">
         <div class="BaseApp">
 
-            <!-- Search Bar -->
+            <!-- Search Bar - START -->
             <div class="TopBarComponent TopSearchBar">
                 <div class="TopBar">
                     <div class="container">
@@ -302,17 +305,19 @@
                     </div>
                 </div>
             </div>
+            <!-- Search Bar - END -->
 
+            <!-- Website Content (main body) - START -->
             <div id="view">
                 <div class="FeaturedPage">
                     <span></span>
                     <div class="container page">
                         <div class="related-terms-container">
 
-                            <!-- Pinned Content List -->
+                            <!-- Pinned Content List (Main Pins) - START -->
                             <!-- only 3 will be displayed on mobile -->
                             <!-- all 5 will be displayed on desktop -->
-                            <h2 class="related-title">Pinned</h2>
+                            <h2 class="related-title">{% block pins_title %}{% endblock %}</h2>
 
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
@@ -385,24 +390,31 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Pinned Content List (Main Pins) - END -->
 
                         </div>
 
+                        <!-- Flask inherited content - START -->
                         {% block content %} {% endblock %}
+                        <!-- Flask inherited content - END -->
 
-                        <!-- Credits -->
+                        <!-- Credits - START -->
                         <small>
                             Made by &copy;
                             <a href="http://hirusha.xyz">
                                 Hirusha Adikari
                             </a>
                         </small>
+                        <!-- Credits - END -->
 
                     </div>
                 </div>
             </div>
+            <!-- Website Content (main body) - END -->
+
         </div>
     </div>
+
 </body>
 
 </html>
