@@ -24,6 +24,7 @@ class WebsiteData:
     index = _data["index"]
     pins = _data["pins"]
     search = _data["search"]
+    adult_index = _data["adult_index"]
 
 
 # Store the main website settings like API keys, etc...
@@ -33,6 +34,7 @@ class Important:
 
         print("[+] Loaded `secrets.json`")
 
+    # SFW
     _giphy = _data["giphy"]
     giphy_usage = _giphy["usage"]
     giphy_api_url_base = _giphy["api_url_base"]
@@ -65,8 +67,13 @@ class Important:
     imgur_client_id = _imgur["client_id"]
     imgur_clinet_secret = _imgur["clinet_secret"]
 
+    # NSFW
+    _eporner = _data["eporner"]
+    eporner_usage = _eporner["usage"]
 
 # Settings needed for hosting the website
+
+
 class Config:
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:
         data = json.load(_file)
