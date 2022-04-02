@@ -58,5 +58,98 @@ Pinned
 </div>
 {% endif %}
 
+<!-- List all Stars (from API) -->
+{% if stars_usage == True %}
+<h2>Porn Stars</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in stars_list %}
+            <figure>
+                <a href="{{ one_gif['src_url'] }}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ one_gif['url'] }}">
+                    <figcaption>{{ one_gif['title'] }}</figcaption>
+                </a>
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+<div style="text-align: center; font-size: 30px;">
+    {% if show_dots_left == True %}
+    <a href="{{ url_for('adult_stars', page=first_page) }}">
+        {{ first_page }}
+    </a>
+    .
+    .
+    .
+    {% endif %}
+
+    {% if previous_page_4 != 1 %}
+    <a href="{{ url_for('adult_stars', page=previous_page_4) }}">
+        {{ previous_page_4 }}
+    </a>
+    {% endif %}
+    {% if previous_page_3 != 1 %}
+    <a href="{{ url_for('adult_stars', page=previous_page_3) }}">
+        {{ previous_page_3 }}
+    </a>
+    {% endif %}
+    {% if previous_page_2 != 1 %}
+    <a href="{{ url_for('adult_stars', page=previous_page_2) }}">
+        {{ previous_page_2 }}
+    </a>
+    {% endif %}
+    {% if previous_page_1 != 1 %}
+    <a href="{{ url_for('adult_stars', page=previous_page_1) }}">
+        {{ previous_page_1 }}
+    </a>
+    {% endif %}
+
+    <div style="display: inline-block; font-size: 48px;">
+        {{ current_page }}
+    </div>
+
+    {% if next_page_1 != last_page %}
+    <a href="{{ url_for('adult_stars', page=next_page_1) }}">
+        {{ next_page_1 }}
+    </a>
+    {% endif %}
+    {% if next_page_2 != last_page %}
+    <a href="{{ url_for('adult_stars', page=next_page_2) }}">
+        {{ next_page_2 }}
+    </a>
+    {% endif %}
+    {% if next_page_3 != last_page %}
+    <a href="{{ url_for('adult_stars', page=next_page_3) }}">
+        {{ next_page_3 }}
+    </a>
+    {% endif %}
+    {% if next_page_4 != last_page %}
+    <a href="{{ url_for('adult_stars', page=next_page_4) }}">
+        {{ next_page_4 }}
+    </a>
+    {% endif %}
+
+    {% if show_dots_right == True %}
+    .
+    .
+    .
+    <a href="{{ url_for('adult_stars', page=last_page) }}">
+        {{ last_page }}
+    </a>
+    {% endif %}
+
+    {% endif %}
+
+    <br>
+    <br>
+</div>
 
 {% endblock %}
