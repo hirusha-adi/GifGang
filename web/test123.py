@@ -1,9 +1,7 @@
-from utils import Important as I
-import requests
+import json as j
+import requests as r
 
-r = requests.get(
-    f"https://g.tenor.com/v1/trending?key={I.tenor_api_key}&limit=1").json()
-
-print(r["results"][0]["title"])
-print(r["results"][0]["content_description"])
-print(r["results"][0]["media"][0]["gif"]["url"])
+x = r.get("https://api.redtube.com/?data=redtube.Tags.getTagList&output=json")
+y = j.loads(x.content)
+with open("output.json", "w", encoding="utf-8") as f:
+    j.dump(y, f, indent=4, ensure_ascii=False)
