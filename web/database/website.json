@@ -1029,5 +1029,24 @@
             "api_url": "https://api.redtube.com/",
             "data": "redtube.Stars.getStarDetailedList"
         }
+    },
+    "adult_search": {
+        "title": "{query} - NSFW Results | GifGang",
+        "api_usage": {
+            "eporner": {
+                "usage": true,
+                "limit": 30,
+                "thumbsize": "big",
+                "order": "top-weekly",
+                "api_url": "https://www.eporner.com/api/v2/video/search/"
+            },
+            "redtube": {
+                "usage": true,
+                "limit": 30,
+                "data": "redtube.Videos.searchVideos",
+                "thumbsize": "big",
+                "api_url": "https://api.redtube.com/"
+            }
+        }
     }
 }
