@@ -735,6 +735,51 @@ def adult_search(query):
     )
 
 
+@app.route("/adult/hentai")
+def adult_hentai():
+
+    hentai_localserverml_api_usage = False
+    hentai_localserverml_api_list = []
+    if Important.localserverml_usage:
+        if WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"]:
+            for _ in range(int(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"])):
+                _final_url = WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"]
+                _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"])}'
+                try:
+                    r = requests.get(_final_url)
+                    if 300 > r.status_code >= 200:
+                        hentai_localserverml_api_list.append(r.text)
+                except:
+                    pass
+
+    hentai_nekoslife_usage = False
+    hentai_nekoslife_list = []
+    if Important.nekoslife_usage:
+        if WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"]:
+            for _ in range(int(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"])):
+                _final_url = WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"]
+                _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"])}'
+                try:
+                    r = requests.get(_final_url)
+                    if 300 > r.status_code >= 200:
+                        data = r.json()
+                        try:
+                            hentai_localserverml_api_list.append(data["url"])
+                        except KeyError:
+                            hentai_localserverml_api_list.append(data["neko"])
+                except:
+                    pass
+
+    return render_template(
+        "adult_index.html",
+        web_title=WebsiteData.adult_hentai["title"],
+        hentai_localserverml_api_usage=hentai_localserverml_api_usage,
+        hentai_localserverml_api_list=hentai_localserverml_api_list,
+        hentai_nekoslife_usage=hentai_nekoslife_usage,
+        hentai_nekoslife_list=hentai_nekoslife_list
+    )
+
+
 def runWebServer():
     print(
         f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
