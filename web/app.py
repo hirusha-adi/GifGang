@@ -487,6 +487,12 @@ def adult_categories():
     )
 
 
+@app.route("/adult/pornstars/")
+@app.route("/adult/stars/")
+def adult_stars_no_page():
+    return redirect(url_for('adult_stars', page=1))
+
+
 @app.route("/adult/pornstars/<page>")
 @app.route("/adult/stars/<page>")
 def adult_stars(page):
@@ -610,6 +616,8 @@ def adult_stars(page):
 
     return render_template(
         "adult_index.html",
+        web_title=WebsiteData.adult_stars["title"].format(
+            page_number=current_page),
         eporner_usage=False,
         redtube_usage=False,
         stars_usage=stars_usage,
