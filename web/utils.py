@@ -28,6 +28,7 @@ class WebsiteData:
     adult_pins = _data["adult_pins_and_categories"]
     adult_stars = _data["adult_stars"]
     adult_search = _data["adult_search"]
+    adult_hentai = _data["adult_hentai"]
 
 
 # Store the main website settings like API keys, etc...
@@ -76,6 +77,9 @@ class Important:
 
     _redtube = _data["redtube"]
     redtube_usage = _redtube["usage"]
+
+    _localserverml = _data["localserverml"]
+    localserverml_usage = _localserverml["usage"]
 
 # Settings needed for hosting the website
 
