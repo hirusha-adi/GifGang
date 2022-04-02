@@ -26,6 +26,7 @@ class WebsiteData:
     search = _data["search"]
     adult_index = _data["adult_index"]
     adult_pins = _data["adult_pins_and_categories"]
+    adult_stars = _data["adult_stars"]
 
 
 # Store the main website settings like API keys, etc...
