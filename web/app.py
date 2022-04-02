@@ -221,6 +221,7 @@ def index():
 def pins():
     return render_template(
         "pins.html",
+        web_title=WebsiteData.pins["title"],
         all_pins_list=WebsiteData.pins["all_list"]
     )
 
@@ -463,6 +464,26 @@ def adult_index():
             WebsiteData.adult_index["api_usage"]["eporner"]["limit"])],
         redtube_usage=redtube_usage,
         redtube_list=redtube_list
+    )
+
+
+@app.route("/adult/pins")
+def adult_pins():
+    return render_template(
+        "adult_pins.html",
+        web_title=WebsiteData.adult_pins["title"],
+        all_body_list=WebsiteData.adult_pins["all_pins_list"],
+        title_of_body=WebsiteData.adult_pins["all_pins_title"]
+    )
+
+
+@app.route("/adult/categories")
+def adult_categories():
+    return render_template(
+        "adult_pins.html",
+        web_title=WebsiteData.adult_pins["title"],
+        all_body_list=WebsiteData.adult_pins["all_categories_list"],
+        title_of_body=WebsiteData.adult_pins["all_categories_title"]
     )
 
 
