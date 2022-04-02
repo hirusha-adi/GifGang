@@ -154,5 +154,47 @@ Pinned
 
 {% endif %}
 
+<!-- From NekosLife API for Hentai -->
+{% if hentai_localserverml_api_usage == True %}
+<h2>l0calSerVe4</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in hentai_localserverml_api_list %}
+            <figure>
+                <img src="{{ one_gif }}">
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From NekosLife API for Hentai -->
+{% if hentai_nekoslife_usage == True %}
+<h2>Nekos.Life</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in hentai_nekoslife_list %}
+            <figure>
+                <img src="{{ one_gif }}">
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
 
 {% endblock %}
