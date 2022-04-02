@@ -1021,5 +1021,13 @@
                 "img": "imgurlgoeshere"
             }
         ]
+    },
+    "adult_stars": {
+        "title": "Porn Stars - NSFW | GifGang",
+        "api_usage": {
+            "usage": true,
+            "api_url": "https://api.redtube.com/",
+            "data": "redtube.Stars.getStarDetailedList"
+        }
     }
 }
