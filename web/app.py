@@ -255,6 +255,11 @@ def restricted():
     return "restricted"
 
 
+@app.route("/search")
+def search_no_query():
+    return redirect(url_for('index'))
+
+
 @app.route("/search/<query>")
 def search(query):
     if query is None:
