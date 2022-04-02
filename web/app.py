@@ -643,6 +643,98 @@ def adult_stars(page):
     )
 
 
+@app.route("/adult/search_post")
+def adult_search_post():
+    try:
+        try:
+            query = request.form['q']
+        except KeyError:
+            query = request.form['query']
+    except KeyError:
+        try:
+            try:
+                query = request.args.get("q")
+            except KeyError:
+                query = request.args.get("query")
+        except:
+            return redirect(url_for('adult_index'))
+
+    if (query is None) or len(str(query)) == 0:
+        return redirect(url_for('adult_index'))
+
+    query = query.replace("/", "%2F")
+
+    return redirect(url_for('adult_search', query=query))
+
+
+@app.route("/adult/search/<query>")
+def adult_search(query):
+    if query is None:
+        return redirect(url_for('adult_index'))
+
+    # E-Porner API
+    eporner_usage = False
+    eporner_list = []
+    if Important.eporner_usage:
+        if WebsiteData.adult_search["api_usage"]["eporner"]["usage"]:
+            eporner_usage = True
+            _final_url = WebsiteData.adult_search["api_usage"]["eporner"]["api_url"]
+            _final_url += f'?per_page={int(WebsiteData.adult_search["api_usage"]["eporner"]["limit"]) + 2}'
+            _final_url += f'&thumbsize={WebsiteData.adult_search["api_usage"]["eporner"]["thumbsize"]}'
+            _final_url += f'&order={WebsiteData.adult_search["api_usage"]["eporner"]["order"]}'
+            _final_url += f'&format=json'
+            _final_url += f'&query={query}'
+
+            r = requests.get(_final_url)
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["videos"]:
+                    eporner_list.append(
+                        {
+                            "title": result["title"],
+                            "url": result["default_thumb"]["src"],
+                            "src_url": result["url"]
+                        }
+                    )
+            else:
+                eporner_usage = False
+
+    # RedTube API
+    redtube_usage = False
+    redtube_list = []
+    if Important.redtube_usage:
+        if WebsiteData.adult_search["api_usage"]["redtube"]["usage"]:
+            redtube_usage = True
+            _final_url = WebsiteData.adult_search["api_usage"]["redtube"]["api_url"]
+            _final_url += f'?data={WebsiteData.adult_search["api_usage"]["redtube"]["data"]}'
+            _final_url += f'&thumbsize={WebsiteData.adult_search["api_usage"]["redtube"]["thumbsize"]}'
+            _final_url += f'&search=json'
+            _final_url += f'&search={query}'
+
+            r = requests.get(_final_url)
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data["videos"]:
+                    redtube_list.append(
+                        {
+                            "title": result["video"]["title"],
+                            "url": result["video"]["default_thumb"],
+                            "src_url": result["video"]["url"]
+                        }
+                    )
+            else:
+                redtube_usage = False
+
+    return render_template(
+        "index.html",
+        web_title=WebsiteData.adult_search["title"],
+        eporner_usage=eporner_usage,
+        eporner_list=eporner_list,
+        redtube_usage=redtube_usage,
+        redtube_list=redtube_list
+    )
+
+
 def runWebServer():
     print(
         f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
