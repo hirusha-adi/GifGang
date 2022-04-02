@@ -1023,7 +1023,7 @@
         ]
     },
     "adult_stars": {
-        "title": "Porn Stars - NSFW | GifGang",
+        "title": "Porn Stars - {page_number} - NSFW | GifGang",
         "api_usage": {
             "usage": true,
             "api_url": "https://api.redtube.com/",
