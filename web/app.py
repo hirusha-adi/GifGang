@@ -640,7 +640,7 @@ def adult_stars(page):
 
 def runWebServer():
     print(
-        f"[+] The server will run on:\n\t[*] SFW: http://{Config.host}:{Config.port}/\n\t[*] NSFW: http://{Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
+        f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
     app.run(Config.host,
             port=Config.port,
             debug=Config.debug)
