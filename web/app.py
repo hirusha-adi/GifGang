@@ -17,7 +17,8 @@ log.setLevel(logging.ERROR)
 @app.route("/about")
 def about():
     return render_template(
-        "about.html"
+        "about.html",
+        web_title="About | GifGang"
     )
 
 
@@ -26,6 +27,7 @@ def about():
 def all_links():
     return render_template(
         "index.html",
+        web_title="Links List | GifGang",
         all_links_page=True
     )
 
