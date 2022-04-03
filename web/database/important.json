@@ -1,15 +1,15 @@
 {
     "giphy": {
-        "usage": false,
+        "usage": true,
         "api_url_base": "https://api.giphy.com/v1/gifs/",
         "api_key": ""
     },
     "picsum": {
-        "usage": false,
+        "usage": true,
         "api_url_base": "https://picsum.photos/"
     },
     "tenor": {
-        "usage": false,
+        "usage": true,
         "api_key": ""
     },
     "unsplash": {
@@ -17,18 +17,27 @@
         "api_key": ""
     },
     "theCatAPI": {
-        "usage": false
+        "usage": true
     },
     "dogCEO": {
-        "usage": false
+        "usage": true
     },
     "nekoslife": {
-        "usage": false
+        "usage": true
     },
     "imgur": {
         "usage": false,
         "auth_key": "",
         "client_id": "",
         "clinet_secret": ""
+    },
+    "eporner": {
+        "usage": true
+    },
+    "redtube": {
+        "usage": true
+    },
+    "localserverml": {
+        "usage": true
     }
 }
