@@ -252,7 +252,15 @@ def search_post():
 
 @app.route("/restricted")
 def restricted():
-    return "restricted"
+
+    return render_template(
+        "age_verify.html",
+        web_title=WebsiteData.age_verify["title"],
+        body_title=WebsiteData.age_verify["body_title"],
+        age_verify_text=WebsiteData.age_verify["text"],
+        button_yes=WebsiteData.age_verify["buttons"]["yes"],
+        button_no=WebsiteData.age_verify["buttons"]["no"],
+    )
 
 
 @app.route("/search")
