@@ -1,5 +1,6 @@
 import logging
 import random
+from re import L
 
 import requests
 from flask import (Flask, redirect, render_template,
@@ -11,6 +12,22 @@ from utils import Config, FileNames, Important, WebsiteData
 app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
+
+
+@app.route("/about")
+def about():
+    return render_template(
+        "about.html"
+    )
+
+
+@app.route("/all_links")
+@app.route("/links")
+def all_links():
+    return render_template(
+        "index.html",
+        all_links_page=True
+    )
 
 
 @app.route("/")
@@ -252,7 +269,6 @@ def search_post():
 
 @app.route("/restricted")
 def restricted():
-
     return render_template(
         "age_verify.html",
         web_title=WebsiteData.age_verify["title"],
@@ -750,13 +766,18 @@ def adult_hentai():
     hentai_localserverml_api_list = []
     if Important.localserverml_usage:
         if WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"]:
+            hentai_localserverml_api_usage = True
             for _ in range(int(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"])):
                 _final_url = WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"]
                 _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"])}'
                 try:
                     r = requests.get(_final_url)
                     if 300 > r.status_code >= 200:
-                        hentai_localserverml_api_list.append(r.text)
+                        url = r.text
+                        if url.startswith('"') or url.endswith('"'):
+                            hentai_localserverml_api_list.append(url[1:-2])
+                        else:
+                            hentai_localserverml_api_list.append(url)
                 except:
                     pass
 
@@ -764,6 +785,7 @@ def adult_hentai():
     hentai_nekoslife_list = []
     if Important.nekoslife_usage:
         if WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"]:
+            hentai_nekoslife_usage = True
             for _ in range(int(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"])):
                 _final_url = WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"]
                 _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"])}'
