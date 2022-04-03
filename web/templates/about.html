@@ -132,13 +132,16 @@
         <div class="about_person">
             <div class="about_container">
                 <div class="about_container-inner">
+
                     <img class="about_circle" src="{{ url_for('static', filename='img/credits/background.jpg') }}">
                     <img class="about_img about_img2" src="{{ url_for('static', filename='img/credits/avatar.png') }}">
                 </div>
             </div>
             <div class="about_divider"></div>
-            <div class="about_name">ZeaCeR</div>
-            <div class="about_title">Creator / Developer</div>
+            <a href="{{ url_for('all_links') }}">
+                <div class="about_name">ZeaCeR</div>
+                <div class="about_title">Creator / Developer</div>
+            </a>
             <div class="about_title">
                 <a href="{{ url_for('all_links') }}">
                     Click Here to see other links
