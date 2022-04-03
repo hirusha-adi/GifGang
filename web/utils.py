@@ -21,6 +21,7 @@ class WebsiteData:
         _data = json.load(_file)
         print("[+] Loaded `website.json`")
 
+    age_verify = _data["age_verify"]
     index = _data["index"]
     pins = _data["pins"]
     search = _data["search"]
