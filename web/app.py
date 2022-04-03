@@ -1,6 +1,6 @@
 import logging
 import random
-from re import L
+import os
 
 import requests
 from flask import (Flask, redirect, render_template,
@@ -13,9 +13,35 @@ app = Flask(__name__)
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
+COUNT = None
+COUNT_FILE = os.path.join(os.getcwd(), "count.txt")
+
+
+def count_total_visits_amount():
+    global COUNT, COUNT_FILE
+
+    if not(os.path.isfile(COUNT_FILE)):
+        with open(COUNT_FILE, "w", encoding="utf-8") as f_make_no_exist:
+            if COUNT is None:
+                f_make_no_exist.write("1")
+            else:
+                f_make_no_exist.write(int(COUNT))
+
+    with open(COUNT_FILE, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+
+    try:
+        current_count = int(current_count)
+    except ValueError:
+        current_count = 1
+
+    with open(COUNT_FILE, "w", encoding="utf-8") as f_write:
+        f_write.write(str(current_count + 1))
+
 
 @app.route("/about")
 def about():
+    count_total_visits_amount()
     return render_template(
         "about.html",
         web_title="About | GifGang"
@@ -25,6 +51,7 @@ def about():
 @app.route("/all_links")
 @app.route("/links")
 def all_links():
+    count_total_visits_amount()
     return render_template(
         "index.html",
         web_title="Links List | GifGang",
@@ -34,6 +61,8 @@ def all_links():
 
 @app.route("/")
 def index():
+
+    count_total_visits_amount()
 
     giphy_url_list = []
     giphy_usage = False
@@ -238,6 +267,8 @@ def index():
 
 @app.route("/pins")
 def pins():
+    count_total_visits_amount()
+
     return render_template(
         "pins.html",
         web_title=WebsiteData.pins["title"],
@@ -247,6 +278,8 @@ def pins():
 
 @app.route("/search_post", methods=['POST'])
 def search_post():
+    count_total_visits_amount()
+
     try:
         try:
             query = request.form['q']
@@ -271,6 +304,8 @@ def search_post():
 
 @app.route("/restricted")
 def restricted():
+    count_total_visits_amount()
+
     return render_template(
         "age_verify.html",
         web_title=WebsiteData.age_verify["title"],
@@ -283,11 +318,15 @@ def restricted():
 
 @app.route("/search")
 def search_no_query():
+    count_total_visits_amount()
+
     return redirect(url_for('index'))
 
 
 @app.route("/search/<query>")
 def search(query):
+    count_total_visits_amount()
+
     if query is None:
         return redirect(url_for('index'))
 
@@ -430,6 +469,8 @@ def search(query):
 @app.route("/adult")
 def adult_index():
 
+    count_total_visits_amount()
+
     # E-Porner API
     eporner_usage = False
     eporner_list = []
@@ -500,6 +541,8 @@ def adult_index():
 
 @app.route("/adult/pins")
 def adult_pins():
+    count_total_visits_amount()
+
     return render_template(
         "adult_pins.html",
         web_title=WebsiteData.adult_pins["title"],
@@ -510,6 +553,8 @@ def adult_pins():
 
 @app.route("/adult/categories")
 def adult_categories():
+    count_total_visits_amount()
+
     return render_template(
         "adult_pins.html",
         web_title=WebsiteData.adult_pins["title"],
@@ -521,12 +566,16 @@ def adult_categories():
 @app.route("/adult/pornstars/")
 @app.route("/adult/stars/")
 def adult_stars_no_page():
+    count_total_visits_amount()
+
     return redirect(url_for('adult_stars', page=1))
 
 
 @app.route("/adult/pornstars/<page>")
 @app.route("/adult/stars/<page>")
 def adult_stars(page):
+    count_total_visits_amount()
+
     if (page is None) or (len(str(page)) == 0):
         page = 1
 
@@ -671,6 +720,8 @@ def adult_stars(page):
 
 @app.route("/adult/search_post")
 def adult_search_post():
+    count_total_visits_amount()
+
     try:
         try:
             query = request.form['q']
@@ -695,6 +746,8 @@ def adult_search_post():
 
 @app.route("/adult/search/<query>")
 def adult_search(query):
+    count_total_visits_amount()
+
     if query is None:
         return redirect(url_for('adult_index'))
 
@@ -764,6 +817,8 @@ def adult_search(query):
 @app.route("/adult/hentai")
 def adult_hentai():
 
+    count_total_visits_amount()
+
     hentai_localserverml_api_usage = False
     hentai_localserverml_api_list = []
     if Important.localserverml_usage:
@@ -814,6 +869,8 @@ def adult_hentai():
 
 @app.errorhandler(404)
 def page_not_found(e):
+    count_total_visits_amount()
+
     return render_template('404.html'), 404
 
 
