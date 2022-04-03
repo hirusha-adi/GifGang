@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ web_title }}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/age_verify.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="img/backgroundimg.jpg") }}');
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="av-overlay-wrap">
+        <div id="av-overlay">
+            <div id="age-verif">
+                <img src="{{ url_for('static', filename='img/GifGangRound.png') }}" alt="GifGang">
+                <h5 class='verif-age'>{{ body_title }}</h5>
+                <span class='age-verif-text'>
+                    {{ age_verify_text }}
+                </span>
+                <div class='yes-no-wrap'>
+                    <a href="{{ url_for('index') }}">
+                        <div class='no-button age_verify_btn'>{{ button_no }}</div>
+                    </a>
+                    <a href="{{ url_for('adult_index') }}">
+                        <div class='yes-button age_verify_btn'>{{ button_yes }}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
