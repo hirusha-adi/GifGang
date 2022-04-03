@@ -1,4 +1,13 @@
 {
+    "age_verify": {
+        "title": "NSFW Content Ahead",
+        "body_title": "Verify Your Age",
+        "text": "You must be 18 years of age, or over the legal age for your state, which ever is older.",
+        "buttons": {
+            "yes": "I am Above 18",
+            "no": "Below 18"
+        }
+    },
     "index": {
         "title": "GifGang",
         "api_usage": {
