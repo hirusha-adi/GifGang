@@ -21,7 +21,7 @@ Main Pins
             {% for one_obj in all_body_list %}
             <!-- Iterate through all pins -->
             <div class="TrendsTag">
-                <a activeClassName="current" href="{{ url_for('search', query=one_obj.name) }}">
+                <a activeClassName="current" href="{{ url_for('adult_search', query=one_obj.name) }}">
                     <div class="img" style='background-image: url("{{ one_obj.img }}")'>
                     </div>
                     <div class="info">
