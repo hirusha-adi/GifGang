@@ -119,3 +119,17 @@ class Config:
             debug: bool = False
     except KeyError:
         debug: bool = False
+
+    try:
+        dev_mode = data["dev_mode"]
+        if isinstance(debug, str):
+            if dev_mode.lower() in ("true", "t", "yes", "y"):
+                dev_mode: bool = True
+            else:
+                dev_mode: bool = False
+        elif isinstance(dev_mode, bool):
+            pass
+        else:
+            dev_mode: bool = False
+    except KeyError:
+        dev_mode: bool = False
