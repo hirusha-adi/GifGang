@@ -136,4 +136,5 @@ class Config:
 
 
 def log(message: str, mode: str = "DEBUG"):
-    print(f'[{mode}]: {message}')
+    if Config.DEV:
+        print(f'[{mode}]: {message}')
