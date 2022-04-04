@@ -135,6 +135,9 @@ class Config:
         DEV: bool = False
 
 
-def log(message: str, mode: str = "DEBUG"):
+def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
     if Config.DEV:
-        print(f'[{mode}]: {message}')
+        if not(ipaddr):
+            print(f'[{mode}]: {message}')
+        if (mode and ipaddr):
+            print(f'[{mode}][{ipaddr}]: {message}')
