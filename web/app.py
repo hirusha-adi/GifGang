@@ -317,6 +317,10 @@ def index():
 def pins():
     count_total_visits_amount()
 
+    log(f'{request.remote_addr} requested `/pins` - pins()')
+    log(
+        f'Returning `pins.html`\n\tTitle={WebsiteData.pins["title"]}\n\tPins List from `website.json`')
+
     return render_template(
         "pins.html",
         web_title=WebsiteData.pins["title"],
