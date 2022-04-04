@@ -805,8 +805,8 @@ def adult_search(query):
                 redtube_usage = False
 
     return render_template(
-        "index.html",
-        web_title=WebsiteData.adult_search["title"],
+        "adult_index.html",
+        web_title=WebsiteData.adult_search["title"].format(query=query),
         eporner_usage=eporner_usage,
         eporner_list=eporner_list,
         redtube_usage=redtube_usage,
