@@ -429,7 +429,12 @@ def search_no_query():
 def search(query):
     count_total_visits_amount()
 
+    log(f'Request `/search/<query>` - search(query)',
+        ipaddr=request.remote_addr)
+
     if query is None:
+        log(f'query is None\n\tRedirecting to the url of `index`',
+            ipaddr=request.remote_addr)
         return redirect(url_for('index'))
 
     thecatapi_url_list = []
@@ -471,6 +476,9 @@ def search(query):
                                 else:
                                     thecatapi_usage = False
 
+                            log(f'TheCatAPI: Random Cat Images\n\tLimit: {one_custom["api_info"]["api_url"]}\n\tSize: {one_custom["api_info"]["size"]}\n\tMime Types: {one_custom["api_info"]["mime_types"]}\n\tOrder: {one_custom["api_info"]["order"]}\n\tHas Breeds: {one_custom["api_info"]["has_breeds"]}',
+                                ipaddr=request.remote_addr)
+
                     # dogCEO API
                     if one_custom["api_info"]["name"] == "dogCEO":
                         if Important.dogceo_usage:
@@ -488,16 +496,22 @@ def search(query):
                                 else:
                                     dogceo_usage = False
 
+                            log(f'DogCEO: Random Dog Images\n\tLimit: {one_custom["api_info"]["limit"]}',
+                                ipaddr=request.remote_addr)
+
                     # Anime Stuff - (nekoslife)
                     if one_custom["api_info"]["name"] == "nekoslife":
                         if Important.nekoslife_usage:
                             if one_custom["api_info"]["usage"]:
                                 nekoslife_usage = True
+                                full_url_list_nekos_life = []
                                 _limit = int(
                                     one_custom["api_info"]["limit"]) - 1
                                 while len(nekoslife_url_list) <= _limit:
-                                    r1 = requests.get(one_custom["api_info"]["api_url_list"][random.randint(
-                                        0, int(len(one_custom["api_info"]["api_url_list"]))-1)])
+                                    _final_url = one_custom["api_info"]["api_url_list"][random.randint(
+                                        0, int(len(one_custom["api_info"]["api_url_list"]))-1)]
+                                    full_url_list_nekos_life.append(_final_url)
+                                    r1 = requests.get(_final_url)
                                     if 300 > r1.status_code >= 200:
                                         data = r1.json()
                                         try:
@@ -506,6 +520,9 @@ def search(query):
                                         except KeyError:
                                             nekoslife_url_list.append(
                                                 data["neko"])
+
+                            log(f'Nekos.Life: Random Anime Images\n\tLimit: {_limit}\n\tURL List: {full_url_list_nekos_life}',
+                                ipaddr=request.remote_addr)
 
     # GIPHY and TENOR will be used to search, no matter what is entered if enabled by json
     giphy_url_list = []
@@ -530,8 +547,13 @@ def search(query):
                 except Exception as e:
                     print(e)
 
+            log(
+                f'GIPHY: Search GIF\n\tCount: {WebsiteData.search["api_usage"]["giphy"]["limit"]}\n\tOffset: {offset}', ipaddr=request.remote_addr)
+
         if len(giphy_url_list) == 0:
             giphy_usage = False
+            log(f'GIPHY: GIF Url List was empty.\n\tDisabling `giphy_usage`',
+                ipaddr=request.remote_addr)
 
     tenor_url_list = []
     tenor_usage = False
@@ -551,6 +573,12 @@ def search(query):
                     )
             else:
                 tenor_usage = False
+
+            log(
+                f'TENOR: Search GIF\n\tCount: {WebsiteData.search["api_usage"]["tenor"]["count"]}\n\tLocale: {WebsiteData.search["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.search["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.search["api_usage"]["tenor"]["contentfilter"]}', ipaddr=request.remote_addr)
+
+    log(f'Returning `search.html`\n\tTitle: {WebsiteData.search["title"].format(query=query)}\n\tGIPHY Usage: {giphy_usage}\n\tTenor Usage: {tenor_usage}\n\tTheCatAPI Usage: {thecatapi_usage}\n\tDogCEO API Usage: {dogceo_usage}\n\tNekos.Life: {nekoslife_usage}',
+        ipaddr=request.remote_addr)
 
     return render_template(
         "search.html",
