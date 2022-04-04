@@ -133,3 +133,7 @@ class Config:
             DEV: bool = False
     except KeyError:
         DEV: bool = False
+
+
+def log(message: str, mode: str = "DEBUG"):
+    print(f'[{mode}]: {message}')
