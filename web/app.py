@@ -7,41 +7,56 @@ from flask import (Flask, redirect, render_template,
                    url_for, request)
 from imgurpython import ImgurClient
 
-from utils import Config, FileNames, Important, WebsiteData
+from utils import Config, FileNames, Important, WebsiteData, log
 
 app = Flask(__name__)
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+log("Initiated Flask App: 'app'")
+logger = logging.getLogger('werkzeug')
+logger.setLevel(logging.ERROR)
+log("Disabled the default `werkzeug` logging")
 
 COUNT = None
 COUNT_FILE = os.path.join(os.getcwd(), "count.txt")
+log(f'Visit count file will be at {COUNT_FILE}')
 
 
 def count_total_visits_amount():
     global COUNT, COUNT_FILE
 
     if not(os.path.isfile(COUNT_FILE)):
+        log(f'Visit count file does not exist')
         with open(COUNT_FILE, "w", encoding="utf-8") as f_make_no_exist:
             if COUNT is None:
                 f_make_no_exist.write("1")
+                log(f'Created {COUNT_FILE} and wrote "1"')
             else:
                 f_make_no_exist.write(int(COUNT))
+                log(f'Created {COUNT_FILE} and wrote "{COUNT}" as continuable ')
 
     with open(COUNT_FILE, "r", encoding="utf-8") as f_read:
         current_count = f_read.read()
+        log(f'Current view count is {current_count}')
 
     try:
         current_count = int(current_count)
+        COUNT = current_count
     except ValueError:
-        current_count = 1
+        current_count = COUNT
+
+    log(f'Analyzed view count is {current_count}')
 
     with open(COUNT_FILE, "w", encoding="utf-8") as f_write:
         f_write.write(str(current_count + 1))
+        log(f'New view count is {current_count + 1}')
 
 
 @app.route("/about")
 def about():
     count_total_visits_amount()
+
+    log(f'{request.remote_addr} requested `/about` - about()')
+    log('Returning `about.html`')
+
     return render_template(
         "about.html",
         web_title="About | GifGang"
@@ -52,6 +67,8 @@ def about():
 @app.route("/links")
 def all_links():
     count_total_visits_amount()
+    log(f'{request.remote_addr} requested `/links` - all_links()')
+    log('Returning `index.html`\n\tall_links_page = True')
     return render_template(
         "index.html",
         web_title="Links List | GifGang",
@@ -63,6 +80,8 @@ def all_links():
 def index():
 
     count_total_visits_amount()
+
+    log(f'{request.remote_addr} requested `/` - index()')
 
     giphy_url_list = []
     giphy_usage = False
@@ -87,6 +106,9 @@ def index():
                         except Exception as e:
                             print(e)
 
+                log(
+                    f'GIPHY: Random One by One: True - {int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])}')
+
             # Trending
             if WebsiteData.index["api_usage"]["giphy"]["trending"]:
                 offset = random.randint(
@@ -106,6 +128,9 @@ def index():
                     except Exception as e:
                         print(e)
 
+                log(
+                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}')
+
     picsum_url_list = []
     picsum_usage = False
     if Important.picsum_usage:
@@ -114,6 +139,8 @@ def index():
             for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
                 picsum_url_list.append(
                     str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
+        log(
+            f'PICSUM: Random Images\n\tCount: {int(WebsiteData.index["api_usage"]["picsum"]["limit"])}')
 
     tenor_url_list = []
     tenor_usage = False
@@ -133,6 +160,8 @@ def index():
                     )
             else:
                 tenor_usage = False
+        log(
+            f'TENOR: Random Images\n\tCount: {WebsiteData.index["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.index["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.index["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
 
     unsplash_url_list = []
     unsplash_usage = False
@@ -160,14 +189,17 @@ def index():
             if 300 > r.status_code >= 200:
                 data = r.json()
                 for result in data["results"]:
-                    tenor_url_list.append(
+                    unsplash_url_list.append(
                         {
                             "title": "Will be updated soon",
                             "url": "Will be u updated soon"
                         }
                     )
             else:
-                tenor_usage = False
+                unsplash_usage = False
+
+        log(
+            f'UNSPLASH: Random Images:\n\tCount: {WebsiteData.index["api_usage"]["unsplash"]["limit"]}\n\tUsername Filter: {WebsiteData.index["api_usage"]["unsplash"]["username"]}\n\tOrientation: {WebsiteData.index["api_usage"]["unsplash"]["orientation"]}')
 
     thecatapi_url_list = []
     thecatapi_usage = False
@@ -193,6 +225,9 @@ def index():
             else:
                 thecatapi_usage = False
 
+        log(
+            f'TheCatAPI: Random Images\n\tCount: {WebsiteData.index["api_usage"]["theCatAPI"]["limit"]}\n\tSize: {WebsiteData.index["api_usage"]["theCatAPI"]["size"]}\n\tMime Types: {WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]}\n\tOrder: {WebsiteData.index["api_usage"]["theCatAPI"]["order"]}\n\tHas Breeds: {WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"]}')
+
     dogceo_url_list = []
     dogceo_usage = False
     if Important.dogceo_usage:
@@ -210,6 +245,9 @@ def index():
             else:
                 dogceo_usage = False
 
+        log(
+            f'DogCEO: Random Images\n\tCount: {WebsiteData.index["api_usage"]["dogCEO"]["limit"]}')
+
     nekoslife_url_list = []
     nekoslife_usage = False
     if Important.nekoslife_usage:
@@ -217,15 +255,21 @@ def index():
             nekoslife_usage = True
             _limit = int(
                 WebsiteData.index["api_usage"]["nekoslife"]["limit"]) - 1
+            selected_url_list = []
             while len(nekoslife_url_list) <= _limit:
-                r1 = requests.get(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"][random.randint(
-                    0, int(len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]))-1)])
+                _final_url = WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"][random.randint(
+                    0, int(len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]))-1)]
+                selected_url_list.append(_final_url)
+                r1 = requests.get(_final_url)
                 if 300 > r1.status_code >= 200:
                     data = r1.json()
                     try:
                         nekoslife_url_list.append(data["url"])
                     except KeyError:
                         nekoslife_url_list.append(data["neko"])
+
+        log(
+            f'Nekos.Life: Random Images\n\tLimit:{WebsiteData.index["api_usage"]["nekoslife"]["limit"]}\n\tSelected URL List: {selected_url_list}')
 
     imgur_url_list = []
     imgur_usage = False
@@ -241,6 +285,10 @@ def index():
 
             if imgur_usage:
                 imgur_url_list = [item.link for item in items]
+
+        log(f'Imgur: Random Images\n\tCount: {len(imgur_url_list)}')
+
+    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tunsplash_usage={unsplash_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}\n\timgur_usage={imgur_usage}')
 
     return render_template(
         "index.html",
