@@ -46,17 +46,19 @@ def count_total_visits_amount():
     log(f'Analyzed view count is {current_count}')
 
     with open(COUNT_FILE, "w", encoding="utf-8") as f_write:
-        f_write.write(str(current_count + 1))
-        log(f'New view count is {current_count + 1}')
+        new_count = COUNT + 1
+        f_write.write(str(new_count))
+        log(f'New view count is {new_count}')
 
 
 @app.route("/about")
 def about():
     count_total_visits_amount()
 
-    log(f'{request.remote_addr} requested `/about` - about()')
-    log('Returning `about.html`')
-
+    log(f'Requested `/about` - about()',
+        ipaddr=request.remote_addr)
+    log('Returning `about.html`',
+        ipaddr=request.remote_addr)
     return render_template(
         "about.html",
         web_title="About | GifGang"
@@ -67,8 +69,10 @@ def about():
 @app.route("/links")
 def all_links():
     count_total_visits_amount()
-    log(f'{request.remote_addr} requested `/links` - all_links()')
-    log('Returning `index.html`\n\tall_links_page = True')
+    log(f'Requested `/links` - all_links()',
+        ipaddr=request.remote_addr)
+    log('Returning `index.html`\n\tall_links_page = True',
+        ipaddr=request.remote_addr)
     return render_template(
         "index.html",
         web_title="Links List | GifGang",
@@ -81,7 +85,8 @@ def index():
 
     count_total_visits_amount()
 
-    log(f'{request.remote_addr} requested `/` - index()')
+    log(f'Requested `/` - index()',
+        ipaddr=request.remote_addr)
 
     giphy_url_list = []
     giphy_usage = False
@@ -107,7 +112,8 @@ def index():
                             print(e)
 
                 log(
-                    f'GIPHY: Random One by One: True - {int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])}')
+                    f'GIPHY: Random One by One: True - {int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])}',
+                    ipaddr=request.remote_addr)
 
             # Trending
             if WebsiteData.index["api_usage"]["giphy"]["trending"]:
@@ -129,7 +135,8 @@ def index():
                         print(e)
 
                 log(
-                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}')
+                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}',
+                    ipaddr=request.remote_addr)
 
     picsum_url_list = []
     picsum_usage = False
@@ -140,7 +147,8 @@ def index():
                 picsum_url_list.append(
                     str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
         log(
-            f'PICSUM: Random Images\n\tCount: {int(WebsiteData.index["api_usage"]["picsum"]["limit"])}')
+            f'PICSUM: Random Images\n\tCount: {int(WebsiteData.index["api_usage"]["picsum"]["limit"])}',
+            ipaddr=request.remote_addr)
 
     tenor_url_list = []
     tenor_usage = False
@@ -148,7 +156,8 @@ def index():
         if WebsiteData.index["api_usage"]["tenor"]["usage"]:
             tenor_usage = True
             r = requests.get(
-                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
+                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}',
+                ipaddr=request.remote_addr)
             if 300 > r.status_code >= 200:
                 data = r.json()
                 for result in data["results"]:
@@ -161,7 +170,8 @@ def index():
             else:
                 tenor_usage = False
         log(
-            f'TENOR: Random Images\n\tCount: {WebsiteData.index["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.index["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.index["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
+            f'TENOR: Random Images\n\tCount: {WebsiteData.index["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.index["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.index["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}',
+            ipaddr=request.remote_addr)
 
     unsplash_url_list = []
     unsplash_usage = False
@@ -199,7 +209,8 @@ def index():
                 unsplash_usage = False
 
         log(
-            f'UNSPLASH: Random Images:\n\tCount: {WebsiteData.index["api_usage"]["unsplash"]["limit"]}\n\tUsername Filter: {WebsiteData.index["api_usage"]["unsplash"]["username"]}\n\tOrientation: {WebsiteData.index["api_usage"]["unsplash"]["orientation"]}')
+            f'UNSPLASH: Random Images:\n\tCount: {WebsiteData.index["api_usage"]["unsplash"]["limit"]}\n\tUsername Filter: {WebsiteData.index["api_usage"]["unsplash"]["username"]}\n\tOrientation: {WebsiteData.index["api_usage"]["unsplash"]["orientation"]}',
+            ipaddr=request.remote_addr)
 
     thecatapi_url_list = []
     thecatapi_usage = False
@@ -226,7 +237,8 @@ def index():
                 thecatapi_usage = False
 
         log(
-            f'TheCatAPI: Random Images\n\tCount: {WebsiteData.index["api_usage"]["theCatAPI"]["limit"]}\n\tSize: {WebsiteData.index["api_usage"]["theCatAPI"]["size"]}\n\tMime Types: {WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]}\n\tOrder: {WebsiteData.index["api_usage"]["theCatAPI"]["order"]}\n\tHas Breeds: {WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"]}')
+            f'TheCatAPI: Random Images\n\tCount: {WebsiteData.index["api_usage"]["theCatAPI"]["limit"]}\n\tSize: {WebsiteData.index["api_usage"]["theCatAPI"]["size"]}\n\tMime Types: {WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]}\n\tOrder: {WebsiteData.index["api_usage"]["theCatAPI"]["order"]}\n\tHas Breeds: {WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"]}',
+            ipaddr=request.remote_addr)
 
     dogceo_url_list = []
     dogceo_usage = False
@@ -246,7 +258,8 @@ def index():
                 dogceo_usage = False
 
         log(
-            f'DogCEO: Random Images\n\tCount: {WebsiteData.index["api_usage"]["dogCEO"]["limit"]}')
+            f'DogCEO: Random Images\n\tCount: {WebsiteData.index["api_usage"]["dogCEO"]["limit"]}',
+            ipaddr=request.remote_addr)
 
     nekoslife_url_list = []
     nekoslife_usage = False
@@ -269,7 +282,8 @@ def index():
                         nekoslife_url_list.append(data["neko"])
 
         log(
-            f'Nekos.Life: Random Images\n\tLimit:{WebsiteData.index["api_usage"]["nekoslife"]["limit"]}\n\tSelected URL List: {selected_url_list}')
+            f'Nekos.Life: Random Images\n\tLimit:{WebsiteData.index["api_usage"]["nekoslife"]["limit"]}\n\tSelected URL List: {selected_url_list}',
+            ipaddr=request.remote_addr)
 
     imgur_url_list = []
     imgur_usage = False
@@ -286,9 +300,11 @@ def index():
             if imgur_usage:
                 imgur_url_list = [item.link for item in items]
 
-        log(f'Imgur: Random Images\n\tCount: {len(imgur_url_list)}')
+        log(f'Imgur: Random Images\n\tCount: {len(imgur_url_list)}',
+            ipaddr=request.remote_addr)
 
-    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tunsplash_usage={unsplash_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}\n\timgur_usage={imgur_usage}')
+    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tunsplash_usage={unsplash_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}\n\timgur_usage={imgur_usage}',
+        ipaddr=request.remote_addr)
 
     return render_template(
         "index.html",
@@ -317,9 +333,11 @@ def index():
 def pins():
     count_total_visits_amount()
 
-    log(f'{request.remote_addr} requested `/pins` - pins()')
+    log(f'{request.remote_addr} requested `/pins` - pins()',
+        ipaddr=request.remote_addr)
     log(
-        f'Returning `pins.html`\n\tTitle={WebsiteData.pins["title"]}\n\tPins List from `website.json`')
+        f'Returning `pins.html`\n\tTitle={WebsiteData.pins["title"]}\n\tPins List from `website.json`',
+        ipaddr=request.remote_addr)
 
     return render_template(
         "pins.html",
@@ -328,28 +346,49 @@ def pins():
     )
 
 
-@app.route("/search_post", methods=['POST'])
+@app.route("/search_post", methods=['POST', 'GET'])
 def search_post():
     count_total_visits_amount()
+
+    log(f'Request `/search_post` - search_post()',
+        ipaddr=request.remote_addr)
 
     try:
         try:
             query = request.form['q']
+            log(f'Query taken from `POST` request\'s `q`',
+                ipaddr=request.remote_addr)
         except KeyError:
             query = request.form['query']
+            log(f'Query taken from `POST` request\'s `query`',
+                ipaddr=request.remote_addr)
     except KeyError:
         try:
             try:
                 query = request.args.get("q")
+                log(f'Query taken from `GET` request\'s `q`',
+                    ipaddr=request.remote_addr)
             except KeyError:
                 query = request.args.get("query")
+                log(f'Query taken from `GET` request\'s `query`',
+                    ipaddr=request.remote_addr)
         except:
+            log(f'Unable to find the query from the request',
+                ipaddr=request.remote_addr)
             return redirect(url_for('index'))
 
     if (query is None) or len(str(query)) == 0:
+        log(f'query is None. Nothing to search for!',
+            ipaddr=request.remote_addr)
         return redirect(url_for('index'))
 
     query = query.replace("/", "%2F")
+
+    log(f'Processed Query: {query}',
+        ipaddr=request.remote_addr)
+    log(
+        f'Returning the url for `search` with query',
+        ipaddr=request.remote_addr)
 
     return redirect(url_for('search', query=query))
 
@@ -357,6 +396,12 @@ def search_post():
 @app.route("/restricted")
 def restricted():
     count_total_visits_amount()
+
+    log(f'Request `/restricted` - restricted()',
+        ipaddr=request.remote_addr)
+    log(
+        f'Returning `age_verify.html`\n\tTitle={WebsiteData.age_verify["title"]}\n\tBody Title={WebsiteData.age_verify["body_title"]}\n\tBody Text={WebsiteData.age_verify["text"]}\n\tYes Button Text={WebsiteData.age_verify["buttons"]["yes"]}\n\tNo Button Text={WebsiteData.age_verify["buttons"]["no"]}',
+        ipaddr=request.remote_addr)
 
     return render_template(
         "age_verify.html",
@@ -371,6 +416,11 @@ def restricted():
 @app.route("/search")
 def search_no_query():
     count_total_visits_amount()
+
+    log(f'Request `/search` - search_no_query()',
+        ipaddr=request.remote_addr)
+    log(f'Returning the url for `index` - index()\n\tbecause `/search` route was requested without a query',
+        ipaddr=request.remote_addr)
 
     return redirect(url_for('index'))
 
