@@ -887,28 +887,49 @@ def adult_stars(page):
     )
 
 
-@app.route("/adult/search_post")
+@app.route("/adult/search_post", methods=['GET', 'POST'])
 def adult_search_post():
     count_total_visits_amount()
+
+    log(f'Request `/adult/search_post` - adult_search_post()',
+        ipaddr=request.remote_addr)
 
     try:
         try:
             query = request.form['q']
+            log(f'Query taken from `POST` request\'s `q`',
+                ipaddr=request.remote_addr)
         except KeyError:
             query = request.form['query']
+            log(f'Query taken from `POST` request\'s `query`',
+                ipaddr=request.remote_addr)
     except KeyError:
         try:
             try:
                 query = request.args.get("q")
+                log(f'Query taken from `GET` request\'s `q`',
+                    ipaddr=request.remote_addr)
             except KeyError:
                 query = request.args.get("query")
+                log(f'Query taken from `GET` request\'s `query`',
+                    ipaddr=request.remote_addr)
         except:
+            log(f'Unable to find the query from the request',
+                ipaddr=request.remote_addr)
             return redirect(url_for('adult_index'))
 
     if (query is None) or len(str(query)) == 0:
+        log(f'query is None. Nothing to search for!',
+            ipaddr=request.remote_addr)
         return redirect(url_for('adult_index'))
 
     query = query.replace("/", "%2F")
+
+    log(f'Processed Query: {query}',
+        ipaddr=request.remote_addr)
+    log(
+        f'Returning the url for `adult_search` with query',
+        ipaddr=request.remote_addr)
 
     return redirect(url_for('adult_search', query=query))
 
