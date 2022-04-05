@@ -601,6 +601,8 @@ def adult_index():
 
     count_total_visits_amount()
 
+    log(f'Request `/adult` - adult_index()', ipaddr=request.remote_addr)
+
     # E-Porner API
     eporner_usage = False
     eporner_list = []
@@ -631,6 +633,9 @@ def adult_index():
             else:
                 eporner_usage = False
 
+            log(
+                f'EPORNER: Search Videos\n\tCount: {WebsiteData.adult_index["api_usage"]["eporner"]["limit"]}\n\tThumbnail Size: {WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"]}\n\tOrder: {WebsiteData.adult_index["api_usage"]["eporner"]["order"]}\n\tQuery: {_random_search_text}', ipaddr=request.remote_addr)
+
     redtube_usage = False
     redtube_list = []
     if Important.redtube_usage:
@@ -658,6 +663,12 @@ def adult_index():
             else:
                 redtube_usage = False
 
+            log(
+                f'RedTube: Search Videos\n\tData: {WebsiteData.adult_index["api_usage"]["redtube"]["data"]}\n\tThumbnail Size: {WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"]}\n\tQuery: {_random_search_text}', ipaddr=request.remote_addr)
+
+    log(
+        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_index["title"]}\n\tEPORNER API Usage={eporner_usage}\n\tRedtube API Usage={redtube_usage}', ipaddr=request.remote_addr)
+
     return render_template(
         "adult_index.html",
         web_title=WebsiteData.adult_index["title"],
@@ -673,6 +684,11 @@ def adult_index():
 def adult_pins():
     count_total_visits_amount()
 
+    log(f'Request `/adult/pins` - adult_pins()',
+        ipaddr=request.remote_addr)
+    log(
+        f'Returning `adult_pins.html`\n\tTitle={WebsiteData.adult_pins["title"]}')
+
     return render_template(
         "adult_pins.html",
         web_title=WebsiteData.adult_pins["title"],
@@ -684,6 +700,11 @@ def adult_pins():
 @app.route("/adult/categories")
 def adult_categories():
     count_total_visits_amount()
+
+    log(f'Request `/adult/categories` - adult_categories()',
+        ipaddr=request.remote_addr)
+    log(
+        f'Returning `adult_pins.html`\n\tTitle={WebsiteData.adult_pins["title"]}')
 
     return render_template(
         "adult_pins.html",
@@ -698,6 +719,11 @@ def adult_categories():
 def adult_stars_no_page():
     count_total_visits_amount()
 
+    log(f'Request `/adult/stars` - adult_stars_no_page()',
+        ipaddr=request.remote_addr)
+    log(f'Returning the url for `adult_stars` - adult_stars()\n\tbecause `<page>` is not included in the request and will default to `1`',
+        ipaddr=request.remote_addr)
+
     return redirect(url_for('adult_stars', page=1))
 
 
@@ -706,8 +732,13 @@ def adult_stars_no_page():
 def adult_stars(page):
     count_total_visits_amount()
 
+    log(f'Request `/adult/stars/<page>` - adult_stars()',
+        ipaddr=request.remote_addr)
+
     if (page is None) or (len(str(page)) == 0):
         page = 1
+        log(f'`<page>` was set 1 because no value has been passed',
+            ipaddr=request.remote_addr)
 
     stars_usage = False
     stars_list = []
@@ -739,6 +770,9 @@ def adult_stars(page):
                     )
             else:
                 stars_usage = False
+
+            log(f'REDTUBE: Pornstar List\n\tData: {WebsiteData.adult_stars["api_usage"]["data"]}\n\tPage Number: {page}',
+                ipaddr=request.remote_addr)
 
             current_page = int(page)
             first_page = 1
@@ -823,6 +857,11 @@ def adult_stars(page):
                 next_page_3 = next_page_2 + 1
                 next_page_4 = next_page_3 + 1
                 show_dots_right = True
+
+            log(f'Processed all Page Numbers List', ipaddr=request.remote_addr)
+
+    log(
+        f'Returning `adult_index.html`\n\tTitle: {WebsiteData.adult_stars["title"].format(page_number=current_page)}\n\tStars Usage: {stars_usage}\n\tCurrent Page: {current_page}\n\tFirst Page: {first_page}\n\tLast Page: {last_page}\n\tPrevious Page 1: {previous_page_1}\n\tPrevious Page 2: {previous_page_2}\n\tPrevious Page 3: {previous_page_3}\n\tPrevious Page 4: {previous_page_4}\n\tNext Page 1: {next_page_1}\n\tNext Page 2: {next_page_2}\n\tNext Page 3: {next_page_3}\n\tNext Page 4: {next_page_4}\n\tShow Left Dots: {show_dots_left}\n\tShow Right Dots: {show_dots_right}', ipaddr=request.remote_addr)
 
     return render_template(
         "adult_index.html",
