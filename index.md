@@ -1,37 +1,86 @@
-## Welcome to GitHub Pages
+## GifGang
 
-You can use the [editor on GitHub](https://github.com/hirusha-adi/GifGang/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# What is this?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is a website with both SFW and NSFW GIF's and Images (Some redirecting to Videos in thier original website). This website does NOT own any media displayed. All the media are taken/requested/scraped from many services and the service name is mentioned above every image set to give credit. ( You can call this a lightweight yet modern and powerful wrapper for many websites with media. )
 
-### Markdown
+# Image Showcase
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- [ ] Add images
 
-```markdown
-Syntax highlighted code block
+# Installation Guide
 
-# Header 1
-## Header 2
-### Header 3
+NOTE: You do not need to install this in order to use this web app. You can [cick here](http://gifgang.net) to try out the publicly hosted version. Following the steps below will lead you to hosting your own instance of this website.
 
-- Bulleted
-- List
+### Ubuntu & Debian
 
-1. Numbered
-2. List
+run the commands below
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+wget "script.url.goes.here"
+chmod +x debian_installer.sh
+./debian_installer.sh
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Arch Linux
 
-### Jekyll Themes
+run the commands below
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hirusha-adi/GifGang/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```bash
+wget "script.url.goes.here"
+chmod +x arch_installer.sh
+./arch_installer.sh
+```
 
-### Support or Contact
+### I have an error while Installation. What should I do?
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1) Check if your issue in this list of most commonly encountable error list (Click to open the guide to fixing it) or use your common sense:
+    - Sample
+    - Sample 2
+
+2) Enable the developer-mode
+    1) Stop the program if it is already running
+    2) Open the `./database/config.json` file and set `"dev_mode"` to true.
+         - ```json "dev_mode": true```
+    3) Save the file
+    4) Restart the application
+3) Re-create the issue.
+4) Copy the log displayed in the console
+5) [Open an Issue](https://github.com/hirusha-adi/GifGang/issues/new/choose) with the copied log
+
+
+# :)
+
+- Starring this project will support me!
+- Make sure to [open an Issue](https://github.com/hirusha-adi/GifGang/issues/new/choose) if something is wrong or if you want to request a new feature in the future version
+- If you are interested in adding your code to this project, feel free to [open a pull request](https://github.com/hirusha-adi/GifGang/compare) anytime!
+
+# APIs Used
+The list of servcies that are wrapped by this project
+
+## SFW
+  - [GIPHY](https://developers.giphy.com/)
+  - [Picsum](https://picsum.photos/)
+  - [Tenor](https://tenor.com/gifapi/documentation)
+  - [TheCatAPI](https://thecatapi.com/)
+  - [DogAPI (DogCEO)](https://dog.ceo/dog-api/)
+  - [Unsplash](https://unsplash.com/developers) - Incomplete ( Difficulties of getting a token )
+  - [Imgur](https://api.imgur.com/) - Incomplete ( Difficulties with bad URLs returned from the API )
+## NSFW
+  - [EPORNER](https://www.eporner.com/api/v2/)
+  - [RedTube](https://api.redtube.com/)
+  - [l0calserve4](https://api.l0calserve4.ml/hmtai/)
+## Used for both
+  - [Nekos.Life](https://nekos.life/)
+  
+  
+# NOTE
+
+I am not responsible for any bad that happens with this website and i dont promote or encourage the usage of `/adult/*` routes for anyone. Anyone who is under the age of 18 should NOT visit these NSFW endpoints
+
+# For any issue, make sure to contact me
+
+- Discord: `ZeaCeR#5641`
+- Email: `zesta5j7k@gmail.com`
+
+
