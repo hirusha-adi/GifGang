@@ -968,6 +968,10 @@ def adult_search(query):
                             "src_url": result["url"]
                         }
                     )
+
+                log(f'EPORNER: Search Videos\n\tQuery: {query}\n\tLimit: {WebsiteData.adult_search["api_usage"]["eporner"]["limit"]}\n\tThumbnail Size: {WebsiteData.adult_search["api_usage"]["eporner"]["thumbsize"]}\n\tOrder: {WebsiteData.adult_search["api_usage"]["eporner"]["order"]}',
+                    ipaddr=request.remote_addr)
+
             else:
                 eporner_usage = False
 
@@ -994,8 +998,16 @@ def adult_search(query):
                             "src_url": result["video"]["url"]
                         }
                     )
+
+                log(
+                    f'REDTUBE: Search Videos\n\tQuery: {query}\n\tData: {WebsiteData.adult_search["api_usage"]["redtube"]["data"]}\n\tThumbnail Size: {WebsiteData.adult_search["api_usage"]["redtube"]["thumbsize"]}',
+                    ipaddr=request.remote_addr)
+
             else:
                 redtube_usage = False
+
+    log(
+        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_search["title"].format(query=query)}\n\tEPORNER API Usage={eporner_usage}\n\tREDTUBE API Usage={redtube_usage}', ipaddr=request.remote_addr)
 
     return render_template(
         "adult_index.html",
@@ -1010,16 +1022,26 @@ def adult_search(query):
 @app.route("/adult/hentai")
 def adult_hentai():
 
+    log(f'Request `/adult/hentai` - adult_hentai()',
+        ipaddr=request.remote_addr)
+
     count_total_visits_amount()
 
     hentai_localserverml_api_usage = False
     hentai_localserverml_api_list = []
+    hentai_localserverml_api_list_request_list = []
     if Important.localserverml_usage:
         if WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"]:
             hentai_localserverml_api_usage = True
             for _ in range(int(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"])):
                 _final_url = WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"]
-                _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"])}'
+                _random_choice = random.choice(
+                    WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"])
+                _final_url += f'{_random_choice}'
+
+                hentai_localserverml_api_list_request_list.append(
+                    _final_url)
+
                 try:
                     r = requests.get(_final_url)
                     if 300 > r.status_code >= 200:
@@ -1031,14 +1053,23 @@ def adult_hentai():
                 except:
                     pass
 
+            log(
+                f'LocalServer.ml API\n\tCount: {WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"]}\n\tAll URL List: {hentai_localserverml_api_list_request_list}', ipaddr=request.remote_addr)
+
     hentai_nekoslife_usage = False
     hentai_nekoslife_list = []
+    hentai_nekoslife_list_request_list = []
     if Important.nekoslife_usage:
         if WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"]:
             hentai_nekoslife_usage = True
             for _ in range(int(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"])):
                 _final_url = WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"]
-                _final_url += f'{random.choice(WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"])}'
+                _random_choice = random.choice(
+                    WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"])
+                _final_url += f'{_random_choice}'
+
+                hentai_nekoslife_list_request_list.append(_final_url)
+
                 try:
                     r = requests.get(_final_url)
                     if 300 > r.status_code >= 200:
@@ -1049,6 +1080,12 @@ def adult_hentai():
                             hentai_localserverml_api_list.append(data["neko"])
                 except:
                     pass
+
+            log(
+                f'Nekos.Life API:\n\tCount: {WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"]}\n\tAll Url List: {hentai_nekoslife_list_request_list}', ipaddr=request.remote_addr)
+
+    log(
+        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_hentai["title"]}\n\tLocalServer.ml API Usage={hentai_localserverml_api_usage}\n\tNekos.Life API Usage: {hentai_nekoslife_usage}', ipaddr=request.remote_addr)
 
     return render_template(
         "adult_index.html",
@@ -1063,7 +1100,6 @@ def adult_hentai():
 @app.errorhandler(404)
 def page_not_found(e):
     count_total_visits_amount()
-
     return render_template('404.html'), 404
 
 
