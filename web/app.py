@@ -156,8 +156,7 @@ def index():
         if WebsiteData.index["api_usage"]["tenor"]["usage"]:
             tenor_usage = True
             r = requests.get(
-                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}',
-                ipaddr=request.remote_addr)
+                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
             if 300 > r.status_code >= 200:
                 data = r.json()
                 for result in data["results"]:
@@ -263,12 +262,12 @@ def index():
 
     nekoslife_url_list = []
     nekoslife_usage = False
+    selected_url_list = []
     if Important.nekoslife_usage:
         if WebsiteData.index["api_usage"]["nekoslife"]["usage"]:
             nekoslife_usage = True
             _limit = int(
                 WebsiteData.index["api_usage"]["nekoslife"]["limit"]) - 1
-            selected_url_list = []
             while len(nekoslife_url_list) <= _limit:
                 _final_url = WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"][random.randint(
                     0, int(len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]))-1)]
@@ -575,7 +574,7 @@ def search(query):
                 tenor_usage = False
 
             log(
-                f'TENOR: Search GIF\n\tCount: {WebsiteData.search["api_usage"]["tenor"]["count"]}\n\tLocale: {WebsiteData.search["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.search["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.search["api_usage"]["tenor"]["contentfilter"]}', ipaddr=request.remote_addr)
+                f'TENOR: Search GIF\n\tCount: {WebsiteData.search["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.search["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.search["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.search["api_usage"]["tenor"]["contentfilter"]}', ipaddr=request.remote_addr)
 
     log(f'Returning `search.html`\n\tTitle: {WebsiteData.search["title"].format(query=query)}\n\tGIPHY Usage: {giphy_usage}\n\tTenor Usage: {tenor_usage}\n\tTheCatAPI Usage: {thecatapi_usage}\n\tDogCEO API Usage: {dogceo_usage}\n\tNekos.Life: {nekoslife_usage}',
         ipaddr=request.remote_addr)
@@ -938,7 +937,11 @@ def adult_search_post():
 def adult_search(query):
     count_total_visits_amount()
 
+    log(f'Request `/adult/search/<query>` - adult_search()',
+        ipaddr=request.remote_addr)
+
     if query is None:
+        log('Returning the url for `adult_index` - adult_index()\n\tbecause query is None. Nothing to search for!')
         return redirect(url_for('adult_index'))
 
     # E-Porner API
