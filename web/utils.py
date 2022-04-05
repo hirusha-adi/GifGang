@@ -82,9 +82,8 @@ class Important:
     _localserverml = _data["localserverml"]
     localserverml_usage = _localserverml["usage"]
 
+
 # Settings needed for hosting the website
-
-
 class Config:
     with open(FileNames.web_server_settings, "r", encoding="utf-8") as _file:
         data = json.load(_file)
