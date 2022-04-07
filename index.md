@@ -98,5 +98,7 @@ I am not responsible for any bad that happens with this website and i dont promo
 - ### `/adult/categories`
 ![unknown (1) (2)](https://user-images.githubusercontent.com/36286877/162131483-2e865b41-853b-41a8-a4df-3093c0a86e3d.png)
 
+- ### `adult/pins`
+![Screenshot_20220407_113918 (2)](https://user-images.githubusercontent.com/36286877/162132765-f96c64a9-28ed-4fec-8c35-3d31897f919a.png)
 
 
