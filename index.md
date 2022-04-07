@@ -32,8 +32,8 @@ sudo pacman -Syy wget --noconfirm && wget "https://raw.githubusercontent.com/hir
 
 1. Check if your issue in this list of most commonly encountable error list (Click to open the guide to fixing it) or use your common sense:
 
-   - Sample
-   - Sample 2
+   - [pip3 command not found](https://exerror.com/sudo-pip3-command-not-found/)
+   - [python3 command not found](https://stackoverflow.com/questions/40914108/bash-python3-command-not-found-windows-discord-py)
 
 2. Enable the developer-mode
    1. Stop the program if it is already running
