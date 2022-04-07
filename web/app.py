@@ -135,7 +135,7 @@ def index():
                         print(e)
 
                 log(
-                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}',
+                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}\n\tActual Length: {len(giphy_url_list)}',
                     ipaddr=request.remote_addr)
 
     picsum_url_list = []
