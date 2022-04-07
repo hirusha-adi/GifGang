@@ -7,6 +7,34 @@ import requests
 class FileNames:
     _cwd = os.getcwd()
 
+    def _check_database_exist():
+        database_folder = os.path.join(os.getcwd(), "database")
+        if not(os.path.isdir(database_folder)):
+            os.makedirs(database_folder)
+        else:
+            files = [
+                {
+                    "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/config.json",
+                    "filename": "config.json"
+                },
+                {
+                    "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/important.json",
+                    "filename": "important.json"
+                },
+                {
+                    "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/website.json",
+                    "filename": "website.json"
+                }
+            ]
+
+            for file in files:
+                if isinstance(file, dict):
+                    r = requests.get(file["url"])
+                    with open(os.path.join(database_folder, file["filename"]), "wb") as makefile:
+                        makefile.write(r.content)
+
+    _check_database_exist()
+
     web_server_settings = os.path.join(_cwd, "database", "config.json")
     important_info_file = os.path.join(_cwd, "database", "important.json")
     website_info_file = os.path.join(_cwd, "database", "website.json")
@@ -141,33 +169,3 @@ def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
             print(f'[{mode}]: {message}')
         if (mode and ipaddr):
             print(f'[{mode}][{ipaddr}]: {message}')
-
-
-def _check_database_exist():
-    database_folder = os.path.join(os.getcwd(), "database")
-    if not(os.path.isdir(database_folder)):
-        os.makedirs(database_folder)
-    else:
-        files = [
-            {
-                "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/config.json",
-                "filename": "config.json"
-            },
-            {
-                "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/important.json",
-                "filename": "important.json"
-            },
-            {
-                "url": "https://raw.githubusercontent.com/hirusha-adi/GifGang/main/web/database/website.json",
-                "filename": "website.json"
-            }
-        ]
-
-        for file in files:
-            if isinstance(file, dict):
-                r = requests.get(file["url"])
-                with open(os.path.join(database_folder, file["filename"]), "wb") as makefile:
-                    makefile.write(r.content)
-
-
-_check_database_exist()
