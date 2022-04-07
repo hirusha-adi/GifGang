@@ -1,4 +1,4 @@
-## GifGang
+# [Image Show-Case - Click Here](#image-showcase)
 
 # What is this?
 
