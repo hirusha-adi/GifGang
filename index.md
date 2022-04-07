@@ -35,6 +35,8 @@ sudo pacman -Syy wget --noconfirm && wget "https://raw.githubusercontent.com/hir
    - [pip3 command not found](https://exerror.com/sudo-pip3-command-not-found/)
    - [python3 command not found](https://stackoverflow.com/questions/40914108/bash-python3-command-not-found-windows-discord-py)
 
+<br>
+
 2. Enable the developer-mode
    1. Stop the program if it is already running
    2. Open the `./database/config.json` file and set `"dev_mode"` to true.
