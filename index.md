@@ -101,4 +101,10 @@ I am not responsible for any bad that happens with this website and i dont promo
 - ### `adult/pins`
 ![Screenshot_20220407_113918 (2)](https://user-images.githubusercontent.com/36286877/162132765-f96c64a9-28ed-4fec-8c35-3d31897f919a.png)
 
+- ### `about`
+![Screenshot_20220407_155255](https://user-images.githubusercontent.com/36286877/162178447-88ed0918-77c8-4aa2-bf1a-d88a0a1e063b.png)
+
+- ### `links`
+![Screenshot_20220407_155431](https://user-images.githubusercontent.com/36286877/162178649-9ada2144-06ef-4434-9368-916131f6e7b7.png)
+
 
