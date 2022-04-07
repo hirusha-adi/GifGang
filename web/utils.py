@@ -33,7 +33,7 @@ class FileNames:
                     with open(os.path.join(database_folder, file["filename"]), "wb") as makefile:
                         makefile.write(r.content)
 
-    _check_database_exist()
+    # _check_database_exist()
 
     web_server_settings = os.path.join(_cwd, "database", "config.json")
     important_info_file = os.path.join(_cwd, "database", "important.json")
