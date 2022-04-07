@@ -1,10 +1,9 @@
 import logging
-import random
 import os
+import random
 
 import requests
-from flask import (Flask, redirect, render_template,
-                   url_for, request)
+from flask import Flask, redirect, render_template, request, url_for
 from imgurpython import ImgurClient
 
 from utils import Config, FileNames, Important, WebsiteData, log
