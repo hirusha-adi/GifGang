@@ -4,10 +4,6 @@
 
 This is a website with both SFW and NSFW GIF's and Images (Some redirecting to Videos in thier original website). This website does NOT own any media displayed. All the media are taken/requested/scraped from many services and the service name is mentioned above every image set to give credit. ( You can call this a lightweight yet modern and powerful wrapper for many websites with media. )
 
-# Image Showcase
-
-- [ ] Add images
-
 # Installation Guide
 
 NOTE: You do not need to install this in order to use this web app. You can [cick here](http://gifgang.net) to try out the publicly hosted version. Following the steps below will lead you to hosting your own instance of this website.
@@ -85,3 +81,17 @@ I am not responsible for any bad that happens with this website and i dont promo
 
 - Discord: `ZeaCeR#5641`
 - Email: `zesta5j7k@gmail.com`
+
+# Image Showcase
+- ### `/`
+![Screenshot_20220407_104601](https://user-images.githubusercontent.com/36286877/162125258-03d11344-d5c1-4792-8c03-0f2ee3b8886b.png)
+
+- ### `/pins`
+![Screenshot_20220407_104750](https://user-images.githubusercontent.com/36286877/162125472-3ae6266d-57bc-449a-acab-b65bb730ddef.png)
+
+- ### `/restricted`
+![Screenshot_20220407_104945](https://user-images.githubusercontent.com/36286877/162125666-ee7b7a5b-2036-4509-9d83-ec2531c22602.png)
+
+
+
+
