@@ -2,7 +2,7 @@
     "giphy": {
         "usage": true,
         "api_url_base": "https://api.giphy.com/v1/gifs/",
-        "api_key": ""
+        "api_key": "RdVt37DOfYSBpyBHMWDZaPlJMfbzMkRe"
     },
     "picsum": {
         "usage": true,
@@ -10,7 +10,7 @@
     },
     "tenor": {
         "usage": true,
-        "api_key": ""
+        "api_key": "Q0OZH41T2ELT"
     },
     "unsplash": {
         "usage": false,
