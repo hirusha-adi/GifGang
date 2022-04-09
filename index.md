@@ -10,6 +10,9 @@ Simply
 Detailed
 - This is a website with both SFW and NSFW GIF's and Images (Some redirecting to Videos in thier original website). This website does NOT own any media displayed. All the media are taken/requested/scraped from many services and the service name is mentioned above every image set to give credit. ( You can call this a lightweight yet modern and powerful wrapper for many websites with media. )
 
+![Screenshot_20220409_074732](https://user-images.githubusercontent.com/36286877/162552859-2efa05fc-8205-4f68-a32a-31ed1f532aad.png)
+
+
 # Installation Guide
 
 NOTE: You do not need to install this in order to use this web app. You can [cick here](http://gifgang.net) to try out the publicly hosted version. Following the steps below will lead you to hosting your own instance of this website.
