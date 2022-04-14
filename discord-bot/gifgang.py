@@ -3,7 +3,7 @@ import os
 import discord
 from discord.ext import commands
 
-from src.database.manager import main as db_main
+from bot.database.manager import main as db_main
 
 client = commands.Bot(command_prefix=db_main.prefix)
 
