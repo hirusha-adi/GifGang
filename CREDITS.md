@@ -14,10 +14,10 @@
 
 - ### Enrico Chiaromonte
   - Creator of the [original 404 page.](https://codepen.io/chiaren/pen/qBwKdX)
-- ### esme#7285
+- ### `esme#7285`
 
   - Giving me ideas for creating the new frontend
 
-- ### OLIVER#0673
+- ### `OLIVER#0673`
 
   - Giving me ideas for creating the new frontend
