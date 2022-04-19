@@ -10,6 +10,26 @@
 
     <title>{{ web_title }}</title>
 
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="GifGang">
+    <meta name="description" content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://gifgang.net/">
+    <meta property="og:title" content="GifGang">
+    <meta property="og:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="og:image" content="{{ url_for('static', filename='img/GifGangRound.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://gifgang.net/">
+    <meta property="twitter:title" content="GifGang">
+    <meta property="twitter:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/GifGangRound.png') }}">
+
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Sumana:wght@700&display=swap");
 
