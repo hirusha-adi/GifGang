@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import random
 
 
 # The file names and paths of the needed json config files and others
@@ -38,10 +39,12 @@ class FileNames:
     web_server_settings = os.path.join(_cwd, "database", "config.json")
     important_info_file = os.path.join(_cwd, "database", "important.json")
     website_info_file = os.path.join(_cwd, "database", "website.json")
+    count_file = os.path.join(_cwd, "count.txt")
 
     print(f"[+] Detected `config.json` at {web_server_settings}")
     print(f"[+] Detected `settings.json` at {important_info_file}")
     print(f"[+] Detected `website.json` at {website_info_file}")
+    print(f'Visit count file will be at {count_file}')
 
 
 # Store website data
@@ -82,10 +85,6 @@ class Important:
     tenor_usage = _tenor["usage"]
     tenor_api_key = _tenor["api_key"]
 
-    _unsplash = _data["unsplash"]
-    unsplash_usage = _unsplash["usage"]
-    unsplash_api_key = _unsplash["api_key"]
-
     _thecatapi = _data["theCatAPI"]
     thecatapi_usage = _thecatapi["usage"]
 
@@ -94,12 +93,6 @@ class Important:
 
     _nekoslife = _data["nekoslife"]
     nekoslife_usage = _nekoslife["usage"]
-
-    _imgur = _data["imgur"]
-    imgur_usage = _imgur["usage"]
-    imgur_auth_key = _imgur["auth_key"]
-    imgur_client_id = _imgur["client_id"]
-    imgur_clinet_secret = _imgur["clinet_secret"]
 
     # NSFW
     _eporner = _data["eporner"]
@@ -169,3 +162,53 @@ def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
             print(f'[{mode}]: {message}')
         if (mode and ipaddr):
             print(f'[{mode}][{ipaddr}]: {message}')
+
+
+class Process:
+
+    def index_Giphy(request, giphy_url_list: list, giphy_usage: bool = False):
+        if Important.giphy_usage:
+            if WebsiteData.index["api_usage"]["giphy"]["usage"]:
+                giphy_usage = True
+
+                # Random
+                if WebsiteData.index["api_usage"]["giphy"]["random"]:
+                    for _ in range(int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])):
+                        r = requests.get(
+                            f'{WebsiteData.index["api_usage"]["giphy"]["random_api_url"]}?api_key={Important.giphy_api_key}')
+                        if 300 > r.status_code >= 200:
+                            try:
+                                data = r.json()
+                                giphy_url_list.append(
+                                    {
+                                        "url": data["data"]["images"]["original"]["url"],
+                                        "title": data["data"]["title"]
+                                    }
+                                )
+                            except Exception as e:
+                                print(e)
+
+                    log(
+                        f'GIPHY: Random One by One: True - {int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])}',
+                        ipaddr=request.remote_addr)
+
+                # Trending
+                if WebsiteData.index["api_usage"]["giphy"]["trending"]:
+                    offset = random.randint(
+                        1, 4990 - int(WebsiteData.index["api_usage"]["giphy"]["trending_limit"]))
+                    r = requests.get(
+                        f'{WebsiteData.index["api_usage"]["giphy"]["trending_api_url"]}?api_key={Important.giphy_api_key}&limit={WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}&offset={offset}')
+                    if 300 > r.status_code >= 200:
+                        try:
+                            data = r.json()
+                            for item in data["data"]:
+                                giphy_url_list.append(
+                                    {
+                                        "url": item["images"]["original"]["url"],
+                                        "title": item["title"]
+                                    }
+                                )
+                        except Exception as e:
+                            print(e)
+
+        return offset  # for logging information
