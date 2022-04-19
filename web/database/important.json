@@ -12,10 +12,6 @@
         "usage": true,
         "api_key": "Q0OZH41T2ELT"
     },
-    "unsplash": {
-        "usage": false,
-        "api_key": ""
-    },
     "theCatAPI": {
         "usage": true
     },
@@ -24,12 +20,6 @@
     },
     "nekoslife": {
         "usage": true
-    },
-    "imgur": {
-        "usage": false,
-        "auth_key": "",
-        "client_id": "",
-        "clinet_secret": ""
     },
     "eporner": {
         "usage": true
