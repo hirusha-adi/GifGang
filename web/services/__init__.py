@@ -1,1 +1,2 @@
-import index
+from . import sfw
+from . import nsfw
