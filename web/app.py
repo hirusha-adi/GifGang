@@ -5,7 +5,8 @@ import random
 import requests
 from flask import Flask, redirect, render_template, request, url_for
 
-from utils import Config, FileNames, Important, WebsiteData, log, Process
+import services
+from utils import Config, FileNames, Important, WebsiteData, log
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -84,108 +85,30 @@ def index():
     log(f'Requested `/` - index()',
         ipaddr=request.remote_addr)
 
-    data = Process.index_Giphy(request=request)
+    data = services.index.giphy(request=request)
     giphy_url_list = data["giphy_url_list"]
     giphy_usage = data["giphy_usage"]
 
-    data = Process.index_Picsum(request=request)
+    data = services.index.picsum(request=request)
     picsum_usage = data["picsum_usage"]
     picsum_url_list = data["picsum_url_list"]
 
-    tenor_url_list = []
-    tenor_usage = False
-    if Important.tenor_usage:
-        if WebsiteData.index["api_usage"]["tenor"]["usage"]:
-            tenor_usage = True
-            r = requests.get(
-                f'{WebsiteData.index["api_usage"]["tenor"]["api_url"]}?key={Important.tenor_api_key}&limit={WebsiteData.index["api_usage"]["tenor"]["limit"]}&locale={WebsiteData.index["api_usage"]["tenor"]["locale"]}&ar_range={WebsiteData.index["api_usage"]["tenor"]["ar_range"]}&contentfilter={WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}')
-            if 300 > r.status_code >= 200:
-                data = r.json()
-                for result in data["results"]:
-                    tenor_url_list.append(
-                        {
-                            "title": str(result["content_description"]),
-                            "url": result["media"][0]["gif"]["url"]
-                        }
-                    )
-            else:
-                tenor_usage = False
-        log(
-            f'TENOR: Random Images\n\tCount: {WebsiteData.index["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.index["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.index["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}',
-            ipaddr=request.remote_addr)
+    data = services.index.tenor(request=request)
+    tenor_url_list = data["tenor_url_list"]
+    tenor_usage = data["tenor_usage"]
 
-    thecatapi_url_list = []
-    thecatapi_usage = False
-    if Important.thecatapi_usage:
-        if WebsiteData.index["api_usage"]["theCatAPI"]["usage"]:
-            thecatapi_usage = True
-            r = requests.get(
-                str(WebsiteData.index["api_usage"]["theCatAPI"]["api_url"])
-                + "?limit=" +
-                str(WebsiteData.index["api_usage"]["theCatAPI"]["limit"]) +
-                "&size=" + str(WebsiteData.index["api_usage"]["theCatAPI"]["size"]) +
-                "&mime_types=" +
-                str(WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]) +
-                "&order=" +
-                str(WebsiteData.index["api_usage"]["theCatAPI"]["order"]) +
-                "&has_breeds=" +
-                str(WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"])
-            )
-            if 300 > r.status_code >= 200:
-                data = r.json()
-                for result in data:
-                    thecatapi_url_list.append(result["url"])
-            else:
-                thecatapi_usage = False
+    data = services.index.cats(request=request)
+    thecatapi_url_list = data["thecatapi_url_list"]
+    thecatapi_usage = data["thecatapi_usage"]
 
-        log(
-            f'TheCatAPI: Random Images\n\tCount: {WebsiteData.index["api_usage"]["theCatAPI"]["limit"]}\n\tSize: {WebsiteData.index["api_usage"]["theCatAPI"]["size"]}\n\tMime Types: {WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"]}\n\tOrder: {WebsiteData.index["api_usage"]["theCatAPI"]["order"]}\n\tHas Breeds: {WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"]}',
-            ipaddr=request.remote_addr)
+    data = services.index.dogs(request=request)
+    dogceo_url_list = data["dogceo_url_list"]
+    dogceo_usage = data["dogceo_usage"]
 
-    dogceo_url_list = []
-    dogceo_usage = False
-    if Important.dogceo_usage:
-        if WebsiteData.index["api_usage"]["dogCEO"]["usage"]:
-            dogceo_usage = True
-            r = requests.get(
-                str(WebsiteData.index["api_usage"]["dogCEO"]["api_url"])
-                + "/" +
-                str(WebsiteData.index["api_usage"]["dogCEO"]["limit"])
-            )
-            if 300 > r.status_code >= 200:
-                data = r.json()
-                for result in data["message"]:
-                    dogceo_url_list.append(result)
-            else:
-                dogceo_usage = False
-
-        log(
-            f'DogCEO: Random Images\n\tCount: {WebsiteData.index["api_usage"]["dogCEO"]["limit"]}',
-            ipaddr=request.remote_addr)
-
-    nekoslife_url_list = []
-    nekoslife_usage = False
-    selected_url_list = []
-    if Important.nekoslife_usage:
-        if WebsiteData.index["api_usage"]["nekoslife"]["usage"]:
-            nekoslife_usage = True
-            _limit = int(
-                WebsiteData.index["api_usage"]["nekoslife"]["limit"]) - 1
-            while len(nekoslife_url_list) <= _limit:
-                _final_url = WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"][random.randint(
-                    0, int(len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]))-1)]
-                selected_url_list.append(_final_url)
-                r1 = requests.get(_final_url)
-                if 300 > r1.status_code >= 200:
-                    data = r1.json()
-                    try:
-                        nekoslife_url_list.append(data["url"])
-                    except KeyError:
-                        nekoslife_url_list.append(data["neko"])
-
-        log(
-            f'Nekos.Life: Random Images\n\tLimit:{WebsiteData.index["api_usage"]["nekoslife"]["limit"]}\n\tSelected URL List: {selected_url_list}',
-            ipaddr=request.remote_addr)
+    data = services.index.nekos_life(request=request)
+    nekoslife_url_list = data["nekoslife_url_list"]
+    nekoslife_usage = data["nekoslife_usage"]
+    # selected_url_list = data["selected_url_list"] # used for debugging purposes
 
     log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}',
         ipaddr=request.remote_addr)
