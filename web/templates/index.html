@@ -53,27 +53,7 @@ Pinned
 </div>
 {% endif %}
 
-{% if unsplash_usage == True %}
-<!-- From Unsplash API -->
-<h2>Unsplash</h2>
 
-<div class="homepage">
-    <div class="center-container featured">
-
-        <div id="columns">
-
-            {% for one_gif in unsplash_url_list %}
-            <figure>
-                <img src="{{ one_gif['url'] }}">
-                <figcaption>{{ one_gif['title'] }}</figcaption>
-            </figure>
-            {% endfor %}
-
-        </div>
-
-    </div>
-</div>
-{% endif %}
 
 <!-- From GIPHY API -->
 {% if giphy_usage == True %}
@@ -160,26 +140,7 @@ Pinned
 </div>
 {% endif %}
 
-{% if imgur_usage == True %}
-<!-- From Imgur API -->
-<h2>Imgur</h2>
 
-<div class="homepage">
-    <div class="center-container featured">
-
-        <div id="columns">
-
-            {% for one_image in imgur_url_list %}
-            <figure>
-                <img src="{{ one_image }}">
-            </figure>
-            {% endfor %}
-
-        </div>
-
-    </div>
-</div>
-{% endif %}
 
 <!-- Links Page -->
 {% if all_links_page == True %}

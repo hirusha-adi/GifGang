@@ -4,7 +4,6 @@ import random
 
 import requests
 from flask import Flask, redirect, render_template, request, url_for
-from imgurpython import ImgurClient
 
 from utils import Config, FileNames, Important, WebsiteData, log
 
@@ -171,45 +170,6 @@ def index():
             f'TENOR: Random Images\n\tCount: {WebsiteData.index["api_usage"]["tenor"]["limit"]}\n\tLocale: {WebsiteData.index["api_usage"]["tenor"]["locale"]}\n\tAR-Range: {WebsiteData.index["api_usage"]["tenor"]["ar_range"]}\n\tContent Filter: {WebsiteData.index["api_usage"]["tenor"]["contentfilter"]}',
             ipaddr=request.remote_addr)
 
-    unsplash_url_list = []
-    unsplash_usage = False
-    if Important.unsplash_usage:
-        if WebsiteData.index["api_usage"]["unsplash"]["usage"]:
-            unsplash_usage = True
-            final_url = WebsiteData.index["api_usage"]["unsplash"]["api_url"]
-
-            final_url += f'?client_id={Important.unsplash_api_key}'
-            final_url += f'&count={WebsiteData.index["api_usage"]["unsplash"]["limit"]}'
-
-            if isinstance(WebsiteData.index["api_usage"]["unsplash"]["username"], bool):
-                pass
-            elif isinstance(WebsiteData.index["api_usage"]["unsplash"]["username"], str):
-                if WebsiteData.index["api_usage"]["unsplash"]["username"].strip():
-                    final_url += f'&username={WebsiteData.index["api_usage"]["unsplash"]["username"]}'
-
-            if isinstance(WebsiteData.index["api_usage"]["unsplash"]["orientation"], bool):
-                pass
-            elif isinstance(WebsiteData.index["api_usage"]["unsplash"]["orientation"], str):
-                if WebsiteData.index["api_usage"]["unsplash"]["orientation"].strip():
-                    final_url += f'&orientation={WebsiteData.index["api_usage"]["unsplash"]["orientation"]}'
-
-            r = requests.get(final_url)
-            if 300 > r.status_code >= 200:
-                data = r.json()
-                for result in data["results"]:
-                    unsplash_url_list.append(
-                        {
-                            "title": "Will be updated soon",
-                            "url": "Will be u updated soon"
-                        }
-                    )
-            else:
-                unsplash_usage = False
-
-        log(
-            f'UNSPLASH: Random Images:\n\tCount: {WebsiteData.index["api_usage"]["unsplash"]["limit"]}\n\tUsername Filter: {WebsiteData.index["api_usage"]["unsplash"]["username"]}\n\tOrientation: {WebsiteData.index["api_usage"]["unsplash"]["orientation"]}',
-            ipaddr=request.remote_addr)
-
     thecatapi_url_list = []
     thecatapi_usage = False
     if Important.thecatapi_usage:
@@ -283,25 +243,7 @@ def index():
             f'Nekos.Life: Random Images\n\tLimit:{WebsiteData.index["api_usage"]["nekoslife"]["limit"]}\n\tSelected URL List: {selected_url_list}',
             ipaddr=request.remote_addr)
 
-    imgur_url_list = []
-    imgur_usage = False
-    if Important.imgur_usage:
-        if WebsiteData.index["api_usage"]["imgur"]["usage"]:
-            imgur_usage = True
-            client = ImgurClient(Important.imgur_client_id,
-                                 Important.imgur_clinet_secret)
-            try:
-                items = client.gallery()
-            except:
-                imgur_usage = False
-
-            if imgur_usage:
-                imgur_url_list = [item.link for item in items]
-
-        log(f'Imgur: Random Images\n\tCount: {len(imgur_url_list)}',
-            ipaddr=request.remote_addr)
-
-    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tunsplash_usage={unsplash_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}\n\timgur_usage={imgur_usage}',
+    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}',
         ipaddr=request.remote_addr)
 
     return render_template(
@@ -311,13 +253,8 @@ def index():
         giphy_url_list=giphy_url_list,
         picsum_usage=picsum_usage,
         picsum_url_list=picsum_url_list,
-        imgur_usage=imgur_usage,
-        imgur_url_list=imgur_url_list[:int(
-            WebsiteData.index["api_usage"]["imgur"]["limit"])],
         tenor_usage=tenor_usage,
         tenor_url_list=tenor_url_list,
-        unsplash_usage=unsplash_usage,
-        unsplash_url_list=unsplash_url_list,
         thecatapi_usage=thecatapi_usage,
         thecatapi_url_list=thecatapi_url_list,
         dogceo_usage=dogceo_usage,
@@ -1107,7 +1044,11 @@ def runWebServer():
         f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
     app.run(Config.host,
             port=Config.port,
-            debug=Config.debug)
+            debug=Config.debug,
+            # ssl_context='adhoc',
+            )
+
+# 9Ejzy2q5gKSBCxPA
 
 
 if __name__ == "__main__":
