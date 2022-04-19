@@ -5,7 +5,7 @@ import random
 import requests
 from flask import Flask, redirect, render_template, request, url_for
 
-from utils import Config, FileNames, Important, WebsiteData, log
+from utils import Config, FileNames, Important, WebsiteData, log, Process
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -14,24 +14,22 @@ logger.setLevel(logging.ERROR)
 log("Disabled the default `werkzeug` logging")
 
 COUNT = None
-COUNT_FILE = os.path.join(os.getcwd(), "count.txt")
-log(f'Visit count file will be at {COUNT_FILE}')
 
 
 def count_total_visits_amount():
-    global COUNT, COUNT_FILE
+    global COUNT
 
-    if not(os.path.isfile(COUNT_FILE)):
+    if not(os.path.isfile(FileNames.count_file)):
         log(f'Visit count file does not exist')
-        with open(COUNT_FILE, "w", encoding="utf-8") as f_make_no_exist:
+        with open(FileNames.count_file, "w", encoding="utf-8") as f_make_no_exist:
             if COUNT is None:
                 f_make_no_exist.write("1")
-                log(f'Created {COUNT_FILE} and wrote "1"')
+                log(f'Created {FileNames.count_file} and wrote "1"')
             else:
                 f_make_no_exist.write(int(COUNT))
-                log(f'Created {COUNT_FILE} and wrote "{COUNT}" as continuable ')
+                log(f'Created {FileNames.count_file} and wrote "{COUNT}" as continuable ')
 
-    with open(COUNT_FILE, "r", encoding="utf-8") as f_read:
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
         current_count = f_read.read()
         log(f'Current view count is {current_count}')
 
@@ -43,7 +41,7 @@ def count_total_visits_amount():
 
     log(f'Analyzed view count is {current_count}')
 
-    with open(COUNT_FILE, "w", encoding="utf-8") as f_write:
+    with open(FileNames.count_file, "w", encoding="utf-8") as f_write:
         new_count = COUNT + 1
         f_write.write(str(new_count))
         log(f'New view count is {new_count}')
@@ -88,53 +86,14 @@ def index():
 
     giphy_url_list = []
     giphy_usage = False
-    if Important.giphy_usage:
-        if WebsiteData.index["api_usage"]["giphy"]["usage"]:
-            giphy_usage = True
-
-            # Random
-            if WebsiteData.index["api_usage"]["giphy"]["random"]:
-                for _ in range(int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])):
-                    r = requests.get(
-                        f'{WebsiteData.index["api_usage"]["giphy"]["random_api_url"]}?api_key={Important.giphy_api_key}')
-                    if 300 > r.status_code >= 200:
-                        try:
-                            data = r.json()
-                            giphy_url_list.append(
-                                {
-                                    "url": data["data"]["images"]["original"]["url"],
-                                    "title": data["data"]["title"]
-                                }
-                            )
-                        except Exception as e:
-                            print(e)
-
-                log(
-                    f'GIPHY: Random One by One: True - {int(WebsiteData.index["api_usage"]["giphy"]["random_limit"])}',
-                    ipaddr=request.remote_addr)
-
-            # Trending
-            if WebsiteData.index["api_usage"]["giphy"]["trending"]:
-                offset = random.randint(
-                    1, 4990 - int(WebsiteData.index["api_usage"]["giphy"]["trending_limit"]))
-                r = requests.get(
-                    f'{WebsiteData.index["api_usage"]["giphy"]["trending_api_url"]}?api_key={Important.giphy_api_key}&limit={WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}&offset={offset}')
-                if 300 > r.status_code >= 200:
-                    try:
-                        data = r.json()
-                        for item in data["data"]:
-                            giphy_url_list.append(
-                                {
-                                    "url": item["images"]["original"]["url"],
-                                    "title": item["title"]
-                                }
-                            )
-                    except Exception as e:
-                        print(e)
-
-                log(
-                    f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}\n\tActual Length: {len(giphy_url_list)}',
-                    ipaddr=request.remote_addr)
+    offset = Process.index_Giphy(
+        request=request,
+        giphy_url_list=giphy_url_list,
+        giphy_usage=giphy_usage
+    )
+    log(
+        f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}\n\tActual Length: {len(giphy_url_list)}',
+        ipaddr=request.remote_addr)
 
     picsum_url_list = []
     picsum_usage = False
@@ -1045,10 +1004,7 @@ def runWebServer():
     app.run(Config.host,
             port=Config.port,
             debug=Config.debug,
-            # ssl_context='adhoc',
             )
-
-# 9Ejzy2q5gKSBCxPA
 
 
 if __name__ == "__main__":
