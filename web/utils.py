@@ -166,7 +166,9 @@ def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
 
 class Process:
 
-    def index_Giphy(request, giphy_url_list: list, giphy_usage: bool = False):
+    def index_Giphy(request):
+        giphy_url_list = []
+        giphy_usage = False
         if Important.giphy_usage:
             if WebsiteData.index["api_usage"]["giphy"]["usage"]:
                 giphy_usage = True
@@ -211,4 +213,31 @@ class Process:
                         except Exception as e:
                             print(e)
 
-        return offset  # for logging information
+        log(
+            f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}\n\tActual Length: {len(giphy_url_list)}',
+            ipaddr=request.remote_addr)
+
+        return {
+            "giphy_url_list": giphy_url_list,
+            "giphy_usage": giphy_usage,
+            "offset": offset
+        }
+
+    def index_Picsum(request):
+        picsum_url_list = []
+        picsum_usage = False
+        if Important.picsum_usage:
+            if WebsiteData.index["api_usage"]["picsum"]["usage"]:
+                picsum_usage = True
+                for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
+                    picsum_url_list.append(
+                        str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
+
+        log(
+            f'PICSUM: Random Images\n\tCount: {int(WebsiteData.index["api_usage"]["picsum"]["limit"])}',
+            ipaddr=request.remote_addr)
+
+        return {
+            "picsum_url_list": picsum_url_list,
+            "picsum_usage": picsum_usage
+        }

@@ -84,28 +84,13 @@ def index():
     log(f'Requested `/` - index()',
         ipaddr=request.remote_addr)
 
-    giphy_url_list = []
-    giphy_usage = False
-    offset = Process.index_Giphy(
-        request=request,
-        giphy_url_list=giphy_url_list,
-        giphy_usage=giphy_usage
-    )
-    log(
-        f'GIPHY: Trending List: True\n\tOffset: {offset}\n\tCount: {WebsiteData.index["api_usage"]["giphy"]["trending_limit"]}\n\tActual Length: {len(giphy_url_list)}',
-        ipaddr=request.remote_addr)
+    data = Process.index_Giphy(request=request)
+    giphy_url_list = data["giphy_url_list"]
+    giphy_usage = data["giphy_usage"]
 
-    picsum_url_list = []
-    picsum_usage = False
-    if Important.picsum_usage:
-        if WebsiteData.index["api_usage"]["picsum"]["usage"]:
-            picsum_usage = True
-            for number in range(int(WebsiteData.index["api_usage"]["picsum"]["limit"])):
-                picsum_url_list.append(
-                    str(WebsiteData.index["api_usage"]["picsum"]["api_url"]) + str(number))
-        log(
-            f'PICSUM: Random Images\n\tCount: {int(WebsiteData.index["api_usage"]["picsum"]["limit"])}',
-            ipaddr=request.remote_addr)
+    data = Process.index_Picsum(request=request)
+    picsum_usage = data["picsum_usage"]
+    picsum_url_list = data["picsum_url_list"]
 
     tenor_url_list = []
     tenor_usage = False
