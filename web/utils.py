@@ -2,9 +2,11 @@ import json
 import os
 import requests
 import random
-
+from datetime import datetime
 
 # The file names and paths of the needed json config files and others
+
+
 class FileNames:
     _cwd = os.getcwd()
 
@@ -40,10 +42,13 @@ class FileNames:
     important_info_file = os.path.join(_cwd, "database", "important.json")
     website_info_file = os.path.join(_cwd, "database", "website.json")
     count_file = os.path.join(_cwd, "count.txt")
+    log_folder = os.path.join(_cwd, "logs")
+    _log_file = os.path.join(log_folder, str(datetime.now())[:-7] + ".log")
 
     print(f"[+] Detected `config.json` at {web_server_settings}")
     print(f"[+] Detected `settings.json` at {important_info_file}")
     print(f"[+] Detected `website.json` at {website_info_file}")
+    print(f"[+] Detected Logs at {log_folder}")
     print(f'Visit count file will be at {count_file}')
 
 
@@ -162,3 +167,14 @@ def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
             print(f'[{mode}]: {message}')
         if (mode and ipaddr):
             print(f'[{mode}][{ipaddr}]: {message}')
+
+
+def logf(request, page: str):
+    if not(os.path.exists(FileNames._log_file)):
+        with open(FileNames._log_file, "w", encoding="utf-8") as filem:
+            filem.write(
+                f"[{datetime.now()}] - 'Created the log file!' ")
+
+    with open(FileNames._log_file, "a+", encoding="utf-8") as file:
+        file.write(
+            f'\n[{datetime.now()}] ({request.remote_addr}) - /{page} - \"{request.user_agent}\"')
