@@ -6,7 +6,7 @@ I am not responsible for any bad that happens with this website and i dont promo
 
 1. What data do we collect?
 
-   - We do NOT collect any data except the amount of times the website had been visited (the total amount of requests sent to the website). And the total amount of requests sent to the website will be used for advertising and promotion of this website ONLY where the amount will be displayed with no other data
+   - We do NOT collect any data except the amount of times the website had been visited (the total amount of requests sent to the website), IP Address the request has been made from and the user agent. And the total amount of requests sent to the website will be used for advertising and promotion of this website ONLY where the amount will be displayed with no other data
 
 2. How good is the age verification system?
 
