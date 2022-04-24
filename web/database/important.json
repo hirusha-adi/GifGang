@@ -5,29 +5,29 @@
         "api_key": "RdVt37DOfYSBpyBHMWDZaPlJMfbzMkRe"
     },
     "picsum": {
-        "usage": false,
+        "usage": true,
         "api_url_base": "https://picsum.photos/"
     },
     "tenor": {
-        "usage": false,
+        "usage": true,
         "api_key": "Q0OZH41T2ELT"
     },
     "theCatAPI": {
-        "usage": false
+        "usage": true
     },
     "dogCEO": {
-        "usage": false
+        "usage": true
     },
     "nekoslife": {
-        "usage": false
+        "usage": true
     },
     "eporner": {
-        "usage": false
+        "usage": true
     },
     "redtube": {
-        "usage": false
+        "usage": true
     },
     "localserverml": {
-        "usage": false
+        "usage": true
     }
 }
