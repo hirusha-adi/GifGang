@@ -6,7 +6,7 @@ import requests
 from flask import Flask, redirect, render_template, request, url_for
 
 import services
-from utils import Config, FileNames, Important, WebsiteData, log
+from utils import Config, FileNames, Important, WebsiteData, log, logf
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -52,6 +52,8 @@ def count_total_visits_amount():
 def about():
     count_total_visits_amount()
 
+    logf(request=request, page="about")
+
     log(f'Requested `/about` - about()',
         ipaddr=request.remote_addr)
     log('Returning `about.html`',
@@ -66,6 +68,9 @@ def about():
 @app.route("/links")
 def all_links():
     count_total_visits_amount()
+
+    logf(request=request, page="links")
+
     log(f'Requested `/links` - all_links()',
         ipaddr=request.remote_addr)
     log('Returning `index.html`\n\tall_links_page = True',
@@ -81,6 +86,8 @@ def all_links():
 def index():
 
     count_total_visits_amount()
+
+    logf(request=request, page="")
 
     log(f'Requested `/` - index()',
         ipaddr=request.remote_addr)
@@ -135,6 +142,8 @@ def index():
 def pins():
     count_total_visits_amount()
 
+    logf(request=request, page="pins")
+
     log(f'{request.remote_addr} requested `/pins` - pins()',
         ipaddr=request.remote_addr)
     log(
@@ -151,6 +160,8 @@ def pins():
 @app.route("/search_post", methods=['POST', 'GET'])
 def search_post():
     count_total_visits_amount()
+
+    logf(request=request, page="search_post")
 
     log(f'Request `/search_post` - search_post()',
         ipaddr=request.remote_addr)
@@ -199,6 +210,8 @@ def search_post():
 def restricted():
     count_total_visits_amount()
 
+    logf(request=request, page="restricted")
+
     log(f'Request `/restricted` - restricted()',
         ipaddr=request.remote_addr)
     log(
@@ -219,6 +232,8 @@ def restricted():
 def search_no_query():
     count_total_visits_amount()
 
+    logf(request=request, page="search")
+
     log(f'Request `/search` - search_no_query()',
         ipaddr=request.remote_addr)
     log(f'Returning the url for `index` - index()\n\tbecause `/search` route was requested without a query',
@@ -230,6 +245,8 @@ def search_no_query():
 @app.route("/search/<query>")
 def search(query):
     count_total_visits_amount()
+
+    logf(request=request, page=f"search/{query}")
 
     log(f'Request `/search/<query>` - search(query)',
         ipaddr=request.remote_addr)
@@ -249,11 +266,11 @@ def search(query):
     nekoslife_usage = data["nekoslife_usage"]
 
     # GIPHY and TENOR will be used to search, no matter what the query is entered if enabled by json
-    data = services.search.gihpy(request=request, query=query)
+    data = services.sfw.search.gihpy(request=request, query=query)
     giphy_url_list = data["giphy_url_list"]
     giphy_usage = data["giphy_usage"]
 
-    data = services.search.tenor(request=request, query=query)
+    data = services.sfw.search.tenor(request=request, query=query)
     tenor_url_list = data["tenor_url_list"]
     tenor_usage = data["tenor_usage"]
 
@@ -278,6 +295,8 @@ def search(query):
 
 @app.route("/adult")
 def adult_index():
+
+    logf(request=request, page="adult")
 
     count_total_visits_amount()
 
@@ -309,6 +328,8 @@ def adult_index():
 def adult_pins():
     count_total_visits_amount()
 
+    logf(request=request, page="adult/pins")
+
     log(f'Request `/adult/pins` - adult_pins()',
         ipaddr=request.remote_addr)
     log(
@@ -325,6 +346,8 @@ def adult_pins():
 @app.route("/adult/categories")
 def adult_categories():
     count_total_visits_amount()
+
+    logf(request=request, page="adult/categories")
 
     log(f'Request `/adult/categories` - adult_categories()',
         ipaddr=request.remote_addr)
@@ -343,6 +366,8 @@ def adult_categories():
 @app.route("/adult/stars/")
 def adult_stars_no_page():
     count_total_visits_amount()
+
+    logf(request=request, page="adult/stars")
 
     log(f'Request `/adult/stars` - adult_stars_no_page()',
         ipaddr=request.remote_addr)
@@ -364,6 +389,8 @@ def adult_stars(page):
         page = 1
         log(f'`<page>` was set 1 because no value has been passed',
             ipaddr=request.remote_addr)
+
+    logf(request=request, page=f"adult/stars/{page}")
 
     data = services.nsfw.stars.getAll(request=request, page=page)
     stars_list = data["stars_list"]
@@ -414,6 +441,8 @@ def adult_stars(page):
 def adult_search_post():
     count_total_visits_amount()
 
+    logf(request=request, page="adult/search_post")
+
     log(f'Request `/adult/search_post` - adult_search_post()',
         ipaddr=request.remote_addr)
 
@@ -461,6 +490,8 @@ def adult_search_post():
 def adult_search(query):
     count_total_visits_amount()
 
+    logf(request=request, page=f"adult/search/{query}")
+
     log(f'Request `/adult/search/<query>` - adult_search()',
         ipaddr=request.remote_addr)
 
@@ -493,6 +524,8 @@ def adult_search(query):
 
 @app.route("/adult/hentai")
 def adult_hentai():
+
+    logf(request=request, page=f"adult/hentai")
 
     log(f'Request `/adult/hentai` - adult_hentai()',
         ipaddr=request.remote_addr)
