@@ -3,16 +3,19 @@ import os
 import random
 
 import requests
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, url_for, session
 
 import services
-from utils import Config, FileNames, Important, WebsiteData, log, logf
+from utils import Config, FileNames, Important, WebsiteData, log, logf, Login
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
 logger = logging.getLogger('werkzeug')
 logger.setLevel(logging.ERROR)
 log("Disabled the default `werkzeug` logging")
+
+app.secret_key = "VerySecret12345"
+
 
 COUNT = None
 
@@ -570,12 +573,56 @@ def public_stats():
 
 @app.route("/admin/login")
 def admin_login_page():
-    logf(request=request, page=f"stats")
+    logf(request=request, page=f"admin/login")
 
-    log(f'Request `/stats` - public_stats()',
+    log(f'Request `/admin/login` - admin_login_page()',
+        ipaddr=request.remote_addr)
+    try:
+        if session["token"] == Login.Admin.token:
+            return redirect(url_for('admin_panel_page'))
+    except KeyError:
+        session["token"] = ""
+
+    return render_template(
+        "admin_login.html"
+    )
+
+
+@app.route("/admin/login/verify", methods=['POST'])
+def admin_login_page_verify():
+    logf(request=request, page=f"admin/login/verify")
+
+    log(f'Request `/admin/login/verify` - admin_login_page_verify()',
         ipaddr=request.remote_addr)
 
-    return render_template("admin_login.html")
+    try:
+        username = request.form.get("uname")
+        password = request.form.get("pass")
+    except:
+        return redirect(url_for('admin_login_page'))
+
+    if (username == Login.Admin.username) and (password == Login.Admin.password):
+        session["token"] = Login.Admin.token
+        return redirect(url_for("admin_panel_page"))
+
+
+@app.route("/admin/stats")
+def admin_panel_page():
+    if session["token"] == Login.Admin.token:
+        return "Admin Dashboard"
+    else:
+
+        print("="*25, "\n")
+        print(session['token'])
+        print(Login.Admin.token)
+        print("No Match")
+        return redirect(url_for("admin_login_page"))
+
+
+@app.route("/admin/logout")
+def admin_logout():
+    session["token"] = ""
+    return redirect(url_for('admin_login_page'))
 
 
 @app.errorhandler(404)
