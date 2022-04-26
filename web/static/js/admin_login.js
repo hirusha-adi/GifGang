@@ -24,3 +24,10 @@ $("#forgotten").click(function () {
     $("#forgotten-container").fadeIn();
   });
 });
+
+// Submit user form
+$(document).ready(function () {
+  $("#LoginButton").click(function () {
+    $("#adminLoginForm").submit();
+  });
+});
