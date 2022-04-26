@@ -1,6 +1,8 @@
 import logging
 import os
 import random
+import time
+from threading import Thread
 
 import requests
 from flask import Flask, redirect, render_template, request, url_for, session
@@ -18,10 +20,19 @@ app.secret_key = "VerySecret12345"
 
 
 COUNT = None
+COUNT_TODAY = None
+
+
+def reload_daily_count():
+    global COUNT_TODAY
+
+    while True:
+        COUNT_TODAY = 0
+        time.sleep(86400)
 
 
 def count_total_visits_amount():
-    global COUNT
+    global COUNT, COUNT_TODAY
 
     if not(os.path.isfile(FileNames.count_file)):
         log(f'Visit count file does not exist')
@@ -33,9 +44,23 @@ def count_total_visits_amount():
                 f_make_no_exist.write(int(COUNT))
                 log(f'Created {FileNames.count_file} and wrote "{COUNT}" as continuable ')
 
+    if not(os.path.isfile(FileNames.count_file_today)):
+        log(f'Visit count-today file does not exist')
+        with open(FileNames.count_file_today, "w", encoding="utf-8") as f_make_no_exist_tdy:
+            if COUNT is None:
+                f_make_no_exist_tdy.write("1")
+                log(f'Created {FileNames.count_file_today} and wrote "1"')
+            else:
+                f_make_no_exist_tdy.write(int(COUNT))
+                log(f'Created {FileNames.count_file_today} and wrote "{COUNT_TODAY}" as continuable ')
+
     with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
         current_count = f_read.read()
         log(f'Current view count is {current_count}')
+
+    with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
+        current_count_daily = fd_read.read()
+        log(f'Current view count-today is {current_count_daily}')
 
     try:
         current_count = int(current_count)
@@ -43,12 +68,32 @@ def count_total_visits_amount():
     except ValueError:
         current_count = COUNT
 
+    try:
+        current_count_daily = int(current_count_daily)
+        COUNT_TODAY = current_count_daily
+    except ValueError:
+        current_count_daily = COUNT_TODAY
+
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+        log(f'Current view count is {current_count}')
+
+    with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
+        current_count_daily = fd_read.read()
+        log(f'Current view count-daily is {current_count}')
+
     log(f'Analyzed view count is {current_count}')
+    log(f'Analyzed view count-daily is {current_count_daily}')
 
     with open(FileNames.count_file, "w", encoding="utf-8") as f_write:
         new_count = COUNT + 1
         f_write.write(str(new_count))
         log(f'New view count is {new_count}')
+
+    with open(FileNames.count_file_today, "w", encoding="utf-8") as fd_write:
+        new_count_daily = COUNT_TODAY + 1
+        fd_write.write(str(new_count_daily))
+        log(f'New view count is {new_count_daily}')
 
 
 @app.route("/about")
@@ -606,12 +651,17 @@ def admin_login_page_verify():
         return redirect(url_for("admin_panel_page"))
 
 
-@app.route("/admin/stats")
+@app.route("/admin/panel")
 def admin_panel_page():
     if session["token"] == Login.Admin.token:
+
+        global COUNT
+
         return render_template(
-            "admin_panel.html"
+            "admin_panel.html",
+            total_requests_all_time=COUNT
         )
+
     else:
 
         print("="*25, "\n")
@@ -634,6 +684,9 @@ def page_not_found(e):
 
 
 def runWebServer():
+    reset_count_24h = Thread(target=reload_daily_count)
+    reset_count_24h.start()
+
     print(
         f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
     app.run(Config.host,
