@@ -609,6 +609,7 @@ def adult_hentai():
 
 @app.route("/stats")
 def public_stats():
+    count_total_visits_amount()
 
     global COUNT
 
@@ -622,6 +623,8 @@ def public_stats():
 
 @app.route("/admin/login")
 def admin_login_page():
+    count_total_visits_amount()
+
     logf(request=request, page=f"admin/login")
 
     log(f'Request `/admin/login` - admin_login_page()',
@@ -639,6 +642,8 @@ def admin_login_page():
 
 @app.route("/admin/login/verify", methods=['POST'])
 def admin_login_page_verify():
+    count_total_visits_amount()
+
     logf(request=request, page=f"admin/login/verify")
 
     log(f'Request `/admin/login/verify` - admin_login_page_verify()',
@@ -657,14 +662,25 @@ def admin_login_page_verify():
 
 @app.route("/admin/panel")
 def admin_panel_page():
+    count_total_visits_amount()
+
     if session["token"] == Login.Admin.token:
 
         global COUNT, COUNT_TODAY
+
+        #   6  *  x
+        # ---- * ----
+        # 1200 * 100
+
+        # x = (6/1200)*100
+
+        percentage_of_today_from_total = round(((COUNT_TODAY/COUNT)*100), 2)
 
         return render_template(
             "admin_panel.html",
             total_requests_all_time=COUNT,
             total_requests_last_24h=COUNT_TODAY,
+            percentage_of_today_from_total=percentage_of_today_from_total,
         )
 
     else:
@@ -678,6 +694,8 @@ def admin_panel_page():
 
 @app.route("/admin/logout")
 def admin_logout():
+    count_total_visits_amount()
+
     session["token"] = ""
     return redirect(url_for('admin_login_page'))
 
