@@ -41,6 +41,8 @@ class FileNames:
     web_server_settings = os.path.join(_cwd, "database", "config.json")
     important_info_file = os.path.join(_cwd, "database", "important.json")
     website_info_file = os.path.join(_cwd, "database", "website.json")
+    admin_login_file = os.path.join(
+        _cwd, "database", "login", "admin.json")
     count_file = os.path.join(_cwd, "count.txt")
     log_folder = os.path.join(_cwd, "logs")
     _log_file = os.path.join(log_folder, str(datetime.now())[:-7] + ".log")
@@ -48,8 +50,19 @@ class FileNames:
     print(f"[+] Detected `config.json` at {web_server_settings}")
     print(f"[+] Detected `settings.json` at {important_info_file}")
     print(f"[+] Detected `website.json` at {website_info_file}")
+    print(f"[+] Detected `login/admin.json` at {admin_login_file}")
     print(f"[+] Detected Logs at {log_folder}")
     print(f'Visit count file will be at {count_file}')
+
+
+class Login:
+    class Admin:
+        with open(FileNames.admin_login_file, "r", encoding="utf-8") as _admin_file:
+            _admin_data = json.load(_admin_file)
+
+        username = _admin_data["username"]
+        password = _admin_data["password"]
+        token = _admin_data["token"]
 
 
 # Store website data
