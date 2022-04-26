@@ -43,7 +43,7 @@ def count_total_visits_amount():
                 f_make_no_exist.write("1")
                 log(f'Created {FileNames.count_file} and wrote "1"')
             else:
-                f_make_no_exist.write(int(COUNT))
+                f_make_no_exist.write(str(int(COUNT)))
                 log(f'Created {FileNames.count_file} and wrote "{COUNT}" as continuable ')
 
     with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
@@ -75,7 +75,7 @@ def count_total_visits_amount():
                 f_make_no_exist_tdy.write("1")
                 log(f'Created {FileNames.count_file_today} and wrote "1"')
             else:
-                f_make_no_exist_tdy.write(int(COUNT_TODAY))
+                f_make_no_exist_tdy.write(str(int(COUNT_TODAY)))
                 log(f'Created {FileNames.count_file_today} and wrote "{COUNT_TODAY}" as continuable ')
 
     with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
