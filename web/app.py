@@ -555,6 +555,29 @@ def adult_hentai():
     )
 
 
+@app.route("/stats")
+def public_stats():
+
+    global COUNT
+
+    logf(request=request, page=f"stats")
+
+    log(f'Request `/stats` - public_stats()',
+        ipaddr=request.remote_addr)
+
+    return render_template("stats.html", request_count=COUNT)
+
+
+@app.route("/admin/login")
+def admin_login_page():
+    logf(request=request, page=f"stats")
+
+    log(f'Request `/stats` - public_stats()',
+        ipaddr=request.remote_addr)
+
+    return render_template("admin_login.html")
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     count_total_visits_amount()
