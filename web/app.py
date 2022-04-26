@@ -71,11 +71,11 @@ def count_total_visits_amount():
     if not(os.path.isfile(FileNames.count_file_today)):
         log(f'Visit count-today file does not exist')
         with open(FileNames.count_file_today, "w", encoding="utf-8") as f_make_no_exist_tdy:
-            if COUNT is None:
+            if COUNT_TODAY is None:
                 f_make_no_exist_tdy.write("1")
                 log(f'Created {FileNames.count_file_today} and wrote "1"')
             else:
-                f_make_no_exist_tdy.write(int(COUNT))
+                f_make_no_exist_tdy.write(int(COUNT_TODAY))
                 log(f'Created {FileNames.count_file_today} and wrote "{COUNT_TODAY}" as continuable ')
 
     with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
