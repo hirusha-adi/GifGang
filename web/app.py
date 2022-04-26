@@ -609,7 +609,9 @@ def admin_login_page_verify():
 @app.route("/admin/stats")
 def admin_panel_page():
     if session["token"] == Login.Admin.token:
-        return "Admin Dashboard"
+        return render_template(
+            "admin_panel.html"
+        )
     else:
 
         print("="*25, "\n")
