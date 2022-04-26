@@ -44,6 +44,7 @@ class FileNames:
     admin_login_file = os.path.join(
         _cwd, "database", "login", "admin.json")
     count_file = os.path.join(_cwd, "count.txt")
+    count_file_today = os.path.join(_cwd, "count-today.txt")
     log_folder = os.path.join(_cwd, "logs")
     _log_file = os.path.join(log_folder, str(datetime.now())[:-7] + ".log")
 
@@ -53,6 +54,7 @@ class FileNames:
     print(f"[+] Detected `login/admin.json` at {admin_login_file}")
     print(f"[+] Detected Logs at {log_folder}")
     print(f'Visit count file will be at {count_file}')
+    print(f'Visit count file per day will be at {count_file_today}')
 
 
 class Login:
