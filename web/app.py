@@ -26,6 +26,7 @@ COUNT_TODAY = None
 def reload_daily_count():
     global COUNT_TODAY
 
+    # Reset every 24 hours
     while True:
         COUNT_TODAY = 0
         time.sleep(86400)
@@ -34,6 +35,7 @@ def reload_daily_count():
 def count_total_visits_amount():
     global COUNT, COUNT_TODAY
 
+    # Main
     if not(os.path.isfile(FileNames.count_file)):
         log(f'Visit count file does not exist')
         with open(FileNames.count_file, "w", encoding="utf-8") as f_make_no_exist:
@@ -44,6 +46,28 @@ def count_total_visits_amount():
                 f_make_no_exist.write(int(COUNT))
                 log(f'Created {FileNames.count_file} and wrote "{COUNT}" as continuable ')
 
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+        log(f'Current view count is {current_count}')
+
+    try:
+        current_count = int(current_count)
+        COUNT = current_count
+    except ValueError:
+        current_count = COUNT
+
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+        log(f'Current view count is {current_count}')
+
+    log(f'Analyzed view count is {current_count}')
+
+    with open(FileNames.count_file, "w", encoding="utf-8") as f_write:
+        new_count = COUNT + 1
+        f_write.write(str(new_count))
+        log(f'New view count is {new_count}')
+
+    # Daily
     if not(os.path.isfile(FileNames.count_file_today)):
         log(f'Visit count-today file does not exist')
         with open(FileNames.count_file_today, "w", encoding="utf-8") as f_make_no_exist_tdy:
@@ -54,19 +78,9 @@ def count_total_visits_amount():
                 f_make_no_exist_tdy.write(int(COUNT))
                 log(f'Created {FileNames.count_file_today} and wrote "{COUNT_TODAY}" as continuable ')
 
-    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
-        current_count = f_read.read()
-        log(f'Current view count is {current_count}')
-
     with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
         current_count_daily = fd_read.read()
         log(f'Current view count-today is {current_count_daily}')
-
-    try:
-        current_count = int(current_count)
-        COUNT = current_count
-    except ValueError:
-        current_count = COUNT
 
     try:
         current_count_daily = int(current_count_daily)
@@ -74,26 +88,16 @@ def count_total_visits_amount():
     except ValueError:
         current_count_daily = COUNT_TODAY
 
-    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
-        current_count = f_read.read()
-        log(f'Current view count is {current_count}')
-
     with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
         current_count_daily = fd_read.read()
         log(f'Current view count-daily is {current_count}')
 
-    log(f'Analyzed view count is {current_count}')
     log(f'Analyzed view count-daily is {current_count_daily}')
-
-    with open(FileNames.count_file, "w", encoding="utf-8") as f_write:
-        new_count = COUNT + 1
-        f_write.write(str(new_count))
-        log(f'New view count is {new_count}')
 
     with open(FileNames.count_file_today, "w", encoding="utf-8") as fd_write:
         new_count_daily = COUNT_TODAY + 1
         fd_write.write(str(new_count_daily))
-        log(f'New view count is {new_count_daily}')
+        log(f'New view count-daily is {new_count_daily}')
 
 
 @app.route("/about")
@@ -655,11 +659,12 @@ def admin_login_page_verify():
 def admin_panel_page():
     if session["token"] == Login.Admin.token:
 
-        global COUNT
+        global COUNT, COUNT_TODAY
 
         return render_template(
             "admin_panel.html",
-            total_requests_all_time=COUNT
+            total_requests_all_time=COUNT,
+            total_requests_last_24h=COUNT_TODAY,
         )
 
     else:
