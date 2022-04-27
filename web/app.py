@@ -621,6 +621,18 @@ def public_stats():
     return render_template("stats.html", request_count=COUNT)
 
 
+@app.route("/admin")
+def adult_route_main():
+    count_total_visits_amount()
+
+    logf(request=request, page=f"admin")
+
+    log(f'Request `/admin` - adult_route_main()',
+        ipaddr=request.remote_addr)
+
+    return redirect(url_for('admin_login_page'))
+
+
 @app.route("/admin/login")
 def admin_login_page():
     count_total_visits_amount()
@@ -668,19 +680,24 @@ def admin_panel_page():
 
         global COUNT, COUNT_TODAY
 
-        #   6  *  x
-        # ---- * ----
-        # 1200 * 100
-
-        # x = (6/1200)*100
-
         percentage_of_today_from_total = round(((COUNT_TODAY/COUNT)*100), 2)
+
+        final_log_file_name = os.listdir(
+            os.path.join(os.getcwd(), "logs"))[-1]
+        final_log_file = os.path.join(
+            os.getcwd(),
+            "logs",
+            final_log_file_name
+        )
+
+        print(final_log_file_name)
 
         return render_template(
             "admin_panel.html",
             total_requests_all_time=COUNT,
             total_requests_last_24h=COUNT_TODAY,
             percentage_of_today_from_total=percentage_of_today_from_total,
+            final_log_file_name=final_log_file_name
         )
 
     else:
