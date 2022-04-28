@@ -5,7 +5,7 @@ import time
 from threading import Thread
 
 import requests
-from flask import Flask, redirect, render_template, request, url_for, session
+from flask import Flask, redirect, render_template, request, send_file, url_for, session
 
 import services
 from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings
@@ -684,6 +684,17 @@ def admin_login_page_verify():
         return redirect(url_for("admin_panel_page"))
 
 
+@app.route("/admin/download/log/latest")
+def admin_download_log_file():
+    count_total_visits_amount()
+
+    if session["token"] == Settings.Admin.token:
+        return send_file(FileNames._log_file)
+
+    else:
+        return redirect(url_for("admin_login_page"))
+
+
 @app.route("/admin/panel")
 def admin_panel_page():
     count_total_visits_amount()
@@ -709,7 +720,7 @@ def admin_panel_page():
             )
 
             with open(final_log_file, "r", encoding="utf-8") as log_file_content:
-                log_file_lines = log_file_content.readlines()
+                log_file_lines = log_file_content.readlines()[-5:]
 
             log_file_lines_last_5 = log_file_lines[::-1]
 
@@ -727,6 +738,7 @@ def admin_panel_page():
             log_file_lines_last_5=log_file_lines_last_5,
             percentage_target_today=percentage_target_today,
             percentage_target_all=percentage_target_all,
+            admin_profile_picture=Settings.Admin.profile_pic,
         )
 
     else:
@@ -735,7 +747,12 @@ def admin_panel_page():
 
 @app.route("/admin/settings")
 def admin_settings():
-    return "Admin Settings Manager"
+
+    if session["token"] == Settings.Admin.token:
+        return "Coming Soon"
+
+    else:
+        return redirect(url_for("admin_login_page"))
 
 
 @app.route("/logout")
