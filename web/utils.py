@@ -41,8 +41,8 @@ class FileNames:
     web_server_settings = os.path.join(_cwd, "database", "config.json")
     important_info_file = os.path.join(_cwd, "database", "important.json")
     website_info_file = os.path.join(_cwd, "database", "website.json")
-    admin_login_file = os.path.join(
-        _cwd, "database", "login", "admin.json")
+    admin_settings_file = os.path.join(
+        _cwd, "database", "admin", "settings.json")
     count_file = os.path.join(_cwd, "count.txt")
     count_file_today = os.path.join(_cwd, "count-today.txt")
     log_folder = os.path.join(_cwd, "logs")
@@ -51,23 +51,32 @@ class FileNames:
     print(f"[+] Detected `config.json` at {web_server_settings}")
     print(f"[+] Detected `settings.json` at {important_info_file}")
     print(f"[+] Detected `website.json` at {website_info_file}")
-    print(f"[+] Detected `login/admin.json` at {admin_login_file}")
+    print(f"[+] Detected `login/admin.json` at {admin_settings_file}")
     print(f"[+] Detected Logs at {log_folder}")
     print(f'Visit count file will be at {count_file}')
     print(f'Visit count file per day will be at {count_file_today}')
 
 
-class Login:
+class Settings:
     class Admin:
-        with open(FileNames.admin_login_file, "r", encoding="utf-8") as _admin_file:
+        with open(FileNames.admin_settings_file, "r", encoding="utf-8") as _admin_file:
             _admin_data = json.load(_admin_file)
 
+        # Main
+        # --------------------------------------
         username = _admin_data["username"]
         password = _admin_data["password"]
         token = _admin_data["token"]
 
+        # Others
+        # --------------------------------------
+        _targets = _admin_data["targets"]
+        targets_today = _targets["today"]
+        targets_all = _targets["all"]
 
 # Store website data
+
+
 class WebsiteData:
     with open(FileNames.website_info_file, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
