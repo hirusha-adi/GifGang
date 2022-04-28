@@ -8,7 +8,7 @@ import requests
 from flask import Flask, redirect, render_template, request, url_for, session
 
 import services
-from utils import Config, FileNames, Important, WebsiteData, log, logf, Login
+from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -642,7 +642,7 @@ def admin_login_page():
     log(f'Request `/admin/login` - admin_login_page()',
         ipaddr=request.remote_addr)
     try:
-        if session["token"] == Login.Admin.token:
+        if session["token"] == Settings.Admin.token:
             return redirect(url_for('admin_panel_page'))
     except KeyError:
         session["token"] = ""
@@ -667,8 +667,8 @@ def admin_login_page_verify():
     except:
         return redirect(url_for('admin_login_page'))
 
-    if (username == Login.Admin.username) and (password == Login.Admin.password):
-        session["token"] = Login.Admin.token
+    if (username == Settings.Admin.username) and (password == Settings.Admin.password):
+        session["token"] = Settings.Admin.token
         return redirect(url_for("admin_panel_page"))
 
 
@@ -676,11 +676,16 @@ def admin_login_page_verify():
 def admin_panel_page():
     count_total_visits_amount()
 
-    if session["token"] == Login.Admin.token:
+    if session["token"] == Settings.Admin.token:
 
         global COUNT, COUNT_TODAY
 
         percentage_of_today_from_total = round(((COUNT_TODAY/COUNT)*100), 2)
+
+        percentage_target_today = round(
+            ((COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
+        percentage_target_all = round(
+            ((COUNT/Settings.Admin.targets_today)*100), 2)
 
         try:
             final_log_file_name = os.listdir(
@@ -694,7 +699,7 @@ def admin_panel_page():
             with open(final_log_file, "r", encoding="utf-8") as log_file_content:
                 log_file_lines = log_file_content.readlines()
 
-            log_file_lines_last_5 = log_file_lines[-5::-1]
+            log_file_lines_last_5 = log_file_lines[::-1]
 
         except Exception as e:
             print(e)
@@ -708,6 +713,8 @@ def admin_panel_page():
             percentage_of_today_from_total=percentage_of_today_from_total,
             final_log_file_name=final_log_file_name,
             log_file_lines_last_5=log_file_lines_last_5,
+            percentage_target_today=percentage_target_today,
+            percentage_target_all=percentage_target_all,
         )
 
     else:
