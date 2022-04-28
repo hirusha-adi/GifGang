@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <title>Admin Dashboard | GifGang</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <meta name="description" content="This is the admin panel of GifGang">
     <meta name="msapplication-tap-highlight" content="no">
 
     <link href="{{ url_for('static', filename='css/admin_panel.css') }}" rel="stylesheet">
@@ -67,21 +67,21 @@
                     </div>
                     <ul class="header-menu nav">
                         <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
+                            <a href="{{ url_for('index') }}" class="nav-link">
+                                <i class="fa-solid fa-house"></i>
+                                Home
                             </a>
                         </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
+                        <li class="nav-item">
+                            <a href="{{ url_for('admin_settings') }}" class="nav-link">
+                                <i class="nav-link-icon fa fa-cog"></i>
+                                Settings
                             </a>
                         </li>
                         <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
+                            <a href="{{ url_for('admin_logout') }}" class="nav-link">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout
                             </a>
                         </li>
                     </ul>
@@ -745,7 +745,7 @@
                                                 <a href="javascript:void(0);" class="nav-link">
                                                     <i class="nav-link-icon lnr-inbox"></i>
                                                     <span>
-                                                        Inbox
+                                                        Start
                                                     </span>
                                                     <div class="ml-auto badge badge-pill badge-secondary">86</div>
                                                 </a>
@@ -754,7 +754,7 @@
                                                 <a href="javascript:void(0);" class="nav-link">
                                                     <i class="nav-link-icon lnr-book"></i>
                                                     <span>
-                                                        Book
+                                                        Request Stat
                                                     </span>
                                                     <div class="ml-auto badge badge-pill badge-danger">5</div>
                                                 </a>
@@ -763,7 +763,7 @@
                                                 <a href="javascript:void(0);" class="nav-link">
                                                     <i class="nav-link-icon lnr-picture"></i>
                                                     <span>
-                                                        Picture
+                                                        Latest Log
                                                     </span>
                                                 </a>
                                             </li>
@@ -771,7 +771,7 @@
                                                 <a disabled href="javascript:void(0);" class="nav-link disabled">
                                                     <i class="nav-link-icon lnr-file-empty"></i>
                                                     <span>
-                                                        File Disabled
+                                                        Manage Logs (Coming Soon)
                                                     </span>
                                                 </a>
                                             </li>
@@ -1038,30 +1038,11 @@
                             <div class="app-footer-left">
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 1
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 2
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="app-footer-right">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            Footer Link 3
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" class="nav-link">
-                                            <div class="badge badge-success mr-1 ml-0">
-                                                <small>NEW</small>
-                                            </div>
-                                            Footer Link 4
+                                        <a href="https://github.com/hirusha-adi" class="nav-link">
+                                            Made with &nbsp;
+                                            <i class="fa-solid fa-heart"></i>
+                                            &nbsp;
+                                            by @hirushaadi
                                         </a>
                                     </li>
                                 </ul>
