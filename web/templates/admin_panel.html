@@ -952,12 +952,6 @@
                             <div class="main-card mb-3 card">
                                 <div class="card-header">
                                     Last Log File: {{ final_log_file_name }}
-                                    <div class="btn-actions-pane-right">
-                                        <div role="group" class="btn-group-sm btn-group">
-                                            <button class="active btn btn-focus">Last Week</button>
-                                            <button class="btn btn-focus">All Month</button>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
@@ -1025,8 +1019,10 @@
                                                     </div>
                                                 </td>
 
-                                                <td class="text-center">{{ one_log_line.split(' - ')[0][29:][1:-1] }}
+                                                <td class="text-center">
+                                                    {{ one_log_line.split(' - ')[0][29:][1:-1] }}
                                                 </td>
+
                                                 <td class="text-center">
                                                     <div class="badge badge-info">
                                                         {{ one_log_line.split(' - ')[1] }}
@@ -1034,7 +1030,7 @@
                                                 </td>
 
                                                 <td class="text-center">
-                                                    {{ one_log_line[:28] }}
+                                                    {{ one_log_line[:28][1:-5] }}
                                                 </td>
 
                                             </tr>
@@ -1044,9 +1040,12 @@
                                     </table>
                                 </div>
                                 <div class="d-block text-center card-footer">
-                                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i
-                                            class="pe-7s-trash btn-icon-wrapper"> </i></button>
-                                    <button class="btn-wide btn btn-success">Save</button>
+                                    <button class="btn-wide btn btn-success">
+                                        Download
+                                    </button>
+                                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                                        Delete
+                                    </button>
                                 </div>
                             </div>
                         </div>
