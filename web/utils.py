@@ -67,6 +67,7 @@ class Settings:
         username = _admin_data["username"]
         password = _admin_data["password"]
         token = _admin_data["token"]
+        profile_pic = _admin_data["profile_pic"]
 
         # Others
         # --------------------------------------
