@@ -964,10 +964,10 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">#</th>
-                                                <th>Name</th>
-                                                <th class="text-center">City</th>
-                                                <th class="text-center">Status</th>
-                                                <th class="text-center">Actions</th>
+                                                <th>User Agent</th>
+                                                <th class="text-center">IP</th>
+                                                <th class="text-center">Route</th>
+                                                <th class="text-center">Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1003,8 +1003,10 @@
                                             </tr>
                                             -->
 
+                                            {% for one_log_line in log_file_lines_last_5 %}
                                             <tr>
                                                 <td class="text-center text-muted">#345</td>
+
                                                 <td>
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
@@ -1015,22 +1017,28 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left flex2">
-                                                                <div class="widget-heading">John Doe</div>
-                                                                <div class="widget-subheading opacity-7">Web Developer
+                                                                <div class="widget-heading">
+                                                                    {{ one_log_line.split(' - ')[-1][1:-2] }}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-center">Madrid</td>
-                                                <td class="text-center">
-                                                    <div class="badge badge-warning">Pending</div>
+
+                                                <td class="text-center">{{ one_log_line.split(' - ')[0][29:][1:-1] }}
                                                 </td>
                                                 <td class="text-center">
-                                                    <button type="button" id="PopoverCustomT-1"
-                                                        class="btn btn-primary btn-sm">Details</button>
+                                                    <div class="badge badge-info">
+                                                        {{ one_log_line.split(' - ')[1] }}
+                                                    </div>
                                                 </td>
+
+                                                <td class="text-center">
+                                                    {{ one_log_line[:28] }}
+                                                </td>
+
                                             </tr>
+                                            {% endfor %}
 
                                         </tbody>
                                     </table>
