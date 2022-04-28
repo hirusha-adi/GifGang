@@ -2,6 +2,7 @@
     "username": "admin",
     "password": "123",
     "token": "SecretToken123",
+    "profile_pic": "https://cdn.discordapp.com/attachments/945257357867380747/969172475315363850/unknown-modified.png",
     "targets": {
         "today": 2500,
         "all": 5000
