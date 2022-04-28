@@ -696,10 +696,13 @@ def admin_download_log_file():
     log(f'Requested `/admin/download/log/latest` - admin_download_log_file()',
         ipaddr=request.remote_addr)
 
-    if session["token"] == Settings.Admin.token:
-        return send_file(FileNames._log_file)
+    try:
+        if session["token"] == Settings.Admin.token:
+            return send_file(FileNames._log_file)
 
-    else:
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
         return redirect(url_for("admin_login_page"))
 
 
@@ -712,49 +715,53 @@ def admin_panel_page():
     log(f'Requested `/admin/panel` - admin_panel_page()',
         ipaddr=request.remote_addr)
 
-    if session["token"] == Settings.Admin.token:
+    try:
+        if session["token"] == Settings.Admin.token:
 
-        global COUNT, COUNT_TODAY
+            global COUNT, COUNT_TODAY
 
-        percentage_of_today_from_total = round(((COUNT_TODAY/COUNT)*100), 2)
+            percentage_of_today_from_total = round(
+                ((COUNT_TODAY/COUNT)*100), 2)
 
-        percentage_target_today = round(
-            ((COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
-        percentage_target_all = round(
-            ((COUNT/Settings.Admin.targets_all)*100), 2)
+            percentage_target_today = round(
+                ((COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
+            percentage_target_all = round(
+                ((COUNT/Settings.Admin.targets_all)*100), 2)
 
-        try:
-            final_log_file_name = os.listdir(
-                os.path.join(os.getcwd(), "logs"))[-1]
-            final_log_file = os.path.join(
-                os.getcwd(),
-                "logs",
-                final_log_file_name
+            try:
+                final_log_file_name = os.listdir(
+                    os.path.join(os.getcwd(), "logs"))[-1]
+                final_log_file = os.path.join(
+                    os.getcwd(),
+                    "logs",
+                    final_log_file_name
+                )
+
+                with open(final_log_file, "r", encoding="utf-8") as log_file_content:
+                    log_file_lines = log_file_content.readlines()[-5:]
+
+                log_file_lines_last_5 = log_file_lines[::-1]
+
+            except Exception as e:
+                print(e)
+                final_log_file_name = str(e)
+                log_file_lines_last_5 = []
+
+            return render_template(
+                "admin_panel.html",
+                total_requests_all_time=COUNT,
+                total_requests_last_24h=COUNT_TODAY,
+                percentage_of_today_from_total=percentage_of_today_from_total,
+                final_log_file_name=final_log_file_name,
+                log_file_lines_last_5=log_file_lines_last_5,
+                percentage_target_today=percentage_target_today,
+                percentage_target_all=percentage_target_all,
+                admin_profile_picture=Settings.Admin.profile_pic,
             )
 
-            with open(final_log_file, "r", encoding="utf-8") as log_file_content:
-                log_file_lines = log_file_content.readlines()[-5:]
-
-            log_file_lines_last_5 = log_file_lines[::-1]
-
-        except Exception as e:
-            print(e)
-            final_log_file_name = str(e)
-            log_file_lines_last_5 = []
-
-        return render_template(
-            "admin_panel.html",
-            total_requests_all_time=COUNT,
-            total_requests_last_24h=COUNT_TODAY,
-            percentage_of_today_from_total=percentage_of_today_from_total,
-            final_log_file_name=final_log_file_name,
-            log_file_lines_last_5=log_file_lines_last_5,
-            percentage_target_today=percentage_target_today,
-            percentage_target_all=percentage_target_all,
-            admin_profile_picture=Settings.Admin.profile_pic,
-        )
-
-    else:
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
         return redirect(url_for("admin_login_page"))
 
 
@@ -765,12 +772,14 @@ def admin_settings():
     logf(request=request, page="admin/settings")
 
     log(f'Requested `/admin/panel` - admin_settings()',
-        ipaddr=request.settings)
+        ipaddr=request.remote_addr)
+    try:
+        if session["token"] == Settings.Admin.token:
+            return "Coming Soon"
 
-    if session["token"] == Settings.Admin.token:
-        return "Coming Soon"
-
-    else:
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
         return redirect(url_for("admin_login_page"))
 
 
