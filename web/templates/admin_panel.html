@@ -45,25 +45,13 @@
                     </button>
                 </div>
             </div>
-            <div class="app-header__menu">
-                <span>
-                    <button type="button"
-                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                        <span class="btn-icon-wrapper">
-                            <i class="fa fa-ellipsis-v fa-w-6"></i>
-                        </span>
-                    </button>
-                </span>
-            </div>
+
             <div class="app-header__content">
 
                 <div class="app-header-left">
                     <div class="search-wrapper">
-                        <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>
+                        <img src="https://cdn.discordapp.com/icons/940326899366895637/32aa5a7a73637bc807424c97e3b3da23.png?size=4096"
+                            alt="" style="max-width: 40px;">
                     </div>
                     <ul class="header-menu nav">
                         <li class="nav-item">
@@ -91,26 +79,49 @@
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
+
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
+                                            <img width="42" class="rounded-circle"
+                                                src="https://cdn.discordapp.com/icons/940326899366895637/32aa5a7a73637bc807424c97e3b3da23.png?size=4096"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
                                             class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">User
-                                                Account</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                                            <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Sections</h6>
+                                            <a href="#gifgang-request-stats">
+                                                <button type="button" tabindex="0"
+                                                    class="dropdown-item">Requests</button>
+                                            </a>
+                                            <a href="#gifgang-last-log-file-content">
+                                                <button type="button" tabindex="0" class="dropdown-item">
+                                                    Latest Log
+                                                </button>
+                                            </a>
+                                            <a href="#gifgang-target-info">
+                                                <button type="button" tabindex="0" class="dropdown-item">
+                                                    Targets
+                                                </button>
+                                            </a>
                                             <div tabindex="-1" class="dropdown-divider"></div>
-                                            <button type="button" tabindex="0" class="dropdown-item">Dividers</button>
+                                            <h6 tabindex="-1" class="dropdown-header">Page</h6>
+                                            <a href="#">
+                                                <button type="button" tabindex="0" class="dropdown-item">
+                                                    Start
+                                                </button>
+                                            </a>
+                                            <a href="#gifgang-footer-page-end">
+                                                <button type="button" tabindex="0" class="dropdown-item">
+                                                    End
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
                                         Admin
@@ -120,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
-                                    <i class="fa-solid fa-user"></i>
+                                    <img src="{{ admin_profile_picture }}" alt="pfp" style="max-width: 45px;">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +143,8 @@
 
         <div class="ui-theme-settings">
             <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
-                <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
+                <!-- <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i> -->
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
             </button>
             <div class="theme-settings__inner">
                 <div class="scrollbar-container">
@@ -467,34 +479,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <h3 class="themeoptions-heading">
-                            <div>Main Content Options</div>
-                            <button type="button"
-                                class="btn-pill btn-shadow btn-wide ml-auto active btn btn-focus btn-sm">Restore Default
-                            </button>
-                        </h3>
-                        <div class="p-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="pb-2">Page Section Tabs
-                                    </h5>
-                                    <div class="theme-settings-swatches">
-                                        <div role="group" class="mt-2 btn-group">
-                                            <button type="button"
-                                                class="btn-wide btn-shadow btn-primary btn btn-secondary switch-theme-class"
-                                                data-class="body-tabs-line">
-                                                Line
-                                            </button>
-                                            <button type="button"
-                                                class="btn-wide btn-shadow btn-primary active btn btn-secondary switch-theme-class"
-                                                data-class="body-tabs-shadow">
-                                                Shadow
-                                            </button>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -742,25 +726,26 @@
                                         class="dropdown-menu dropdown-menu-right">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
+                                                <a href="#" class="nav-link">
                                                     <i class="nav-link-icon lnr-inbox"></i>
                                                     <span>
                                                         Start
                                                     </span>
-                                                    <div class="ml-auto badge badge-pill badge-secondary">86</div>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
+                                                <a href="#gifgang-request-stats" class="nav-link">
                                                     <i class="nav-link-icon lnr-book"></i>
                                                     <span>
-                                                        Request Stat
+                                                        Request Stats
                                                     </span>
-                                                    <div class="ml-auto badge badge-pill badge-danger">5</div>
+                                                    <div class="ml-auto badge badge-pill badge-secondary">
+                                                        {{ total_requests_last_24h }}
+                                                    </div>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
+                                                <a href="#gifgang-last-log-file-content" class="nav-link">
                                                     <i class="nav-link-icon lnr-picture"></i>
                                                     <span>
                                                         Latest Log
@@ -768,10 +753,18 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                                    <i class="nav-link-icon lnr-file-empty"></i>
+                                                <a href="#gifgang-target-info" class="nav-link">
+                                                    <i class="nav-link-icon lnr-picture"></i>
                                                     <span>
-                                                        Manage Logs (Coming Soon)
+                                                        Targets
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#gifgang-footer-page-end" class="nav-link">
+                                                    <i class="nav-link-icon lnr-picture"></i>
+                                                    <span>
+                                                        End
                                                     </span>
                                                 </a>
                                             </li>
@@ -782,7 +775,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="gifgang-request-stats">
                         <div class="col-md-6 col-xl-4">
                             <div class="card mb-3 widget-content bg-midnight-bloom">
                                 <div class="widget-content-wrapper text-white">
@@ -839,7 +832,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="gifgang-last-log-file-content">
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-header">
@@ -933,10 +926,13 @@
                                 </div>
 
                                 <div class="d-block text-center card-footer">
-                                    <button class="btn-wide btn btn-success">
-                                        Download
-                                    </button>
-                                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                                    <a href="{{ url_for('admin_download_log_file') }}">
+                                        <button class="btn-wide btn btn-success">
+                                            Download
+                                        </button>
+                                    </a>
+                                    <!-- This funcationality will be available in the future versions soon -->
+                                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger" disabled>
                                         Delete
                                     </button>
                                 </div>
@@ -946,7 +942,7 @@
                     </div>
 
 
-                    <div class="row" style="align-content: center;">
+                    <div class="row" style="align-content: center;" id="gifgang-target-info">
 
                         <!-- align-items: center; align-text: center -->
                         <div class="col-md-6 col-lg-3">
@@ -1032,7 +1028,7 @@
                     </div>
                 </div>
 
-                <div class="app-wrapper-footer">
+                <div class="app-wrapper-footer" id="gifgang-footer-page-end">
                     <div class="app-footer">
                         <div class="app-footer__inner">
                             <div class="app-footer-left">
