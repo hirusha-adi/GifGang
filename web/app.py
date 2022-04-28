@@ -538,6 +538,18 @@ def adult_search_post():
     return redirect(url_for('adult_search', query=query))
 
 
+@app.route("/adult/search")
+def adult_search_no_query():
+    count_total_visits_amount()
+
+    logf(request=request, page=f"adult/search")
+
+    log(f'Request `/adult/search` - adult_search_no_query()',
+        ipaddr=request.remote_addr)
+
+    return redirect(url_for('adult_index'))
+
+
 @app.route("/adult/search/<query>")
 def adult_search(query):
     count_total_visits_amount()
@@ -721,7 +733,12 @@ def admin_panel_page():
         return redirect(url_for("admin_login_page"))
 
 
-@app.route("/admin/logout")
+@app.route("/admin/settings")
+def admin_settings():
+    return "Admin Settings Manager"
+
+
+@app.route("/logout")
 def admin_logout():
     count_total_visits_amount()
 
