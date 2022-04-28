@@ -694,7 +694,7 @@ def admin_panel_page():
             with open(final_log_file, "r", encoding="utf-8") as log_file_content:
                 log_file_lines = log_file_content.readlines()
 
-            log_file_lines_last_5 = log_file_lines[-6:-1]
+            log_file_lines_last_5 = log_file_lines[-5::-1]
 
         except Exception as e:
             print(e)
@@ -711,11 +711,6 @@ def admin_panel_page():
         )
 
     else:
-
-        print("="*25, "\n")
-        print(session['token'])
-        print(Login.Admin.token)
-        print("No Match")
         return redirect(url_for("admin_login_page"))
 
 
