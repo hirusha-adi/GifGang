@@ -685,7 +685,7 @@ def admin_panel_page():
         percentage_target_today = round(
             ((COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
         percentage_target_all = round(
-            ((COUNT/Settings.Admin.targets_today)*100), 2)
+            ((COUNT/Settings.Admin.targets_all)*100), 2)
 
         try:
             final_log_file_name = os.listdir(
