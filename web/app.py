@@ -682,22 +682,32 @@ def admin_panel_page():
 
         percentage_of_today_from_total = round(((COUNT_TODAY/COUNT)*100), 2)
 
-        final_log_file_name = os.listdir(
-            os.path.join(os.getcwd(), "logs"))[-1]
-        final_log_file = os.path.join(
-            os.getcwd(),
-            "logs",
-            final_log_file_name
-        )
+        try:
+            final_log_file_name = os.listdir(
+                os.path.join(os.getcwd(), "logs"))[-1]
+            final_log_file = os.path.join(
+                os.getcwd(),
+                "logs",
+                final_log_file_name
+            )
 
-        print(final_log_file_name)
+            with open(final_log_file, "r", encoding="utf-8") as log_file_content:
+                log_file_lines = log_file_content.readlines()
+
+            log_file_lines_last_5 = log_file_lines[-6:-1]
+
+        except Exception as e:
+            print(e)
+            final_log_file_name = str(e)
+            log_file_lines_last_5 = []
 
         return render_template(
             "admin_panel.html",
             total_requests_all_time=COUNT,
             total_requests_last_24h=COUNT_TODAY,
             percentage_of_today_from_total=percentage_of_today_from_total,
-            final_log_file_name=final_log_file_name
+            final_log_file_name=final_log_file_name,
+            log_file_lines_last_5=log_file_lines_last_5,
         )
 
     else:
