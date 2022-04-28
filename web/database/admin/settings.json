@@ -1,0 +1,9 @@
+{
+    "username": "admin",
+    "password": "123",
+    "token": "SecretToken123",
+    "targets": {
+        "today": 2500,
+        "all": 5000
+    }
+}
