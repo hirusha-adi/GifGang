@@ -125,8 +125,10 @@ def all_links():
 
     log(f'Requested `/links` - all_links()',
         ipaddr=request.remote_addr)
+
     log('Returning `index.html`\n\tall_links_page = True',
         ipaddr=request.remote_addr)
+
     return render_template(
         "index.html",
         web_title="Links List | GifGang",
@@ -653,6 +655,7 @@ def admin_login_page():
 
     log(f'Request `/admin/login` - admin_login_page()',
         ipaddr=request.remote_addr)
+
     try:
         if session["token"] == Settings.Admin.token:
             return redirect(url_for('admin_panel_page'))
@@ -688,6 +691,11 @@ def admin_login_page_verify():
 def admin_download_log_file():
     count_total_visits_amount()
 
+    logf(request=request, page="admin/download/log/latest")
+
+    log(f'Requested `/admin/download/log/latest` - admin_download_log_file()',
+        ipaddr=request.remote_addr)
+
     if session["token"] == Settings.Admin.token:
         return send_file(FileNames._log_file)
 
@@ -698,6 +706,11 @@ def admin_download_log_file():
 @app.route("/admin/panel")
 def admin_panel_page():
     count_total_visits_amount()
+
+    logf(request=request, page="admin/panel")
+
+    log(f'Requested `/admin/panel` - admin_panel_page()',
+        ipaddr=request.remote_addr)
 
     if session["token"] == Settings.Admin.token:
 
@@ -747,6 +760,12 @@ def admin_panel_page():
 
 @app.route("/admin/settings")
 def admin_settings():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings")
+
+    log(f'Requested `/admin/panel` - admin_settings()',
+        ipaddr=request.settings)
 
     if session["token"] == Settings.Admin.token:
         return "Coming Soon"
@@ -758,6 +777,11 @@ def admin_settings():
 @app.route("/logout")
 def admin_logout():
     count_total_visits_amount()
+
+    logf(request=request, page="/logout")
+
+    log(f'Requested `/logout` - count_total_visits_amount()',
+        ipaddr=request.remote_addr)
 
     session["token"] = ""
     return redirect(url_for('admin_login_page'))
