@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Daily UI - 008 - Settings - NiceHash Quickminer OCTune redesign</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <header class="main">
+    <div class="logoarea">
+      <h4>Nice<strong>Hash</strong> <span>QuickMiner</span></h4>
+      <span> | </span>
+      <h5>OCTune ©</h5>
+    </div>
+
+    <div class="btns">
+      <div class="btn" data-type="vw">
+        <i class="fas fa-sticky-note"></i> Home
+      </div>
+      <div class="btn">
+        <i class="fas fa-cogs boo"></i> Admin Dashboard
+      </div>
+      <div class="btn">
+        <i class="fas fa-sync boo"></i> Reset to Default
+      </div>
+      <div class="btn">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+      </div>
+    </div>
+  </header>
+
+  <div class="cont">
+    <div class="sec hm">
+      <h2>Excavator Health Monitor</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>GPU ID</th>
+            <th>GPU Name</th>
+            <th>Temperature<br>(℃)</th>
+            <th>Utilization<br>(%)</th>
+            <th>Fan<br>(RPM)</th>
+            <th>Fan level</th>
+            <th>Fan settings</th>
+            <th>Core<br>(MHz)</th>
+            <th>Core Limit<br>(MHz)</th>
+            <th>Core Volt.<br>(mV)</th>
+            <th>Memory<br>(MHz)</th>
+            <th>
+              Selected?<br>
+              <input class="auto-tune-disable" type="checkbox" id="all-selected" onchange="all_selected_changed()">
+              <label for="all-selected">All</label>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table-main-health">
+          <tr>
+            <td>0</td>
+            <td>NVIDIA GTX 1080 <br />(drop: Gigabite)</td>
+            <td>63℃</td>
+            <td>80.47%</td>
+            <td>2,200 RPM</td>
+            <td>100.00%</td>
+            <td>
+              Fan mode: fixed speed<br />
+              Fixed speed: 100%
+            </td>
+            <td>1199 MHz</td>
+            <td>1200 MHz</td>
+            <td>712 mV</td>
+            <td>8000 MHz</td>
+            <td><input class="auto-tune-disable" type="checkbox" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sec overclock">
+      <h2>Overclocking</h2>
+      <div class="ocbod">
+        <div class="item preset">
+          <label>Preset: </label>
+
+          <div class="select" data-id="preset">
+            <div class="selected">
+              <span>Custom configuration</span>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="options" style="display:none;">
+              <div>Custom configuration</div>
+              <div disabled>---</div>
+              <div>Preset 1</div>
+              <div>Preset 2</div>
+              <div>Preset 3</div>
+            </div>
+          </div>
+          <div class="btns">
+            <div class="btn del">
+              <span>Delete preset</span>
+            </div>
+            <div class="btn svp">
+              <span>Save preset</span>
+            </div>
+            <div class="btn ani">
+              <span>New preset...</span>
+            </div>
+            <div class="btn ani">
+              <span>Duplicate preset</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="secc">
+          <h3>General</h3>
+          <div class="item inp">
+            <label for="presname">Preset name</label>
+            <input type="text" value="Preset 4" id="presname" />
+          </div>
+          <div class="item inp">
+            <label for="ccd">Core clock delta</label>
+            <input min="-1000" max="500" type="number" value="0" id="ccd" />
+            <span>Min: -1000 | Max: +500</span>
+            <div class="inpbtns">
+              <span data-val="-15">-15</span>
+              <span data-val="+15">+15</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="mcd">Memory clock delta</label>
+            <input type="number" value="0" id="mcd" />
+            <div class="inpbtns">
+              <span data-val="-15">-25</span>
+              <span data-val="+15">-10</span>
+              <span data-val="-15">+10</span>
+              <span data-val="+15">+25</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="plw">Power limit (W)</label>
+            <input data-suffix="W" type="number" value="150" id="plw" />
+            <div class="inpbtns">
+              <span data-val="-15">-5</span>
+              <span data-val="+15">-2</span>
+              <span data-val="-15">+2</span>
+              <span data-val="+15">+5</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="umcvmv">Unlock max core voltage (mV)</label>
+            <input type="number" value="" id="umcvmv" />
+          </div>
+        </div>
+        <div class="secc">
+          <h3>Fan management</h3>
+          <div class="item inp">
+            <label for="plw">Fan mode</label>
+            <div class="select" data-id="fanmode">
+              <div class="selected">
+                <span>Default / Auto</span>
+                <i class="fas fa-angle-down"></i>
+              </div>
+              <div class="options" style="display:none;">
+                <div>Default / Auto</div>
+                <div>Fixed speed</div>
+                <div>Target GPU temp</div>
+                <div>Target GPU & VRAM / HotSpot temp</div>
+                <div>Target plus decrease MCC</div>
+              </div>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="ffs">Fixed fan speed (%)</label>
+            <input data-suffix="%" type="number" value="65" max="100" min="0" id="ffs" />
+            <div class="inpbtns">
+              <span data-val="-15">-20</span>
+              <span data-val="+15">-5</span>
+              <span data-val="-15">+5</span>
+              <span data-val="+15">+20</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="tgput">Target GPU temp (℃)</label>
+            <input data-suffix="℃" type="number" value="65" id="tgput" />
+            <div class="inpbtns">
+              <span data-val="-15">-20</span>
+              <span data-val="+15">-5</span>
+              <span data-val="-15">+5</span>
+              <span data-val="+15">+20</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="tvhst">Target VRAM / HotSpot temp (℃)</label>
+            <input data-suffix="℃" type="number" value="88" id="tvhst" />
+            <div class="inpbtns">
+              <span data-val="-15">-20</span>
+              <span data-val="+15">-5</span>
+              <span data-val="-15">+5</span>
+              <span data-val="+15">+20</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="mfs">Max fan speed (%)</label>
+            <input data-suffix="%" type="number" value="-1" id="mfs" />
+            <div class="inpbtns">
+              <span data-val="-15">-20</span>
+              <span data-val="+15">-5</span>
+              <span data-val="-15">+5</span>
+              <span data-val="+15">+20</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="secc">
+          <h3>Alternative <span class="warning"><strong>not</strong> supported for 1060, 1070 and 1080</span></h3>
+
+
+          <div class="item inp">
+            <label for="ccl">Core clock limit </label>
+            <input type="number" value="210" id="ccl" />
+            <span>0 = Disable limit</span>
+            <div class="inpbtns">
+              <span data-val="+15">-15</span>
+              <span data-val="-15">+15</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="mca">Memory clock (absolute) </label>
+            <input type="number" value="" id="mca" />
+            <div class="inpbtns">
+              <span data-val="-15">-25</span>
+              <span data-val="+15">-10</span>
+              <span data-val="-15">+10</span>
+              <span data-val="+15">+25</span>
+            </div>
+          </div>
+
+          <div class="item txtwrn">
+            <p>Power limit is automatic! Core clock limit determines power limit.</p>
+          </div>
+
+
+          <div class="item inp inpchck">
+            <input type="checkbox" id="ucumvA" />
+            <label for="ucumvA">Unlock core undervolt (mV)</label>
+            <input disabled type="number" value="" id="ucumvB" />
+          </div>
+
+          <div class="item btns1 inp">
+            <label>Apply overclock</label>
+            <div class="btn btn1 ani">
+              <span>Selected</span>
+            </div>
+            <div class="btn btn1 ani">
+              <span>Single</span>
+            </div>
+            <div class="btn btn1 ani">
+              <span>All</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="secc">
+          <h3>Autotune (experimental) <span class="warning"><strong>not</strong> supported for 1060, 1070 and
+              1080</span></h3>
+
+          <div class="item inp">
+            <label for="atfam">Autotune for absolute memory </label>
+            <input type="number" value="" id="atfam" />
+            <span>Min: -1000 | Max: +500</span>
+            <div class="inpbtns">
+              <span data-val="-15">-50</span>
+              <span data-val="+15">-25</span>
+              <span data-val="-15">+25</span>
+              <span data-val="+15">+50</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="sccl">Starting core clock limit</label>
+            <input type="number" value="480" id="sccl" />
+            <span>Min: 210</span>
+            <div class="inpbtns">
+              <span data-val="+15">-15</span>
+              <span data-val="-15">+15</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="edccl">Ending core clock limit</label>
+            <input type="number" value="1605" id="edccl" />
+            <span>Max: 2100</span>
+            <div class="inpbtns">
+              <span data-val="+15">-15</span>
+              <span data-val="-15">+15</span>
+            </div>
+          </div>
+          <div class="item inp">
+            <label for="tf">Tune for</label>
+            <div class="form-group">
+              <input class="auto-tune-disable" type="radio" id="at-eff" name="at-target" value="Efficiency" checked="">
+              <label for="at-eff">Efficiency</label>
+              <input class="auto-tune-disable" type="radio" id="at-speed" name="at-target" value="Speed">
+              <label for="at-speed">Speed</label>
+            </div>
+          </div>
+          <div class="item btns1">
+            <div class="btn btn1 ani">
+              <span>Start selected</span>
+            </div>
+            <div class="btn btn1 ani">
+              <span>Start single</span>
+            </div>
+            <div class="btn btn2 ani disabled">
+              <span>Stop</span>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script type="module" src="./script.js"></script>
+
+</body>
+
+</html>
