@@ -141,8 +141,8 @@
                 <div class="container content clear-fix">
 
                     <!-- Topic -->
-                    <h2 class="mt-5 mb-5">Index -
-                        <a href="">/</a>
+                    <h2 class="mt-5 mb-5">Search -
+                        <a href="">/search</a>
                     </h2>
 
                     <div class="row" style="height:100%">
@@ -151,164 +151,174 @@
                             <div class="container">
 
                                 <form>
+                                    <!-- SearchMain -->
+                                    <h3>Main</h3>
+                                    <div class="form-group">
+                                        <label for=SearchMainTitle>Title</label>
+                                        <input type="text" class="form-control" id="SearchMainTitle"
+                                            name="SearchMainTitle">
+                                    </div>
 
-                                    <!-- IndexGiphy -->
+                                    <hr>
+
+                                    <!-- SearchGiphy -->
                                     <h3>Giphy</h3>
                                     <div class="form-group">
-                                        <label for=IndexGiphyUsage>Usage</label>
+                                        <label for=SearchGiphyUsage>Usage</label>
                                         <br>
-                                        <select name="IndexGiphyUsage" id="IndexGiphyUsage">
+                                        <select name="SearchGiphyUsage" id="SearchGiphyUsage">
                                             <option value="1">False</option>
                                             <option value="2" selected>True</option>
                                         </select>
                                         <br>
                                         <br>
-                                        <label for=IndexGiphyRandomUsage>Random</label>
+                                        <label for=SearchGiphyLimit>Limit</label>
+                                        <input type="text" class="form-control" id="SearchGiphyLimit"
+                                            name="SearchGiphyLimit">
                                         <br>
-                                        <select name="IndexGiphyRandomUsage" id="IndexGiphyRandomUsage">
-                                            <option value="1" selected>False</option>
-                                            <option value="2">True</option>
-                                        </select>
+                                        <label for=SearchGiphyOffset>Offset</label>
+                                        <input type="text" class="form-control" id="SearchGiphyOffset"
+                                            name="SearchGiphyOffset">
                                         <br>
-                                        <br>
-                                        <label for=IndexGiphyRandomLimit>Random Limit</label>
-                                        <input type="text" class="form-control" id="IndexGiphyRandomLimit"
-                                            name="IndexGiphyRandomLimit">
-                                        <br>
-                                        <label for=IndexGiphyRandomAPIurl>Random API URL</label>
-                                        <input type="text" class="form-control" id="IndexGiphyRandomAPIurl"
-                                            name="IndexGiphyRandomAPIurl">
-                                        <br>
-                                        <label for=IndexGiphyTrendingUsage>Trending</label>
-                                        <br>
-                                        <select name="IndexGiphyTrendingUsage" id="IndexGiphyTrendingUsage">
-                                            <option value="1">False</option>
-                                            <option value="2" selected>True</option>
-                                        </select>
-                                        <br>
-                                        <br>
-                                        <label for=IndexGiphyTrendingLimit>Tending Limit</label>
-                                        <input type="text" class="form-control" id="IndexGiphyTrendingLimit"
-                                            name="IndexGiphyTrendingLimit">
-                                        <br>
-                                        <label for=IndexGiphyTendingAPIurl>Trending API URL</label>
-                                        <input type="text" class="form-control" id="IndexGiphyTendingAPIurl"
-                                            name="IndexGiphyTendingAPIurl">
+                                        <label for=SearchGiphyApiURL>API URL</label>
+                                        <input type="text" class="form-control" id="SearchGiphyApiURL"
+                                            name="SearchGiphyApiURL">
                                         <br>
                                     </div>
 
                                     <hr>
 
-                                    <!-- IndexPicsum -->
-                                    <h3>Picsum</h3>
-                                    <div class="form-group">
-                                        <label for=IndexPicsumUsage>Usage</label>
-                                        <br>
-                                        <select name="IndexPicsumUsage" id="IndexPicsumUsage">
-                                            <option value="1">False</option>
-                                            <option value="2" selected>True</option>
-                                        </select>
-                                        <br>
-                                        <br>
-                                        <label for=IndexPicsumLimit>Limit</label>
-                                        <input type="text" class="form-control" id="IndexPicsumLimit"
-                                            name="IndexPicsumLimit">
-                                        <br>
-                                        <label for=IndexPicsumApiURL>API URL</label>
-                                        <input type="text" class="form-control" id="IndexPicsumApiURL"
-                                            name="IndexPicsumApiURL">
-                                    </div>
-
-                                    <hr>
-
-                                    <!-- IndexTenor -->
+                                    <!-- SearchTenor -->
                                     <h3>Tenor</h3>
                                     <div class="form-group">
-                                        <label for=IndexTenorUsage>Usage</label>
+                                        <label for=SearchTenorUsage>Usage</label>
                                         <br>
-                                        <select name="IndexTenorUsage" id="IndexTenorUsage">
+                                        <select name="SearchTenorUsage" id="SearchTenorUsage">
                                             <option value="1">False</option>
                                             <option value="2" selected>True</option>
                                         </select>
                                         <br>
                                         <br>
-                                        <label for=IndexTenorLimit>Limit</label>
-                                        <input type="text" class="form-control" id="IndexTenorLimit"
-                                            name="IndexTenorLimit">
+                                        <label for=SearchTenorLimit>Limit</label>
+                                        <input type="text" class="form-control" id="SearchTenorLimit"
+                                            name="SearchTenorLimit">
                                         <br>
-                                        <label for=IndexTenorLocale>Locale</label>
-                                        <input type="text" class="form-control" id="IndexTenorLocale"
-                                            name="IndexTenorLocale">
+                                        <label for=SearchTenorLocale>Locale</label>
+                                        <input type="text" class="form-control" id="SearchTenorLocale"
+                                            name="SearchTenorLocale">
                                         <br>
-                                        <label for=IndexTenorArRange>AR Range</label>
-                                        <input type="text" class="form-control" id="IndexTenorArRange"
-                                            name="IndexTenorArRange">
+                                        <label for=SearchTenorArRange>AR Range</label>
+                                        <input type="text" class="form-control" id="SearchTenorArRange"
+                                            name="SearchTenorArRange">
                                         <br>
-                                        <label for=IndexTenorContentFilter>Content Filter</label>
-                                        <input type="text" class="form-control" id="IndexTenorContentFilter"
-                                            name="IndexTenorContentFilter">
+                                        <label for=SearchTenorContentFilter>Content Filter</label>
+                                        <input type="text" class="form-control" id="SearchTenorContentFilter"
+                                            name="SearchTenorContentFilter">
+                                        <br>
+                                        <label for=SearchTenorApiURL>API URL</label>
+                                        <input type="text" class="form-control" id="SearchTenorApiURL"
+                                            name="SearchTenorApiURL">
                                         <br>
                                     </div>
 
                                     <hr>
 
-                                    <!-- IndexTheCatAPI -->
+                                    <!-- SearchSmartMode -->
+                                    <h2>Smart Search</h2>
+                                    <div class="form-group">
+                                        <label for=SearchSmartModeUsage>Usage</label>
+                                        <br>
+                                        <select name="SearchSmartModeUsage" id="SearchSmartModeUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <label for=SearchSmartModeKeywordsList>All Keywords List</label>
+                                        <input type="text" class="form-control" id="SearchSmartModeKeywordsList"
+                                            name="SearchSmartModeKeywordsList">
+                                        <br>
+                                    </div>
+
+                                    <hr>
+                                    <br>
+
+                                    <!-- SearchTheCatAPI -->
                                     <h3>The Cat API</h3>
                                     <div class="form-group">
-                                        <label for=IndexTheCatAPIUsage>Usage</label>
+                                        <label for=SearchTheCatAPIUsage>Usage</label>
                                         <br>
-                                        <select name="IndexTheCatAPIUsage" id="IndexTheCatAPIUsage">
+                                        <select name="SearchTheCatAPIUsage" id="SearchTheCatAPIUsage">
                                             <option value="1">False</option>
                                             <option value="2" selected>True</option>
                                         </select>
                                         <br>
                                         <br>
-                                        <label for=IndexTheCatAPILimit>Limit</label>
-                                        <input type="text" class="form-control" id="IndexTheCatAPILimit"
-                                            name="IndexTheCatAPILimit">
+                                        <label for=SearchTheCatAPIName>Name</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIName"
+                                            name="SearchTheCatAPIName">
                                         <br>
-                                        <label for=IndexTheCatAPISize>Size</label>
-                                        <input type="text" class="form-control" id="IndexTheCatAPISize"
-                                            name="IndexTheCatAPISize">
+                                        <label for=SearchTheCatAPIKeywordList>Keywords List</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIKeywordList"
+                                            name="SearchTheCatAPIKeywordList">
                                         <br>
-                                        <label for=IndexTheCatAPIMineTypes>Mime Types</label>
-                                        <input type="text" class="form-control" id="IndexTheCatAPIMineTypes"
-                                            name="IndexTheCatAPIMineTypes">
+                                        <label for=SearchTheCatAPILimit>Limit</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPILimit"
+                                            name="SearchTheCatAPILimit">
                                         <br>
-                                        <label for=IndexTheCatAPIOrder>Order</label>
-                                        <input type="text" class="form-control" id="IndexTheCatAPIOrder"
-                                            name="IndexTheCatAPIOrder">
+                                        <label for=SearchTheCatAPISize>Size</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPISize"
+                                            name="SearchTheCatAPISize">
                                         <br>
-                                        <label for=IndexTheCatAPIHasBreeds>Has Breeds?</label>
-                                        <input type="text" class="form-control" id="IndexTheCatAPIHasBreeds"
-                                            name="IndexTheCatAPIHasBreeds">
+                                        <label for=SearchTheCatAPIMineTypes>Mime Types</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIMineTypes"
+                                            name="SearchTheCatAPIMineTypes">
+                                        <br>
+                                        <label for=SearchTheCatAPIOrder>Order</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIOrder"
+                                            name="SearchTheCatAPIOrder">
+                                        <br>
+                                        <label for=SearchTheCatAPIHasBreeds>Has Breeds?</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIHasBreeds"
+                                            name="SearchTheCatAPIHasBreeds">
+                                        <br>
+                                        <label for=SearchTheCatAPIApiURL>API URL</label>
+                                        <input type="text" class="form-control" id="SearchTheCatAPIApiURL"
+                                            name="SearchTheCatAPIApiURL">
                                         <br>
                                     </div>
 
                                     <hr>
 
-                                    <!-- IndexDogCEO -->
+                                    <!-- SearchDogCEO -->
                                     <h3>Deg.CEO</h3>
                                     <div class="form-group">
-                                        <label for=IndexDogCEOUsage>Usage</label>
+                                        <label for=SearchDogCEOUsage>Usage</label>
                                         <br>
-                                        <select name="IndexDogCEOUsage" id="IndexDogCEOUsage">
+                                        <select name="SearchDogCEOUsage" id="SearchDogCEOUsage">
                                             <option value="1">False</option>
                                             <option value="2" selected>True</option>
                                         </select>
                                         <br>
                                         <br>
-                                        <label for=IndexDogCEOLimit>Limit</label>
-                                        <input type="text" class="form-control" id="IndexDogCEOLimit"
-                                            name="IndexDogCEOLimit">
+                                        <label for=SearchDogCEOName>Name</label>
+                                        <input type="text" class="form-control" id="SearchDogCEOName"
+                                            name="SearchDogCEOName">
                                         <br>
-                                        <label for=IndexDogCEOApiURL>API URL</label>
-                                        <input type="text" class="form-control" id="IndexDogCEOApiURL"
-                                            name="IndexDogCEOApiURL">
+                                        <label for=SearchDogCEOKeywordsList>Keywords List</label>
+                                        <input type="text" class="form-control" id="SearchDogCEOKeywordsList"
+                                            name="SearchDogCEOKeywordsList">
+                                        <br>
+                                        <label for=SearchDogCEOLimit>Limit</label>
+                                        <input type="text" class="form-control" id="SearchDogCEOLimit"
+                                            name="SearchDogCEOLimit">
+                                        <br>
+                                        <label for=SearchDogCEOApiURL>API URL</label>
+                                        <input type="text" class="form-control" id="SearchDogCEOApiURL"
+                                            name="SearchDogCEOApiURL">
                                         <br>
                                     </div>
 
                                     <hr>
+
 
                                     <!-- IndexNekosLife -->
                                     <h3>Nekos.Life</h3>
@@ -320,6 +330,14 @@
                                             <option value="2" selected>True</option>
                                         </select>
                                         <br>
+                                        <br>
+                                        <label for=IndexNekosLifeName>Limit</label>
+                                        <input type="text" class="form-control" id="IndexNekosLifeName"
+                                            name="IndexNekosLifeName">
+                                        <br>
+                                        <label for=IndexNekosLifeKeywordList>Keyword List</label>
+                                        <input type="text" class="form-control" id="IndexNekosLifeKeywordList"
+                                            name="IndexNekosLifeKeywordList">
                                         <br>
                                         <label for=IndexNekosLifeLimit>Limit</label>
                                         <input type="text" class="form-control" id="IndexNekosLifeLimit"
