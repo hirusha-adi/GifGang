@@ -892,28 +892,28 @@ def admin_settings_search():
     log(f'Requested `/admin/settings/search` - admin_settings_search()',
         ipaddr=request.remote_addr)
 
-    # try:
-    # if session["token"] == Settings.Admin.token:
-    return render_template(
-        "admin_settings.html",
-        show_admin_settings=False,
-        show_important_settings=False,
-        show_index=False,
-        show_search=True,
-        search_data=WebsiteData.search,
-        show_pins=False,
-        show_age_verify=False,
-        show_adult_index=False,
-        show_adult_pins=False,
-        show_adult_stars=False,
-        show_adult_search=False,
-        show_adult_hentai=False,
-    )
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=False,
+                show_important_settings=False,
+                show_index=False,
+                show_search=True,
+                search_data=WebsiteData.search,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=False,
+                show_adult_hentai=False,
+            )
 
-    # else:
-    # return redirect(url_for("admin_login_page"))
-    # except Exception as e:
-    # return redirect(url_for("admin_login_page"))
+        else:
+            return redirect(url_for("admin_login_page"))
+    except Exception:
+        return redirect(url_for("admin_login_page"))
 
 
 @app.route("/logout")
