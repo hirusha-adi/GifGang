@@ -503,16 +503,23 @@
                         <label for=IndexNekosLifeUsage>Usage</label>
                         <br>
                         <select name="IndexNekosLifeUsage" id="IndexNekosLifeUsage">
+                            {% if index_data.api_usage.nekoslife.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexNekosLifeLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit">
+                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit"
+                            value="{{ index_data.api_usage.nekoslife.limit }}">
                         <br>
                         <label for=IndexNekosLifeURLlist>URL List</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist">
+                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist"
+                            value="{{ index_data.api_usage.nekoslife.api_url_list }}">
                         <br>
                     </div>
 
