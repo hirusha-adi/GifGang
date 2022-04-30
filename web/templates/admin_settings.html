@@ -740,23 +740,31 @@
                         <label for=SearchDogCEOUsage>Usage</label>
                         <br>
                         <select name="SearchDogCEOUsage" id="SearchDogCEOUsage">
+                            {% if search_data.custom_api_data[1].api_info.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=SearchDogCEOName>Name</label>
-                        <input type="text" class="form-control" id="SearchDogCEOName" name="SearchDogCEOName">
+                        <input type="text" class="form-control" id="SearchDogCEOName" name="SearchDogCEOName"
+                            value="{{ search_data.custom_api_data[1].api_info.name }}">
                         <br>
                         <label for=SearchDogCEOKeywordsList>Keywords List</label>
                         <input type="text" class="form-control" id="SearchDogCEOKeywordsList"
-                            name="SearchDogCEOKeywordsList">
+                            name="SearchDogCEOKeywordsList" value="{{ search_data.custom_api_data[1].keywords }}">
                         <br>
                         <label for=SearchDogCEOLimit>Limit</label>
-                        <input type="text" class="form-control" id="SearchDogCEOLimit" name="SearchDogCEOLimit">
+                        <input type="text" class="form-control" id="SearchDogCEOLimit" name="SearchDogCEOLimit"
+                            value="{{ search_data.custom_api_data[1].api_info.limit }}">
                         <br>
                         <label for=SearchDogCEOApiURL>API URL</label>
-                        <input type="text" class="form-control" id="SearchDogCEOApiURL" name="SearchDogCEOApiURL">
+                        <input type="text" class="form-control" id="SearchDogCEOApiURL" name="SearchDogCEOApiURL"
+                            value="{{ search_data.custom_api_data[1].api_info.api_url }}">
                         <br>
                     </div>
 
@@ -769,23 +777,31 @@
                         <label for=IndexNekosLifeUsage>Usage</label>
                         <br>
                         <select name="IndexNekosLifeUsage" id="IndexNekosLifeUsage">
+                            {% if search_data.custom_api_data[2].api_info.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
-                        <label for=IndexNekosLifeName>Limit</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeName" name="IndexNekosLifeName">
+                        <label for=IndexNekosLifeName>Name</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeName" name="IndexNekosLifeName"
+                            value="{{ search_data.custom_api_data[2].api_info.name }}">
                         <br>
                         <label for=IndexNekosLifeKeywordList>Keyword List</label>
                         <input type="text" class="form-control" id="IndexNekosLifeKeywordList"
-                            name="IndexNekosLifeKeywordList">
+                            name="IndexNekosLifeKeywordList" value="{{ search_data.custom_api_data[2].keywords }}">
                         <br>
                         <label for=IndexNekosLifeLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit">
+                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit"
+                            value="{{ search_data.custom_api_data[2].api_info.limit }}">
                         <br>
                         <label for=IndexNekosLifeURLlist>URL List</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist">
+                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist"
+                            value="{{ search_data.custom_api_data[2].api_info.api_url_list }}">
                         <br>
                     </div>
 
