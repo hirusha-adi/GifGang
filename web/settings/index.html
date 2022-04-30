@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <title>Admin Settings | GifGang</title>
 
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         crossorigin="anonymous">
-    <link rel=stylesheet href="main.css">
 
-    <link rel="stylesheet" href="./style.css">
-
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -24,10 +24,12 @@
 
     <div class="container-fluid main" style="height:100vh;padding-left:0px;">
 
+        <!-- Mobile Menu Button -->
         <div class="d-block d-md-none menu">
             <div class="bar"></div>
         </div>
 
+        <!-- Mobile Side Bar -->
         <div class="expand-menu nav flex-column">
             <a href="#" class="nav-link active mt-auto">
                 <i class="far fa-user-circle"></i>
@@ -79,6 +81,7 @@
             </a>
         </div>
 
+        <!-- Desktop Side Bar -->
         <div class="row align-items-center" style="height:100%">
 
             <div class="col-md-3 d-none d-md-block" style="height:100%">
@@ -144,11 +147,6 @@
                                 <img src="https://cdn.discordapp.com/attachments/945257357867380747/969172475315363850/unknown-modified.png"
                                     width=130px style="margin:0;">
                                 <br>
-                                <p class="pl-2 mt-2">
-                                <h3 style="font-size: 20px; color:#8f9096;font-weight:600">
-                                    @admin
-                                </h3>
-                                </p>
                             </div>
                         </div>
 
@@ -158,23 +156,32 @@
                                 <form>
                                     <div class="form-group">
                                         <label for=AdminUserName>Username</label>
-                                        <input type="text" class="form-control" id="AdminUserName">
+                                        <input type="text" class="form-control" id="AdminUserName" name="AdminUserName">
                                     </div>
                                     <div class="form-group">
-                                        <label for=email>Password</label>
-                                        <input type="email" class="form-control" id="AdminUserPassword">
+                                        <label for=AdminUserPassword>Password</label>
+                                        <input type="text" class="form-control" id="AdminUserPassword"
+                                            name="AdminUserPassword">
                                     </div>
                                     <div class="form-group">
-
-                                        <label for=pass>Token</label>
-                                        <input type="password" class="form-control" id="AdminUserToken">
-
+                                        <label for=AdminUserToken>Token</label>
+                                        <input type="text" class="form-control" id="AdminUserToken"
+                                            name="AdminUserToken">
                                     </div>
-                                    <div class="form-group ">
-                                        <label for=birthday>Birthday</label>
-                                        <input type="date" class="form-control" id="birthday">
+                                    <div class="form-group">
+                                        <label for=AdminUserProfilePicURL>Profile Pic URL</label>
+                                        <input type="text" class="form-control" id="AdminUserProfilePicURL"
+                                            name="AdminUserProfilePicURL">
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for=TodaysTarget>Target - Today</label>
+                                        <input type="text" class="form-control" id="TodaysTarget" name="TodaysTarget">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=AdminUserToken>Target - All Time</label>
+                                        <input type="text" class="form-control" id="AllTimesTarget"
+                                            name="AllTimesTarget">
+                                    </div>
                                     <div class="row mt-5">
                                         <div class="col">
                                             <button type="button" class="btn btn-primary btn-block">
@@ -191,33 +198,28 @@
                                 </form>
 
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
     </div>
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <!-- partial -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
     <script src="./script.js"></script>
 
 </body>
