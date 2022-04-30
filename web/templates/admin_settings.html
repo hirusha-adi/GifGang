@@ -660,14 +660,20 @@
                         <label for=SearchSmartModeUsage>Usage</label>
                         <br>
                         <select name="SearchSmartModeUsage" id="SearchSmartModeUsage">
+                            {% if search_data.custom_api_usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=SearchSmartModeKeywordsList>All Keywords List</label>
                         <input type="text" class="form-control" id="SearchSmartModeKeywordsList"
-                            name="SearchSmartModeKeywordsList">
+                            name="SearchSmartModeKeywordsList"
+                            value="{{ search_data.custom_api_data_all_keywords_list }}">
                         <br>
                     </div>
 
@@ -680,37 +686,49 @@
                         <label for=SearchTheCatAPIUsage>Usage</label>
                         <br>
                         <select name="SearchTheCatAPIUsage" id="SearchTheCatAPIUsage">
+                            {% if search_data.custom_api_data[0].api_info.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=SearchTheCatAPIName>Name</label>
-                        <input type="text" class="form-control" id="SearchTheCatAPIName" name="SearchTheCatAPIName">
+                        <input type="text" class="form-control" id="SearchTheCatAPIName" name="SearchTheCatAPIName"
+                            value="{{ search_data.custom_api_data[0].api_info.name }}">
                         <br>
                         <label for=SearchTheCatAPIKeywordList>Keywords List</label>
                         <input type="text" class="form-control" id="SearchTheCatAPIKeywordList"
-                            name="SearchTheCatAPIKeywordList">
+                            name="SearchTheCatAPIKeywordList" value="{{ search_data.custom_api_data[0].keywords }}">
                         <br>
                         <label for=SearchTheCatAPILimit>Limit</label>
-                        <input type="text" class="form-control" id="SearchTheCatAPILimit" name="SearchTheCatAPILimit">
+                        <input type="text" class="form-control" id="SearchTheCatAPILimit" name="SearchTheCatAPILimit"
+                            value="{{ search_data.custom_api_data[0].api_info.limit }}">
                         <br>
                         <label for=SearchTheCatAPISize>Size</label>
-                        <input type="text" class="form-control" id="SearchTheCatAPISize" name="SearchTheCatAPISize">
+                        <input type="text" class="form-control" id="SearchTheCatAPISize" name="SearchTheCatAPISize"
+                            value="{{ search_data.custom_api_data[0].api_info.size }}">
                         <br>
                         <label for=SearchTheCatAPIMineTypes>Mime Types</label>
                         <input type="text" class="form-control" id="SearchTheCatAPIMineTypes"
-                            name="SearchTheCatAPIMineTypes">
+                            name="SearchTheCatAPIMineTypes"
+                            value="{{ search_data.custom_api_data[0].api_info.mime_types }}">
                         <br>
                         <label for=SearchTheCatAPIOrder>Order</label>
-                        <input type="text" class="form-control" id="SearchTheCatAPIOrder" name="SearchTheCatAPIOrder">
+                        <input type="text" class="form-control" id="SearchTheCatAPIOrder" name="SearchTheCatAPIOrder"
+                            value="{{ search_data.custom_api_data[0].api_info.order }}">
                         <br>
                         <label for=SearchTheCatAPIHasBreeds>Has Breeds?</label>
                         <input type="text" class="form-control" id="SearchTheCatAPIHasBreeds"
-                            name="SearchTheCatAPIHasBreeds">
+                            name="SearchTheCatAPIHasBreeds"
+                            value="{{ search_data.custom_api_data[0].api_info.has_breeds }}">
                         <br>
                         <label for=SearchTheCatAPIApiURL>API URL</label>
-                        <input type="text" class="form-control" id="SearchTheCatAPIApiURL" name="SearchTheCatAPIApiURL">
+                        <input type="text" class="form-control" id="SearchTheCatAPIApiURL" name="SearchTheCatAPIApiURL"
+                            value="{{ search_data.custom_api_data[0].api_info.api_url }}">
                         <br>
                     </div>
 
