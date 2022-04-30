@@ -19,8 +19,7 @@
         <!-- Column for Profile Picture -->
         <div class="col-md-3">
             <div href=# class="d-inline">
-                <img src="https://cdn.discordapp.com/attachments/945257357867380747/969172475315363850/unknown-modified.png"
-                    width=130px style="margin:0;">
+                <img src="{{ admin_settings_data.profile_pic }}" width=130px style="margin:0;">
                 <br>
             </div>
         </div>
@@ -32,28 +31,33 @@
                 <form>
                     <div class="form-group">
                         <label for=AdminUserName>Username</label>
-                        <input type="text" class="form-control" id="AdminUserName" name="AdminUserName">
+                        <input type="text" class="form-control" id="AdminUserName" name="AdminUserName"
+                            value="{{ admin_settings_data.username }}">
                     </div>
                     <div class="form-group">
                         <label for=AdminUserPassword>Password</label>
-                        <input type="text" class="form-control" id="AdminUserPassword" name="AdminUserPassword">
+                        <input type="text" class="form-control" id="AdminUserPassword" name="AdminUserPassword"
+                            value="{{ admin_settings_data.password }}">
                     </div>
                     <div class="form-group">
                         <label for=AdminUserToken>Token</label>
-                        <input type="text" class="form-control" id="AdminUserToken" name="AdminUserToken">
+                        <input type="text" class="form-control" id="AdminUserToken" name="AdminUserToken"
+                            value="{{ admin_settings_data.token }}">
                     </div>
                     <div class="form-group">
                         <label for=AdminUserProfilePicURL>Profile Pic URL</label>
                         <input type="text" class="form-control" id="AdminUserProfilePicURL"
-                            name="AdminUserProfilePicURL">
+                            name="AdminUserProfilePicURL" value="{{ admin_settings_data.profile_pic }}">
                     </div>
                     <div class="form-group">
                         <label for=TodaysTarget>Target - Today</label>
-                        <input type="text" class="form-control" id="TodaysTarget" name="TodaysTarget">
+                        <input type="text" class="form-control" id="TodaysTarget" name="TodaysTarget"
+                            value="{{ admin_settings_data.targets_today }}">
                     </div>
                     <div class="form-group">
                         <label for=AdminUserToken>Target - All Time</label>
-                        <input type="text" class="form-control" id="AllTimesTarget" name="AllTimesTarget">
+                        <input type="text" class="form-control" id="AllTimesTarget" name="AllTimesTarget"
+                            value="{{ admin_settings_data.targets_all }}">
                     </div>
                     <div class="row mt-5">
                         <div class="col">
@@ -96,8 +100,13 @@
                         <label for=ImportantGiphyUsage>Usage</label>
                         <br>
                         <select name="ImportantGiphyUsage" id="ImportantGiphyUsage">
+                            {% if import_settings_data.giphy_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
 
                         <br>
@@ -105,12 +114,13 @@
 
                         <label for=ImportantGiphyApiBaseURL>API Base URL</label>
                         <input type="text" class="form-control" id="ImportantGiphyApiBaseURL"
-                            name="ImportantGiphyApiBaseURL">
+                            name="ImportantGiphyApiBaseURL" value="{{ import_settings_data.giphy_api_url_base }}">
 
                         <br>
 
                         <label for=ImportantGiphyAPIKey>API Key</label>
-                        <input type="text" class="form-control" id="ImportantGiphyAPIKey" name="ImportantGiphyAPIKey">
+                        <input type="text" class="form-control" id="ImportantGiphyAPIKey" name="ImportantGiphyAPIKey"
+                            value="{{ import_settings_data.giphy_api_key }}">
                     </div>
 
                     <hr>
@@ -121,8 +131,13 @@
                         <label for=ImportantPicsumUsage>Usage</label>
                         <br>
                         <select name="ImportantPicsumUsage" id="ImportantPicsumUsage">
+                            {% if import_settings_data.picsum_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
 
                         <br>
@@ -130,7 +145,7 @@
 
                         <label for=ImportantPicsumApiBaseURL>API Base URL</label>
                         <input type="text" class="form-control" id="ImportantPicsumApiBaseURL"
-                            name="ImportantPicsumApiBaseURL">
+                            name="ImportantPicsumApiBaseURL" value="{{ import_settings_data.picsum_api_url_base }}">
                     </div>
 
                     <hr>
@@ -141,8 +156,13 @@
                         <label for=ImportantTenorUsage>Usage</label>
                         <br>
                         <select name="ImportantTenorUsage" id="ImportantTenorUsage">
+                            {% if import_settings_data.tenor_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
 
                         <br>
@@ -150,7 +170,7 @@
 
                         <label for=ImportantTenorApiBaseURL>API Key</label>
                         <input type="text" class="form-control" id="ImportantTenorApiBaseURL"
-                            name="ImportantTenorApiBaseURL">
+                            name="ImportantTenorApiBaseURL" value="{{ import_settings_data.tenor_api_key }}">
                     </div>
 
                     <hr>
@@ -161,48 +181,78 @@
                         <label for=ImportantOtherTheCatAPI>TheCatAPI</label>
                         <br>
                         <select name="ImportantOtherTheCatAPI" id="ImportantOtherTheCatAPI">
+                            {% if import_settings_data.thecatapi_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=ImportantOtherDogCEO>Dog.CEO</label>
                         <br>
                         <select name="ImportantOtherDogCEO" id="ImportantOtherDogCEO">
+                            {% if import_settings_data.dogceo_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=ImportantOtherNekosLife>Nekos.Life</label>
                         <br>
                         <select name="ImportantOtherNekosLife" id="ImportantOtherNekosLife">
+                            {% if import_settings_data.nekoslife_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=ImportantOtherEPorner>ePorner</label>
                         <br>
                         <select name="ImportantOtherEPorner" id="ImportantOtherEPorner">
+                            {% if import_settings_data.eporner_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=ImportantOtherRedTube>Red Tube</label>
                         <br>
                         <select name="ImportantOtherRedTube" id="ImportantOtherRedTube">
+                            {% if import_settings_data.redtube_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=ImportantOtherLocalServerML>LocalServer.ml</label>
                         <br>
                         <select name="ImportantOtherLocalServerML" id="ImportantOtherLocalServerML">
+                            {% if import_settings_data.localserverml_usage == True%}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
