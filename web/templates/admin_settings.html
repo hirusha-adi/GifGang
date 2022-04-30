@@ -1,0 +1,1144 @@
+{% extends "admin_settings_base.html" %}
+
+{% block title %}Admin Settings | GifGang{% endblock %}
+{% block head_stuff %}{% endblock %}
+
+{% block content %}
+
+{% if show_admin_settings == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Admin Settings</h2>
+
+    <div class="row" style="height:100%">
+
+        <!-- Column for Profile Picture -->
+        <div class="col-md-3">
+            <div href=# class="d-inline">
+                <img src="https://cdn.discordapp.com/attachments/945257357867380747/969172475315363850/unknown-modified.png"
+                    width=130px style="margin:0;">
+                <br>
+            </div>
+        </div>
+
+        <!-- Column with all form -->
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <div class="form-group">
+                        <label for=AdminUserName>Username</label>
+                        <input type="text" class="form-control" id="AdminUserName" name="AdminUserName">
+                    </div>
+                    <div class="form-group">
+                        <label for=AdminUserPassword>Password</label>
+                        <input type="text" class="form-control" id="AdminUserPassword" name="AdminUserPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for=AdminUserToken>Token</label>
+                        <input type="text" class="form-control" id="AdminUserToken" name="AdminUserToken">
+                    </div>
+                    <div class="form-group">
+                        <label for=AdminUserProfilePicURL>Profile Pic URL</label>
+                        <input type="text" class="form-control" id="AdminUserProfilePicURL"
+                            name="AdminUserProfilePicURL">
+                    </div>
+                    <div class="form-group">
+                        <label for=TodaysTarget>Target - Today</label>
+                        <input type="text" class="form-control" id="TodaysTarget" name="TodaysTarget">
+                    </div>
+                    <div class="form-group">
+                        <label for=AdminUserToken>Target - All Time</label>
+                        <input type="text" class="form-control" id="AllTimesTarget" name="AllTimesTarget">
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_important_settings == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Important Settings</h2>
+
+    <div class="row" style="height:100%">
+
+        <!-- Column with all form -->
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+
+                    <!-- ImportantGiphy -->
+                    <h3>Giphy</h3>
+                    <div class="form-group">
+                        <label for=ImportantGiphyUsage>Usage</label>
+                        <br>
+                        <select name="ImportantGiphyUsage" id="ImportantGiphyUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+
+                        <br>
+                        <br>
+
+                        <label for=ImportantGiphyApiBaseURL>API Base URL</label>
+                        <input type="text" class="form-control" id="ImportantGiphyApiBaseURL"
+                            name="ImportantGiphyApiBaseURL">
+
+                        <br>
+
+                        <label for=ImportantGiphyAPIKey>API Key</label>
+                        <input type="text" class="form-control" id="ImportantGiphyAPIKey" name="ImportantGiphyAPIKey">
+                    </div>
+
+                    <hr>
+
+                    <!-- ImportantPicsum -->
+                    <h3>Picsum</h3>
+                    <div class="form-group">
+                        <label for=ImportantPicsumUsage>Usage</label>
+                        <br>
+                        <select name="ImportantPicsumUsage" id="ImportantPicsumUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+
+                        <br>
+                        <br>
+
+                        <label for=ImportantPicsumApiBaseURL>API Base URL</label>
+                        <input type="text" class="form-control" id="ImportantPicsumApiBaseURL"
+                            name="ImportantPicsumApiBaseURL">
+                    </div>
+
+                    <hr>
+
+                    <!-- ImportantTenor -->
+                    <h3>Tenor</h3>
+                    <div class="form-group">
+                        <label for=ImportantTenorUsage>Usage</label>
+                        <br>
+                        <select name="ImportantTenorUsage" id="ImportantTenorUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+
+                        <br>
+                        <br>
+
+                        <label for=ImportantTenorApiBaseURL>API Key</label>
+                        <input type="text" class="form-control" id="ImportantTenorApiBaseURL"
+                            name="ImportantTenorApiBaseURL">
+                    </div>
+
+                    <hr>
+
+                    <!-- ImportantOther -->
+                    <h3>Other</h3>
+                    <div class="form-group">
+                        <label for=ImportantOtherTheCatAPI>TheCatAPI</label>
+                        <br>
+                        <select name="ImportantOtherTheCatAPI" id="ImportantOtherTheCatAPI">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=ImportantOtherDogCEO>Dog.CEO</label>
+                        <br>
+                        <select name="ImportantOtherDogCEO" id="ImportantOtherDogCEO">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=ImportantOtherNekosLife>Nekos.Life</label>
+                        <br>
+                        <select name="ImportantOtherNekosLife" id="ImportantOtherNekosLife">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=ImportantOtherEPorner>ePorner</label>
+                        <br>
+                        <select name="ImportantOtherEPorner" id="ImportantOtherEPorner">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=ImportantOtherRedTube>Red Tube</label>
+                        <br>
+                        <select name="ImportantOtherRedTube" id="ImportantOtherRedTube">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=ImportantOtherLocalServerML>LocalServer.ml</label>
+                        <br>
+                        <select name="ImportantOtherLocalServerML" id="ImportantOtherLocalServerML">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_index == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Index -
+        <a href="">/</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+
+                    <!-- IndexGiphy -->
+                    <h3>Giphy</h3>
+                    <div class="form-group">
+                        <label for=IndexGiphyUsage>Usage</label>
+                        <br>
+                        <select name="IndexGiphyUsage" id="IndexGiphyUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexGiphyRandomUsage>Random</label>
+                        <br>
+                        <select name="IndexGiphyRandomUsage" id="IndexGiphyRandomUsage">
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexGiphyRandomLimit>Random Limit</label>
+                        <input type="text" class="form-control" id="IndexGiphyRandomLimit" name="IndexGiphyRandomLimit">
+                        <br>
+                        <label for=IndexGiphyRandomAPIurl>Random API URL</label>
+                        <input type="text" class="form-control" id="IndexGiphyRandomAPIurl"
+                            name="IndexGiphyRandomAPIurl">
+                        <br>
+                        <label for=IndexGiphyTrendingUsage>Trending</label>
+                        <br>
+                        <select name="IndexGiphyTrendingUsage" id="IndexGiphyTrendingUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexGiphyTrendingLimit>Tending Limit</label>
+                        <input type="text" class="form-control" id="IndexGiphyTrendingLimit"
+                            name="IndexGiphyTrendingLimit">
+                        <br>
+                        <label for=IndexGiphyTendingAPIurl>Trending API URL</label>
+                        <input type="text" class="form-control" id="IndexGiphyTendingAPIurl"
+                            name="IndexGiphyTendingAPIurl">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- IndexPicsum -->
+                    <h3>Picsum</h3>
+                    <div class="form-group">
+                        <label for=IndexPicsumUsage>Usage</label>
+                        <br>
+                        <select name="IndexPicsumUsage" id="IndexPicsumUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexPicsumLimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexPicsumLimit" name="IndexPicsumLimit">
+                        <br>
+                        <label for=IndexPicsumApiURL>API URL</label>
+                        <input type="text" class="form-control" id="IndexPicsumApiURL" name="IndexPicsumApiURL">
+                    </div>
+
+                    <hr>
+
+                    <!-- IndexTenor -->
+                    <h3>Tenor</h3>
+                    <div class="form-group">
+                        <label for=IndexTenorUsage>Usage</label>
+                        <br>
+                        <select name="IndexTenorUsage" id="IndexTenorUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexTenorLimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexTenorLimit" name="IndexTenorLimit">
+                        <br>
+                        <label for=IndexTenorLocale>Locale</label>
+                        <input type="text" class="form-control" id="IndexTenorLocale" name="IndexTenorLocale">
+                        <br>
+                        <label for=IndexTenorArRange>AR Range</label>
+                        <input type="text" class="form-control" id="IndexTenorArRange" name="IndexTenorArRange">
+                        <br>
+                        <label for=IndexTenorContentFilter>Content Filter</label>
+                        <input type="text" class="form-control" id="IndexTenorContentFilter"
+                            name="IndexTenorContentFilter">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- IndexTheCatAPI -->
+                    <h3>The Cat API</h3>
+                    <div class="form-group">
+                        <label for=IndexTheCatAPIUsage>Usage</label>
+                        <br>
+                        <select name="IndexTheCatAPIUsage" id="IndexTheCatAPIUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexTheCatAPILimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPILimit" name="IndexTheCatAPILimit">
+                        <br>
+                        <label for=IndexTheCatAPISize>Size</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPISize" name="IndexTheCatAPISize">
+                        <br>
+                        <label for=IndexTheCatAPIMineTypes>Mime Types</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPIMineTypes"
+                            name="IndexTheCatAPIMineTypes">
+                        <br>
+                        <label for=IndexTheCatAPIOrder>Order</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPIOrder" name="IndexTheCatAPIOrder">
+                        <br>
+                        <label for=IndexTheCatAPIHasBreeds>Has Breeds?</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPIHasBreeds"
+                            name="IndexTheCatAPIHasBreeds">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- IndexDogCEO -->
+                    <h3>Deg.CEO</h3>
+                    <div class="form-group">
+                        <label for=IndexDogCEOUsage>Usage</label>
+                        <br>
+                        <select name="IndexDogCEOUsage" id="IndexDogCEOUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexDogCEOLimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexDogCEOLimit" name="IndexDogCEOLimit">
+                        <br>
+                        <label for=IndexDogCEOApiURL>API URL</label>
+                        <input type="text" class="form-control" id="IndexDogCEOApiURL" name="IndexDogCEOApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- IndexNekosLife -->
+                    <h3>Nekos.Life</h3>
+                    <div class="form-group">
+                        <label for=IndexNekosLifeUsage>Usage</label>
+                        <br>
+                        <select name="IndexNekosLifeUsage" id="IndexNekosLifeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexNekosLifeLimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit">
+                        <br>
+                        <label for=IndexNekosLifeURLlist>URL List</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist">
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_search == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Search -
+        <a href="">/search</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- SearchMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=SearchMainTitle>Title</label>
+                        <input type="text" class="form-control" id="SearchMainTitle" name="SearchMainTitle">
+                    </div>
+
+                    <hr>
+
+                    <!-- SearchGiphy -->
+                    <h3>Giphy</h3>
+                    <div class="form-group">
+                        <label for=SearchGiphyUsage>Usage</label>
+                        <br>
+                        <select name="SearchGiphyUsage" id="SearchGiphyUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=SearchGiphyLimit>Limit</label>
+                        <input type="text" class="form-control" id="SearchGiphyLimit" name="SearchGiphyLimit">
+                        <br>
+                        <label for=SearchGiphyOffset>Offset</label>
+                        <input type="text" class="form-control" id="SearchGiphyOffset" name="SearchGiphyOffset">
+                        <br>
+                        <label for=SearchGiphyApiURL>API URL</label>
+                        <input type="text" class="form-control" id="SearchGiphyApiURL" name="SearchGiphyApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- SearchTenor -->
+                    <h3>Tenor</h3>
+                    <div class="form-group">
+                        <label for=SearchTenorUsage>Usage</label>
+                        <br>
+                        <select name="SearchTenorUsage" id="SearchTenorUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=SearchTenorLimit>Limit</label>
+                        <input type="text" class="form-control" id="SearchTenorLimit" name="SearchTenorLimit">
+                        <br>
+                        <label for=SearchTenorLocale>Locale</label>
+                        <input type="text" class="form-control" id="SearchTenorLocale" name="SearchTenorLocale">
+                        <br>
+                        <label for=SearchTenorArRange>AR Range</label>
+                        <input type="text" class="form-control" id="SearchTenorArRange" name="SearchTenorArRange">
+                        <br>
+                        <label for=SearchTenorContentFilter>Content Filter</label>
+                        <input type="text" class="form-control" id="SearchTenorContentFilter"
+                            name="SearchTenorContentFilter">
+                        <br>
+                        <label for=SearchTenorApiURL>API URL</label>
+                        <input type="text" class="form-control" id="SearchTenorApiURL" name="SearchTenorApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- SearchSmartMode -->
+                    <h2>Smart Search</h2>
+                    <div class="form-group">
+                        <label for=SearchSmartModeUsage>Usage</label>
+                        <br>
+                        <select name="SearchSmartModeUsage" id="SearchSmartModeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <label for=SearchSmartModeKeywordsList>All Keywords List</label>
+                        <input type="text" class="form-control" id="SearchSmartModeKeywordsList"
+                            name="SearchSmartModeKeywordsList">
+                        <br>
+                    </div>
+
+                    <hr>
+                    <br>
+
+                    <!-- SearchTheCatAPI -->
+                    <h3>The Cat API</h3>
+                    <div class="form-group">
+                        <label for=SearchTheCatAPIUsage>Usage</label>
+                        <br>
+                        <select name="SearchTheCatAPIUsage" id="SearchTheCatAPIUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=SearchTheCatAPIName>Name</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIName" name="SearchTheCatAPIName">
+                        <br>
+                        <label for=SearchTheCatAPIKeywordList>Keywords List</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIKeywordList"
+                            name="SearchTheCatAPIKeywordList">
+                        <br>
+                        <label for=SearchTheCatAPILimit>Limit</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPILimit" name="SearchTheCatAPILimit">
+                        <br>
+                        <label for=SearchTheCatAPISize>Size</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPISize" name="SearchTheCatAPISize">
+                        <br>
+                        <label for=SearchTheCatAPIMineTypes>Mime Types</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIMineTypes"
+                            name="SearchTheCatAPIMineTypes">
+                        <br>
+                        <label for=SearchTheCatAPIOrder>Order</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIOrder" name="SearchTheCatAPIOrder">
+                        <br>
+                        <label for=SearchTheCatAPIHasBreeds>Has Breeds?</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIHasBreeds"
+                            name="SearchTheCatAPIHasBreeds">
+                        <br>
+                        <label for=SearchTheCatAPIApiURL>API URL</label>
+                        <input type="text" class="form-control" id="SearchTheCatAPIApiURL" name="SearchTheCatAPIApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- SearchDogCEO -->
+                    <h3>Deg.CEO</h3>
+                    <div class="form-group">
+                        <label for=SearchDogCEOUsage>Usage</label>
+                        <br>
+                        <select name="SearchDogCEOUsage" id="SearchDogCEOUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=SearchDogCEOName>Name</label>
+                        <input type="text" class="form-control" id="SearchDogCEOName" name="SearchDogCEOName">
+                        <br>
+                        <label for=SearchDogCEOKeywordsList>Keywords List</label>
+                        <input type="text" class="form-control" id="SearchDogCEOKeywordsList"
+                            name="SearchDogCEOKeywordsList">
+                        <br>
+                        <label for=SearchDogCEOLimit>Limit</label>
+                        <input type="text" class="form-control" id="SearchDogCEOLimit" name="SearchDogCEOLimit">
+                        <br>
+                        <label for=SearchDogCEOApiURL>API URL</label>
+                        <input type="text" class="form-control" id="SearchDogCEOApiURL" name="SearchDogCEOApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+
+                    <!-- IndexNekosLife -->
+                    <h3>Nekos.Life</h3>
+                    <div class="form-group">
+                        <label for=IndexNekosLifeUsage>Usage</label>
+                        <br>
+                        <select name="IndexNekosLifeUsage" id="IndexNekosLifeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=IndexNekosLifeName>Limit</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeName" name="IndexNekosLifeName">
+                        <br>
+                        <label for=IndexNekosLifeKeywordList>Keyword List</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeKeywordList"
+                            name="IndexNekosLifeKeywordList">
+                        <br>
+                        <label for=IndexNekosLifeLimit>Limit</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit">
+                        <br>
+                        <label for=IndexNekosLifeURLlist>URL List</label>
+                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist">
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_pins == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Pins -
+        <a href="">/pins</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- SearchMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=SearchMainTitle>Title</label>
+                        <input type="text" class="form-control" id="SearchMainTitle" name="SearchMainTitle">
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_age_verify == True %}
+<h1>Coming Soon</h1>
+{% endif %}
+
+{% if show_adult_index == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Adult Index -
+        <a href="">/adult/index</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- AdultIndexMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=AdultIndexMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultIndexMainTitle" name="AdultIndexMainTitle">
+                        <label for=AdultIndexMainRandomSearchWordsList>Random Search Words List</label>
+                        <input type="text" class="form-control" id="AdultIndexMainRandomSearchWordsList"
+                            name="AdultIndexMainRandomSearchWordsList">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultIndexhEporner -->
+                    <h3>ePorner</h3>
+                    <div class="form-group">
+                        <label for=AdultIndexhEpornerUsage>Usage</label>
+                        <br>
+                        <select name="AdultIndexhEpornerUsage" id="AdultIndexhEpornerUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultIndexhEpornerLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultIndexhEpornerLimit"
+                            name="AdultIndexhEpornerLimit">
+                        <br>
+                        <label for=AdultIndexhEpornerThumbSize>Thumbnail Size</label>
+                        <input type="text" class="form-control" id="AdultIndexhEpornerThumbSize"
+                            name="AdultIndexhEpornerThumbSize">
+                        <br>
+                        <label for=AdultIndexhEpornerOrder>Order</label>
+                        <input type="text" class="form-control" id="AdultIndexhEpornerOrder"
+                            name="AdultIndexhEpornerOrder">
+                        <br>
+                        <label for=AdultIndexhEpornerAPIUrl>API URL</label>
+                        <input type="text" class="form-control" id="AdultIndexhEpornerAPIUrl"
+                            name="AdultIndexhEpornerAPIUrl">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultIndexhRedTube -->
+                    <h3>Red Tube</h3>
+                    <div class="form-group">
+                        <label for=AdultIndexhRedTubeUsage>Usage</label>
+                        <br>
+                        <select name="AdultIndexhRedTubeUsage" id="AdultIndexhRedTubeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultIndexhRedTubeLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultIndexhRedTubeLimit"
+                            name="AdultIndexhRedTubeLimit">
+                        <br>
+                        <label for=AdultIndexhRedTubeData>Data</label>
+                        <input type="text" class="form-control" id="AdultIndexhRedTubeData"
+                            name="AdultIndexhRedTubeData">
+                        <br>
+                        <label for=AdultIndexhRedTubeThumbSize>Thumbnail Size</label>
+                        <input type="text" class="form-control" id="AdultIndexhRedTubeThumbSize"
+                            name="AdultIndexhRedTubeThumbSize">
+                        <br>
+                        <label for=AdultIndexhRedTubeThumbSizeAPIUrl>API URL</label>
+                        <input type="text" class="form-control" id="AdultIndexhRedTubeThumbSizeAPIUrl"
+                            name="AdultIndexhRedTubeThumbSizeAPIUrl">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_adult_pins == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic 1 -->
+    <h2 class="mt-5 mb-5">Adult Pins & Categories -
+        <a href="">/adult/pins</a>
+        &
+        <a href="">/adult/categories</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- AdultPinsMain -->
+                    <h3>Adult Pins</h3>
+                    <div class="form-group">
+                        <label for=AdultPinsMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultPinsMainTitle" name="AdultPinsMainTitle">
+                        <br>
+
+                        <label for=AdultPinsMainOtherTitle>Other Title</label>
+                        <input type="text" class="form-control" id="AdultPinsMainOtherTitle"
+                            name="AdultPinsMainOtherTitle">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultCategories -->
+                    <h3>Adult Categories</h3>
+                    <div class="form-group">
+                        <label for=AdultCategoriesTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultCategoriesTitle" name="AdultCategoriesTitle">
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_adult_stars == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Adult Stars -
+        <a href="">/adult/search</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- AdultStarsMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=AdultStarsMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultStarsMainTitle" name="AdultStarsMainTitle">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultStarsRedTube -->
+                    <h3>Red Tube</h3>
+                    <div class="form-group">
+                        <label for=AdultStarsRedTubeUsage>Usage</label>
+                        <br>
+                        <select name="AdultStarsRedTubeUsage" id="AdultStarsRedTubeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultStarsRedTubeData>Data</label>
+                        <input type="text" class="form-control" id="AdultStarsRedTubeData" name="AdultStarsRedTubeData">
+                        <br>
+                        <label for=AdultStarsRedTubeApiURL>API URL</label>
+                        <input type="text" class="form-control" id="AdultStarsRedTubeApiURL"
+                            name="AdultStarsRedTubeApiURL">
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_adult_search == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Adult Search -
+        <a href="">/adult/search</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- AdultSearchMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=AdultSearchMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultSearchMainTitle" name="AdultSearchMainTitle">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultSearchEporner -->
+                    <h3>EPorner</h3>
+                    <div class="form-group">
+                        <label for=AdultSearchEpornerUsage>Usage</label>
+                        <br>
+                        <select name="AdultSearchEpornerUsage" id="AdultSearchEpornerUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultSearchEpornerLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultSearchEpornerLimit"
+                            name="AdultSearchEpornerLimit">
+                        <br>
+                        <label for=AdultSearchEpornerOrder>Order</label>
+                        <input type="text" class="form-control" id="AdultSearchEpornerOrder"
+                            name="AdultSearchEpornerOrder">
+                        <br>
+                        <label for=AdultSearchEpornerThumbSize>Thumbnail Size</label>
+                        <input type="text" class="form-control" id="AdultSearchEpornerThumbSize"
+                            name="AdultSearchEpornerThumbSize">
+                        <br>
+                        <label for=AdultSearchEpornerApiURL>API URL</label>
+                        <input type="text" class="form-control" id="AdultSearchEpornerApiURL"
+                            name="AdultSearchEpornerApiURL">
+                        <br>
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultSearchRedTube -->
+                    <h3>Red Tube</h3>
+                    <div class="form-group">
+                        <label for=AdultSearchRedTubeUsage>Usage</label>
+                        <br>
+                        <select name="AdultSearchRedTubeUsage" id="AdultSearchRedTubeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultSearchRedTubeLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultSearchRedTubeLimit"
+                            name="AdultSearchRedTubeLimit">
+                        <br>
+                        <label for=AdultSearchRedTubeData>Data</label>
+                        <input type="text" class="form-control" id="AdultSearchRedTubeData"
+                            name="AdultSearchRedTubeData">
+                        <br>
+                        <label for=AdultSearchRedTubeThumbSize>Thumbnail Size</label>
+                        <input type="text" class="form-control" id="AdultSearchRedTubeThumbSize"
+                            name="AdultSearchRedTubeThumbSize">
+                        <br>
+                        <label for=AdultSearchRedTubeApiURL>API URL</label>
+                        <input type="text" class="form-control" id="AdultSearchRedTubeApiURL"
+                            name="AdultSearchRedTubeApiURL">
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if show_adult_hentai == True %}
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Adult Search -
+        <a href="">/adult/search</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form>
+                    <!-- AdultHentaiMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=AdultHentaiMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AdultHentaiMainTitle" name="AdultHentaiMainTitle">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultHentaiLocalServer -->
+                    <h3>LocalServer.ml</h3>
+                    <div class="form-group">
+                        <label for=AdultHentaiLocalServerUsage>Usage</label>
+                        <br>
+                        <select name="AdultHentaiLocalServerUsage" id="AdultHentaiLocalServerUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultHentaiLocalServerLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultHentaiLocalServerLimit"
+                            name="AdultHentaiLocalServerLimit">
+                        <br>
+                        <label for=AdultHentaiLocalServerApiURL>API Base URL</label>
+                        <input type="text" class="form-control" id="AdultHentaiLocalServerApiURL"
+                            name="AdultHentaiLocalServerApiURL">
+                        <br>
+                        <label for=AdultHentaiLocalServerEndpointsList>Endpoints List</label>
+                        <input type="text" class="form-control" id="AdultHentaiLocalServerEndpointsList"
+                            name="AdultHentaiLocalServerEndpointsList">
+                    </div>
+
+                    <hr>
+
+                    <!-- AdultHentaiNekosLife -->
+                    <h3>Nekos.Life</h3>
+                    <div class="form-group">
+                        <label for=AdultHentaiNekosLifeUsage>Usage</label>
+                        <br>
+                        <select name="AdultHentaiNekosLifeUsage" id="AdultHentaiNekosLifeUsage">
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label for=AdultHentaiNekosLifeLimit>Limit</label>
+                        <input type="text" class="form-control" id="AdultHentaiNekosLifeLimit"
+                            name="AdultHentaiNekosLifeLimit">
+                        <br>
+                        <label for=AdultHentaiNekosLifeData>Data</label>
+                        <input type="text" class="form-control" id="AdultHentaiNekosLifeData"
+                            name="AdultHentaiNekosLifeData">
+                        <br>
+                        <label for=AdultHentaiNekosLifeApiURL>API URL</label>
+                        <input type="text" class="form-control" id="AdultHentaiNekosLifeApiURL"
+                            name="AdultHentaiNekosLifeApiURL">
+                        <br>
+                        <label for=AdultHentaiNekosLifeEndpointsList>Endpoints List</label>
+                        <input type="text" class="form-control" id="AdultHentaiNekosLifeEndpointsList"
+                            name="AdultHentaiNekosLifeEndpointsList">
+                        <br>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
