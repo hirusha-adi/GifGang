@@ -771,11 +771,77 @@ def admin_settings():
 
     logf(request=request, page="admin/settings")
 
-    log(f'Requested `/admin/panel` - admin_settings()',
+    log(f'Requested `/admin/settings` - admin_settings()',
         ipaddr=request.remote_addr)
+
     try:
         if session["token"] == Settings.Admin.token:
-            return "Coming Soon"
+            return redirect(url_for('admin_settings_admin'))
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
+        return redirect(url_for("admin_login_page"))
+
+
+@app.route("/admin/settings/admin")
+def admin_settings_admin():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings/admin")
+
+    log(f'Requested `/admin/settings/admin` - admin_settings_admin()',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=True,
+                admin_settings_data=Settings.Admin,
+                show_important_settings=False,
+                show_index=False,
+                show_search=False,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=False,
+                show_adult_hentai=False,
+            )
+
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
+        return redirect(url_for("admin_login_page"))
+
+
+@app.route("/admin/settings/important")
+def admin_settings_important():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings/important")
+
+    log(f'Requested `/admin/settings/important` - admin_settings_important()',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=False,
+                show_important_settings=True,
+                import_settings_data=Important,
+                show_index=False,
+                show_search=False,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=False,
+                show_adult_hentai=False,
+            )
 
         else:
             return redirect(url_for("admin_login_page"))
