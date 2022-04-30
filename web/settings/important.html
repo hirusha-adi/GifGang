@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Settings | GifGang</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid main" style="height:100vh;padding-left:0px;">
+
+        <!-- Mobile Menu Button -->
+        <div class="d-block d-md-none menu">
+            <div class="bar"></div>
+        </div>
+
+        <!-- Mobile Side Bar -->
+        <div class="expand-menu nav flex-column">
+            <a href="#" class="nav-link active mt-auto">
+                <i class="far fa-user-circle"></i>
+                Admin
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-star"></i>
+                Important
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Index
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Search
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Pins
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Age Verify
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Adult Index
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Adult Pins
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Adult Stars
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Adult Search
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Adult Hentai
+            </a>
+            <a href="#" class="nav-link mb-auto">
+                <i class="fa-solid fa-arrow-left"></i>
+                Admin Panel
+            </a>
+        </div>
+
+        <div class="row align-items-center" style="height:100%">
+
+            <!-- Desktop Side Bar -->
+            <div class="col-md-3 d-none d-md-block" style="height:100%">
+                <div class="container-fluid nav sidebar flex-column">
+                    <a href="#" class="nav-link active mt-auto">
+                        <i class="far fa-user-circle"></i>
+                        Admin
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-star"></i>
+                        Important
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Index
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Search
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Pins
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Age Verify
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Adult Index
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Adult Pins
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Adult Stars
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Adult Search
+                    </a>
+                    <a href="#" class="nav-link mb-auto">
+                        <i class="fa-solid fa-file"></i>
+                        Adult Hentai
+                    </a>
+                    <a href="#" class="nav-link mb-auto">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Admin Panel
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="container content clear-fix">
+
+                    <!-- Topic -->
+                    <h2 class="mt-5 mb-5">Important Settings</h2>
+
+                    <div class="row" style="height:100%">
+
+                        <!-- Column with all form -->
+                        <div class="col-md-9">
+                            <div class="container">
+
+                                <form>
+
+                                    <!-- ImportantGiphy -->
+                                    <h3>Giphy</h3>
+                                    <div class="form-group">
+                                        <label for=ImportantGiphyUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantGiphyUsage" id="ImportantGiphyUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantGiphyApiBaseURL>API Base URL</label>
+                                        <input type="text" class="form-control" id="ImportantGiphyApiBaseURL"
+                                            name="ImportantGiphyApiBaseURL">
+
+                                        <br>
+
+                                        <label for=ImportantGiphyAPIKey>API Key</label>
+                                        <input type="text" class="form-control" id="ImportantGiphyAPIKey"
+                                            name="ImportantGiphyAPIKey">
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ImportantPicsum -->
+                                    <h3>Picsum</h3>
+                                    <div class="form-group">
+                                        <label for=ImportantPicsumUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantPicsumUsage" id="ImportantPicsumUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantPicsumApiBaseURL>API Base URL</label>
+                                        <input type="text" class="form-control" id="ImportantPicsumApiBaseURL"
+                                            name="ImportantPicsumApiBaseURL">
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ImportantTenor -->
+                                    <h3>Tenor</h3>
+                                    <div class="form-group">
+                                        <label for=ImportantTenorUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantTenorUsage" id="ImportantTenorUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantTenorApiBaseURL>API Key</label>
+                                        <input type="text" class="form-control" id="ImportantTenorApiBaseURL"
+                                            name="ImportantTenorApiBaseURL">
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ImportantOther -->
+                                    <h3>Other</h3>
+                                    <div class="form-group">
+                                        <label for=ImportantOtherTheCatAPI>TheCatAPI</label>
+                                        <br>
+                                        <select name="ImportantOtherTheCatAPI" id="ImportantOtherTheCatAPI">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherDogCEO>Dog.CEO</label>
+                                        <br>
+                                        <select name="ImportantOtherDogCEO" id="ImportantOtherDogCEO">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherNekosLife>Nekos.Life</label>
+                                        <br>
+                                        <select name="ImportantOtherNekosLife" id="ImportantOtherNekosLife">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherEPorner>ePorner</label>
+                                        <br>
+                                        <select name="ImportantOtherEPorner" id="ImportantOtherEPorner">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherRedTube>Red Tube</label>
+                                        <br>
+                                        <select name="ImportantOtherRedTube" id="ImportantOtherRedTube">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherLocalServerML>LocalServer.ml</label>
+                                        <br>
+                                        <select name="ImportantOtherLocalServerML" id="ImportantOtherLocalServerML">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                    </div>
+
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-primary btn-block">
+                                                Save Changes
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-default btn-block">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
