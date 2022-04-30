@@ -779,7 +779,7 @@ def admin_settings():
             return redirect(url_for('admin_settings_admin'))
         else:
             return redirect(url_for("admin_login_page"))
-    except:
+    except Exception as e:
         return redirect(url_for("admin_login_page"))
 
 
@@ -793,9 +793,6 @@ def admin_settings_admin():
         ipaddr=request.remote_addr)
 
     try:
-        print(session['token'])
-        print(Settings.Admin.token)
-        print(session['token'] == Settings.Admin.token)
         if session["token"] == Settings.Admin.token:
             return render_template(
                 "admin_settings.html",
@@ -816,6 +813,7 @@ def admin_settings_admin():
         else:
             return redirect(url_for("admin_login_page"))
     except Exception as e:
+        print(e)
         return redirect(url_for("admin_login_page"))
 
 
