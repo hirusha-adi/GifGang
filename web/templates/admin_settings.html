@@ -348,11 +348,11 @@
                         <br>
                         <label for=IndexGiphyTrendingLimit>Tending Limit</label>
                         <input type="text" class="form-control" id="IndexGiphyTrendingLimit"
-                            name="IndexGiphyTrendingLimit" value="index_data.api_usage.giphy.trending_limit">
+                            name="IndexGiphyTrendingLimit" value="{{ index_data.api_usage.giphy.trending_limit }}">
                         <br>
                         <label for=IndexGiphyTendingAPIurl>Trending API URL</label>
                         <input type="text" class="form-control" id="IndexGiphyTendingAPIurl"
-                            name="IndexGiphyTendingAPIurl" value="index_data.api_usage.giphy.trending_api_url">
+                            name="IndexGiphyTendingAPIurl" value="{{ index_data.api_usage.giphy.trending_api_url }}">
                         <br>
                     </div>
 
@@ -364,16 +364,23 @@
                         <label for=IndexPicsumUsage>Usage</label>
                         <br>
                         <select name="IndexPicsumUsage" id="IndexPicsumUsage">
+                            {% if index_data.api_usage.picsum.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexPicsumLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexPicsumLimit" name="IndexPicsumLimit">
+                        <input type="text" class="form-control" id="IndexPicsumLimit" name="IndexPicsumLimit"
+                            value="{{ index_data.api_usage.picsum.limit }}">
                         <br>
                         <label for=IndexPicsumApiURL>API URL</label>
-                        <input type="text" class="form-control" id="IndexPicsumApiURL" name="IndexPicsumApiURL">
+                        <input type="text" class="form-control" id="IndexPicsumApiURL" name="IndexPicsumApiURL"
+                            value="{{ index_data.api_usage.picsum.api_url }}">
                     </div>
 
                     <hr>
@@ -384,23 +391,35 @@
                         <label for=IndexTenorUsage>Usage</label>
                         <br>
                         <select name="IndexTenorUsage" id="IndexTenorUsage">
+                            {% if index_data.api_usage.tenor.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexTenorLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexTenorLimit" name="IndexTenorLimit">
+                        <input type="text" class="form-control" id="IndexTenorLimit" name="IndexTenorLimit"
+                            value="{{ index_data.api_usage.tenor.usage }}">
                         <br>
                         <label for=IndexTenorLocale>Locale</label>
-                        <input type="text" class="form-control" id="IndexTenorLocale" name="IndexTenorLocale">
+                        <input type="text" class="form-control" id="IndexTenorLocale" name="IndexTenorLocale"
+                            value="{{ index_data.api_usage.tenor.locale }}">
                         <br>
                         <label for=IndexTenorArRange>AR Range</label>
-                        <input type="text" class="form-control" id="IndexTenorArRange" name="IndexTenorArRange">
+                        <input type="text" class="form-control" id="IndexTenorArRange" name="IndexTenorArRange"
+                            value="{{ index_data.api_usage.tenor.ar_range }}">
                         <br>
                         <label for=IndexTenorContentFilter>Content Filter</label>
                         <input type="text" class="form-control" id="IndexTenorContentFilter"
-                            name="IndexTenorContentFilter">
+                            name="IndexTenorContentFilter" value="{{ index_data.api_usage.tenor.contentfilter }}">
+                        <br>
+                        <label for=IndexTenorApiURL>Content Filter</label>
+                        <input type="text" class="form-control" id="IndexTenorApiURL" name="IndexTenorApiURL"
+                            value="{{ index_data.api_usage.tenor.api_url }}">
                         <br>
                     </div>
 
@@ -412,27 +431,39 @@
                         <label for=IndexTheCatAPIUsage>Usage</label>
                         <br>
                         <select name="IndexTheCatAPIUsage" id="IndexTheCatAPIUsage">
+                            {% if index_data.api_usage.theCatAPI.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexTheCatAPILimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexTheCatAPILimit" name="IndexTheCatAPILimit">
+                        <input type="text" class="form-control" id="IndexTheCatAPILimit" name="IndexTheCatAPILimit"
+                            value="{{ index_data.api_usage.theCatAPI.limit }}">
                         <br>
                         <label for=IndexTheCatAPISize>Size</label>
-                        <input type="text" class="form-control" id="IndexTheCatAPISize" name="IndexTheCatAPISize">
+                        <input type="text" class="form-control" id="IndexTheCatAPISize" name="IndexTheCatAPISize"
+                            value="{{ index_data.api_usage.theCatAPI.size }}">
                         <br>
                         <label for=IndexTheCatAPIMineTypes>Mime Types</label>
                         <input type="text" class="form-control" id="IndexTheCatAPIMineTypes"
-                            name="IndexTheCatAPIMineTypes">
+                            name="IndexTheCatAPIMineTypes" value="{{ index_data.api_usage.theCatAPI.mime_types }]">
                         <br>
                         <label for=IndexTheCatAPIOrder>Order</label>
-                        <input type="text" class="form-control" id="IndexTheCatAPIOrder" name="IndexTheCatAPIOrder">
+                        <input type="text" class="form-control" id="IndexTheCatAPIOrder" name="IndexTheCatAPIOrder"
+                            value="{{ index_data.api_usage.theCatAPI.order }}">
                         <br>
                         <label for=IndexTheCatAPIHasBreeds>Has Breeds?</label>
                         <input type="text" class="form-control" id="IndexTheCatAPIHasBreeds"
-                            name="IndexTheCatAPIHasBreeds">
+                            name="IndexTheCatAPIHasBreeds" value="{{ index_data.api_usage.theCatAPI.has_breeds }}">
+                        <br>
+                        <label for=IndexTheCatAPIAPIUrl>Has Breeds?</label>
+                        <input type="text" class="form-control" id="IndexTheCatAPIAPIUrl" name="IndexTheCatAPIAPIUrl"
+                            value="{{ index_data.api_usage.theCatAPI.api_url }}">
                         <br>
                     </div>
 
@@ -444,16 +475,23 @@
                         <label for=IndexDogCEOUsage>Usage</label>
                         <br>
                         <select name="IndexDogCEOUsage" id="IndexDogCEOUsage">
+                            {% if index_data.api_usage.dogCEO.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexDogCEOLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexDogCEOLimit" name="IndexDogCEOLimit">
+                        <input type="text" class="form-control" id="IndexDogCEOLimit" name="IndexDogCEOLimit"
+                            value="{{ index_data.api_usage.dogCEO.limit }}">
                         <br>
                         <label for=IndexDogCEOApiURL>API URL</label>
-                        <input type="text" class="form-control" id="IndexDogCEOApiURL" name="IndexDogCEOApiURL">
+                        <input type="text" class="form-control" id="IndexDogCEOApiURL" name="IndexDogCEOApiURL"
+                            value="{{ index_data.api_usage.dogCEO.api_url }}">
                         <br>
                     </div>
 
