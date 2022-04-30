@@ -286,7 +286,7 @@
 
     <!-- Topic -->
     <h2 class="mt-5 mb-5">Index -
-        <a href="">/</a>
+        <a href="{{ url_for('index') }}">/</a>
     </h2>
 
     <div class="row" style="height:100%">
@@ -295,6 +295,16 @@
             <div class="container">
 
                 <form>
+
+                    <!-- IndexMain -->
+                    <h3>Main</h3>
+                    <div class="form-group">
+                        <label for=IndexMainTitle>Title</label>
+                        <input type="text" class="form-control" id="IndexMainTitle" name="IndexMainTitle"
+                            value="{{ index_data.title }}">
+                    </div>
+
+                    <hr>
 
                     <!-- IndexGiphy -->
                     <h3>Giphy</h3>
@@ -564,7 +574,8 @@
                     <h3>Main</h3>
                     <div class="form-group">
                         <label for=SearchMainTitle>Title</label>
-                        <input type="text" class="form-control" id="SearchMainTitle" name="SearchMainTitle">
+                        <input type="text" class="form-control" id="SearchMainTitle" name="SearchMainTitle"
+                            value="{{ search_data.title }}">
                     </div>
 
                     <hr>
@@ -574,20 +585,30 @@
                     <div class="form-group">
                         <label for=SearchGiphyUsage>Usage</label>
                         <br>
+                        {% if search_data.api_usage.giphy.usage == True %}
                         <select name="SearchGiphyUsage" id="SearchGiphyUsage">
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
                         </select>
+                        {% else %}
+                        <select name="SearchGiphyUsage" id="SearchGiphyUsage">
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                        </select>
+                        {% endif %}
                         <br>
                         <br>
                         <label for=SearchGiphyLimit>Limit</label>
-                        <input type="text" class="form-control" id="SearchGiphyLimit" name="SearchGiphyLimit">
+                        <input type="text" class="form-control" id="SearchGiphyLimit" name="SearchGiphyLimit"
+                            value="{{ search_data.api_usage.giphy.limit }}">
                         <br>
                         <label for=SearchGiphyOffset>Offset</label>
-                        <input type="text" class="form-control" id="SearchGiphyOffset" name="SearchGiphyOffset">
+                        <input type="text" class="form-control" id="SearchGiphyOffset" name="SearchGiphyOffset"
+                            value="{{ search_data.api_usage.giphy.offset }}">
                         <br>
                         <label for=SearchGiphyApiURL>API URL</label>
-                        <input type="text" class="form-control" id="SearchGiphyApiURL" name="SearchGiphyApiURL">
+                        <input type="text" class="form-control" id="SearchGiphyApiURL" name="SearchGiphyApiURL"
+                            value="{{ search_data.api_usage.giphy.api_url }}">
                         <br>
                     </div>
 
@@ -599,26 +620,35 @@
                         <label for=SearchTenorUsage>Usage</label>
                         <br>
                         <select name="SearchTenorUsage" id="SearchTenorUsage">
+                            {% if search_data.api_usage.tenor.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=SearchTenorLimit>Limit</label>
-                        <input type="text" class="form-control" id="SearchTenorLimit" name="SearchTenorLimit">
+                        <input type="text" class="form-control" id="SearchTenorLimit" name="SearchTenorLimit"
+                            value="{{ search_data.api_usage.tenor.limit }}">
                         <br>
                         <label for=SearchTenorLocale>Locale</label>
-                        <input type="text" class="form-control" id="SearchTenorLocale" name="SearchTenorLocale">
+                        <input type="text" class="form-control" id="SearchTenorLocale" name="SearchTenorLocale"
+                            value="{{ search_data.api_usage.tenor.locale }}">
                         <br>
                         <label for=SearchTenorArRange>AR Range</label>
-                        <input type="text" class="form-control" id="SearchTenorArRange" name="SearchTenorArRange">
+                        <input type="text" class="form-control" id="SearchTenorArRange" name="SearchTenorArRange"
+                            value="{{ search_data.api_usage.tenor.ar_range }}">
                         <br>
                         <label for=SearchTenorContentFilter>Content Filter</label>
                         <input type="text" class="form-control" id="SearchTenorContentFilter"
-                            name="SearchTenorContentFilter">
+                            name="SearchTenorContentFilter" value="{{ search_data.api_usage.tenor.contentfilter }}">
                         <br>
                         <label for=SearchTenorApiURL>API URL</label>
-                        <input type="text" class="form-control" id="SearchTenorApiURL" name="SearchTenorApiURL">
+                        <input type="text" class="form-control" id="SearchTenorApiURL" name="SearchTenorApiURL"
+                            value="{{ search_data.api_usage.tenor.api_url }}">
                         <br>
                     </div>
 
@@ -633,6 +663,8 @@
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
                         </select>
+                        <br>
+                        <br>
                         <label for=SearchSmartModeKeywordsList>All Keywords List</label>
                         <input type="text" class="form-control" id="SearchSmartModeKeywordsList"
                             name="SearchSmartModeKeywordsList">
