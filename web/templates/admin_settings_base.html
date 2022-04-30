@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_settings.css') }}">
 
     {% block head_stuff %}{% endblock %}
 
@@ -142,7 +142,6 @@
             <div class="col-md-9">
                 {% block content %}
                 {% endblock %}
-
             </div>
         </div>
 
@@ -160,7 +159,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
-    <script src="./script.js"></script>
+    <script src="{{ url_for('static', filename='js/admin_settings.js') }}"></script>
 
 </body>
 
