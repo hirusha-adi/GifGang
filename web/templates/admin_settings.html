@@ -302,41 +302,57 @@
                         <label for=IndexGiphyUsage>Usage</label>
                         <br>
                         <select name="IndexGiphyUsage" id="IndexGiphyUsage">
+                            {% if index_data.api_usage.giphy.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexGiphyRandomUsage>Random</label>
                         <br>
                         <select name="IndexGiphyRandomUsage" id="IndexGiphyRandomUsage">
+                            {% if index_data.api_usage.giphy.random == True %}
+                            <option value="1">False</option>
+                            <option value="2" selected>True</option>
+                            {% else %}
                             <option value="1" selected>False</option>
                             <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexGiphyRandomLimit>Random Limit</label>
-                        <input type="text" class="form-control" id="IndexGiphyRandomLimit" name="IndexGiphyRandomLimit">
+                        <input type="text" class="form-control" id="IndexGiphyRandomLimit" name="IndexGiphyRandomLimit"
+                            value="{{ index_data.api_usage.giphy.random_limit }}">
                         <br>
                         <label for=IndexGiphyRandomAPIurl>Random API URL</label>
                         <input type="text" class="form-control" id="IndexGiphyRandomAPIurl"
-                            name="IndexGiphyRandomAPIurl">
+                            name="IndexGiphyRandomAPIurl" value="{{ index_data.api_usage.giphy.random_api_url }}">
                         <br>
                         <label for=IndexGiphyTrendingUsage>Trending</label>
                         <br>
                         <select name="IndexGiphyTrendingUsage" id="IndexGiphyTrendingUsage">
+                            {% if index_data.api_usage.giphy.trending == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=IndexGiphyTrendingLimit>Tending Limit</label>
                         <input type="text" class="form-control" id="IndexGiphyTrendingLimit"
-                            name="IndexGiphyTrendingLimit">
+                            name="IndexGiphyTrendingLimit" value="index_data.api_usage.giphy.trending_limit">
                         <br>
                         <label for=IndexGiphyTendingAPIurl>Trending API URL</label>
                         <input type="text" class="form-control" id="IndexGiphyTendingAPIurl"
-                            name="IndexGiphyTendingAPIurl">
+                            name="IndexGiphyTendingAPIurl" value="index_data.api_usage.giphy.trending_api_url">
                         <br>
                     </div>
 
