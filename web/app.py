@@ -849,6 +849,39 @@ def admin_settings_important():
         return redirect(url_for("admin_login_page"))
 
 
+@app.route("/admin/settings/index")
+def admin_settings_index():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings/index")
+
+    log(f'Requested `/admin/settings/index` - admin_settings_index()',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=False,
+                show_important_settings=False,
+                show_index=True,
+                index_data=WebsiteData.index,
+                show_search=False,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=False,
+                show_adult_hentai=False,
+            )
+
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
+        return redirect(url_for("admin_login_page"))
+
+
 @app.route("/logout")
 def admin_logout():
     count_total_visits_amount()
