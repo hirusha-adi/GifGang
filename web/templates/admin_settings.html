@@ -5,6 +5,9 @@
 
 {% block content %}
 
+<!-- All conditions START here -->
+
+<!-- Admin User Settings -->
 {% if show_admin_settings == True %}
 <div class="container content clear-fix">
 
@@ -71,9 +74,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_important_settings == True %}
+<!-- Important Settings -->
+{% elif show_important_settings == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -226,9 +229,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_index == True %}
+<!-- / - Index Settings -->
+{% elif show_index == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -430,9 +433,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_search == True %}
+<!-- /search - Search Settings -->
+{% elif show_search == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -646,9 +649,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_pins == True %}
+<!-- /pins - Pins Settings -->
+{% elif show_pins == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -690,13 +693,13 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_age_verify == True %}
+<!-- /restricted - Age Verification Settings -->
+{% elif show_age_verify == True %}
 <h1>Coming Soon</h1>
-{% endif %}
 
-{% if show_adult_index == True %}
+<!-- /adult - Adult Index Settings-->
+{% elif show_adult_index == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -805,9 +808,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_adult_pins == True %}
+<!-- /adult/pins & /adult/categories- Adult Pins and Categories Settings -->
+{% elif show_adult_pins == True %}
 <div class="container content clear-fix">
 
     <!-- Topic 1 -->
@@ -865,9 +868,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_adult_stars == True %}
+<!-- /adult/stars - Adult Stars Settings -->
+{% elif show_adult_stars == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -931,9 +934,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_adult_search == True %}
+<!-- /adult/search - Adult Search Settings -->
+{% elif show_adult_search == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -1037,9 +1040,9 @@
         </div>
     </div>
 </div>
-{% endif %}
 
-{% if show_adult_hentai == True %}
+<!-- /adukt/search - Adult Hentai Settings -->
+{% elif show_adult_hentai == True %}
 <div class="container content clear-fix">
 
     <!-- Topic -->
@@ -1138,7 +1141,8 @@
         </div>
     </div>
 </div>
-{% endif %}
 
+{% endif %}
+<!-- All conditions END here -->
 
 {% endblock %}
