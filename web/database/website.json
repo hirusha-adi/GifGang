@@ -33,14 +33,6 @@
                 "contentfilter": "off",
                 "api_url": "https://g.tenor.com/v1/random"
             },
-            "unsplash": {
-                "usage": false,
-                "limit": 30,
-                "username": false,
-                "orientation": false,
-                "content_filter": "low",
-                "api_url": "https://api.unsplash.com/photos/random"
-            },
             "theCatAPI": {
                 "usage": true,
                 "size": "med",
