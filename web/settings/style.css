@@ -46,7 +46,9 @@ form .btn {
   bottom: 0;
   padding-left: 20px;
   font-size: 1.3rem;
-  background: #009bca;
+  /* background: #009bca; */
+  position: fixed;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 940px) {
@@ -58,7 +60,7 @@ form .btn {
 
 .sidebar .nav-link {
   margin-bottom: 20px;
-  color: #dddce5;
+  color: #000000;
 }
 
 .nav-link.active {
