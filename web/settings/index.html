@@ -81,9 +81,9 @@
             </a>
         </div>
 
-        <!-- Desktop Side Bar -->
         <div class="row align-items-center" style="height:100%">
 
+            <!-- Desktop Side Bar -->
             <div class="col-md-3 d-none d-md-block" style="height:100%">
                 <div class="container-fluid nav sidebar flex-column">
                     <a href="#" class="nav-link active mt-auto">
@@ -139,49 +139,137 @@
 
             <div class="col-md-9">
                 <div class="container content clear-fix">
-                    <h2 class="mt-5 mb-5">Admin Settings</h2>
+
+                    <!-- Topic -->
+                    <h2 class="mt-5 mb-5">Important Settings</h2>
+
                     <div class="row" style="height:100%">
 
-                        <div class="col-md-3">
-                            <div href=# class="d-inline">
-                                <img src="https://cdn.discordapp.com/attachments/945257357867380747/969172475315363850/unknown-modified.png"
-                                    width=130px style="margin:0;">
-                                <br>
-                            </div>
-                        </div>
-
+                        <!-- Column with all form -->
                         <div class="col-md-9">
                             <div class="container">
 
                                 <form>
+
+                                    <!-- ImportantGiphy -->
+                                    <h3>Giphy</h3>
                                     <div class="form-group">
-                                        <label for=AdminUserName>Username</label>
-                                        <input type="text" class="form-control" id="AdminUserName" name="AdminUserName">
+                                        <label for=ImportantGiphyUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantGiphyUsage" id="ImportantGiphyUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantGiphyApiBaseURL>API Base URL</label>
+                                        <input type="text" class="form-control" id="ImportantGiphyApiBaseURL"
+                                            name="ImportantGiphyApiBaseURL">
+
+                                        <br>
+
+                                        <label for=ImportantGiphyAPIKey>API Key</label>
+                                        <input type="text" class="form-control" id="ImportantGiphyAPIKey"
+                                            name="ImportantGiphyAPIKey">
                                     </div>
+
+                                    <hr>
+
+                                    <!-- ImportantPicsum -->
+                                    <h3>Picsum</h3>
                                     <div class="form-group">
-                                        <label for=AdminUserPassword>Password</label>
-                                        <input type="text" class="form-control" id="AdminUserPassword"
-                                            name="AdminUserPassword">
+                                        <label for=ImportantPicsumUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantPicsumUsage" id="ImportantPicsumUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantPicsumApiBaseURL>API Base URL</label>
+                                        <input type="text" class="form-control" id="ImportantPicsumApiBaseURL"
+                                            name="ImportantPicsumApiBaseURL">
                                     </div>
+
+                                    <hr>
+
+                                    <!-- ImportantTenor -->
+                                    <h3>Tenor</h3>
                                     <div class="form-group">
-                                        <label for=AdminUserToken>Token</label>
-                                        <input type="text" class="form-control" id="AdminUserToken"
-                                            name="AdminUserToken">
+                                        <label for=ImportantTenorUsage>Usage</label>
+                                        <br>
+                                        <select name="ImportantTenorUsage" id="ImportantTenorUsage">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+
+                                        <br>
+                                        <br>
+
+                                        <label for=ImportantTenorApiBaseURL>API Key</label>
+                                        <input type="text" class="form-control" id="ImportantTenorApiBaseURL"
+                                            name="ImportantTenorApiBaseURL">
                                     </div>
+
+                                    <hr>
+
+                                    <!-- ImportantOther -->
+                                    <h3>Other</h3>
                                     <div class="form-group">
-                                        <label for=AdminUserProfilePicURL>Profile Pic URL</label>
-                                        <input type="text" class="form-control" id="AdminUserProfilePicURL"
-                                            name="AdminUserProfilePicURL">
+                                        <label for=ImportantOtherTheCatAPI>TheCatAPI</label>
+                                        <br>
+                                        <select name="ImportantOtherTheCatAPI" id="ImportantOtherTheCatAPI">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherDogCEO>Dog.CEO</label>
+                                        <br>
+                                        <select name="ImportantOtherDogCEO" id="ImportantOtherDogCEO">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherNekosLife>Nekos.Life</label>
+                                        <br>
+                                        <select name="ImportantOtherNekosLife" id="ImportantOtherNekosLife">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherEPorner>ePorner</label>
+                                        <br>
+                                        <select name="ImportantOtherEPorner" id="ImportantOtherEPorner">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherRedTube>Red Tube</label>
+                                        <br>
+                                        <select name="ImportantOtherRedTube" id="ImportantOtherRedTube">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <label for=ImportantOtherLocalServerML>LocalServer.ml</label>
+                                        <br>
+                                        <select name="ImportantOtherLocalServerML" id="ImportantOtherLocalServerML">
+                                            <option value="1">False</option>
+                                            <option value="2" selected>True</option>
+                                        </select>
+                                        <br>
+                                        <br>
                                     </div>
-                                    <div class="form-group">
-                                        <label for=TodaysTarget>Target - Today</label>
-                                        <input type="text" class="form-control" id="TodaysTarget" name="TodaysTarget">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for=AdminUserToken>Target - All Time</label>
-                                        <input type="text" class="form-control" id="AllTimesTarget"
-                                            name="AllTimesTarget">
-                                    </div>
+
                                     <div class="row mt-5">
                                         <div class="col">
                                             <button type="button" class="btn btn-primary btn-block">
@@ -196,6 +284,8 @@
                                     </div>
 
                                 </form>
+                                <br>
+                                <br>
 
                             </div>
                         </div>
