@@ -176,3 +176,10 @@ form .btn {
 .expand-menu.animate {
   width: 100%;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  color: #8f9096;
+}
