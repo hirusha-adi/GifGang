@@ -3,6 +3,7 @@ import os
 import random
 import time
 from threading import Thread
+import webbrowser
 
 import requests
 from flask import Flask, redirect, render_template, request, send_file, url_for, session
@@ -971,6 +972,39 @@ def admin_settings_adult_index():
                 show_adult_index=True,
                 adult_index_data=WebsiteData.adult_index,
                 show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=False,
+                show_adult_hentai=False,
+            )
+
+        else:
+            return redirect(url_for("admin_login_page"))
+    except Exception:
+        return redirect(url_for("admin_login_page"))
+
+
+@app.route("/admin/settings/adult/pins")
+def admin_settings_adult_pins():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings/adult/pins")
+
+    log(f'Requested `/admin/settings/adult/index` - admin_settings_adult_pins()',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=False,
+                show_important_settings=False,
+                show_index=False,
+                show_search=False,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=True,
+                adult_pins_data=WebsiteData.adult_pins,
                 show_adult_stars=False,
                 show_adult_search=False,
                 show_adult_hentai=False,
