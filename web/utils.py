@@ -76,9 +76,8 @@ class Settings:
         targets_today = _targets["today"]
         targets_all = _targets["all"]
 
+
 # Store website data
-
-
 class WebsiteData:
     with open(FileNames.website_info_file, "r", encoding="utf-8") as _file:
         _data = json.load(_file)
@@ -307,3 +306,56 @@ class Update:
 
         with open(FileNames.admin_settings_file, "w", encoding="utf-8") as _file:
             json.dump(Settings.Admin._admin_data, _file, indent=4)
+
+    def Index(
+        IndexMainTitle,
+        IndexGiphyUsage,
+        IndexGiphyRandomUsage,
+        IndexGiphyRandomLimit,
+        IndexGiphyRandomAPIurl,
+        IndexGiphyTrendingUsage,
+        IndexGiphyTrendingLimit,
+        IndexGiphyTendingAPIurl,
+        IndexPicsumUsage,
+        IndexPicsumLimit,
+        IndexPicsumApiURL,
+        IndexTenorUsage,
+        IndexTenorLimit,
+        IndexTenorLocale,
+        IndexTenorArRange,
+        IndexTenorContentFilter,
+        IndexTenorApiURL
+    ):
+        WebsiteData.index["title"] = str(IndexMainTitle)
+        WebsiteData.index["api_usage"]["giphy"]["usage"] = str(IndexGiphyUsage)
+        WebsiteData.index["api_usage"]["giphy"]["random"] = str(
+            IndexGiphyRandomUsage)
+        WebsiteData.index["api_usage"]["giphy"]["random_limit"] = str(
+            IndexGiphyRandomLimit)
+        WebsiteData.index["api_usage"]["giphy"]["random_api_url"] = str(
+            IndexGiphyRandomAPIurl)
+
+        WebsiteData.index["api_usage"]["giphy"]["trending"] = str(
+            IndexGiphyTrendingUsage)
+        WebsiteData.index["api_usage"]["giphy"]["trending_limit"] = str(
+            IndexGiphyTrendingLimit)
+        WebsiteData.index["api_usage"]["giphy"]["trending_api_url"] = str(
+            IndexGiphyTendingAPIurl)
+
+        WebsiteData.index["api_usage"]["picsum"]["usage"] = str(
+            IndexPicsumUsage)
+        WebsiteData.index["api_usage"]["picsum"]["limit"] = str(
+            IndexPicsumLimit)
+        WebsiteData.index["api_usage"]["picsum"]["api_url"] = str(
+            IndexPicsumApiURL)
+
+        WebsiteData.index["api_usage"]["tenor"]["usage"] = str(IndexTenorUsage)
+        WebsiteData.index["api_usage"]["tenor"]["limit"] = str(IndexTenorLimit)
+        WebsiteData.index["api_usage"]["tenor"]["locale"] = str(
+            IndexTenorLocale)
+        WebsiteData.index["api_usage"]["tenor"]["ar_range"] = str(
+            IndexTenorArRange)
+        WebsiteData.index["api_usage"]["tenor"]["contentfilter"] = str(
+            IndexTenorContentFilter)
+        WebsiteData.index["api_usage"]["tenor"]["api_url"] = str(
+            IndexTenorApiURL)
