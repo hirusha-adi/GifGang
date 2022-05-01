@@ -442,7 +442,7 @@ class Update:
         splitted = x.split(",")
         if len(splitted) != len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]):
             splitted[-1] = splitted[-1][:-1]
-            splitted[0] = splitted[0][1:]
+            splitted[0] = splitted[0][2:]
 
             y = []
 
