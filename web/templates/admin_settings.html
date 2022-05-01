@@ -895,10 +895,12 @@
                     <h3>Main</h3>
                     <div class="form-group">
                         <label for=AdultIndexMainTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultIndexMainTitle" name="AdultIndexMainTitle">
+                        <input type="text" class="form-control" id="AdultIndexMainTitle" name="AdultIndexMainTitle"
+                            value="{{ adult_index_data.title }}">
                         <label for=AdultIndexMainRandomSearchWordsList>Random Search Words List</label>
                         <input type="text" class="form-control" id="AdultIndexMainRandomSearchWordsList"
-                            name="AdultIndexMainRandomSearchWordsList">
+                            name="AdultIndexMainRandomSearchWordsList"
+                            value="{{ adult_index_data.api_usage.random_search_word }}">
                     </div>
 
                     <hr>
@@ -909,26 +911,32 @@
                         <label for=AdultIndexhEpornerUsage>Usage</label>
                         <br>
                         <select name="AdultIndexhEpornerUsage" id="AdultIndexhEpornerUsage">
+                            {% if adult_index_data.api_usage.eporner.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=AdultIndexhEpornerLimit>Limit</label>
                         <input type="text" class="form-control" id="AdultIndexhEpornerLimit"
-                            name="AdultIndexhEpornerLimit">
+                            name="AdultIndexhEpornerLimit" value="{{ adult_index_data.api_usage.eporner.limit }}">
                         <br>
                         <label for=AdultIndexhEpornerThumbSize>Thumbnail Size</label>
                         <input type="text" class="form-control" id="AdultIndexhEpornerThumbSize"
-                            name="AdultIndexhEpornerThumbSize">
+                            name="AdultIndexhEpornerThumbSize"
+                            value="{{ adult_index_data.api_usage.eporner.thumbsize }}">
                         <br>
                         <label for=AdultIndexhEpornerOrder>Order</label>
                         <input type="text" class="form-control" id="AdultIndexhEpornerOrder"
-                            name="AdultIndexhEpornerOrder">
+                            name="AdultIndexhEpornerOrder" value="{{ adult_index_data.api_usage.eporner.order }}">
                         <br>
                         <label for=AdultIndexhEpornerAPIUrl>API URL</label>
                         <input type="text" class="form-control" id="AdultIndexhEpornerAPIUrl"
-                            name="AdultIndexhEpornerAPIUrl">
+                            name="AdultIndexhEpornerAPIUrl" value="{{ adult_index_data.api_usage.eporner.api_url }}">
                         <br>
                     </div>
 
@@ -940,26 +948,33 @@
                         <label for=AdultIndexhRedTubeUsage>Usage</label>
                         <br>
                         <select name="AdultIndexhRedTubeUsage" id="AdultIndexhRedTubeUsage">
+                            {% if adult_index_data.api_usage.redtube.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=AdultIndexhRedTubeLimit>Limit</label>
                         <input type="text" class="form-control" id="AdultIndexhRedTubeLimit"
-                            name="AdultIndexhRedTubeLimit">
+                            name="AdultIndexhRedTubeLimit" value="{{ adult_index_data.api_usage.redtube.limit }}">
                         <br>
                         <label for=AdultIndexhRedTubeData>Data</label>
                         <input type="text" class="form-control" id="AdultIndexhRedTubeData"
-                            name="AdultIndexhRedTubeData">
+                            name="AdultIndexhRedTubeData" value="{{ adult_index_data.api_usage.redtube.data }}">
                         <br>
                         <label for=AdultIndexhRedTubeThumbSize>Thumbnail Size</label>
                         <input type="text" class="form-control" id="AdultIndexhRedTubeThumbSize"
-                            name="AdultIndexhRedTubeThumbSize">
+                            name="AdultIndexhRedTubeThumbSize"
+                            value="{{ adult_index_data.api_usage.redtube.thumbsize }}">
                         <br>
                         <label for=AdultIndexhRedTubeThumbSizeAPIUrl>API URL</label>
                         <input type="text" class="form-control" id="AdultIndexhRedTubeThumbSizeAPIUrl"
-                            name="AdultIndexhRedTubeThumbSizeAPIUrl">
+                            name="AdultIndexhRedTubeThumbSizeAPIUrl"
+                            value="{{ adult_index_data.api_usage.redtube.api_url }}">
                         <br>
                     </div>
 
