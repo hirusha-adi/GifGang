@@ -831,6 +831,56 @@ def admin_save_settings(mode, site):
 
                     return redirect(url_for('admin_setting_sfw', site='important'))
 
+                if site == "index":
+                    IndexMainTitle = request.form.get('IndexMainTitle')
+
+                    IndexGiphyUsage = request.form.get('IndexGiphyUsage')
+                    IndexGiphyRandomUsage = request.form.get(
+                        'IndexGiphyRandomUsage')
+                    IndexGiphyRandomLimit = request.form.get(
+                        'IndexGiphyRandomLimit')
+                    IndexGiphyRandomAPIurl = request.form.get(
+                        'IndexGiphyRandomAPIurl')
+                    IndexGiphyTrendingUsage = request.form.get(
+                        'IndexGiphyTrendingUsage')
+                    IndexGiphyTrendingLimit = request.form.get(
+                        'IndexGiphyTrendingLimit')
+                    IndexGiphyTendingAPIurl = request.form.get(
+                        'IndexGiphyTendingAPIurl')
+
+                    IndexPicsumUsage = request.form.get('IndexPicsumUsage')
+                    IndexPicsumLimit = request.form.get('IndexPicsumLimit')
+                    IndexPicsumApiURL = request.form.get('IndexPicsumApiURL')
+
+                    IndexTenorUsage = request.form.get('IndexTenorUsage')
+                    IndexTenorLimit = request.form.get('IndexTenorLimit')
+                    IndexTenorLocale = request.form.get('IndexTenorLocale')
+                    IndexTenorArRange = request.form.get('IndexTenorArRange')
+                    IndexTenorContentFilter = request.form.get(
+                        'IndexTenorContentFilter')
+                    IndexTenorApiURL = request.form.get('IndexTenorApiURL')
+
+                    IndexTheCatAPIUsage = request.form.get(
+                        'IndexTheCatAPIUsage')
+                    IndexTheCatAPILimit = request.form.get(
+                        'IndexTheCatAPILimit')
+                    IndexTheCatAPISize = request.form.get('IndexTheCatAPISize')
+                    IndexTheCatAPIMineTypes = request.form.get(
+                        'IndexTheCatAPIMineTypes')
+                    IndexTheCatAPIOrder = request.form.get(
+                        'IndexTheCatAPIOrder')
+
+                    IndexDogCEOUsage = request.form.get('IndexDogCEOUsage')
+                    IndexDogCEOLimit = request.form.get('IndexDogCEOLimit')
+                    IndexDogCEOApiURL = request.form.get('IndexDogCEOApiURL')
+
+                    IndexNekosLifeUsage = request.form.get(
+                        'IndexNekosLifeUsage')
+                    IndexNekosLifeLimit = request.form.get(
+                        'IndexNekosLifeLimit')
+                    IndexNekosLifeURLlist = request.form.get(
+                        'IndexNekosLifeURLlist')
+
                 else:
                     AdminUserName = request.form.get('AdminUserName')
                     AdminUserPassword = request.form.get('AdminUserPassword')
