@@ -463,7 +463,18 @@ class Update:
         SearchTenorLocale,
         SearchTenorArRange,
         SearchTenorContentFilter,
-        SearchTenorApiURL
+        SearchTenorApiURL,
+        SearchSmartModeUsage,
+        SearchSmartModeKeywordsList,
+        SearchTheCatAPIUsage,
+        SearchTheCatAPIName,
+        SearchTheCatAPIKeywordList,
+        SearchTheCatAPISize,
+        SearchTheCatAPILimit,
+        SearchTheCatAPIMineTypes,
+        SearchTheCatAPIOrder,
+        SearchTheCatAPIHasBreeds,
+        SearchTheCatAPIApiURL
     ):
         WebsiteData.search["title"] = SearchMainTitle
 
@@ -497,5 +508,45 @@ class Update:
         WebsiteData.search["api_usage"]["tenor"]["api_url"] = str(
             SearchTenorApiURL)
 
-        WebsiteData.search["api_usage"]["tenor"]["usage"] = str(
-            SearchGiphyLimit)
+        WebsiteData.search["custom_api_usage"] = True if str(
+            SearchSmartModeUsage) == "2" else False
+
+        x = str(SearchSmartModeKeywordsList)
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+
+        WebsiteData.index["custom_api_data_all_keywords_list"] = y
+
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["usage"] = True if str(
+            SearchTheCatAPIUsage) == "2" else False
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["name"] = str(
+            SearchTheCatAPIName)
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["keywords"] = str(
+            SearchTheCatAPIKeywordList)
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["size"] = str(
+            SearchTheCatAPISize)
+        try:
+            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["limit"] = int(
+                SearchTheCatAPILimit)
+        except:
+            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["limit"] = str(
+                SearchTheCatAPILimit)
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["mime_types"] = str(
+            SearchTheCatAPIMineTypes)
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["order"] = str(
+            SearchTheCatAPIOrder)
+        try:
+            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["has_breeds"] = int(
+                SearchTheCatAPIHasBreeds)
+        except:
+            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["has_breeds"] = str(
+                SearchTheCatAPIHasBreeds)
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["api_url"] = str(
+            SearchTheCatAPIApiURL)
+
+        # WebsiteData.search["api_usage"]["tenor"]["usage"] = str(SearchGiphyLimit)
