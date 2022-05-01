@@ -918,6 +918,8 @@ def admin_save_settings(mode, site):
                         IndexNekosLifeURLlist=IndexNekosLifeURLlist
                     )
 
+                    return redirect(url_for('admin_setting_sfw', site='index'))
+
                 else:
                     AdminUserName = request.form.get('AdminUserName')
                     AdminUserPassword = request.form.get('AdminUserPassword')
