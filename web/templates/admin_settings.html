@@ -774,12 +774,12 @@
                     <hr>
 
 
-                    <!-- IndexNekosLife -->
+                    <!-- SearchNekosLife -->
                     <h3>Nekos.Life</h3>
                     <div class="form-group">
-                        <label for=IndexNekosLifeUsage>Usage</label>
+                        <label for=SearchNekosLifeUsage>Usage</label>
                         <br>
-                        <select name="IndexNekosLifeUsage" id="IndexNekosLifeUsage">
+                        <select name="SearchNekosLifeUsage" id="SearchNekosLifeUsage">
                             {% if search_data.custom_api_data[2].api_info.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
@@ -790,20 +790,21 @@
                         </select>
                         <br>
                         <br>
-                        <label for=IndexNekosLifeName>Name</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeName" name="IndexNekosLifeName"
+                        <label for=SearchNekosLifeName>Name</label>
+                        <input type="text" class="form-control" id="SearchNekosLifeName" name="SearchNekosLifeName"
                             value="{{ search_data.custom_api_data[2].api_info.name }}">
                         <br>
-                        <label for=IndexNekosLifeKeywordList>Keyword List</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeKeywordList"
-                            name="IndexNekosLifeKeywordList" value="{{ search_data.custom_api_data[2].keywords }}">
+                        <label for=SearchNekosLifeKeywordList>Keyword List</label>
+                        <input type="text" class="form-control" id="SearchNekosLifeKeywordList"
+                            name="SearchNekosLifeKeywordList" value="{{ search_data.custom_api_data[2].keywords }}">
                         <br>
-                        <label for=IndexNekosLifeLimit>Limit</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeLimit" name="IndexNekosLifeLimit"
+                        <label for=SearchNekosLifeLimit>Limit</label>
+                        <input type="text" class="form-control" id="SearchNekosLifeLimit" name="SearchNekosLifeLimit"
                             value="{{ search_data.custom_api_data[2].api_info.limit }}">
                         <br>
-                        <label for=IndexNekosLifeURLlist>URL List</label>
-                        <input type="text" class="form-control" id="IndexNekosLifeURLlist" name="IndexNekosLifeURLlist"
+                        <label for=SearchNekosLifeURLlist>URL List</label>
+                        <input type="text" class="form-control" id="SearchNekosLifeURLlist"
+                            name="SearchNekosLifeURLlist"
                             value="{{ search_data.custom_api_data[2].api_info.api_url_list }}">
                         <br>
                     </div>
