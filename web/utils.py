@@ -401,5 +401,20 @@ class Update:
             IndexNekosLifeUsage) == "2" else False
         WebsiteData.index["api_usage"]["nekoslife"]["limit"] = str(
             IndexNekosLifeLimit)
-        WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = str(
-            IndexNekosLifeURLlist)
+
+        x = str(IndexNekosLifeURLlist)
+        y = []
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+
+        for i in splitted:
+            y.append(str(i[1:-1]))
+
+        WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = y
+
+        WebsiteData._data["index"] = WebsiteData.index
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
