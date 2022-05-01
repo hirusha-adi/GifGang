@@ -885,6 +885,39 @@ def admin_save_settings(mode, site):
                     IndexNekosLifeURLlist = request.form.get(
                         'IndexNekosLifeURLlist')
 
+                    Update.Index(
+                        IndexMainTitle=IndexMainTitle,
+                        IndexGiphyUsage=IndexGiphyUsage,
+                        IndexGiphyRandomUsage=IndexGiphyRandomUsage,
+                        IndexGiphyRandomLimit=IndexGiphyRandomLimit,
+                        IndexGiphyRandomAPIurl=IndexGiphyRandomAPIurl,
+                        IndexGiphyTrendingUsage=IndexGiphyTrendingUsage,
+                        IndexGiphyTrendingLimit=IndexGiphyTrendingLimit,
+                        IndexGiphyTendingAPIurl=IndexGiphyTendingAPIurl,
+                        IndexPicsumUsage=IndexPicsumUsage,
+                        IndexPicsumLimit=IndexPicsumLimit,
+                        IndexPicsumApiURL=IndexPicsumApiURL,
+                        IndexTenorUsage=IndexTenorUsage,
+                        IndexTenorLimit=IndexTenorLimit,
+                        IndexTenorLocale=IndexTenorLocale,
+                        IndexTenorArRange=IndexTenorArRange,
+                        IndexTenorContentFilter=IndexTenorContentFilter,
+                        IndexTenorApiURL=IndexTenorApiURL,
+                        IndexTheCatAPIUsage=IndexTheCatAPIUsage,
+                        IndexTheCatAPILimit=IndexTheCatAPILimit,
+                        IndexTheCatAPISize=IndexTheCatAPISize,
+                        IndexTheCatAPIMineTypes=IndexTheCatAPIMineTypes,
+                        IndexTheCatAPIOrder=IndexTheCatAPIOrder,
+                        IndexTheCatAPIHasBreeds=IndexTheCatAPIHasBreeds,
+                        IndexTheCatAPIAPIUrl=IndexTheCatAPIAPIUrl,
+                        IndexDogCEOUsage=IndexDogCEOUsage,
+                        IndexDogCEOLimit=IndexDogCEOLimit,
+                        IndexDogCEOApiURL=IndexDogCEOApiURL,
+                        IndexNekosLifeUsage=IndexNekosLifeUsage,
+                        IndexNekosLifeLimit=IndexNekosLifeLimit,
+                        IndexNekosLifeURLlist=IndexNekosLifeURLlist
+                    )
+
                 else:
                     AdminUserName = request.form.get('AdminUserName')
                     AdminUserPassword = request.form.get('AdminUserPassword')
