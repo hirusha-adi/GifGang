@@ -967,15 +967,16 @@ def admin_save_settings(mode, site):
                     SearchDogCEOLimit = request.form.get('SearchDogCEOLimit')
                     SearchDogCEOApiURL = request.form.get('SearchDogCEOApiURL')
 
-                    IndexNekosLifeUsage = request.form.get(
-                        'IndexNekosLifeUsage')
-                    IndexNekosLifeName = request.form.get('IndexNekosLifeName')
-                    IndexNekosLifeKeywordList = request.form.get(
-                        'IndexNekosLifeKeywordList')
-                    IndexNekosLifeLimit = request.form.get(
-                        'IndexNekosLifeLimit')
-                    IndexNekosLifeURLlist = request.form.get(
-                        'IndexNekosLifeURLlist')
+                    SearchNekosLifeUsage = request.form.get(
+                        'SearchNekosLifeUsage')
+                    SearchNekosLifeName = request.form.get(
+                        'SearchNekosLifeName')
+                    SearchNekosLifeKeywordList = request.form.get(
+                        'SearchNekosLifeKeywordList')
+                    SearchNekosLifeLimit = request.form.get(
+                        'SearchNekosLifeLimit')
+                    SearchNekosLifeURLlist = request.form.get(
+                        'SearchNekosLifeURLlist')
 
                 else:
                     AdminUserName = request.form.get('AdminUserName')
