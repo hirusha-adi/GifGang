@@ -1083,7 +1083,8 @@
                     <h3>Main</h3>
                     <div class="form-group">
                         <label for=AdultStarsMainTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultStarsMainTitle" name="AdultStarsMainTitle">
+                        <input type="text" class="form-control" id="AdultStarsMainTitle" name="AdultStarsMainTitle"
+                            value="{{ adult_stars_data.title }}">
                     </div>
 
                     <hr>
@@ -1094,17 +1095,23 @@
                         <label for=AdultStarsRedTubeUsage>Usage</label>
                         <br>
                         <select name="AdultStarsRedTubeUsage" id="AdultStarsRedTubeUsage">
+                            {% if adult_stars_data.api_usage.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=AdultStarsRedTubeData>Data</label>
-                        <input type="text" class="form-control" id="AdultStarsRedTubeData" name="AdultStarsRedTubeData">
+                        <input type="text" class="form-control" id="AdultStarsRedTubeData" name="AdultStarsRedTubeData"
+                            value="{{ adult_stars_data.api_usage.data }}">
                         <br>
                         <label for=AdultStarsRedTubeApiURL>API URL</label>
                         <input type="text" class="form-control" id="AdultStarsRedTubeApiURL"
-                            name="AdultStarsRedTubeApiURL">
+                            name="AdultStarsRedTubeApiURL" value="{{ adult_stars_data.api_usage.api_url }}">
                         <br>
                     </div>
 
