@@ -417,8 +417,12 @@ class Update:
 
         WebsiteData.index["api_usage"]["dogCEO"]["usage"] = True if str(
             IndexDogCEOUsage) == "2" else False
-        WebsiteData.index["api_usage"]["dogCEO"]["limit"] = str(
-            IndexDogCEOLimit)
+        try:
+            WebsiteData.index["api_usage"]["dogCEO"]["limit"] = int(
+                IndexDogCEOLimit)
+        except:
+            WebsiteData.index["api_usage"]["dogCEO"]["limit"] = str(
+                IndexDogCEOLimit)
         WebsiteData.index["api_usage"]["dogCEO"]["api_url"] = str(
             IndexDogCEOApiURL)
 
