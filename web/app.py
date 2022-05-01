@@ -869,6 +869,10 @@ def admin_save_settings(mode, site):
                         'IndexTheCatAPIMineTypes')
                     IndexTheCatAPIOrder = request.form.get(
                         'IndexTheCatAPIOrder')
+                    IndexTheCatAPIHasBreeds = request.form.get(
+                        'IndexTheCatAPIHasBreeds')
+                    IndexTheCatAPIAPIUrl = request.form.get(
+                        'IndexTheCatAPIAPIUrl')
 
                     IndexDogCEOUsage = request.form.get('IndexDogCEOUsage')
                     IndexDogCEOLimit = request.form.get('IndexDogCEOLimit')
