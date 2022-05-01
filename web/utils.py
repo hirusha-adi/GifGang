@@ -479,7 +479,12 @@ class Update:
         SearchDogCEOName,
         SearchDogCEOLimit,
         SearchDogCEOApiURL,
-        SearchDogCEOKeywordsList
+        SearchDogCEOKeywordsList,
+        SearchNekosLifeUsage,
+        SearchNekosLifeName,
+        SearchNekosLifeKeywordList,
+        SearchNekosLifeLimit,
+        SearchNekosLifeURLlist
     ):
         WebsiteData.search["title"] = SearchMainTitle
 
@@ -588,7 +593,37 @@ class Update:
 
         WebsiteData.search["api_usage"]["custom_api_data"][1]["keywords"] = y
 
-        WebsiteData.search["api_usage"]["tenor"]["usage"] = str(
-            SearchGiphyLimit)
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = True if str(
+            SearchNekosLifeUsage) == "2" else False
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["name"] = str(
+            SearchNekosLifeName)
+        try:
+            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = int(
+                SearchNekosLifeLimit)
+        except:
+            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = str(
+                SearchNekosLifeLimit)
+
+        x = str(SearchNekosLifeURLlist)
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["api_url_list"] = y
+
+        x = str(SearchNekosLifeKeywordList)
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = y
 
         # WebsiteData.search["api_usage"]["tenor"]["usage"] = str(SearchGiphyLimit)
