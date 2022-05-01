@@ -9,7 +9,7 @@ import requests
 from flask import Flask, redirect, render_template, request, send_file, url_for, session
 
 import services
-from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings
+from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings, Update
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -759,6 +759,77 @@ def admin_panel_page():
                 percentage_target_all=percentage_target_all,
                 admin_profile_picture=Settings.Admin.profile_pic,
             )
+
+        else:
+            return redirect(url_for("admin_login_page"))
+    except:
+        return redirect(url_for("admin_login_page"))
+
+
+@app.route("/admin/settings/<mode>/<site>", methods=['POST'])
+def admin_save_settings(mode, site):
+    count_total_visits_amount()
+
+    logf(request=request, page=f"admin/settings/{mode}/{site}")
+
+    log(f'Requested `/admin/settings/{mode}/{site} - admin_save_settings(mode, site)',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            site = str(site)
+            mode = str(mode)
+
+            if mode == "sfw":
+
+                if site == "important":
+                    ImportantGiphyUsage = request.form.get(
+                        'ImportantGiphyUsage')
+                    ImportantGiphyApiBaseURL = request.form.get(
+                        'ImportantGiphyApiBaseURL')
+                    ImportantGiphyAPIKey = request.form.get(
+                        'ImportantGiphyAPIKey')
+
+                    ImportantPicsumUsage = request.form.get(
+                        'ImportantPicsumUsage')
+                    ImportantPicsumApiBaseURL = request.form.get(
+                        'ImportantPicsumApiBaseURL')
+
+                    ImportantTenorUsage = request.form.get(
+                        'ImportantTenorUsage')
+                    ImportantTenorApiBaseURL = request.form.get(
+                        'ImportantTenorApiBaseURL')
+
+                    ImportantOtherTheCatAPI = request.form.get(
+                        'ImportantOtherTheCatAPI')
+                    ImportantOtherDogCEO = request.form.get(
+                        'ImportantOtherDogCEO')
+                    ImportantOtherNekosLife = request.form.get(
+                        'ImportantOtherNekosLife')
+                    ImportantOtherEPorner = request.form.get(
+                        'ImportantOtherEPorner')
+                    ImportantOtherRedTube = request.form.get(
+                        'ImportantOtherRedTube')
+                    ImportantOtherLocalServerML = request.form.get(
+                        'ImportantOtherLocalServerML')
+
+                    Update.Important(
+                        giphy_usage=ImportantGiphyUsage,
+                        giphy_api_url_base=ImportantGiphyApiBaseURL,
+                        giphy_api_key=ImportantGiphyAPIKey,
+                        picsum_usage=ImportantPicsumUsage,
+                        picsum_api_url_base=ImportantPicsumApiBaseURL,
+                        tenor_usage=ImportantTenorUsage,
+                        tenor_api_key=ImportantTenorApiBaseURL,
+                        thecatapi_usage=ImportantOtherTheCatAPI,
+                        dogceo_usage=ImportantOtherDogCEO,
+                        nekoslife_usage=ImportantOtherNekosLife,
+                        eporner_usage=ImportantOtherEPorner,
+                        redtube_usage=ImportantOtherRedTube,
+                        localserverml_usage=ImportantOtherLocalServerML
+                    )
+
+                    return redirect(url_for('admin_setting_sfw', site='important'))
 
         else:
             return redirect(url_for("admin_login_page"))
