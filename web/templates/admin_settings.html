@@ -1275,7 +1275,8 @@
                     <h3>Main</h3>
                     <div class="form-group">
                         <label for=AdultHentaiMainTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultHentaiMainTitle" name="AdultHentaiMainTitle">
+                        <input type="text" class="form-control" id="AdultHentaiMainTitle" name="AdultHentaiMainTitle"
+                            value="{{ adult_hentai_data.title }}">
                     </div>
 
                     <hr>
@@ -1286,22 +1287,30 @@
                         <label for=AdultHentaiLocalServerUsage>Usage</label>
                         <br>
                         <select name="AdultHentaiLocalServerUsage" id="AdultHentaiLocalServerUsage">
+                            {% if adult_hentai_data.api_usage.localserverml_api.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=AdultHentaiLocalServerLimit>Limit</label>
                         <input type="text" class="form-control" id="AdultHentaiLocalServerLimit"
-                            name="AdultHentaiLocalServerLimit">
+                            name="AdultHentaiLocalServerLimit"
+                            value="{{ adult_hentai_data.api_usage.localserverml_api.limit }}">
                         <br>
                         <label for=AdultHentaiLocalServerApiURL>API Base URL</label>
                         <input type="text" class="form-control" id="AdultHentaiLocalServerApiURL"
-                            name="AdultHentaiLocalServerApiURL">
+                            name="AdultHentaiLocalServerApiURL"
+                            value="{{ adult_hentai_data.api_usage.localserverml_api.api_url }}">
                         <br>
                         <label for=AdultHentaiLocalServerEndpointsList>Endpoints List</label>
                         <input type="text" class="form-control" id="AdultHentaiLocalServerEndpointsList"
-                            name="AdultHentaiLocalServerEndpointsList">
+                            name="AdultHentaiLocalServerEndpointsList"
+                            value="{{ adult_hentai_data.api_usage.localserverml_api.localserverml_enpoints }}">
                     </div>
 
                     <hr>
@@ -1312,30 +1321,33 @@
                         <label for=AdultHentaiNekosLifeUsage>Usage</label>
                         <br>
                         <select name="AdultHentaiNekosLifeUsage" id="AdultHentaiNekosLifeUsage">
+                            {% if adult_hentai_data.api_usage.nekoslife.usage == True %}
                             <option value="1">False</option>
                             <option value="2" selected>True</option>
+                            {% else %}
+                            <option value="1" selected>False</option>
+                            <option value="2">True</option>
+                            {% endif %}
                         </select>
                         <br>
                         <br>
                         <label for=AdultHentaiNekosLifeLimit>Limit</label>
                         <input type="text" class="form-control" id="AdultHentaiNekosLifeLimit"
-                            name="AdultHentaiNekosLifeLimit">
-                        <br>
-                        <label for=AdultHentaiNekosLifeData>Data</label>
-                        <input type="text" class="form-control" id="AdultHentaiNekosLifeData"
-                            name="AdultHentaiNekosLifeData">
+                            name="AdultHentaiNekosLifeLimit" value="{{ adult_hentai_data.api_usage.nekoslife.limit }}">
                         <br>
                         <label for=AdultHentaiNekosLifeApiURL>API URL</label>
                         <input type="text" class="form-control" id="AdultHentaiNekosLifeApiURL"
-                            name="AdultHentaiNekosLifeApiURL">
+                            name="AdultHentaiNekosLifeApiURL"
+                            value="{{ adult_hentai_data.api_usage.nekoslife.api_url }}">
                         <br>
                         <label for=AdultHentaiNekosLifeEndpointsList>Endpoints List</label>
-                        <input type="text" class="form-control" id="AdultHentaiNekosLifeEndpointsList"
-                            name="AdultHentaiNekosLifeEndpointsList">
+                        <input type=" text" class="form-control" id="AdultHentaiNekosLifeEndpointsList"
+                            name="AdultHentaiNekosLifeEndpointsList"
+                            value="{{ adult_hentai_data.api_usage.nekoslife.nekoslife_endpoints }}">
                         <br>
                     </div>
 
-                    <div class="row mt-5">
+                    <div class=" row mt-5">
                         <div class="col">
                             <button type="button" class="btn btn-primary btn-block">
                                 Save Changes
