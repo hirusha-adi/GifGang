@@ -451,3 +451,51 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
+
+    def Search(
+        SearchMainTitle,
+        SearchGiphyUsage,
+        SearchGiphyLimit,
+        SearchGiphyOffset,
+        SearchGiphyApiURL,
+        SearchTenorUsage,
+        SearchTenorLimit,
+        SearchTenorLocale,
+        SearchTenorArRange,
+        SearchTenorContentFilter,
+        SearchTenorApiURL
+    ):
+        WebsiteData.search["title"] = SearchMainTitle
+
+        WebsiteData.search["api_usage"]["giphy"]["usage"] = True if str(
+            SearchGiphyUsage) == "2" else False
+        try:
+            WebsiteData.search["api_usage"]["giphy"]["limit"] = int(
+                SearchGiphyLimit)
+        except:
+            WebsiteData.search["api_usage"]["giphy"]["limit"] = str(
+                SearchGiphyLimit)
+        WebsiteData.search["api_usage"]["giphy"]["offset"] = str(
+            SearchGiphyOffset)
+        WebsiteData.search["api_usage"]["giphy"]["api_url"] = str(
+            SearchGiphyApiURL)
+
+        WebsiteData.search["api_usage"]["tenor"]["usage"] = True if str(
+            SearchTenorUsage) == "2" else False
+        try:
+            WebsiteData.search["api_usage"]["tenor"]["limit"] = int(
+                SearchTenorLimit)
+        except:
+            WebsiteData.search["api_usage"]["tenor"]["limit"] = str(
+                SearchTenorLimit)
+        WebsiteData.search["api_usage"]["tenor"]["locale"] = str(
+            SearchTenorLocale)
+        WebsiteData.search["api_usage"]["tenor"]["ar_range"] = str(
+            SearchTenorArRange)
+        WebsiteData.search["api_usage"]["tenor"]["contentfilter"] = str(
+            SearchTenorContentFilter)
+        WebsiteData.search["api_usage"]["tenor"]["api_url"] = str(
+            SearchTenorApiURL)
+
+        WebsiteData.search["api_usage"]["tenor"]["usage"] = str(
+            SearchGiphyLimit)
