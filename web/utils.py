@@ -377,12 +377,14 @@ class Update:
 
         WebsiteData.index["api_usage"]["tenor"]["usage"] = True if str(
             IndexTenorUsage) == "2" else False
+
         try:
             WebsiteData.index["api_usage"]["tenor"]["limit"] = int(
                 IndexTenorLimit)
         except:
             WebsiteData.index["api_usage"]["tenor"]["limit"] = str(
                 IndexTenorLimit)
+
         WebsiteData.index["api_usage"]["tenor"]["locale"] = str(
             IndexTenorLocale)
         WebsiteData.index["api_usage"]["tenor"]["ar_range"] = str(
