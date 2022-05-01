@@ -1023,12 +1023,13 @@
                     <h3>Adult Pins</h3>
                     <div class="form-group">
                         <label for=AdultPinsMainTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultPinsMainTitle" name="AdultPinsMainTitle">
+                        <input type="text" class="form-control" id="AdultPinsMainTitle" name="AdultPinsMainTitle"
+                            value="{{ adult_pins_data.title }}">
                         <br>
 
                         <label for=AdultPinsMainOtherTitle>Other Title</label>
                         <input type="text" class="form-control" id="AdultPinsMainOtherTitle"
-                            name="AdultPinsMainOtherTitle">
+                            name="AdultPinsMainOtherTitle" value="{{ adult_pins_data.all_pins_title }}">
                     </div>
 
                     <hr>
@@ -1037,7 +1038,8 @@
                     <h3>Adult Categories</h3>
                     <div class="form-group">
                         <label for=AdultCategoriesTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultCategoriesTitle" name="AdultCategoriesTitle">
+                        <input type="text" class="form-control" id="AdultCategoriesTitle" name="AdultCategoriesTitle"
+                            value="{{ adult_pins_data.all_categories_title }}">
                     </div>
 
                     <div class="row mt-5">
