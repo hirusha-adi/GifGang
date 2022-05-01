@@ -436,16 +436,18 @@ class Update:
                 IndexNekosLifeLimit)
 
         x = str(IndexNekosLifeURLlist)
-        y = []
 
         splitted = x.split(",")
-        splitted[-1] = splitted[-1][:-1]
-        splitted[0] = splitted[0][1:]
+        if len(splitted) != len(WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"]):
+            splitted[-1] = splitted[-1][:-1]
+            splitted[0] = splitted[0][1:]
 
-        for i in splitted:
-            y.append(str(i[1:-1]))
+            y = []
 
-        WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = y
+            for i in splitted:
+                y.append(str(i[1:-1]))
+
+            WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = y
 
         WebsiteData._data["index"] = WebsiteData.index
 
