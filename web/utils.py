@@ -324,7 +324,14 @@ class Update:
         IndexTenorLocale,
         IndexTenorArRange,
         IndexTenorContentFilter,
-        IndexTenorApiURL
+        IndexTenorApiURL,
+        IndexTheCatAPIUsage,
+        IndexTheCatAPILimit,
+        IndexTheCatAPISize,
+        IndexTheCatAPIMineTypes,
+        IndexTheCatAPIOrder,
+        IndexTheCatAPIHasBreeds,
+        IndexTheCatAPIAPIUrl
     ):
         WebsiteData.index["title"] = str(IndexMainTitle)
         WebsiteData.index["api_usage"]["giphy"]["usage"] = str(IndexGiphyUsage)
@@ -359,3 +366,18 @@ class Update:
             IndexTenorContentFilter)
         WebsiteData.index["api_usage"]["tenor"]["api_url"] = str(
             IndexTenorApiURL)
+
+        WebsiteData.index["api_usage"]["theCatAPI"]["usage"] = str(
+            IndexTheCatAPIUsage)
+        WebsiteData.index["api_usage"]["theCatAPI"]["size"] = str(
+            IndexTheCatAPISize)
+        WebsiteData.index["api_usage"]["theCatAPI"]["mime_types"] = str(
+            IndexTheCatAPIMineTypes)
+        WebsiteData.index["api_usage"]["theCatAPI"]["order"] = str(
+            IndexTheCatAPIOrder)
+        WebsiteData.index["api_usage"]["theCatAPI"]["limit"] = str(
+            IndexTheCatAPILimit)
+        WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"] = str(
+            IndexTheCatAPIHasBreeds)
+        WebsiteData.index["api_usage"]["theCatAPI"]["api_url"] = str(
+            IndexTheCatAPIAPIUrl)
