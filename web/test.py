@@ -1,0 +1,1 @@
+x = '''["https://nekos.life/api/hug","https://nekos.life/api/kiss","https://nekos.life/api/lizard","https://nekos.life/api/neko","https://nekos.life/api/pat","https://nekos.life/api/v2/img/slap","https://nekos.life/api/v2/img/cuddle","https://nekos.life/api/v2/img/avatar","https://nekos.life/api/v2/img/poke","https://nekos.life/api/v2/img/feed"]'''
