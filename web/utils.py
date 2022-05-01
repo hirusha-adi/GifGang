@@ -496,8 +496,12 @@ class Update:
         except:
             WebsiteData.search["api_usage"]["giphy"]["limit"] = str(
                 SearchGiphyLimit)
-        WebsiteData.search["api_usage"]["giphy"]["offset"] = str(
-            SearchGiphyOffset)
+        try:
+            WebsiteData.search["api_usage"]["giphy"]["offset"] = int(
+                SearchGiphyOffset)
+        except:
+            WebsiteData.search["api_usage"]["giphy"]["offset"] = str(
+                SearchGiphyOffset)
         WebsiteData.search["api_usage"]["giphy"]["api_url"] = str(
             SearchGiphyApiURL)
 
@@ -530,11 +534,11 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.index["custom_api_data_all_keywords_list"] = y
+        WebsiteData.search["custom_api_data_all_keywords_list"] = y
 
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["usage"] = True if str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["usage"] = True if str(
             SearchTheCatAPIUsage) == "2" else False
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["name"] = str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["name"] = str(
             SearchTheCatAPIName)
 
         x = str(SearchTheCatAPIKeywordList)
@@ -546,40 +550,40 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["keywords"] = y
+        WebsiteData.search["custom_api_data"][0]["keywords"] = y
 
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["size"] = str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["size"] = str(
             SearchTheCatAPISize)
         try:
-            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["limit"] = int(
+            WebsiteData.search["custom_api_data"][0]["api_info"]["limit"] = int(
                 SearchTheCatAPILimit)
         except:
-            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["limit"] = str(
+            WebsiteData.search["custom_api_data"][0]["api_info"]["limit"] = str(
                 SearchTheCatAPILimit)
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["mime_types"] = str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["mime_types"] = str(
             SearchTheCatAPIMineTypes)
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["order"] = str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["order"] = str(
             SearchTheCatAPIOrder)
         try:
-            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["has_breeds"] = int(
+            WebsiteData.search["custom_api_data"][0]["api_info"]["has_breeds"] = int(
                 SearchTheCatAPIHasBreeds)
         except:
-            WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["has_breeds"] = str(
+            WebsiteData.search["custom_api_data"][0]["api_info"]["has_breeds"] = str(
                 SearchTheCatAPIHasBreeds)
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["api_url"] = str(
+        WebsiteData.search["custom_api_data"][0]["api_info"]["api_url"] = str(
             SearchTheCatAPIApiURL)
 
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = True if str(
+        WebsiteData.search["custom_api_data"][1]["api_info"]["usage"] = True if str(
             SearchDogCEOUsage) == "2" else False
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["name"] = str(
+        WebsiteData.search["custom_api_data"][1]["api_info"]["name"] = str(
             SearchDogCEOName)
         try:
-            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = int(
+            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = int(
                 SearchDogCEOLimit)
         except:
-            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = str(
+            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = str(
                 SearchDogCEOLimit)
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["api_url"] = str(
+        WebsiteData.search["custom_api_data"][1]["api_info"]["api_url"] = str(
             SearchDogCEOApiURL)
 
         x = str(SearchDogCEOKeywordsList)
@@ -591,17 +595,17 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["keywords"] = y
+        WebsiteData.search["custom_api_data"][1]["keywords"] = y
 
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = True if str(
+        WebsiteData.search["custom_api_data"][1]["api_info"]["usage"] = True if str(
             SearchNekosLifeUsage) == "2" else False
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["name"] = str(
+        WebsiteData.search["custom_api_data"][1]["api_info"]["name"] = str(
             SearchNekosLifeName)
         try:
-            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = int(
+            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = int(
                 SearchNekosLifeLimit)
         except:
-            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = str(
+            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = str(
                 SearchNekosLifeLimit)
 
         x = str(SearchNekosLifeURLlist)
@@ -613,7 +617,7 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["api_url_list"] = y
+        WebsiteData.search["custom_api_data"][1]["api_info"]["api_url_list"] = y
 
         x = str(SearchNekosLifeKeywordList)
 
@@ -624,7 +628,7 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = y
+        WebsiteData.search["custom_api_data"][1]["api_info"]["usage"] = y
 
         WebsiteData._data["search"] = WebsiteData.search
 
