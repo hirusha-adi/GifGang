@@ -597,15 +597,15 @@ class Update:
 
         WebsiteData.search["custom_api_data"][1]["keywords"] = y
 
-        WebsiteData.search["custom_api_data"][1]["api_info"]["usage"] = True if str(
+        WebsiteData.search["custom_api_data"][2]["api_info"]["usage"] = True if str(
             SearchNekosLifeUsage) == "2" else False
-        WebsiteData.search["custom_api_data"][1]["api_info"]["name"] = str(
+        WebsiteData.search["custom_api_data"][2]["api_info"]["name"] = str(
             SearchNekosLifeName)
         try:
-            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = int(
+            WebsiteData.search["custom_api_data"][2]["api_info"]["limit"] = int(
                 SearchNekosLifeLimit)
         except:
-            WebsiteData.search["custom_api_data"][1]["api_info"]["limit"] = str(
+            WebsiteData.search["custom_api_data"][2]["api_info"]["limit"] = str(
                 SearchNekosLifeLimit)
 
         x = str(SearchNekosLifeURLlist)
@@ -617,7 +617,7 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["custom_api_data"][1]["api_info"]["api_url_list"] = y
+        WebsiteData.search["custom_api_data"][2]["api_info"]["api_url_list"] = y
 
         x = str(SearchNekosLifeKeywordList)
 
@@ -628,7 +628,7 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
 
-        WebsiteData.search["custom_api_data"][1]["api_info"]["usage"] = y
+        WebsiteData.search["custom_api_data"][2]["keywords"] = y
 
         WebsiteData._data["search"] = WebsiteData.search
 
