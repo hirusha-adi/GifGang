@@ -345,27 +345,44 @@ class Update:
             IndexGiphyUsage) == "2" else False
         WebsiteData.index["api_usage"]["giphy"]["random"] = True if str(
             IndexGiphyRandomUsage) == "2" else False
-        WebsiteData.index["api_usage"]["giphy"]["random_limit"] = str(
-            IndexGiphyRandomLimit)
+        try:
+            WebsiteData.index["api_usage"]["giphy"]["random_limit"] = int(
+                IndexGiphyRandomLimit)
+        except:
+            WebsiteData.index["api_usage"]["giphy"]["random_limit"] = str(
+                IndexGiphyRandomLimit)
         WebsiteData.index["api_usage"]["giphy"]["random_api_url"] = str(
             IndexGiphyRandomAPIurl)
         WebsiteData.index["api_usage"]["giphy"]["trending"] = True if str(
             IndexGiphyTrendingUsage) == "2" else False
-        WebsiteData.index["api_usage"]["giphy"]["trending_limit"] = str(
-            IndexGiphyTrendingLimit)
+        try:
+            WebsiteData.index["api_usage"]["giphy"]["trending_limit"] = int(
+                IndexGiphyTrendingLimit)
+        except:
+            WebsiteData.index["api_usage"]["giphy"]["trending_limit"] = str(
+                IndexGiphyTrendingLimit)
         WebsiteData.index["api_usage"]["giphy"]["trending_api_url"] = str(
             IndexGiphyTendingAPIurl)
 
         WebsiteData.index["api_usage"]["picsum"]["usage"] = True if str(
             IndexPicsumUsage) == "2" else False
-        WebsiteData.index["api_usage"]["picsum"]["limit"] = str(
-            IndexPicsumLimit)
+        try:
+            WebsiteData.index["api_usage"]["picsum"]["limit"] = int(
+                IndexPicsumLimit)
+        except:
+            WebsiteData.index["api_usage"]["picsum"]["limit"] = str(
+                IndexPicsumLimit)
         WebsiteData.index["api_usage"]["picsum"]["api_url"] = str(
             IndexPicsumApiURL)
 
         WebsiteData.index["api_usage"]["tenor"]["usage"] = True if str(
             IndexTenorUsage) == "2" else False
-        WebsiteData.index["api_usage"]["tenor"]["limit"] = str(IndexTenorLimit)
+        try:
+            WebsiteData.index["api_usage"]["tenor"]["limit"] = int(
+                IndexTenorLimit)
+        except:
+            WebsiteData.index["api_usage"]["tenor"]["limit"] = str(
+                IndexTenorLimit)
         WebsiteData.index["api_usage"]["tenor"]["locale"] = str(
             IndexTenorLocale)
         WebsiteData.index["api_usage"]["tenor"]["ar_range"] = str(
@@ -383,10 +400,18 @@ class Update:
             IndexTheCatAPIMineTypes)
         WebsiteData.index["api_usage"]["theCatAPI"]["order"] = str(
             IndexTheCatAPIOrder)
-        WebsiteData.index["api_usage"]["theCatAPI"]["limit"] = str(
-            IndexTheCatAPILimit)
-        WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"] = str(
-            IndexTheCatAPIHasBreeds)
+        try:
+            WebsiteData.index["api_usage"]["theCatAPI"]["limit"] = int(
+                IndexTheCatAPILimit)
+        except:
+            WebsiteData.index["api_usage"]["theCatAPI"]["limit"] = str(
+                IndexTheCatAPILimit)
+        try:
+            WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"] = int(
+                IndexTheCatAPIHasBreeds)
+        except:
+            WebsiteData.index["api_usage"]["theCatAPI"]["has_breeds"] = str(
+                IndexTheCatAPIHasBreeds)
         WebsiteData.index["api_usage"]["theCatAPI"]["api_url"] = str(
             IndexTheCatAPIAPIUrl)
 
@@ -399,8 +424,12 @@ class Update:
 
         WebsiteData.index["api_usage"]["nekoslife"]["usage"] = True if str(
             IndexNekosLifeUsage) == "2" else False
-        WebsiteData.index["api_usage"]["nekoslife"]["limit"] = str(
-            IndexNekosLifeLimit)
+        try:
+            WebsiteData.index["api_usage"]["nekoslife"]["limit"] = int(
+                IndexNekosLifeLimit)
+        except:
+            WebsiteData.index["api_usage"]["nekoslife"]["limit"] = str(
+                IndexNekosLifeLimit)
 
         x = str(IndexNekosLifeURLlist)
         y = []
