@@ -831,7 +831,7 @@ def admin_save_settings(mode, site):
 
                     return redirect(url_for('admin_setting_sfw', site='important'))
 
-                if site == "index":
+                elif site == "index":
                     IndexMainTitle = request.form.get('IndexMainTitle')
 
                     IndexGiphyUsage = request.form.get('IndexGiphyUsage')
@@ -919,6 +919,63 @@ def admin_save_settings(mode, site):
                     )
 
                     return redirect(url_for('admin_setting_sfw', site='index'))
+
+                elif site == "search":
+                    SearchMainTitle = request.form.get('SearchMainTitle')
+
+                    SearchGiphyUsage = request.form.get('SearchGiphyUsage')
+                    SearchGiphyLimit = request.form.get('SearchGiphyLimit')
+                    SearchGiphyOffset = request.form.get('SearchGiphyOffset')
+                    SearchGiphyApiURL = request.form.get('SearchGiphyApiURL')
+
+                    SearchTenorUsage = request.form.get('SearchTenorUsage')
+                    SearchTenorLimit = request.form.get('SearchTenorLimit')
+                    SearchTenorLocale = request.form.get('SearchTenorLocale')
+                    SearchTenorArRange = request.form.get('SearchTenorArRange')
+                    SearchTenorContentFilter = request.form.get(
+                        'SearchTenorContentFilter')
+                    SearchTenorApiURL = request.form.get('SearchTenorApiURL')
+
+                    SearchSmartModeUsage = request.form.get(
+                        'SearchSmartModeUsage')
+                    SearchSmartModeKeywordsList = request.form.get(
+                        'SearchSmartModeKeywordsList')
+
+                    SearchTheCatAPIUsage = request.form.get(
+                        'SearchTheCatAPIUsage')
+                    SearchTheCatAPIName = request.form.get(
+                        'SearchTheCatAPIName')
+                    SearchTheCatAPIKeywordList = request.form.get(
+                        'SearchTheCatAPIKeywordList')
+                    SearchTheCatAPILimit = request.form.get(
+                        'SearchTheCatAPILimit')
+                    SearchTheCatAPISize = request.form.get(
+                        'SearchTheCatAPISize')
+                    SearchTheCatAPIMineTypes = request.form.get(
+                        'SearchTheCatAPIMineTypes')
+                    SearchTheCatAPIOrder = request.form.get(
+                        'SearchTheCatAPIOrder')
+                    SearchTheCatAPIHasBreeds = request.form.get(
+                        'SearchTheCatAPIHasBreeds')
+                    SearchTheCatAPIApiURL = request.form.get(
+                        'SearchTheCatAPIApiURL')
+
+                    SearchDogCEOUsage = request.form.get('SearchDogCEOUsage')
+                    SearchDogCEOName = request.form.get('SearchDogCEOName')
+                    SearchDogCEOKeywordsList = request.form.get(
+                        'SearchDogCEOKeywordsList')
+                    SearchDogCEOLimit = request.form.get('SearchDogCEOLimit')
+                    SearchDogCEOApiURL = request.form.get('SearchDogCEOApiURL')
+
+                    IndexNekosLifeUsage = request.form.get(
+                        'IndexNekosLifeUsage')
+                    IndexNekosLifeName = request.form.get('IndexNekosLifeName')
+                    IndexNekosLifeKeywordList = request.form.get(
+                        'IndexNekosLifeKeywordList')
+                    IndexNekosLifeLimit = request.form.get(
+                        'IndexNekosLifeLimit')
+                    IndexNekosLifeURLlist = request.form.get(
+                        'IndexNekosLifeURLlist')
 
                 else:
                     AdminUserName = request.form.get('AdminUserName')
