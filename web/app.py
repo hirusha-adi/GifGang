@@ -968,7 +968,7 @@ def admin_settings_adult_index():
                 show_search=False,
                 show_pins=False,
                 show_age_verify=False,
-                show_adult_index=False,
+                show_adult_index=True,
                 adult_index_data=WebsiteData.adult_index,
                 show_adult_pins=False,
                 show_adult_stars=False,
