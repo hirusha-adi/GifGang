@@ -831,6 +831,26 @@ def admin_save_settings(mode, site):
 
                     return redirect(url_for('admin_setting_sfw', site='important'))
 
+                else:
+                    AdminUserName = request.form.get('AdminUserName')
+                    AdminUserPassword = request.form.get('AdminUserPassword')
+                    AdminUserToken = request.form.get('AdminUserToken')
+                    AdminUserProfilePicURL = request.form.get(
+                        'AdminUserProfilePicURL')
+                    TodaysTarget = request.form.get('TodaysTarget')
+                    AllTimesTarget = request.form.get('AllTimesTarget')
+
+                    Update.SettingsAdmin(
+                        username=AdminUserName,
+                        password=AdminUserPassword,
+                        token=AdminUserToken,
+                        profile_pic=AdminUserProfilePicURL,
+                        targets_today=TodaysTarget,
+                        targets_all=AllTimesTarget
+                    )
+
+                    return redirect(url_for('admin_setting_sfw', site='admin'))
+
         else:
             return redirect(url_for("admin_login_page"))
     except:
