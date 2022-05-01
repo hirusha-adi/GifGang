@@ -203,3 +203,74 @@ def logf(request, page: str):
     with open(FileNames._log_file, "a+", encoding="utf-8") as file:
         file.write(
             f'\n[{datetime.now()}] ({request.remote_addr}) - /{page} - \"{request.user_agent}\"')
+
+
+class Update:
+    def Important(
+        giphy_usage,
+        giphy_api_url_base,
+        giphy_api_key,
+        picsum_usage,
+        picsum_api_url_base,
+        tenor_usage,
+        tenor_api_key,
+        thecatapi_usage,
+        dogceo_usage,
+        nekoslife_usage,
+        eporner_usage,
+        redtube_usage,
+        localserverml_usage
+    ):
+        Important.giphy_usage = True if str(giphy_usage) == "2" else False
+        Important.giphy_api_url_base = str(giphy_api_url_base)
+        Important.giphy_api_key = str(giphy_api_key)
+        Important.picsum_usage = True if str(picsum_usage) == "2" else False
+        Important.picsum_api_url_base = picsum_api_url_base
+        Important.tenor_usage = True if str(tenor_usage) == "2" else False
+        Important.tenor_api_key = str(tenor_api_key)
+        Important.thecatapi_usage = True if str(
+            thecatapi_usage) == "2" else False
+        Important.dogceo_usage = True if str(dogceo_usage) == "2" else False
+        Important.nekoslife_usage = True if str(
+            nekoslife_usage) == "2" else False
+        Important.eporner_usage = True if str(eporner_usage) == "2" else False
+        Important.redtube_usage = True if str(redtube_usage) == "2" else False
+        Important.localserverml_usage = True if str(
+            localserverml_usage) == "2" else False
+
+        Important._data = {
+            "giphy": {
+                "usage": Important.giphy_usage,
+                "api_url_base": Important.giphy_api_url_base,
+                "api_key": Important.giphy_api_key,
+            },
+            "picsum": {
+                "usage": Important.picsum_usage,
+                "api_url_base": Important.picsum_api_url_base
+            },
+            "tenor": {
+                "usage": Important.tenor_usage,
+                "api_key": Important.tenor_api_key
+            },
+            "theCatAPI": {
+                "usage": Important.thecatapi_usage
+            },
+            "dogCEO": {
+                "usage": Important.dogceo_usage
+            },
+            "nekoslife": {
+                "usage": Important.nekoslife_usage
+            },
+            "eporner": {
+                "usage": Important.eporner_usage
+            },
+            "redtube": {
+                "usage": Important.redtube_usage
+            },
+            "localserverml": {
+                "usage": Important.localserverml_usage
+            }
+        }
+
+        with open(FileNames.important_info_file, "w", encoding="utf-8") as _file:
+            json.dump(Important._data, _file, indent=4)
