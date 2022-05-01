@@ -474,7 +474,12 @@ class Update:
         SearchTheCatAPIMineTypes,
         SearchTheCatAPIOrder,
         SearchTheCatAPIHasBreeds,
-        SearchTheCatAPIApiURL
+        SearchTheCatAPIApiURL,
+        SearchDogCEOUsage,
+        SearchDogCEOName,
+        SearchDogCEOLimit,
+        SearchDogCEOApiURL,
+        SearchDogCEOKeywordsList
     ):
         WebsiteData.search["title"] = SearchMainTitle
 
@@ -526,8 +531,18 @@ class Update:
             SearchTheCatAPIUsage) == "2" else False
         WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["name"] = str(
             SearchTheCatAPIName)
-        WebsiteData.search["api_usage"]["custom_api_data"][0]["keywords"] = str(
-            SearchTheCatAPIKeywordList)
+
+        x = str(SearchTheCatAPIKeywordList)
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+
+        WebsiteData.search["api_usage"]["custom_api_data"][0]["keywords"] = y
+
         WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["size"] = str(
             SearchTheCatAPISize)
         try:
@@ -548,5 +563,29 @@ class Update:
                 SearchTheCatAPIHasBreeds)
         WebsiteData.search["api_usage"]["custom_api_data"][0]["api_info"]["api_url"] = str(
             SearchTheCatAPIApiURL)
+
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["usage"] = True if str(
+            SearchDogCEOUsage) == "2" else False
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["name"] = str(
+            SearchDogCEOName)
+        try:
+            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = int(
+                SearchDogCEOLimit)
+        except:
+            WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["limit"] = str(
+                SearchDogCEOLimit)
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["api_info"]["api_url"] = str(
+            SearchDogCEOApiURL)
+
+        x = str(SearchDogCEOKeywordsList)
+
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+
+        WebsiteData.search["api_usage"]["custom_api_data"][1]["keywords"] = y
 
         # WebsiteData.search["api_usage"]["tenor"]["usage"] = str(SearchGiphyLimit)
