@@ -19,6 +19,7 @@
 
 5.  Better Code. Manage services with functions outside from the main file (in `services.*`)
 6.  Change in privacy policy for better protection of users
+7.  Secure Admin Login System and an Admin Dashboard `/admin`
 
 # v1.0
 
