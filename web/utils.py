@@ -331,7 +331,13 @@ class Update:
         IndexTheCatAPIMineTypes,
         IndexTheCatAPIOrder,
         IndexTheCatAPIHasBreeds,
-        IndexTheCatAPIAPIUrl
+        IndexTheCatAPIAPIUrl,
+        IndexDogCEOUsage,
+        IndexDogCEOLimit,
+        IndexDogCEOApiURL,
+        IndexNekosLifeUsage,
+        IndexNekosLifeLimit,
+        IndexNekosLifeURLlist
     ):
         WebsiteData.index["title"] = str(IndexMainTitle)
         WebsiteData.index["api_usage"]["giphy"]["usage"] = str(IndexGiphyUsage)
@@ -381,3 +387,17 @@ class Update:
             IndexTheCatAPIHasBreeds)
         WebsiteData.index["api_usage"]["theCatAPI"]["api_url"] = str(
             IndexTheCatAPIAPIUrl)
+
+        WebsiteData.index["api_usage"]["dogCEO"]["usage"] = str(
+            IndexDogCEOUsage)
+        WebsiteData.index["api_usage"]["dogCEO"]["limit"] = str(
+            IndexDogCEOLimit)
+        WebsiteData.index["api_usage"]["dogCEO"]["api_url"] = str(
+            IndexDogCEOApiURL)
+
+        WebsiteData.index["api_usage"]["nekoslife"]["usage"] = str(
+            IndexNekosLifeUsage)
+        WebsiteData.index["api_usage"]["nekoslife"]["limit"] = str(
+            IndexNekosLifeLimit)
+        WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = str(
+            IndexNekosLifeURLlist)
