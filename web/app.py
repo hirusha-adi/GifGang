@@ -978,6 +978,43 @@ def admin_save_settings(mode, site):
                     SearchNekosLifeURLlist = request.form.get(
                         'SearchNekosLifeURLlist')
 
+                    Update.Search(
+                        SearchMainTitle=SearchMainTitle,
+                        SearchGiphyUsage=SearchGiphyUsage,
+                        SearchGiphyLimit=SearchGiphyLimit,
+                        SearchGiphyOffset=SearchGiphyOffset,
+                        SearchGiphyApiURL=SearchGiphyApiURL,
+                        SearchTenorUsage=SearchTenorUsage,
+                        SearchTenorLimit=SearchTenorLimit,
+                        SearchTenorLocale=SearchTenorLocale,
+                        SearchTenorArRange=SearchTenorArRange,
+                        SearchTenorContentFilter=SearchTenorContentFilter,
+                        SearchTenorApiURL=SearchTenorApiURL,
+                        SearchSmartModeUsage=SearchSmartModeUsage,
+                        SearchSmartModeKeywordsList=SearchSmartModeKeywordsList,
+                        SearchTheCatAPIUsage=SearchTheCatAPIUsage,
+                        SearchTheCatAPIName=SearchTheCatAPIName,
+                        SearchTheCatAPIKeywordList=SearchTheCatAPIKeywordList,
+                        SearchTheCatAPISize=SearchTheCatAPISize,
+                        SearchTheCatAPILimit=SearchTheCatAPILimit,
+                        SearchTheCatAPIMineTypes=SearchTheCatAPIMineTypes,
+                        SearchTheCatAPIOrder=SearchTheCatAPIOrder,
+                        SearchTheCatAPIHasBreeds=SearchTheCatAPIHasBreeds,
+                        SearchTheCatAPIApiURL=SearchTheCatAPIApiURL,
+                        SearchDogCEOUsage=SearchDogCEOUsage,
+                        SearchDogCEOName=SearchDogCEOName,
+                        SearchDogCEOLimit=SearchDogCEOLimit,
+                        SearchDogCEOApiURL=SearchDogCEOApiURL,
+                        SearchDogCEOKeywordsList=SearchDogCEOKeywordsList,
+                        SearchNekosLifeUsage=SearchNekosLifeUsage,
+                        SearchNekosLifeName=SearchNekosLifeName,
+                        SearchNekosLifeKeywordList=SearchNekosLifeKeywordList,
+                        SearchNekosLifeLimit=SearchNekosLifeLimit,
+                        SearchNekosLifeURLlist=SearchNekosLifeURLlist
+                    )
+
+                    return redirect(url_for('admin_setting_sfw', site='search'))
+
                 else:
                     AdminUserName = request.form.get('AdminUserName')
                     AdminUserPassword = request.form.get('AdminUserPassword')
