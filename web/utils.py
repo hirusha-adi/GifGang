@@ -447,7 +447,7 @@ class Update:
             y = []
 
             for i in splitted:
-                y.append(str(i[1:-1]))
+                y.append(str(i).strip()[1:-1])
 
             WebsiteData.index["api_usage"]["nekoslife"]["api_url_list"] = y
 
