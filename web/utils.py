@@ -588,4 +588,7 @@ class Update:
 
         WebsiteData.search["api_usage"]["custom_api_data"][1]["keywords"] = y
 
+        WebsiteData.search["api_usage"]["tenor"]["usage"] = str(
+            SearchGiphyLimit)
+
         # WebsiteData.search["api_usage"]["tenor"]["usage"] = str(SearchGiphyLimit)
