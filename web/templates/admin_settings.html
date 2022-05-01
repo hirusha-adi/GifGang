@@ -28,7 +28,7 @@
         <div class="col-md-9">
             <div class="container">
 
-                <form>
+                <form action="{{ url_for('admin_save_settings', mode='sfw', site='admin') }}" method="post">
                     <div class="form-group">
                         <label for=AdminUserName>Username</label>
                         <input type="text" class="form-control" id="AdminUserName" name="AdminUserName"
@@ -55,13 +55,14 @@
                             value="{{ admin_settings_data.targets_today }}">
                     </div>
                     <div class="form-group">
-                        <label for=AdminUserToken>Target - All Time</label>
+                        <label for=AllTimesTarget>Target - All Time</label>
                         <input type="text" class="form-control" id="AllTimesTarget" name="AllTimesTarget"
                             value="{{ admin_settings_data.targets_all }}">
                     </div>
                     <div class="row mt-5">
                         <div class="col">
-                            <button type="button" class="btn btn-primary btn-block">
+                            <button type="button" class="btn btn-primary btn-block"
+                                onClick="javascript:this.form.submit();">
                                 Save Changes
                             </button>
                         </div>
