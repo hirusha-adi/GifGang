@@ -1,4 +1,5 @@
 import json
+from operator import setitem
 import os
 import requests
 import random
@@ -274,3 +275,35 @@ class Update:
 
         with open(FileNames.important_info_file, "w", encoding="utf-8") as _file:
             json.dump(Important._data, _file, indent=4)
+
+    def SettingsAdmin(
+        username, password, token, profile_pic, targets_today, targets_all
+    ):
+        Settings.Admin.username = username
+        Settings.Admin.password = password
+        Settings.Admin.token = token
+        Settings.Admin.profile_pic = profile_pic
+
+        try:
+            Settings.Admin.targets_today = int(targets_today)
+        except:
+            Settings.Admin.targets_today = str(targets_today)
+
+        try:
+            Settings.Admin.targets_all = int(targets_all)
+        except:
+            Settings.Admin.targets_all = str(targets_all)
+
+        Settings.Admin._admin_data = {
+            "username": Settings.Admin.username,
+            "password": Settings.Admin.password,
+            "token": Settings.Admin.token,
+            "profile_pic": Settings.Admin.profile_pic,
+            "targets": {
+                "today": Settings.Admin.targets_today,
+                "all": Settings.Admin.targets_all
+            }
+        }
+
+        with open(FileNames.admin_settings_file, "w", encoding="utf-8") as _file:
+            json.dump(Settings.Admin._admin_data, _file, indent=4)
