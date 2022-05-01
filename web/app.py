@@ -1049,6 +1049,39 @@ def admin_settings_adult_stars():
         return redirect(url_for("admin_login_page"))
 
 
+@app.route("/admin/settings/adult/search")
+def admin_settings_adult_search():
+    count_total_visits_amount()
+
+    logf(request=request, page="admin/settings/adult/search")
+
+    log(f'Requested `/admin/settings/adult/search` - admin_settings_adult_search()',
+        ipaddr=request.remote_addr)
+
+    try:
+        if session["token"] == Settings.Admin.token:
+            return render_template(
+                "admin_settings.html",
+                show_admin_settings=False,
+                show_important_settings=False,
+                show_index=False,
+                show_search=False,
+                show_pins=False,
+                show_age_verify=False,
+                show_adult_index=False,
+                show_adult_pins=False,
+                show_adult_stars=False,
+                show_adult_search=True,
+                adult_search_data=WebsiteData.adult_search,
+                show_adult_hentai=False,
+            )
+
+        else:
+            return redirect(url_for("admin_login_page"))
+    except Exception:
+        return redirect(url_for("admin_login_page"))
+
+
 @app.route("/logout")
 def admin_logout():
     count_total_visits_amount()
