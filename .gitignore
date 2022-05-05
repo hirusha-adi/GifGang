@@ -28,3 +28,4 @@ dist/
 pip-log.txt
 pip-delete-this-directory.txt
 web/count-today.txt
+web/.fuse_hidden0000171700000002
