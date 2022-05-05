@@ -1081,6 +1081,19 @@ def admin_save_settings(mode, site):
 
                 return redirect(url_for('admin_settings_nsfw', site='index'))
 
+            elif site == "pins":
+                AdultPinsMainTitle = request.form.get('AdultPinsMainTitle')
+                AdultPinsMainOtherTitle = request.form.get('AdultPinsMainOtherTitle')
+                AdultCategoriesTitle = request.form.get('AdultCategoriesTitle')
+
+                Update.AdultPins(
+                    AdultPinsMainTitle=AdultPinsMainTitle,
+                    AdultPinsMainOtherTitle=AdultPinsMainOtherTitle,
+                    AdultCategoriesTitle=AdultCategoriesTitle
+                )
+
+                return redirect(url_for('admin_settings_nsfw', site='pins'))
+
     else:
         return redirect(url_for("admin_login_page"))
     # except:
