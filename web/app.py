@@ -1015,6 +1015,17 @@ def admin_save_settings(mode, site):
 
                 return redirect(url_for('admin_setting_sfw', site='search'))
 
+            elif site == "pins":
+
+                PinsMainTitle = request.form.get('PinsMainTitle')
+
+                Update.Pins(
+                    PinsMainTitle=PinsMainTitle
+                )
+
+                return redirect(url_for('admin_setting_sfw', site='pins'))
+
+
             else:
                 AdminUserName = request.form.get('AdminUserName')
                 AdminUserPassword = request.form.get('AdminUserPassword')
