@@ -663,6 +663,15 @@ class Update:
 
         WebsiteData.adult_index["title"] = str(AdultIndexMainTitle)
 
+        x = str(AdultIndexMainRandomSearchWordsList)
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+        WebsiteData.index["api_usage"]["random_search_word"] = y
+
 
         WebsiteData.adult_index["api_usage"]["eporner"]["usage"] = True if str(AdultIndexhEpornerUsage) == "2" else False
         try:
@@ -682,3 +691,5 @@ class Update:
         WebsiteData.adult_index["api_usage"]["redtube"]["data"] = str(AdultIndexhRedTubeData)
         WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"] = str(AdultIndexhRedTubeThumbSize)
         WebsiteData.adult_index["api_usage"]["redtube"]["api_url"] = str(AdultIndexhRedTubeAPIUrl)
+
+        
