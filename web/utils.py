@@ -643,3 +643,42 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
+
+    def AdultIndex(
+        AdultIndexMainTitle,
+        AdultIndexMainRandomSearchWordsList,
+
+        AdultIndexhEpornerUsage,
+        AdultIndexhEpornerLimit,
+        AdultIndexhEpornerThumbSize,
+        AdultIndexhEpornerOrder,
+        AdultIndexhEpornerAPIUrl,
+
+        AdultIndexhRedTubeUsage,
+        AdultIndexhRedTubeLimit,
+        AdultIndexhRedTubeData,
+        AdultIndexhRedTubeThumbSize,
+        AdultIndexhRedTubeAPIUrl
+    ):
+
+        WebsiteData.adult_index["title"] = str(AdultIndexMainTitle)
+
+
+        WebsiteData.adult_index["api_usage"]["eporner"]["usage"] = True if str(AdultIndexhEpornerUsage) == "2" else False
+        try:
+            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = int(AdultIndexhEpornerLimit)
+        except:
+            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = str(AdultIndexhEpornerLimit)
+        WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"] = str(AdultIndexhEpornerThumbSize)
+        WebsiteData.adult_index["api_usage"]["eporner"]["order"] = str(AdultIndexhEpornerOrder)
+        WebsiteData.adult_index["api_usage"]["eporner"]["api_url"] = str(AdultIndexhEpornerAPIUrl)
+
+
+        WebsiteData.adult_index["api_usage"]["redtube"]["usage"] = True if str(AdultIndexhRedTubeUsage) == "2" else False
+        try:
+            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = int(AdultIndexhRedTubeLimit)
+        except:
+            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = str(AdultIndexhRedTubeLimit)
+        WebsiteData.adult_index["api_usage"]["redtube"]["data"] = str(AdultIndexhRedTubeData)
+        WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"] = str(AdultIndexhRedTubeThumbSize)
+        WebsiteData.adult_index["api_usage"]["redtube"]["api_url"] = str(AdultIndexhRedTubeAPIUrl)
