@@ -670,7 +670,7 @@ class Update:
         y = []
         for i in splitted:
             y.append(str(i).strip()[1:-1])
-        WebsiteData.index["api_usage"]["random_search_word"] = y
+        WebsiteData.adult_index["api_usage"]["random_search_word"] = y
 
 
         WebsiteData.adult_index["api_usage"]["eporner"]["usage"] = True if str(AdultIndexhEpornerUsage) == "2" else False
