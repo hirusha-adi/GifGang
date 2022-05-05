@@ -697,4 +697,17 @@ class Update:
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
 
-            
+    
+    def AdultPins(
+        AdultPinsMainTitle,
+        AdultPinsMainOtherTitle,
+        AdultCategoriesTitle
+    ):
+        WebsiteData.adult_pins["title"] = str(AdultPinsMainTitle)
+        WebsiteData.adult_pins["all_pins_title"] = str(AdultPinsMainOtherTitle)
+        WebsiteData.adult_pins["all_categories_title"] = str(AdultCategoriesTitle)
+
+        WebsiteData._data["adult_pins_and_categories"] = WebsiteData.adult_pins
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
