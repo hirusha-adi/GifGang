@@ -711,3 +711,16 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
+
+
+    def AdultStars(
+        AdultStarsMainTitle,
+        AdultStarsRedTubeUsage,
+        AdultStarsRedTubeData,
+        AdultStarsRedTubeApiURL
+    ):
+        WebsiteData.adult_stars["title"] = str(AdultStarsMainTitle)
+
+        WebsiteData.adult_stars["api_usage"]["usage"] = True if str(AdultStarsRedTubeUsage) == "2" else False
+        WebsiteData.adult_stars["api_usage"]["api_url"] = str(AdultStarsRedTubeApiURL)
+        WebsiteData.adult_stars["api_usage"]["data"] = str(AdultStarsRedTubeData)
