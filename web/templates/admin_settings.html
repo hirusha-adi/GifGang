@@ -846,18 +846,19 @@
         <div class="col-md-9">
             <div class="container">
 
-                <form>
+                <form action="{{ url_for('admin_save_settings', mode='sfw', site='pins') }}" method="post">
                     <!-- SearchMain -->
                     <h3>Main</h3>
                     <div class="form-group">
                         <label for=PinsMainTitle>Title</label>
-                        <input type="text" class="form-control" id="SearchMainTitle" name="SearchMainTitle"
+                        <input type="text" class="form-control" id="PinsMainTitle" name="PinsMainTitle"
                             value="{{ pins_data.title }}">
                     </div>
 
                     <div class="row mt-5">
                         <div class="col">
-                            <button type="button" class="btn btn-primary btn-block">
+                            <button type="button" class="btn btn-primary btn-block" 
+                            onClick="javascript:this.form.submit();">
                                 Save Changes
                             </button>
                         </div>
