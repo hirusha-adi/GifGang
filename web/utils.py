@@ -634,3 +634,12 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
+
+    def Pins(
+        PinsMainTitle
+    ):
+        WebsiteData.pins["title"] = str(PinsMainTitle)
+        WebsiteData._data["pins"] = WebsiteData.pins
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
