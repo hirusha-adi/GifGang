@@ -30,3 +30,5 @@ pip-delete-this-directory.txt
 web/count-today.txt
 web/.fuse_hidden0000171700000002
 web/database/.fuse_hidden000016dd00000003
+web/database/.fuse_hidden0000196b00000005
+web/database/.fuse_hidden0000194700000004
