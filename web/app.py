@@ -1064,6 +1064,22 @@ def admin_save_settings(mode, site):
                 AdultIndexhRedTubeThumbSize = request.form.get('AdultIndexhRedTubeThumbSize')
                 AdultIndexhRedTubeAPIUrl = request.form.get('AdultIndexhRedTubeAPIUrl')
 
+                Update.AdultIndex(
+                    AdultIndexMainTitle=AdultIndexMainTitle,
+                    AdultIndexMainRandomSearchWordsList=AdultIndexMainRandomSearchWordsList,
+                    AdultIndexhEpornerUsage=AdultIndexhEpornerUsage,
+                    AdultIndexhEpornerLimit=AdultIndexhEpornerLimit,
+                    AdultIndexhEpornerThumbSize=AdultIndexhEpornerThumbSize,
+                    AdultIndexhEpornerOrder=AdultIndexhEpornerOrder,
+                    AdultIndexhEpornerAPIUrl=AdultIndexhEpornerAPIUrl,
+                    AdultIndexhRedTubeUsage=AdultIndexhRedTubeUsage,
+                    AdultIndexhRedTubeLimit=AdultIndexhRedTubeLimit,
+                    AdultIndexhRedTubeData=AdultIndexhRedTubeData,
+                    AdultIndexhRedTubeThumbSize=AdultIndexhRedTubeThumbSize,
+                    AdultIndexhRedTubeAPIUrl=AdultIndexhRedTubeAPIUrl
+                )
+
+                return redirect(url_for('admin_settings_nsfw', site='index'))
 
     else:
         return redirect(url_for("admin_login_page"))
