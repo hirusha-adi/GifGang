@@ -1025,7 +1025,6 @@ def admin_save_settings(mode, site):
 
                 return redirect(url_for('admin_setting_sfw', site='pins'))
 
-
             else:
                 AdminUserName = request.form.get('AdminUserName')
                 AdminUserPassword = request.form.get('AdminUserPassword')
@@ -1045,6 +1044,26 @@ def admin_save_settings(mode, site):
                 )
 
                 return redirect(url_for('admin_setting_sfw', site='admin'))
+
+        elif mode == "nsfw":
+
+            if site == "index":
+
+                AdultIndexMainTitle = request.form.get('AdultIndexMainTitle')
+                AdultIndexMainRandomSearchWordsList = request.form.get('AdultIndexMainRandomSearchWordsList')
+                
+                AdultIndexhEpornerUsage = request.form.get('AdultIndexhEpornerUsage')
+                AdultIndexhEpornerLimit = request.form.get('AdultIndexhEpornerLimit')
+                AdultIndexhEpornerThumbSize = request.form.get('AdultIndexhEpornerThumbSize')
+                AdultIndexhEpornerOrder = request.form.get('AdultIndexhEpornerOrder')
+                AdultIndexhEpornerAPIUrl = request.form.get('AdultIndexhEpornerAPIUrl')
+
+                AdultIndexhRedTubeUsage = request.form.get('AdultIndexhRedTubeUsage')
+                AdultIndexhRedTubeLimit = request.form.get('AdultIndexhRedTubeLimit')
+                AdultIndexhRedTubeData = request.form.get('AdultIndexhRedTubeData')
+                AdultIndexhRedTubeThumbSize = request.form.get('AdultIndexhRedTubeThumbSize')
+                AdultIndexhRedTubeAPIUrl = request.form.get('AdultIndexhRedTubeAPIUrl')
+
 
     else:
         return redirect(url_for("admin_login_page"))
