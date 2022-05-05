@@ -692,4 +692,9 @@ class Update:
         WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"] = str(AdultIndexhRedTubeThumbSize)
         WebsiteData.adult_index["api_usage"]["redtube"]["api_url"] = str(AdultIndexhRedTubeAPIUrl)
 
-        
+        WebsiteData._data["adult_index"] = WebsiteData.adult_index
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+
+            
