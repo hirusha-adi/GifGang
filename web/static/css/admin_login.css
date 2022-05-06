@@ -1,5 +1,5 @@
 html {
-  background: url(https://cdn.discordapp.com/attachments/945257357867380747/968484191455019039/unknown.png)
+  background: url(https://cdn.discordapp.com/attachments/957630505086517308/972038092368277504/backgroundimg2-3.jpg)
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -130,7 +130,7 @@ a {
   font-family: "Open Sans Condensed", sans-serif;
   text-align: center;
   padding: 4px 8px;
-  background: rgba(107, 255, 3, 0.3);
+  background: rgb(0, 115, 255);
 }
 
 a:hover {
@@ -219,5 +219,5 @@ a:hover {
 }
 
 .orange-btn {
-  background: rgba(87, 198, 255, 0.5);
+  background: rgb(0, 115, 255);
 }
