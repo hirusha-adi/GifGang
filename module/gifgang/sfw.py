@@ -146,3 +146,10 @@ class Cats:
                 for result in data:
                     thecatapi_url_list.append(result["url"])
             return thecatapi_url_list
+
+    class CatsAsAService:
+        def image(text="hello", size="", color="", type="", filter="", width=None, height=None):
+            pass
+
+        def gif(text="hello", size="", color="", type="", filter="", width=None, height=None):
+            pass
