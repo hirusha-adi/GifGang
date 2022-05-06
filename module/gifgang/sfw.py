@@ -88,13 +88,7 @@ class Tenor:
     def __init__(self):
         self._api_key = None
 
-    def random(
-        self,
-        limit: int = 5,
-        locale: str = "en_US",
-        ar_range: str = "all",
-        contentfilter: str = "off"
-    ):
+    def random(self, limit: int = 5, locale: str = "en_US", ar_range: str = "all", contentfilter: str = "off"):
         tenor_url_list = []
 
         r = requests.get(
@@ -115,14 +109,7 @@ class Tenor:
 
         return tenor_url_list
 
-    def search(
-        self,
-        query: str = "random",
-        limit: int = 5,
-        locale: str = "en_US",
-        ar_range: str = "all",
-        contentfilter: str = "off"
-    ):
+    def search(self, query: str = "random", limit: int = 5, locale: str = "en_US", ar_range: str = "all", contentfilter: str = "off"):
         tenor_url_list = []
 
         r = requests.get(
