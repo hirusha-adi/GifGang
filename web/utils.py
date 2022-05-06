@@ -745,8 +745,6 @@ class Update:
     ):
         WebsiteData.adult_search["title"] = str(AdultSearchMainTitle)
 
-
-
         WebsiteData.adult_search["api_usage"]["eporner"]["usage"] = True if str(AdultSearchEpornerUsage) == "2" else False
         try:
             WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = int(AdultSearchEpornerLimit)
@@ -767,6 +765,59 @@ class Update:
         WebsiteData.adult_search["api_usage"]["redtube"]["api_url"] = str(AdultSearchRedTubeApiURL)
 
         WebsiteData._data["adult_search"] = WebsiteData.adult_search
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+
+    def AdultHentai(
+        AdultHentaiMainTitle,
+        AdultHentaiLocalServerUsage,
+        AdultHentaiLocalServerLimit,
+        AdultHentaiLocalServerApiURL,
+        AdultHentaiLocalServerEndpointsList,
+
+        AdultHentaiNekosLifeUsage,
+        AdultHentaiNekosLifeLimit,
+        AdultHentaiNekosLifeApiURL,
+        AdultHentaiNekosLifeEndpointsList,
+    ):
+
+        WebsiteData.adult_hentai["title"] = str(AdultHentaiMainTitle)
+
+        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"] = True if str(AdultHentaiLocalServerUsage) == "2" else False
+        try:
+            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(AdultHentaiLocalServerLimit)
+        except:
+            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(AdultHentaiLocalServerLimit)
+        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"] = str(AdultHentaiLocalServerApiURL)
+
+        x = str(AdultHentaiLocalServerEndpointsList)
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"] = y
+
+
+        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"] = True if str(AdultHentaiNekosLifeUsage) == "2" else False
+        try:
+            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(AdultHentaiNekosLifeLimit)
+        except:
+            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(AdultHentaiNekosLifeLimit)
+        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"] = str(AdultHentaiNekosLifeApiURL)
+
+        x = str(AdultHentaiNekosLifeEndpointsList)
+        splitted = x.split(",")
+        splitted[-1] = splitted[-1][:-1]
+        splitted[0] = splitted[0][1:]
+        y = []
+        for i in splitted:
+            y.append(str(i).strip()[1:-1])
+        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"] = y
+        
+        WebsiteData._data["adult_hentai"] = WebsiteData.adult_hentai
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
