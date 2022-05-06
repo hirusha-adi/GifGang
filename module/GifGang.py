@@ -9,7 +9,7 @@ Basic Usage Demonstration for the GifGang python module
 from gifgang import sfw
 
 # Import NSFW Classes
-from gifgang import sfw
+from gifgang import nsfw
 
 
 # SFW Classes Usage Demonstration
