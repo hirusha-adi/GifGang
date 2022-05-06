@@ -1082,6 +1082,7 @@ def admin_save_settings(mode, site):
                 return redirect(url_for('admin_settings_nsfw', site='index'))
 
             elif site == "pins":
+
                 AdultPinsMainTitle = request.form.get('AdultPinsMainTitle')
                 AdultPinsMainOtherTitle = request.form.get('AdultPinsMainOtherTitle')
                 AdultCategoriesTitle = request.form.get('AdultCategoriesTitle')
@@ -1095,6 +1096,7 @@ def admin_save_settings(mode, site):
                 return redirect(url_for('admin_settings_nsfw', site='pins'))
 
             elif site == "stars":
+
                 AdultStarsMainTitle = request.form.get('AdultStarsMainTitle')
 
                 AdultStarsRedTubeUsage = request.form.get('AdultStarsRedTubeUsage')
@@ -1111,6 +1113,7 @@ def admin_save_settings(mode, site):
                 return redirect(url_for('admin_settings_nsfw', site='stars'))
             
             elif site == "search":
+
                 AdultSearchMainTitle = request.form.get('AdultSearchMainTitle')
 
                 AdultSearchEpornerUsage = request.form.get('AdultSearchEpornerUsage')
@@ -1140,6 +1143,21 @@ def admin_save_settings(mode, site):
                 )
 
                 return redirect(url_for('admin_settings_nsfw', site='search'))
+            
+            elif site == "hentai":
+
+                AdultHentaiMainTitle = request.form.get('AdultHentaiMainTitle')
+
+                AdultHentaiLocalServerUsage = request.form.get('AdultHentaiLocalServerUsage')
+                AdultHentaiLocalServerLimit = request.form.get('AdultHentaiLocalServerLimit')
+                AdultHentaiLocalServerApiURL = request.form.get('AdultHentaiLocalServerApiURL')
+                AdultHentaiLocalServerEndpointsList = request.form.get('AdultHentaiLocalServerEndpointsList')
+
+                AdultHentaiNekosLifeUsage = request.form.get('AdultHentaiNekosLifeUsage')
+                AdultHentaiNekosLifeLimit = request.form.get('AdultHentaiNekosLifeLimit')
+                AdultHentaiNekosLifeApiURL = request.form.get('AdultHentaiNekosLifeApiURL')
+                AdultHentaiNekosLifeEndpointsList = request.form.get('AdultHentaiNekosLifeEndpointsList')
+
 
     else:
         return redirect(url_for("admin_login_page"))
