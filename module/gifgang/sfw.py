@@ -1,14 +1,16 @@
 import requests
 import random as rand
 
+
 class Giphy:
     def __init__(self):
         self._api_key = None
 
-    def random(self, limit: int=5):
+    def random(self, limit: int = 5):
         giphy_url_list = []
         for _ in range(limit):
-            r = requests.get(f"https://api.giphy.com/v1/gifs/random?api_key={self._api_key}")
+            r = requests.get(
+                f"https://api.giphy.com/v1/gifs/random?api_key={self._api_key}")
             if 300 > r.status_code >= 200:
                 try:
                     data = r.json()
@@ -28,7 +30,8 @@ class Giphy:
 
         giphy_url_list = []
 
-        r = requests.get(f"https://api.giphy.com/v1/gifs/trending?api_key={self._api_key}&limit={limit}&offset={offset}")
+        r = requests.get(
+            f"https://api.giphy.com/v1/gifs/trending?api_key={self._api_key}&limit={limit}&offset={offset}")
         if 300 > r.status_code >= 200:
             try:
                 data = r.json()
@@ -43,7 +46,6 @@ class Giphy:
                 print(e)
 
         return giphy_url_list
-
 
     def search(self, query: str = "random", limit: int = 5, offset: int = None):
 
@@ -52,7 +54,8 @@ class Giphy:
 
         giphy_url_list = []
 
-        r = requests.get(f'https://api.giphy.com/v1/gifs/search?api_key={self._api_key}&limit={limit}&offset={offset}&q={query}')
+        r = requests.get(
+            f'https://api.giphy.com/v1/gifs/search?api_key={self._api_key}&limit={limit}&offset={offset}&q={query}')
         if 300 > r.status_code >= 200:
             try:
                 data = r.json()
@@ -68,13 +71,19 @@ class Giphy:
 
         return giphy_url_list
 
+
 class Picsum:
     def __init__(self):
         pass
-    
+
     def images(self, limit: int = 5, height: int = 200, width: int = 300):
         picsum_url_list = []
         for number in range(limit):
-            picsum_url_list.append(f"https://picsum.photos/{height}/{width}?random={number}")
+            picsum_url_list.append(
+                f"https://picsum.photos/{height}/{width}?random={number}")
         return picsum_url_list
 
+
+class Tenor:
+    def __init__(self):
+        self._api_key
