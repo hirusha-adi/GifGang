@@ -4,9 +4,8 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        crossorigin="anonymous">
+    <!-- Bootstrap CSS -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap4.min.css') }}">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
@@ -170,15 +169,13 @@
     </div>
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/libs/jquery-3.3.1.min.js') }}"></script>
 
     <!-- Popper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/libs/popper.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/libs/bootstrap4.min.js') }}"></script>
 
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/admin_settings.js') }}"></script>
@@ -186,3 +183,4 @@
 </body>
 
 </html>
+
