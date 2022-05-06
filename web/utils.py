@@ -822,5 +822,22 @@ class Update:
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
 
-    def AgeVerify():
-        pass
+    def AgeVerify(
+        AgeVerifyMainTitle,
+        AgeVerifyMainSubTopic,
+        AgeVerifyMainBody,
+        AgeVerifyButtonsYes,
+        AgeVerifyButtonsNo
+    ):
+        WebsiteData.age_verify["title"] = str(AgeVerifyMainTitle)
+        WebsiteData.age_verify["body_title"] = str(AgeVerifyMainSubTopic)
+        WebsiteData.age_verify["text"] = str(AgeVerifyMainBody)
+
+        WebsiteData.age_verify["buttons"]["yes"] = str(AgeVerifyButtonsYes)
+        WebsiteData.age_verify["buttons"]["yes"] = str(AgeVerifyButtonsNo)
+        
+        WebsiteData._data["age_verify"] = WebsiteData.age_verify
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+            
