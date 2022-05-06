@@ -1025,6 +1025,23 @@ def admin_save_settings(mode, site):
 
                 return redirect(url_for('admin_setting_sfw', site='pins'))
 
+            elif site == "age":
+                AgeVerifyMainTitle = request.form.get('AgeVerifyMainTitle')
+                AgeVerifyMainSubTopic = request.form.get('AgeVerifyMainSubTopic')
+                AgeVerifyMainBody = request.form.get('AgeVerifyMainBody')
+                AgeVerifyButtonsYes = request.form.get('AgeVerifyButtonsYes')
+                AgeVerifyButtonsNo = request.form.get('AgeVerifyButtonsNo')
+
+                Update.AgeVerify(
+                    AgeVerifyMainTitle=AgeVerifyMainTitle,
+                    AgeVerifyMainSubTopic=AgeVerifyMainSubTopic,
+                    AgeVerifyMainBody=AgeVerifyMainBody,
+                    AgeVerifyButtonsYes=AgeVerifyButtonsYes,
+                    AgeVerifyButtonsNo=AgeVerifyButtonsNo
+                )
+                
+                return redirect(url_for('admin_setting_sfw', site='age'))
+
             else:
                 AdminUserName = request.form.get('AdminUserName')
                 AdminUserPassword = request.form.get('AdminUserPassword')
