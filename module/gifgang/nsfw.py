@@ -124,7 +124,7 @@ class RedTube:
 
         return stars_list
 
-    def random(self, query: str = None, size: str = "big", output: str = "json"):
+    def random(self, size: str = "big", output: str = "json"):
         redtube_list = []
 
         _final_url = "https://api.redtube.com/"
@@ -132,6 +132,29 @@ class RedTube:
         _final_url += f'&thumbsize={size}'
         _final_url += f'&output={output}'
         _final_url += f'&search={rand.choice(__random_query_lis)}'
+
+        r = requests.get(_final_url)
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data["videos"]:
+                redtube_list.append(
+                    {
+                        "title": result["video"]["title"],
+                        "url": result["video"]["default_thumb"],
+                        "src_url": result["video"]["url"]
+                    }
+                )
+
+        return redtube_list
+
+    def search(self, query: str = None, size: str = "big", output: str = "json"):
+        redtube_list = []
+
+        _final_url = "https://api.redtube.com/"
+        _final_url += f'?data=redtube.Videos.searchVideos'
+        _final_url += f'&thumbsize={size}'
+        _final_url += f'&output={output}'
+        _final_url += f'&search={query}'
 
         r = requests.get(_final_url)
         if 300 > r.status_code >= 200:
