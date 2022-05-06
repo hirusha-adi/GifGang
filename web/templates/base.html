@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/content.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_dark.css') }}">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -303,14 +304,6 @@
         }
     </style>
 
-    <!-- Dark Mode Css -->
-    <style>
-        * {
-            background-color: black;
-            color: white;
-        }
-    </style>
-
     {% block more_head %}{% endblock %}
 
 </head>
@@ -358,7 +351,7 @@
                                                 href="{{ url_for('pins') }}">
                                                 <div class="img" id="pinno5">
                                                 </div>
-                                                <div class="info"><span class="searchterm">
+                                                <div class="info"><span class="searchterm" style="color: white;">
                                                         View All Pins
                                                     </span>
                                                 </div>
@@ -371,7 +364,7 @@
                                                 <div class="img" id="pinno4">
                                                 </div>
                                                 <div class="info">
-                                                    <span class="searchterm">
+                                                    <span class="searchterm" style="color: white;">
                                                         NSFW Content
                                                     </span>
                                                 </div>
@@ -384,7 +377,7 @@
                                                 <div class="img" id="pinno1">
                                                 </div>
                                                 <div class="info">
-                                                    <span class="searchterm">
+                                                    <span class="searchterm" style="color: white;">
                                                         Anime
                                                     </span>
                                                 </div>
@@ -397,7 +390,7 @@
                                                 <div class="img" id="pinno2">
                                                 </div>
                                                 <div class="info">
-                                                    <span class="searchterm">
+                                                    <span class="searchterm" style="color: white;">
                                                         Cats
                                                     </span>
                                                 </div>
@@ -410,7 +403,7 @@
                                                 <div class="img" id="pinno3">
                                                 </div>
                                                 <div class="info">
-                                                    <span class="searchterm">
+                                                    <span class="searchterm" style="color: white;">
                                                         Dogs
                                                     </span>
                                                 </div>
