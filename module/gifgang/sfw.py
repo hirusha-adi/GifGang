@@ -114,3 +114,31 @@ class Tenor:
                     print(e)
 
         return tenor_url_list
+
+    def search(
+        self,
+        query: str = "random",
+        limit: int = 5,
+        locale: str = "en_US",
+        ar_range: str = "all",
+        contentfilter: str = "off"
+    ):
+        tenor_url_list = []
+
+        r = requests.get(
+            f'https://g.tenor.com/v1/search?key={self._api_key}&limit={limit}&locale={locale}&ar_range={ar_range}&contentfilter={contentfilter}&q={query}')
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data["results"]:
+                try:
+                    tenor_url_list.append(
+                        {
+                            "title": str(result["content_description"]),
+                            "url": result["media"][0]["gif"]["url"]
+                        }
+
+                    )
+                except Exception as e:
+                    print(e)
+
+        return tenor_url_list
