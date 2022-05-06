@@ -225,3 +225,33 @@ class Cats:
                     final_url_list.append(result["url"])
 
             return final_url_list
+
+
+class Dogs:
+    def __init__(self):
+        pass
+
+    def images(limit: int = 5):
+        final_url_list = []
+
+        r = requests.get(f"https://dog.ceo/api/breeds/image/random/{limit}")
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data["message"]:
+                final_url_list.append(result)
+
+        return final_url_list
+
+
+class NekosLife:
+    def anime(limit: int = 5, category: str = "kiss"):
+        final_url_list = []
+
+        category = category.lower()
+        if category in ("hug", "kiss", "lizard", "neko", "pat"):
+            req_url = f"https://nekos.life/api/{category}"
+        elif category in ("slap", "cuddle", "avatar", "poke", "feed"):
+            req_url = f"https://nekos.life/api/v2/img/{category}"
+        else:
+            req_url = f"https://nekos.life/api/hug"
+        return final_url_list
