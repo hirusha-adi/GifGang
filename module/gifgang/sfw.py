@@ -68,3 +68,13 @@ class Giphy:
 
         return giphy_url_list
 
+class Pcisum:
+    def __init__(self):
+        self._api_key = None
+
+    def images(self, limit: int = 5, height: int = 200, width: int = 300):
+        picsum_url_list = []
+        for number in range(limit):
+            picsum_url_list.append(f"https://picsum.photos/{height}/{width}?random={number}")
+        return picsum_url_list
+
