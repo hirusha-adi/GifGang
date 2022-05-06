@@ -147,7 +147,7 @@ class RedTube:
 
         return redtube_list
 
-    def search(self, query: str = None, size: str = "big", output: str = "json"):
+    def search(self, query: str = "hardcore", size: str = "big", output: str = "json"):
         redtube_list = []
 
         _final_url = "https://api.redtube.com/"
