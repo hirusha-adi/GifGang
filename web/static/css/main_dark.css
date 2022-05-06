@@ -1,0 +1,25 @@
+*, h2, h1, figcaption {
+    background-color: #141820;
+    color: white;
+}
+a {
+    color: #63b8ff;
+}
+
+.searchterm {
+    background-color: #141820;
+    color: white;
+}
+
+.darkModetexts1 {
+    color: white;
+}
+
+::placeholder {
+    color: white;
+  }
+
+:root {
+    color-scheme: dark;
+    color: white;
+}
