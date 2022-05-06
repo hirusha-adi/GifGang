@@ -1084,7 +1084,7 @@
         <div class="col-md-9">
             <div class="container">
 
-                <form>
+                <form action="{{ url_for('admin_save_settings', mode='nsfw', site='stars') }}" method="post">
                     <!-- AdultStarsMain -->
                     <h3>Main</h3>
                     <div class="form-group">
@@ -1123,7 +1123,7 @@
 
                     <div class="row mt-5">
                         <div class="col">
-                            <button type="button" class="btn btn-primary btn-block">
+                            <button type="button" class="btn btn-primary btn-block" onClick="javascript:this.form.submit();">
                                 Save Changes
                             </button>
                         </div>
