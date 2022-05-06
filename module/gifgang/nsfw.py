@@ -1,49 +1,51 @@
 import requests
 import random as rand
 
+__random_query_lis = [
+    "amateur",
+    "anal",
+    "asian",
+    "blonde",
+    "bigtits",
+    "blowjob",
+    "creampie",
+    "cumshot",
+    "double penetration",
+    "ebony",
+    "facials",
+    "group",
+    "hentai",
+    "interracial",
+    "latina",
+    "japanese",
+    "lingerie",
+    "lesbian",
+    "masturbation",
+    "mature",
+    "milf",
+    "pov",
+    "public",
+    "redhead",
+    "squirting",
+    "wildcrazy",
+    "teens",
+    "cuckold",
+    "oral",
+    "cumshot facial",
+    "pussy",
+    "pussy licking",
+    "deep throat",
+    "cum on tits",
+    "threesome",
+    "bondage",
+    "bdsm",
+    "celebrity"
+]
+
 
 class Eporner:
     def __init__(self):
-        self.__random_query_lis = [
-            "amateur",
-            "anal",
-            "asian",
-            "blonde",
-            "bigtits",
-            "blowjob",
-            "creampie",
-            "cumshot",
-            "double penetration",
-            "ebony",
-            "facials",
-            "group",
-            "hentai",
-            "interracial",
-            "latina",
-            "japanese",
-            "lingerie",
-            "lesbian",
-            "masturbation",
-            "mature",
-            "milf",
-            "pov",
-            "public",
-            "redhead",
-            "squirting",
-            "wildcrazy",
-            "teens",
-            "cuckold",
-            "oral",
-            "cumshot facial",
-            "pussy",
-            "pussy licking",
-            "deep throat",
-            "cum on tits",
-            "threesome",
-            "bondage",
-            "bdsm",
-            "celebrity"
-        ]
+        pass
 
     def random(self, limit: int = 5, thumbsize: str = "big", order: str = "top-weekly", format: str = "json"):
         eporner_list = []
@@ -53,7 +55,7 @@ class Eporner:
         _final_url += f'&thumbsize={thumbsize}'
         _final_url += f'&order={order}'
         _final_url += f'&format={format}'
-        _final_url += f'&query={rand.choice(self.__random_query_lis)}'
+        _final_url += f'&query={rand.choice(__random_query_lis)}'
 
         r = requests.get(_final_url)
 
@@ -121,3 +123,26 @@ class RedTube:
                 )
 
         return stars_list
+
+    def random(self, query: str = None, size: str = "big", output: str = "json"):
+        redtube_list = []
+
+        _final_url = "https://api.redtube.com/"
+        _final_url += f'?data=redtube.Videos.searchVideos'
+        _final_url += f'&thumbsize={size}'
+        _final_url += f'&output={output}'
+        _final_url += f'&search={rand.choice(__random_query_lis)}'
+
+        r = requests.get(_final_url)
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data["videos"]:
+                redtube_list.append(
+                    {
+                        "title": result["video"]["title"],
+                        "url": result["video"]["default_thumb"],
+                        "src_url": result["video"]["url"]
+                    }
+                )
+
+        return redtube_list
