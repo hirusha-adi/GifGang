@@ -53,7 +53,7 @@ def redtube(request):
             _final_url = WebsiteData.adult_index["api_usage"]["redtube"]["api_url"]
             _final_url += f'?data={WebsiteData.adult_index["api_usage"]["redtube"]["data"]}'
             _final_url += f'&thumbsize={WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"]}'
-            _final_url += f'&search=json'
+            _final_url += f'&output=json'
 
             _random_search_text = random.choice(
                 WebsiteData.adult_index["api_usage"]["random_search_word"])
