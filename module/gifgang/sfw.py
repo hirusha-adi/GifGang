@@ -28,7 +28,7 @@ class Giphy:
 
         giphy_url_list = []
 
-        r = requests.get(f"https://api.giphy.com/v1/gifs/random?api_key={self._api_key}&limit={limit}&offset={offset}")
+        r = requests.get(f"https://api.giphy.com/v1/gifs/trending?api_key={self._api_key}&limit={limit}&offset={offset}")
         if 300 > r.status_code >= 200:
             try:
                 data = r.json()
@@ -45,5 +45,26 @@ class Giphy:
         return giphy_url_list
 
 
-    def search(self):
-        pass
+    def search(self, query: str = "random", limit: int = 5, offset: int = None):
+
+        if offset is None:
+            offset = rand.randint(1, 4990 - limit)
+
+        giphy_url_list = []
+
+        r = requests.get(f'https://api.giphy.com/v1/gifs/search?api_key={self._api_key}&limit={limit}&offset={offset}&q={query}')
+        if 300 > r.status_code >= 200:
+            try:
+                data = r.json()
+                for item in data["data"]:
+                    giphy_url_list.append(
+                        {
+                            "url": item["images"]["original"]["url"],
+                            "title": item["title"]
+                        }
+                    )
+            except Exception as e:
+                print(e)
+
+        return giphy_url_list
+
