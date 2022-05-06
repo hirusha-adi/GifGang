@@ -786,7 +786,7 @@ class Update:
 
         WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"] = True if str(AdultHentaiLocalServerUsage) == "2" else False
         try:
-            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(AdultHentaiLocalServerLimit)
+            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = int(AdultHentaiLocalServerLimit)
         except:
             WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(AdultHentaiLocalServerLimit)
         WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"] = str(AdultHentaiLocalServerApiURL)
@@ -803,7 +803,7 @@ class Update:
 
         WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"] = True if str(AdultHentaiNekosLifeUsage) == "2" else False
         try:
-            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(AdultHentaiNekosLifeLimit)
+            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = int(AdultHentaiNekosLifeLimit)
         except:
             WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(AdultHentaiNekosLifeLimit)
         WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"] = str(AdultHentaiNekosLifeApiURL)
