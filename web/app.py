@@ -1107,8 +1107,39 @@ def admin_save_settings(mode, site):
                     AdultStarsRedTubeData=AdultStarsRedTubeData,
                     AdultStarsRedTubeApiURL=AdultStarsRedTubeApiURL
                 )
-                
+
                 return redirect(url_for('admin_settings_nsfw', site='stars'))
+            
+            elif site == "search":
+                AdultSearchMainTitle = request.form.get('AdultSearchMainTitle')
+
+                AdultSearchEpornerUsage = request.form.get('AdultSearchEpornerUsage')
+                AdultSearchEpornerLimit = request.form.get('AdultSearchEpornerLimit')
+                AdultSearchEpornerOrder = request.form.get('AdultSearchEpornerOrder')
+                AdultSearchEpornerThumbSize = request.form.get('AdultSearchEpornerThumbSize')
+                AdultSearchEpornerApiURL = request.form.get('AdultSearchEpornerApiURL')
+
+                AdultSearchRedTubeUsage = request.form.get('AdultSearchRedTubeUsage')
+                AdultSearchRedTubeLimit = request.form.get('AdultSearchRedTubeLimit')
+                AdultSearchRedTubeData = request.form.get('AdultSearchRedTubeData')
+                AdultSearchRedTubeThumbSize = request.form.get('AdultSearchRedTubeThumbSize')
+                AdultSearchRedTubeApiURL = request.form.get('AdultSearchRedTubeApiURL')
+
+                Update.AdultSearch(
+                    AdultSearchMainTitle=AdultSearchMainTitle,
+                    AdultSearchEpornerUsage=AdultSearchEpornerUsage,
+                    AdultSearchEpornerLimit=AdultSearchEpornerLimit,
+                    AdultSearchEpornerThumbSize=AdultSearchEpornerThumbSize,
+                    AdultSearchEpornerOrder=AdultSearchEpornerOrder,
+                    AdultSearchEpornerApiURL=AdultSearchEpornerApiURL,
+                    AdultSearchRedTubeUsage=AdultSearchRedTubeUsage,
+                    AdultSearchRedTubeLimit=AdultSearchRedTubeLimit,
+                    AdultSearchRedTubeData=AdultSearchRedTubeData,
+                    AdultSearchRedTubeThumbSize=AdultSearchRedTubeThumbSize,
+                    AdultSearchRedTubeApiURL=AdultSearchRedTubeApiURL
+                )
+
+                return redirect(url_for('admin_settings_nsfw', site='search'))
 
     else:
         return redirect(url_for("admin_login_page"))
