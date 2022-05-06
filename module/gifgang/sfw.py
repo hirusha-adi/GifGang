@@ -148,8 +148,41 @@ class Cats:
             return thecatapi_url_list
 
     class CatsAsAService:
-        def image(text="hello", size="", color="", type="", filter="", width=None, height=None):
-            pass
+        def image(text=None, size="med", color=None, type=None, filter=None, width=None, height=None):
+            final_url_list = []
 
-        def gif(text="hello", size="", color="", type="", filter="", width=None, height=None):
-            pass
+            base_url = "https://cataas.com/"
+
+            if text is None:
+                base_url += "/cat"
+            else:
+                base_url += f"/cat/says/{text}"
+
+            if not(size is None):
+                base_url += f"?size={size}"
+            else:
+                base_url += f"?size=med"
+
+            if not(color is None):
+                base_url += f"&color={color}"
+
+            if not(type is None):
+                base_url += f"&type={type}"
+
+            if not(filter is None):
+                base_url += f"&filter={filter}"
+
+            if not(width is None):
+                base_url += f"&color={width}"
+
+            if not(height is None):
+                base_url += f"&height={height}"
+
+            r = requests.get(base_url)
+
+            if 300 > r.status_code >= 200:
+                data = r.json()
+                for result in data:
+                    final_url_list.append(result["url"])
+
+            return final_url_list
