@@ -16,11 +16,16 @@ from gifgang import nsfw
 # -----------------------------------------------------
 
 # Giphy
-x = sfw.Giphy.random(limit=5)
-x = sfw.Giphy.trending(limit=5, offset=5)
-x = sfw.Giphy.search(query="cats", limit=5, offset=5)
+obj = sfw.Giphy()
+x = obj.random(limit=5)
+x = obj.trending(limit=5, offset=5)
+x = obj.search(query="cats", limit=5, offset=5)
 
 # Picsum
-x = sfw.Picsum.images(limit=5, height=500, width=200)
+x = sfw.Picsum().images(limit=5, height=500, width=200)
 
-
+# Tenor
+obj = sfw.Tenor()
+x = obj.random(limit=5, locale="en_US", ar_range="all", contentfilter="off")
+x = obj.search(query="random", limit=5, locale="en_US",
+               ar_range="all", contentfilter="off")
