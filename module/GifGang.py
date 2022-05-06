@@ -22,7 +22,8 @@ x = obj.trending(limit=5, offset=5)
 x = obj.search(query="cats", limit=5, offset=5)
 
 # Picsum
-x = sfw.Picsum().images(limit=5, height=500, width=200)
+obj = sfw.Picsum()
+x = obj.images(limit=5, height=500, width=200)
 
 # Tenor
 obj = sfw.Tenor()
