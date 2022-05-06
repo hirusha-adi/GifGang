@@ -94,3 +94,30 @@ class Eporner:
                 )
 
         return eporner_list
+
+
+class RedTube:
+    def __init__(self):
+        pass
+
+    def stars(self, page="1", output: str = "json"):
+        stars_list = []
+
+        _final_url = "https://api.redtube.com/"
+        _final_url += f'?data=redtube.Stars.getStarDetailedList'
+        _final_url += f'&output={output}'
+        _final_url += f'&page={page}'
+
+        r = requests.get(_final_url)
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for star in data["stars"]:
+                stars_list.append(
+                    {
+                        "title": star["star"],
+                        "url": star["star_thumb"],
+                        "src_url": star["star_url"]
+                    }
+                )
+
+        return stars_list
