@@ -70,8 +70,8 @@ class Giphy:
 
 class Picsum:
     def __init__(self):
-        self._api_key = None
-
+        pass
+    
     def images(self, limit: int = 5, height: int = 200, width: int = 300):
         picsum_url_list = []
         for number in range(limit):
