@@ -1158,6 +1158,19 @@ def admin_save_settings(mode, site):
                 AdultHentaiNekosLifeApiURL = request.form.get('AdultHentaiNekosLifeApiURL')
                 AdultHentaiNekosLifeEndpointsList = request.form.get('AdultHentaiNekosLifeEndpointsList')
 
+                Update.AdultHentai(
+                AdultHentaiMainTitle=AdultHentaiMainTitle,
+                AdultHentaiLocalServerUsage=AdultHentaiLocalServerUsage,
+                AdultHentaiLocalServerLimit=AdultHentaiLocalServerLimit,
+                AdultHentaiLocalServerApiURL=AdultHentaiLocalServerApiURL,
+                AdultHentaiLocalServerEndpointsList=AdultHentaiLocalServerEndpointsList,
+                AdultHentaiNekosLifeUsage=AdultHentaiNekosLifeUsage,
+                AdultHentaiNekosLifeLimit=AdultHentaiNekosLifeLimit,
+                AdultHentaiNekosLifeApiURL=AdultHentaiNekosLifeApiURL,
+                AdultHentaiNekosLifeEndpointsList=AdultHentaiNekosLifeEndpointsList
+            )
+
+                return redirect(url_for('admin_settings_nsfw', site='hentai'))
 
     else:
         return redirect(url_for("admin_login_page"))
