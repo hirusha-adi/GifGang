@@ -1,6 +1,6 @@
 # v1.2 - TO-DO
 
-1. Website Only
+1. Website Only (`./web/*`)
 2. Manage all settings stored in json files with the admin settings page `/admin/settings` (Also has a very nice mobile UI)
 3, Default Dark Mode
 4. Color theme changes - [New Color Pallete](https://www.color-hex.com/color-palette/97670)
