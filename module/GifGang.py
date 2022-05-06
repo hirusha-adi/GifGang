@@ -43,3 +43,19 @@ x = obj.CatsAsAService.gif(text=None, size="med", color=None, type=None,
 # Dogs
 obj = sfw.Dogs()
 x = obj.images(limit=5)
+
+
+# NSFW Classes Usage Demonstration
+# -----------------------------------------------------
+
+# Eporner
+obj = nsfw.Eporner()
+x = obj.random(limit=5, thumbsize="big", order="top-weekly", format="json")
+x = obj.search(query="hardcore", limit=5, thumbsize="big",
+               order="top-weekly", format="json")
+
+# RedTube
+obj = nsfw.RedTube()
+x = obj.random(size="big", output="json")
+x = obj.search(query="hardcore", size="big", output="json")
+x = obj.stars(page="1", output="json")
