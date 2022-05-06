@@ -68,7 +68,7 @@ class Giphy:
 
         return giphy_url_list
 
-class Pcisum:
+class Picsum:
     def __init__(self):
         self._api_key = None
 
