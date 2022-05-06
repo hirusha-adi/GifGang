@@ -244,7 +244,7 @@ class Dogs:
 
 
 class NekosLife:
-    def anime(limit: int = 5, category: str = "kiss"):
+    def anime(category: str = "kiss"):
         final_url_list = []
 
         category = category.lower()
@@ -254,4 +254,13 @@ class NekosLife:
             req_url = f"https://nekos.life/api/v2/img/{category}"
         else:
             req_url = f"https://nekos.life/api/hug"
+
+        r1 = requests.get(req_url)
+        if 300 > r1.status_code >= 200:
+            data = r1.json()
+            try:
+                final_url_list.append(data["url"])
+            except KeyError:
+                final_url_list.append(data["neko"])
+
         return final_url_list
