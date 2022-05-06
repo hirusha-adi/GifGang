@@ -2,6 +2,8 @@
 
 1. Website Only
 2. Manage all settings stored in json files with the admin settings page `/admin/settings` (Also has a very nice mobile UI)
+3, Default Dark Mode
+4. Color theme changes - [New Color Pallete](https://www.color-hex.com/color-palette/97670)
 
 # v1.1
 
