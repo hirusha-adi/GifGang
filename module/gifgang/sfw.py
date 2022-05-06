@@ -86,4 +86,31 @@ class Picsum:
 
 class Tenor:
     def __init__(self):
-        self._api_key
+        self._api_key = None
+
+    def random(
+        self,
+        limit: int = 5,
+        locale: str = "en_US",
+        ar_range: str = "all",
+        contentfilter: str = "off"
+    ):
+        tenor_url_list = []
+
+        r = requests.get(
+            f'https://g.tenor.com/v1/random?key={self._api_key}&limit={limit}&locale={locale}&ar_range={ar_range}&contentfilter={contentfilter}')
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data["results"]:
+                try:
+                    tenor_url_list.append(
+                        {
+                            "title": str(result["content_description"]),
+                            "url": result["media"][0]["gif"]["url"]
+                        }
+
+                    )
+                except Exception as e:
+                    print(e)
+
+        return tenor_url_list
