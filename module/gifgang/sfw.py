@@ -135,17 +135,16 @@ class Cats:
     def __init__(self):
         pass
 
-    class theCatAPI:
-        def image(limit: int = 5, size: str = "med", mime_types: str = "jpg,gif,png", order: str = "RANDOM", has_breeds=0):
-            thecatapi_url_list = []
-            r = requests.get(
-                f'https://api.thecatapi.com/v1/images/search?limit={limit}&size={size}&mime_types={mime_types}&order={order}&has_breeds={has_breeds}'
-            )
-            if 300 > r.status_code >= 200:
-                data = r.json()
-                for result in data:
-                    thecatapi_url_list.append(result["url"])
-            return thecatapi_url_list
+    def theCatAPI(limit: int = 5, size: str = "med", mime_types: str = "jpg,gif,png", order: str = "RANDOM", has_breeds=0):
+        thecatapi_url_list = []
+        r = requests.get(
+            f'https://api.thecatapi.com/v1/images/search?limit={limit}&size={size}&mime_types={mime_types}&order={order}&has_breeds={has_breeds}'
+        )
+        if 300 > r.status_code >= 200:
+            data = r.json()
+            for result in data:
+                thecatapi_url_list.append(result["url"])
+        return thecatapi_url_list
 
     class CatsAsAService:
         def image(text=None, size="med", color=None, type=None, filter=None, width=None, height=None):
