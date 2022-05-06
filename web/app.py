@@ -1273,6 +1273,22 @@ def admin_setting_sfw(site):
                     show_adult_search=False,
                     show_adult_hentai=False,
                 )
+            elif site == "age":
+                return render_template(
+                    "admin_settings.html",
+                    show_admin_settings=False,
+                    show_important_settings=False,
+                    show_index=False,
+                    show_search=False,
+                    show_pins=False,
+                    show_age_verify=True,
+                    age_verify_data=WebsiteData.age_verify,
+                    show_adult_index=False,
+                    show_adult_pins=False,
+                    show_adult_stars=False,
+                    show_adult_search=False,
+                    show_adult_hentai=False,
+                )
             else:
                 return render_template(
                     "admin_settings.html",
