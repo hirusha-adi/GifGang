@@ -729,4 +729,45 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
-            
+    
+    def AdultSearch(
+        AdultSearchMainTitle,
+        AdultSearchEpornerUsage,
+        AdultSearchEpornerLimit,
+        AdultSearchEpornerThumbSize,
+        AdultSearchEpornerOrder,
+        AdultSearchEpornerApiURL,
+        AdultSearchRedTubeUsage,
+        AdultSearchRedTubeLimit,
+        AdultSearchRedTubeData,
+        AdultSearchRedTubeThumbSize,
+        AdultSearchRedTubeApiURL
+    ):
+        WebsiteData.adult_search["title"] = str(AdultSearchMainTitle)
+
+
+
+        WebsiteData.adult_search["api_usage"]["eporner"]["usage"] = True if str(AdultSearchEpornerUsage) == "2" else False
+        try:
+            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = int(AdultSearchEpornerLimit)
+        except:
+            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = str(AdultSearchEpornerLimit)
+        WebsiteData.adult_search["api_usage"]["eporner"]["thumbsize"] = str(AdultSearchEpornerThumbSize)
+        WebsiteData.adult_search["api_usage"]["eporner"]["order"] = str(AdultSearchEpornerOrder)
+        WebsiteData.adult_search["api_usage"]["eporner"]["api_url"] = str(AdultSearchEpornerApiURL)
+
+
+        WebsiteData.adult_search["api_usage"]["redtube"]["usage"] = True if str(AdultSearchRedTubeUsage) == "2" else False
+        try:
+            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = int(AdultSearchRedTubeLimit)
+        except:
+            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = str(AdultSearchRedTubeLimit)
+        WebsiteData.adult_search["api_usage"]["redtube"]["data"] = str(AdultSearchRedTubeData)
+        WebsiteData.adult_search["api_usage"]["redtube"]["thumbsize"] = str(AdultSearchRedTubeThumbSize)
+        WebsiteData.adult_search["api_usage"]["redtube"]["api_url"] = str(AdultSearchRedTubeApiURL)
+
+        WebsiteData._data["adult_search"] = WebsiteData.adult_search
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+
