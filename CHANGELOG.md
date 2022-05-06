@@ -1,6 +1,7 @@
 # v1.2 - TO-DO
 
-1. A discord bot is created that can do everything that the website can do to give better intergration to the platform for discord users
+1. Website Only
+2. Manage all settings stored in json files with the admin settings page `/admin/settings` (Also has a very nice mobile UI)
 
 # v1.1
 
