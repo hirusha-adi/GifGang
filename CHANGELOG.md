@@ -1,10 +1,15 @@
 # v1.2 - TO-DO
 
+## Whats new?
 1. Website Only (`./web/*`)
 2. Manage all settings stored in json files with the admin settings page `/admin/settings` (Also has a very nice mobile UI)
 3, Default Dark Mode
 4. Color theme changes - [New Color Pallete](https://www.color-hex.com/color-palette/97670)
 5. THE DARK MODE IS ADDED ONLY TO PLUBLICLY AVAILABLE ROUTES. ALL ADMIN ROUTES WILL BE STICKING WITH THIER ORIGINAL THEMES
+
+## Buges
+
+1. Bad text color and background color in Search bar (input-field) 
 
 # v1.1
 
