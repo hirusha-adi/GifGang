@@ -12,8 +12,6 @@
 
   - Made the first frontend for the original version of this project
 
-- ### Enrico Chiaromonte
-  - Creator of the [original 404 page.](https://codepen.io/chiaren/pen/qBwKdX)
 - ### `esme#7285`
 
   - Giving me ideas for creating the new frontend
@@ -21,3 +19,10 @@
 - ### `OLIVER#0673`
 
   - Giving me ideas for creating the new frontend
+
+### `Defaultuser#5260`
+  - Dark mode, many more epic idea
+
+- ### Codepen
+  - Enrico Chiaromonte:  [original 404 page.](https://codepen.io/chiaren/pen/qBwKdX)
+  
