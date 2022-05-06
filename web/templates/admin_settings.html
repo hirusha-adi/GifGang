@@ -892,40 +892,35 @@
         <div class="col-md-9">
             <div class="container">
 
-                <form action="{{ url_for('admin_save_settings', mode='nsfw', site='age') }}" method="post">
+                <form action="{{ url_for('admin_save_settings', mode='sfw', site='age') }}" method="post">
                     <!-- AdultStarsMain -->
                     <h3>Main</h3>
                     <div class="form-group">
-                        <label for=AdultStarsMainTitle>Title</label>
-                        <input type="text" class="form-control" id="AdultStarsMainTitle" name="AdultStarsMainTitle"
-                            value="{{ adult_stars_data.title }}">
+                        <label for=AgeVerifyMainTitle>Title</label>
+                        <input type="text" class="form-control" id="AgeVerifyMainTitle" name="AgeVerifyMainTitle"
+                            value="{{ age_verify_data.title }}">
+                        <br>
+                        <label for=AgeVerifyMainSubTopic>SubTopic</label>
+                        <input type="text" class="form-control" id="AgeVerifyMainSubTopic" name="AgeVerifyMainSubTopic"
+                            value="{{ age_verify_data.body_title }}">
+                        <br>
+                        <label for=AgeVerifyMainBody>Body</label>
+                        <input type="text" class="form-control" id="AgeVerifyMainBody" name="AgeVerifyMainBody"
+                            value="{{ age_verify_data.text }}">
                     </div>
 
                     <hr>
 
-                    <!-- AdultStarsRedTube -->
-                    <h3>Red Tube</h3>
+                    <!-- AgeVerifyButtons -->
+                    <h3>Buttons</h3>
                     <div class="form-group">
-                        <label for=AdultStarsRedTubeUsage>Usage</label>
+                        <label for=AgeVerifyButtonsYes>Yes</label>
+                        <input type="text" class="form-control" id="AgeVerifyButtonsYes" 
+                        name="AgeVerifyButtonsYes" value="{{ age_verify_data.buttons.no }}">
                         <br>
-                        <select name="AdultStarsRedTubeUsage" id="AdultStarsRedTubeUsage">
-                            {% if adult_stars_data.api_usage.usage == True %}
-                            <option value="1">False</option>
-                            <option value="2" selected>True</option>
-                            {% else %}
-                            <option value="1" selected>False</option>
-                            <option value="2">True</option>
-                            {% endif %}
-                        </select>
-                        <br>
-                        <br>
-                        <label for=AdultStarsRedTubeData>Data</label>
-                        <input type="text" class="form-control" id="AdultStarsRedTubeData" name="AdultStarsRedTubeData"
-                            value="{{ adult_stars_data.api_usage.data }}">
-                        <br>
-                        <label for=AdultStarsRedTubeApiURL>API URL</label>
-                        <input type="text" class="form-control" id="AdultStarsRedTubeApiURL"
-                            name="AdultStarsRedTubeApiURL" value="{{ adult_stars_data.api_usage.api_url }}">
+                        <label for=AgeVerifyButtonsNo>No</label>
+                        <input type="text" class="form-control" id="AgeVerifyButtonsNo"
+                            name="AgeVerifyButtonsNo" value="{{ age_verify_data.buttons.yes }}">
                         <br>
                     </div>
 
