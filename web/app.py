@@ -1,11 +1,8 @@
 import logging
 import os
-import random
 import time
 from threading import Thread
-import webbrowser
 
-import requests
 from flask import Flask, redirect, render_template, request, send_file, url_for, session
 
 import services
