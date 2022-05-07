@@ -6,54 +6,98 @@
 
 
 {% block more_head %}
-<style type="text/css">
-    .tg  {
-        border-collapse:collapse;
-        border-spacing:0;
-    }
-    .tg td{
-        overflow:hidden;
-        padding:10px 5px;
-        word-break:normal;
-    }
-    .tg th{
-        font-family:Arial, sans-serif;
-        font-weight:bolder;
-        overflow:hidden;
-        padding:10px 5px;
-        word-break:normal;
-    }
-    .tg .tg-0pky{
-        text-align:left;
-        vertical-align:top;
-        font-size: 18px
-    }
-    table, th, td {
-        border: 1px solid #585858;
-    }
-      
-    table {
-        width: 100%;
-    }
+<style>
+.rwd-table {
+  margin: 1em 0;
+  min-width: 300px;
+}
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th, .rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
 
-    .dlbutton {
-        background-color: #0483aa;
-        border: none;
-        color: white;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 13px;
-        border-radius: 24px;
-      }
-    
-      @media only screen and (max-width: 600px) {
-        .tg-0pky {
-            font-size: 16px;
-        }
-      }
-        
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495E;
+}
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+  border-color: #46637f;
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+  color: #dd5;
+}
+.dlbutton {
+    background-color: #0483aa;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 24px;
+  }
 </style>
 {% endblock %}
 
@@ -69,33 +113,26 @@ Pinned
 {% if show_torrents_index == True %}
 <br>
 <center>
-    <table class="tg">
-        <thead>
-        <tr>
-            <th class="tg-0pky">Name</th>
-            <th class="tg-0pky">Size</th>
-            <th class="tg-0pky">SE</th>
-            <th class="tg-0pky">LE</th>
-            <th class="tg-0pky">Download</th>
-        </tr>
-        </thead>
-        <tbody>
-            {% for torrent_dict in torrents_list %}
-                <tr>
-                    <td class="tg-0pky">{{ torrent_dict.title }}</td>
-                    <td class="tg-0pky" style="text-align:center;">{{ torrent_dict.size }}</td>
-                    <td class="tg-0pky" style="text-align:center;">{{ torrent_dict.se }}</td>
-                    <td class="tg-0pky" style="text-align:center;">{{ torrent_dict.le }}</td>
-                    <td class="tg-0pky" style="text-align:center;">
-                        <button class="dlbutton">
-                            <i class="fa-solid fa-download" style="color: white; background: #0483aa;"></i>
-                            Download
-                        </button>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <h1>All Torrents</h1>
+<table class="rwd-table">
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+    <th>SE</th>
+    <th>LE</th>
+  </tr>
+
+  {% for torrent_dict in torrents_list %}
+  <tr>
+    <td data-th="Movie Title">{{ torrent_dict.title }}</td>
+    <td data-th="Genre">{{ torrent_dict.size }}</td>
+    <td data-th="Year">{{ torrent_dict.se }}</td>
+    <td data-th="Gross">{{ torrent_dict.le }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>&larr; Drag window (in editor or full page view) to see the effect. &rarr;</p>
 </center>
 <br>
 <br>
