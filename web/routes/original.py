@@ -1,7 +1,6 @@
 import services
 from flask import redirect, render_template, request, url_for
-from utils import WebsiteData, count_total_visits_amount, log, logf
-from utils.vars import COUNT
+from utils import WebsiteData, count_total_visits_amount, log, logf, Vars
 
 
 def about():
@@ -245,11 +244,9 @@ def search(query):
 def public_stats():
     count_total_visits_amount()
 
-    global COUNT
-
     logf(request=request, page=f"stats")
 
     log(f'Request `/stats` - public_stats()',
         ipaddr=request.remote_addr)
 
-    return render_template("stats.html", request_count=COUNT)
+    return render_template("stats.html", request_count=Vars.COUNT)
