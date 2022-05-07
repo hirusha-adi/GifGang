@@ -1,0 +1,36 @@
+# Web App Files
+web/count.txt
+web/frontend
+web/logs/*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE Files
+.idea/
+.vscode/
+
+# Flask Stuff
+instance/
+.webassets-cache
+
+# Others
+*.log
+*.manifest
+*.spec
+MANIFEST
+.Python
+dist/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+web/count-today.txt
+web/.fuse_hidden0000171700000002
+web/database/.fuse_hidden000016dd00000003
+web/database/.fuse_hidden0000196b00000005
+web/database/.fuse_hidden0000194700000004
+web/.fuse_hidden0000171700000006
+web/static/img/.fuse_hidden0000034600000001
