@@ -1,5 +1,7 @@
 # 1.3
 - Better route management, Clean Code
+- backend Bug Fixes
+- search bar color fix
 
 # v1.2
 
