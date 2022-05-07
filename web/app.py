@@ -28,7 +28,6 @@ log("Disabled the default `werkzeug` logging")
 app.secret_key = "VerySecret12345"
 
 
-
 app.add_url_rule("/", 'index', index)
 app.add_url_rule("/pins", 'pins', pins)
 app.add_url_rule("/search", 'search_no_query', search_no_query)
