@@ -7,6 +7,7 @@ from flask import Flask, render_template
 from routes.admin import *
 from routes.adult import *
 from routes.original import *
+from routes.torrents import *
 from utils import Config, count_total_visits_amount, log, reload_daily_count
 
 app = Flask(__name__)
@@ -51,6 +52,8 @@ app.add_url_rule("/admin/settings", 'admin_settings', admin_settings, methods=['
 app.add_url_rule("/admin/settings/<site>", 'admin_setting_sfw', admin_setting_sfw, methods=['GET'])
 app.add_url_rule("/admin/settings/adult/<site>", 'admin_settings_nsfw', admin_settings_nsfw, methods=['GET'])
 app.add_url_rule("/logout", 'admin_logout', admin_logout, methods=['GET'])
+
+app.add_url_rule("/torrents", 'torrents_index', torrents_index, methods=['GET'])
 
 
 
