@@ -1,7 +1,5 @@
 
 import logging
-import os
-import time
 from threading import Thread
 
 from flask import Flask, render_template
@@ -16,7 +14,7 @@ from routes.adult import (adult_categories, adult_hentai, adult_index,
                           adult_search_post, adult_stars, adult_stars_no_page)
 from routes.original import (about, all_links, index, pins, public_stats,
                              restricted, search, search_no_query, search_post)
-from utils import Config, count_total_visits_amount, log, Vars
+from utils import Config, count_total_visits_amount, log, reload_daily_count
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -67,12 +65,6 @@ app.add_url_rule("/logout", 'admin_logout', admin_logout, methods=['GET'])
 def page_not_found(e):
     count_total_visits_amount()
     return render_template('404.html'), 404
-
-
-def reload_daily_count():
-    while True:
-        Vars.COUNT_TODAY = 0
-        time.sleep(86400)
 
 
 def runWebServer():

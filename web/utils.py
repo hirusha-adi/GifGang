@@ -1,4 +1,4 @@
-import os, requests, json
+import os, requests, json, time
 from datetime import datetime
 
 class Vars:
@@ -250,6 +250,12 @@ def count_total_visits_amount():
     with open(FileNames.count_file_today, "w", encoding="utf-8") as fd_write:
         new_count_daily = Vars.COUNT_TODAY + 1
         fd_write.write(str(new_count_daily))
+
+
+def reload_daily_count():
+    while True:
+        Vars.COUNT_TODAY = 0
+        time.sleep(86400)
 
 class Update:
     def Important(
