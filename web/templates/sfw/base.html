@@ -319,8 +319,9 @@
                 <div class="TopBar">
                     <div class="container">
                         <div class="search-bar-wrapper">
-                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm">
-                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off">
+                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm" style="border-radius: 0px !important;">
+                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off" 
+                                style="color: white !important;">
                                 <span class="iconfont-search" aria-hidden="true"
                                     onclick="document.getElementById('SearchForm').submit();"></span>
                             </form>
