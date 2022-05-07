@@ -1,9 +1,9 @@
-from flask import redirect, render_template, request, send_file, url_for, session
-
 import os
-from utils import FileNames, Important, WebsiteData, log, logf, Settings, count_total_visits_amount
-from utils import Update, FileNames
 
+from flask import (redirect, render_template, request, send_file, session,
+                   url_for)
+from utils import (FileNames, Important, Settings, Update, WebsiteData,
+                   count_total_visits_amount, log, logf)
 from utils.vars import COUNT, COUNT_TODAY
 
 

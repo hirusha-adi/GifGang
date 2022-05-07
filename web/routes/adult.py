@@ -1,8 +1,6 @@
-from flask import redirect, render_template, request, url_for
-
 import services
-from utils import WebsiteData, log, logf, count_total_visits_amount
-
+from flask import redirect, render_template, request, url_for
+from utils import WebsiteData, count_total_visits_amount, log, logf
 
 
 def adult_index():

@@ -16,8 +16,8 @@ from routes.adult import (adult_categories, adult_hentai, adult_index,
                           adult_search_post, adult_stars, adult_stars_no_page)
 from routes.original import (about, all_links, index, pins, public_stats,
                              restricted, search, search_no_query, search_post)
-from utils.vars import COUNT, COUNT_TODAY
 from utils import Config, count_total_visits_amount, log
+from utils.vars import COUNT, COUNT_TODAY
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
