@@ -295,6 +295,118 @@ Pinned
 
 {% endif %}
 
+<!-- Search -->
+{% if search_gifgang_usage == True %}
+
+<!-- From theCatAPI -->
+{% if search_thecatapi_usage == True %}
+<h2>TheCatAPI</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in search_thecatapi_url_list %}
+            <figure>
+                <img src="{{ one_gif }}">
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From dogCEO API -->
+{% if search_dogceo_usage == True %}
+<h2>Dog.CEO</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in search_dogceo_url_list %}
+            <figure>
+                <img src="{{ one_gif }}">
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From Nekos.Life API -->
+{% if search_nekoslife_usage == True %}
+<h2>Nekos.Life</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in search_nekoslife_url_list %}
+            <figure>
+                <img src="{{ one_gif }}">
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From GIPHY API -->
+{% if search_giphy_usage == True %}
+<h2>GIPHY</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in search_giphy_url_list %}
+            <figure>
+                <img src="{{ one_gif['url'] }}">
+                <figcaption>{{ one_gif['title'] }}</figcaption>
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+<!-- From Tenor API -->
+{% if search_tenor_usage == True %}
+<h2>Tenor</h2>
+
+<div class="homepage">
+    <div class="center-container featured">
+
+        <div id="columns">
+
+            {% for one_gif in search_tenor_url_list %}
+            <figure>
+                <img src="{{ one_gif['url'] }}">
+                <figcaption>{{ one_gif['title'] }}</figcaption>
+            </figure>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+{% endif %}
+
+{% endif %}
+
 <!-- Stats -->
 {% if show_gifgang_stats == True %}
 <br>
