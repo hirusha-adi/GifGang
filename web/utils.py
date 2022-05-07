@@ -672,32 +672,41 @@ class Update:
             y.append(str(i).strip()[1:-1])
         WebsiteData.adult_index["api_usage"]["random_search_word"] = y
 
-
-        WebsiteData.adult_index["api_usage"]["eporner"]["usage"] = True if str(AdultIndexhEpornerUsage) == "2" else False
+        WebsiteData.adult_index["api_usage"]["eporner"]["usage"] = True if str(
+            AdultIndexhEpornerUsage) == "2" else False
         try:
-            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = int(AdultIndexhEpornerLimit)
+            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = int(
+                AdultIndexhEpornerLimit)
         except:
-            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = str(AdultIndexhEpornerLimit)
-        WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"] = str(AdultIndexhEpornerThumbSize)
-        WebsiteData.adult_index["api_usage"]["eporner"]["order"] = str(AdultIndexhEpornerOrder)
-        WebsiteData.adult_index["api_usage"]["eporner"]["api_url"] = str(AdultIndexhEpornerAPIUrl)
+            WebsiteData.adult_index["api_usage"]["eporner"]["limit"] = str(
+                AdultIndexhEpornerLimit)
+        WebsiteData.adult_index["api_usage"]["eporner"]["thumbsize"] = str(
+            AdultIndexhEpornerThumbSize)
+        WebsiteData.adult_index["api_usage"]["eporner"]["order"] = str(
+            AdultIndexhEpornerOrder)
+        WebsiteData.adult_index["api_usage"]["eporner"]["api_url"] = str(
+            AdultIndexhEpornerAPIUrl)
 
-
-        WebsiteData.adult_index["api_usage"]["redtube"]["usage"] = True if str(AdultIndexhRedTubeUsage) == "2" else False
+        WebsiteData.adult_index["api_usage"]["redtube"]["usage"] = True if str(
+            AdultIndexhRedTubeUsage) == "2" else False
         try:
-            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = int(AdultIndexhRedTubeLimit)
+            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = int(
+                AdultIndexhRedTubeLimit)
         except:
-            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = str(AdultIndexhRedTubeLimit)
-        WebsiteData.adult_index["api_usage"]["redtube"]["data"] = str(AdultIndexhRedTubeData)
-        WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"] = str(AdultIndexhRedTubeThumbSize)
-        WebsiteData.adult_index["api_usage"]["redtube"]["api_url"] = str(AdultIndexhRedTubeAPIUrl)
+            WebsiteData.adult_index["api_usage"]["redtube"]["limit"] = str(
+                AdultIndexhRedTubeLimit)
+        WebsiteData.adult_index["api_usage"]["redtube"]["data"] = str(
+            AdultIndexhRedTubeData)
+        WebsiteData.adult_index["api_usage"]["redtube"]["thumbsize"] = str(
+            AdultIndexhRedTubeThumbSize)
+        WebsiteData.adult_index["api_usage"]["redtube"]["api_url"] = str(
+            AdultIndexhRedTubeAPIUrl)
 
         WebsiteData._data["adult_index"] = WebsiteData.adult_index
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
 
-    
     def AdultPins(
         AdultPinsMainTitle,
         AdultPinsMainOtherTitle,
@@ -705,13 +714,13 @@ class Update:
     ):
         WebsiteData.adult_pins["title"] = str(AdultPinsMainTitle)
         WebsiteData.adult_pins["all_pins_title"] = str(AdultPinsMainOtherTitle)
-        WebsiteData.adult_pins["all_categories_title"] = str(AdultCategoriesTitle)
+        WebsiteData.adult_pins["all_categories_title"] = str(
+            AdultCategoriesTitle)
 
         WebsiteData._data["adult_pins_and_categories"] = WebsiteData.adult_pins
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
-
 
     def AdultStars(
         AdultStarsMainTitle,
@@ -721,15 +730,18 @@ class Update:
     ):
         WebsiteData.adult_stars["title"] = str(AdultStarsMainTitle)
 
-        WebsiteData.adult_stars["api_usage"]["usage"] = True if str(AdultStarsRedTubeUsage) == "2" else False
-        WebsiteData.adult_stars["api_usage"]["api_url"] = str(AdultStarsRedTubeApiURL)
-        WebsiteData.adult_stars["api_usage"]["data"] = str(AdultStarsRedTubeData)
+        WebsiteData.adult_stars["api_usage"]["usage"] = True if str(
+            AdultStarsRedTubeUsage) == "2" else False
+        WebsiteData.adult_stars["api_usage"]["api_url"] = str(
+            AdultStarsRedTubeApiURL)
+        WebsiteData.adult_stars["api_usage"]["data"] = str(
+            AdultStarsRedTubeData)
 
         WebsiteData._data["adult_stars"] = WebsiteData.adult_stars
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
-    
+
     def AdultSearch(
         AdultSearchMainTitle,
         AdultSearchEpornerUsage,
@@ -745,24 +757,35 @@ class Update:
     ):
         WebsiteData.adult_search["title"] = str(AdultSearchMainTitle)
 
-        WebsiteData.adult_search["api_usage"]["eporner"]["usage"] = True if str(AdultSearchEpornerUsage) == "2" else False
+        WebsiteData.adult_search["api_usage"]["eporner"]["usage"] = True if str(
+            AdultSearchEpornerUsage) == "2" else False
         try:
-            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = int(AdultSearchEpornerLimit)
+            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = int(
+                AdultSearchEpornerLimit)
         except:
-            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = str(AdultSearchEpornerLimit)
-        WebsiteData.adult_search["api_usage"]["eporner"]["thumbsize"] = str(AdultSearchEpornerThumbSize)
-        WebsiteData.adult_search["api_usage"]["eporner"]["order"] = str(AdultSearchEpornerOrder)
-        WebsiteData.adult_search["api_usage"]["eporner"]["api_url"] = str(AdultSearchEpornerApiURL)
+            WebsiteData.adult_search["api_usage"]["eporner"]["limit"] = str(
+                AdultSearchEpornerLimit)
+        WebsiteData.adult_search["api_usage"]["eporner"]["thumbsize"] = str(
+            AdultSearchEpornerThumbSize)
+        WebsiteData.adult_search["api_usage"]["eporner"]["order"] = str(
+            AdultSearchEpornerOrder)
+        WebsiteData.adult_search["api_usage"]["eporner"]["api_url"] = str(
+            AdultSearchEpornerApiURL)
 
-
-        WebsiteData.adult_search["api_usage"]["redtube"]["usage"] = True if str(AdultSearchRedTubeUsage) == "2" else False
+        WebsiteData.adult_search["api_usage"]["redtube"]["usage"] = True if str(
+            AdultSearchRedTubeUsage) == "2" else False
         try:
-            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = int(AdultSearchRedTubeLimit)
+            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = int(
+                AdultSearchRedTubeLimit)
         except:
-            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = str(AdultSearchRedTubeLimit)
-        WebsiteData.adult_search["api_usage"]["redtube"]["data"] = str(AdultSearchRedTubeData)
-        WebsiteData.adult_search["api_usage"]["redtube"]["thumbsize"] = str(AdultSearchRedTubeThumbSize)
-        WebsiteData.adult_search["api_usage"]["redtube"]["api_url"] = str(AdultSearchRedTubeApiURL)
+            WebsiteData.adult_search["api_usage"]["redtube"]["limit"] = str(
+                AdultSearchRedTubeLimit)
+        WebsiteData.adult_search["api_usage"]["redtube"]["data"] = str(
+            AdultSearchRedTubeData)
+        WebsiteData.adult_search["api_usage"]["redtube"]["thumbsize"] = str(
+            AdultSearchRedTubeThumbSize)
+        WebsiteData.adult_search["api_usage"]["redtube"]["api_url"] = str(
+            AdultSearchRedTubeApiURL)
 
         WebsiteData._data["adult_search"] = WebsiteData.adult_search
 
@@ -784,12 +807,16 @@ class Update:
 
         WebsiteData.adult_hentai["title"] = str(AdultHentaiMainTitle)
 
-        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"] = True if str(AdultHentaiLocalServerUsage) == "2" else False
+        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["usage"] = True if str(
+            AdultHentaiLocalServerUsage) == "2" else False
         try:
-            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = int(AdultHentaiLocalServerLimit)
+            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = int(
+                AdultHentaiLocalServerLimit)
         except:
-            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(AdultHentaiLocalServerLimit)
-        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"] = str(AdultHentaiLocalServerApiURL)
+            WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["limit"] = str(
+                AdultHentaiLocalServerLimit)
+        WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["api_url"] = str(
+            AdultHentaiLocalServerApiURL)
 
         x = str(AdultHentaiLocalServerEndpointsList)
         splitted = x.split(",")
@@ -800,13 +827,16 @@ class Update:
             y.append(str(i).strip()[1:-1])
         WebsiteData.adult_hentai["api_usage"]["localserverml_api"]["localserverml_enpoints"] = y
 
-
-        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"] = True if str(AdultHentaiNekosLifeUsage) == "2" else False
+        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["usage"] = True if str(
+            AdultHentaiNekosLifeUsage) == "2" else False
         try:
-            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = int(AdultHentaiNekosLifeLimit)
+            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = int(
+                AdultHentaiNekosLifeLimit)
         except:
-            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(AdultHentaiNekosLifeLimit)
-        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"] = str(AdultHentaiNekosLifeApiURL)
+            WebsiteData.adult_hentai["api_usage"]["nekoslife"]["limit"] = str(
+                AdultHentaiNekosLifeLimit)
+        WebsiteData.adult_hentai["api_usage"]["nekoslife"]["api_url"] = str(
+            AdultHentaiNekosLifeApiURL)
 
         x = str(AdultHentaiNekosLifeEndpointsList)
         splitted = x.split(",")
@@ -816,7 +846,7 @@ class Update:
         for i in splitted:
             y.append(str(i).strip()[1:-1])
         WebsiteData.adult_hentai["api_usage"]["nekoslife"]["nekoslife_endpoints"] = y
-        
+
         WebsiteData._data["adult_hentai"] = WebsiteData.adult_hentai
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
@@ -835,9 +865,77 @@ class Update:
 
         WebsiteData.age_verify["buttons"]["yes"] = str(AgeVerifyButtonsYes)
         WebsiteData.age_verify["buttons"]["yes"] = str(AgeVerifyButtonsNo)
-        
+
         WebsiteData._data["age_verify"] = WebsiteData.age_verify
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
-            
+
+
+
+def count_total_visits_amount():
+    from app import COUNT, COUNT_TODAY
+
+    # Main
+    if not(os.path.isfile(FileNames.count_file)):
+        # log(f'Visit count file does not exist')
+        with open(FileNames.count_file, "w", encoding="utf-8") as f_make_no_exist:
+            if COUNT is None:
+                f_make_no_exist.write("1")
+                # log(f'Created {FileNames.count_file} and wrote "1"')
+            else:
+                f_make_no_exist.write(str(int(COUNT)))
+                # log(f'Created {FileNames.count_file} and wrote "{COUNT}" as continuable ')
+
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+        # log(f'Current view count is {current_count}')
+
+    try:
+        current_count = int(current_count)
+        COUNT = current_count
+    except ValueError:
+        current_count = COUNT
+
+    with open(FileNames.count_file, "r", encoding="utf-8") as f_read:
+        current_count = f_read.read()
+        # log(f'Current view count is {current_count}')
+
+    # log(f'Analyzed view count is {current_count}')
+
+    with open(FileNames.count_file, "w", encoding="utf-8") as f_write:
+        new_count = COUNT + 1
+        f_write.write(str(new_count))
+        # log(f'New view count is {new_count}')
+
+    # Daily
+    if not(os.path.isfile(FileNames.count_file_today)):
+        # log(f'Visit count-today file does not exist')
+        with open(FileNames.count_file_today, "w", encoding="utf-8") as f_make_no_exist_tdy:
+            if COUNT_TODAY is None:
+                f_make_no_exist_tdy.write("1")
+                # log(f'Created {FileNames.count_file_today} and wrote "1"')
+            else:
+                f_make_no_exist_tdy.write(str(int(COUNT_TODAY)))
+                # log(f'Created {FileNames.count_file_today} and wrote "{COUNT_TODAY}" as continuable ')
+
+    with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
+        current_count_daily = fd_read.read()
+        # log(f'Current view count-today is {current_count_daily}')
+
+    try:
+        current_count_daily = int(current_count_daily)
+        COUNT_TODAY = current_count_daily
+    except ValueError:
+        current_count_daily = COUNT_TODAY
+
+    with open(FileNames.count_file_today, "r", encoding="utf-8") as fd_read:
+        current_count_daily = fd_read.read()
+        # log(f'Current view count-daily is {current_count}')
+
+    # log(f'Analyzed view count-daily is {current_count_daily}')
+
+    with open(FileNames.count_file_today, "w", encoding="utf-8") as fd_write:
+        new_count_daily = COUNT_TODAY + 1
+        fd_write.write(str(new_count_daily))
+        # log(f'New view count-daily is {new_count_daily}')
