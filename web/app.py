@@ -4,16 +4,9 @@ from threading import Thread
 
 from flask import Flask, render_template
 
-from routes.admin import (admin_download_log_file, admin_login_page,
-                          admin_login_page_verify, admin_logout,
-                          admin_panel_page, admin_save_settings,
-                          admin_setting_sfw, admin_settings,
-                          admin_settings_nsfw, adult_route_main)
-from routes.adult import (adult_categories, adult_hentai, adult_index,
-                          adult_pins, adult_search, adult_search_no_query,
-                          adult_search_post, adult_stars, adult_stars_no_page)
-from routes.original import (about, all_links, index, pins, public_stats,
-                             restricted, search, search_no_query, search_post)
+from routes.admin import *
+from routes.adult import *
+from routes.original import *
 from utils import Config, count_total_visits_amount, log, reload_daily_count
 
 app = Flask(__name__)
