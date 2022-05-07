@@ -10,10 +10,10 @@ def about():
 
     log(f'Requested `/about` - about()',
         ipaddr=request.remote_addr)
-    log('Returning `about.html`',
+    log('Returning `sfw/about.html`',
         ipaddr=request.remote_addr)
     return render_template(
-        "about.html",
+        "sfw/about.html",
         web_title="About | GifGang"
     )
 
@@ -26,11 +26,11 @@ def all_links():
     log(f'Requested `/links` - all_links()',
         ipaddr=request.remote_addr)
 
-    log('Returning `index.html`\n\tall_links_page = True',
+    log('Returning `sfw/index.html`\n\tall_links_page = True',
         ipaddr=request.remote_addr)
 
     return render_template(
-        "index.html",
+        "sfw/index.html",
         web_title="Links List | GifGang",
         all_links_page=True
     )
@@ -70,11 +70,11 @@ def index():
     nekoslife_usage = data["nekoslife_usage"]
     # selected_url_list = data["selected_url_list"] # used for debugging purposes
 
-    log(f'Returning `index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}',
+    log(f'Returning `sfw/index.html`\n\ttitle={WebsiteData.index["title"]}\n\tgiphy_usage={giphy_usage}\n\tpicsum_usage={picsum_usage}\n\ttenor_usage={tenor_usage}\n\tthecatapi_usage={thecatapi_usage}\n\tdogceo_usage={dogceo_usage}\n\tnekoslife_usage={nekoslife_usage}',
         ipaddr=request.remote_addr)
 
     return render_template(
-        "index.html",
+        "sfw/index.html",
         web_title=WebsiteData.index["title"],
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
@@ -99,11 +99,11 @@ def pins():
     log(f'{request.remote_addr} requested `/pins` - pins()',
         ipaddr=request.remote_addr)
     log(
-        f'Returning `pins.html`\n\tTitle={WebsiteData.pins["title"]}\n\tPins List from `website.json`',
+        f'Returning `sfw/pins.html`\n\tTitle={WebsiteData.pins["title"]}\n\tPins List from `website.json`',
         ipaddr=request.remote_addr)
 
     return render_template(
-        "pins.html",
+        "sfw/pins.html",
         web_title=WebsiteData.pins["title"],
         all_pins_list=WebsiteData.pins["all_list"]
     )
@@ -226,7 +226,7 @@ def search(query):
         ipaddr=request.remote_addr)
 
     return render_template(
-        "search.html",
+        "sfw/search.html",
         web_title=WebsiteData.search["title"].format(query=query),
         giphy_usage=giphy_usage,
         giphy_url_list=giphy_url_list,
@@ -249,4 +249,4 @@ def public_stats():
     log(f'Request `/stats` - public_stats()',
         ipaddr=request.remote_addr)
 
-    return render_template("stats.html", request_count=Vars.COUNT)
+    return render_template("sfw/stats.html", request_count=Vars.COUNT)
