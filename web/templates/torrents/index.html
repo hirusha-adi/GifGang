@@ -1,18 +1,77 @@
-{% extends "sfw/base.html" %}
+{% extends "torrents/base.html" %}
 
 {% block title %}
 {{ web_title }}
 {% endblock %}
 
+
+{% block more_head %}
+<style type="text/css">
+    .tg  {
+        border-collapse:collapse;
+        border-spacing:0;
+    }
+    .tg td{
+        border-color:black;
+        border-style:solid;
+        border-width:1px;
+        font-family:Arial, sans-serif;
+        font-size:14px;
+        overflow:hidden;
+        padding:10px 5px;
+        word-break:normal;
+    }
+    .tg th{
+        border-color:black;
+        border-style:solid;
+        border-width:1px;
+        font-family:Arial, sans-serif;
+        font-size:14px;
+        font-weight:normal;
+        overflow:hidden;
+        padding:10px 5px;
+        word-break:normal;
+    }
+    .tg .tg-0pky{
+        border-color:inherit;
+        text-align:left;
+        vertical-align:top
+    }
+</style>
+{% endblock %}
+
+
 {% block pins_title %}
 Pinned
 {% endblock %}
 
+
 {% block content %}
 
-<!-- Stats -->
+<!-- Index Torrents Page -->
 {% if show_torrents_index == True %}
-
+<table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0pky">Name</th>
+        <th class="tg-0pky">Size</th>
+        <th class="tg-0pky">Download</th>
+        <th class="tg-0pky">SE</th>
+        <th class="tg-0pky">LE</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for torrent_dict in torrents_list %}
+            <td class="tg-0pky">{{ torrent_dict.title }}</td>
+            <td class="tg-0pky">{{ torrent_dict.size }}</td>
+            <td class="tg-0pky">Button</td>
+            <td class="tg-0pky">{{ torrent_dict.se }}</td>
+            <td class="tg-0pky">{{ torrent_dict.le }}</td>
+        {% endfor %}
+      <tr>
+      </tr>
+    </tbody>
+</table>
 {% endif %}
 
 
