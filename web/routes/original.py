@@ -3,7 +3,7 @@ from flask import redirect, render_template, request, url_for
 import services
 from utils import WebsiteData, log, logf, count_total_visits_amount
 
-from utilities.vars import COUNT
+from utils.vars import COUNT
 
 def about():
     count_total_visits_amount()

@@ -1,9 +1,10 @@
-import json
 import os
 from datetime import datetime
 
-from utilities.vars import COUNT, COUNT_TODAY
-from utilities import FileNames
+from .filenames import FileNames
+from .config import Config
+
+from utils.vars import COUNT, COUNT_TODAY
 
 def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
     if Config.DEV:
