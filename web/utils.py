@@ -1,8 +1,6 @@
 import json
-from operator import setitem
 import os
 import requests
-import random
 from datetime import datetime
 
 from utilities.vars import COUNT, COUNT_TODAY
