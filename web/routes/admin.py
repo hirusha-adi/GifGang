@@ -2,7 +2,7 @@ from flask import redirect, render_template, request, send_file, url_for, sessio
 
 import os
 from utils import FileNames, Important, WebsiteData, log, logf, Settings, count_total_visits_amount
-from utilities.update import Update
+from utilities import Update, FileNames
 
 from utilities.vars import COUNT, COUNT_TODAY
 
