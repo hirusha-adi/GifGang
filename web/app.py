@@ -1024,7 +1024,8 @@ def admin_save_settings(mode, site):
 
             elif site == "age":
                 AgeVerifyMainTitle = request.form.get('AgeVerifyMainTitle')
-                AgeVerifyMainSubTopic = request.form.get('AgeVerifyMainSubTopic')
+                AgeVerifyMainSubTopic = request.form.get(
+                    'AgeVerifyMainSubTopic')
                 AgeVerifyMainBody = request.form.get('AgeVerifyMainBody')
                 AgeVerifyButtonsYes = request.form.get('AgeVerifyButtonsYes')
                 AgeVerifyButtonsNo = request.form.get('AgeVerifyButtonsNo')
@@ -1036,7 +1037,7 @@ def admin_save_settings(mode, site):
                     AgeVerifyButtonsYes=AgeVerifyButtonsYes,
                     AgeVerifyButtonsNo=AgeVerifyButtonsNo
                 )
-                
+
                 return redirect(url_for('admin_setting_sfw', site='age'))
 
             else:
@@ -1064,19 +1065,30 @@ def admin_save_settings(mode, site):
             if site == "index":
 
                 AdultIndexMainTitle = request.form.get('AdultIndexMainTitle')
-                AdultIndexMainRandomSearchWordsList = request.form.get('AdultIndexMainRandomSearchWordsList')
-                
-                AdultIndexhEpornerUsage = request.form.get('AdultIndexhEpornerUsage')
-                AdultIndexhEpornerLimit = request.form.get('AdultIndexhEpornerLimit')
-                AdultIndexhEpornerThumbSize = request.form.get('AdultIndexhEpornerThumbSize')
-                AdultIndexhEpornerOrder = request.form.get('AdultIndexhEpornerOrder')
-                AdultIndexhEpornerAPIUrl = request.form.get('AdultIndexhEpornerAPIUrl')
+                AdultIndexMainRandomSearchWordsList = request.form.get(
+                    'AdultIndexMainRandomSearchWordsList')
 
-                AdultIndexhRedTubeUsage = request.form.get('AdultIndexhRedTubeUsage')
-                AdultIndexhRedTubeLimit = request.form.get('AdultIndexhRedTubeLimit')
-                AdultIndexhRedTubeData = request.form.get('AdultIndexhRedTubeData')
-                AdultIndexhRedTubeThumbSize = request.form.get('AdultIndexhRedTubeThumbSize')
-                AdultIndexhRedTubeAPIUrl = request.form.get('AdultIndexhRedTubeAPIUrl')
+                AdultIndexhEpornerUsage = request.form.get(
+                    'AdultIndexhEpornerUsage')
+                AdultIndexhEpornerLimit = request.form.get(
+                    'AdultIndexhEpornerLimit')
+                AdultIndexhEpornerThumbSize = request.form.get(
+                    'AdultIndexhEpornerThumbSize')
+                AdultIndexhEpornerOrder = request.form.get(
+                    'AdultIndexhEpornerOrder')
+                AdultIndexhEpornerAPIUrl = request.form.get(
+                    'AdultIndexhEpornerAPIUrl')
+
+                AdultIndexhRedTubeUsage = request.form.get(
+                    'AdultIndexhRedTubeUsage')
+                AdultIndexhRedTubeLimit = request.form.get(
+                    'AdultIndexhRedTubeLimit')
+                AdultIndexhRedTubeData = request.form.get(
+                    'AdultIndexhRedTubeData')
+                AdultIndexhRedTubeThumbSize = request.form.get(
+                    'AdultIndexhRedTubeThumbSize')
+                AdultIndexhRedTubeAPIUrl = request.form.get(
+                    'AdultIndexhRedTubeAPIUrl')
 
                 Update.AdultIndex(
                     AdultIndexMainTitle=AdultIndexMainTitle,
@@ -1098,7 +1110,8 @@ def admin_save_settings(mode, site):
             elif site == "pins":
 
                 AdultPinsMainTitle = request.form.get('AdultPinsMainTitle')
-                AdultPinsMainOtherTitle = request.form.get('AdultPinsMainOtherTitle')
+                AdultPinsMainOtherTitle = request.form.get(
+                    'AdultPinsMainOtherTitle')
                 AdultCategoriesTitle = request.form.get('AdultCategoriesTitle')
 
                 Update.AdultPins(
@@ -1113,9 +1126,12 @@ def admin_save_settings(mode, site):
 
                 AdultStarsMainTitle = request.form.get('AdultStarsMainTitle')
 
-                AdultStarsRedTubeUsage = request.form.get('AdultStarsRedTubeUsage')
-                AdultStarsRedTubeData = request.form.get('AdultStarsRedTubeData')
-                AdultStarsRedTubeApiURL = request.form.get('AdultStarsRedTubeApiURL')
+                AdultStarsRedTubeUsage = request.form.get(
+                    'AdultStarsRedTubeUsage')
+                AdultStarsRedTubeData = request.form.get(
+                    'AdultStarsRedTubeData')
+                AdultStarsRedTubeApiURL = request.form.get(
+                    'AdultStarsRedTubeApiURL')
 
                 Update.AdultStars(
                     AdultStarsMainTitle=AdultStarsMainTitle,
@@ -1125,22 +1141,32 @@ def admin_save_settings(mode, site):
                 )
 
                 return redirect(url_for('admin_settings_nsfw', site='stars'))
-            
+
             elif site == "search":
 
                 AdultSearchMainTitle = request.form.get('AdultSearchMainTitle')
 
-                AdultSearchEpornerUsage = request.form.get('AdultSearchEpornerUsage')
-                AdultSearchEpornerLimit = request.form.get('AdultSearchEpornerLimit')
-                AdultSearchEpornerOrder = request.form.get('AdultSearchEpornerOrder')
-                AdultSearchEpornerThumbSize = request.form.get('AdultSearchEpornerThumbSize')
-                AdultSearchEpornerApiURL = request.form.get('AdultSearchEpornerApiURL')
+                AdultSearchEpornerUsage = request.form.get(
+                    'AdultSearchEpornerUsage')
+                AdultSearchEpornerLimit = request.form.get(
+                    'AdultSearchEpornerLimit')
+                AdultSearchEpornerOrder = request.form.get(
+                    'AdultSearchEpornerOrder')
+                AdultSearchEpornerThumbSize = request.form.get(
+                    'AdultSearchEpornerThumbSize')
+                AdultSearchEpornerApiURL = request.form.get(
+                    'AdultSearchEpornerApiURL')
 
-                AdultSearchRedTubeUsage = request.form.get('AdultSearchRedTubeUsage')
-                AdultSearchRedTubeLimit = request.form.get('AdultSearchRedTubeLimit')
-                AdultSearchRedTubeData = request.form.get('AdultSearchRedTubeData')
-                AdultSearchRedTubeThumbSize = request.form.get('AdultSearchRedTubeThumbSize')
-                AdultSearchRedTubeApiURL = request.form.get('AdultSearchRedTubeApiURL')
+                AdultSearchRedTubeUsage = request.form.get(
+                    'AdultSearchRedTubeUsage')
+                AdultSearchRedTubeLimit = request.form.get(
+                    'AdultSearchRedTubeLimit')
+                AdultSearchRedTubeData = request.form.get(
+                    'AdultSearchRedTubeData')
+                AdultSearchRedTubeThumbSize = request.form.get(
+                    'AdultSearchRedTubeThumbSize')
+                AdultSearchRedTubeApiURL = request.form.get(
+                    'AdultSearchRedTubeApiURL')
 
                 Update.AdultSearch(
                     AdultSearchMainTitle=AdultSearchMainTitle,
@@ -1157,32 +1183,40 @@ def admin_save_settings(mode, site):
                 )
 
                 return redirect(url_for('admin_settings_nsfw', site='search'))
-            
+
             elif site == "hentai":
 
                 AdultHentaiMainTitle = request.form.get('AdultHentaiMainTitle')
 
-                AdultHentaiLocalServerUsage = request.form.get('AdultHentaiLocalServerUsage')
-                AdultHentaiLocalServerLimit = request.form.get('AdultHentaiLocalServerLimit')
-                AdultHentaiLocalServerApiURL = request.form.get('AdultHentaiLocalServerApiURL')
-                AdultHentaiLocalServerEndpointsList = request.form.get('AdultHentaiLocalServerEndpointsList')
+                AdultHentaiLocalServerUsage = request.form.get(
+                    'AdultHentaiLocalServerUsage')
+                AdultHentaiLocalServerLimit = request.form.get(
+                    'AdultHentaiLocalServerLimit')
+                AdultHentaiLocalServerApiURL = request.form.get(
+                    'AdultHentaiLocalServerApiURL')
+                AdultHentaiLocalServerEndpointsList = request.form.get(
+                    'AdultHentaiLocalServerEndpointsList')
 
-                AdultHentaiNekosLifeUsage = request.form.get('AdultHentaiNekosLifeUsage')
-                AdultHentaiNekosLifeLimit = request.form.get('AdultHentaiNekosLifeLimit')
-                AdultHentaiNekosLifeApiURL = request.form.get('AdultHentaiNekosLifeApiURL')
-                AdultHentaiNekosLifeEndpointsList = request.form.get('AdultHentaiNekosLifeEndpointsList')
+                AdultHentaiNekosLifeUsage = request.form.get(
+                    'AdultHentaiNekosLifeUsage')
+                AdultHentaiNekosLifeLimit = request.form.get(
+                    'AdultHentaiNekosLifeLimit')
+                AdultHentaiNekosLifeApiURL = request.form.get(
+                    'AdultHentaiNekosLifeApiURL')
+                AdultHentaiNekosLifeEndpointsList = request.form.get(
+                    'AdultHentaiNekosLifeEndpointsList')
 
                 Update.AdultHentai(
-                AdultHentaiMainTitle=AdultHentaiMainTitle,
-                AdultHentaiLocalServerUsage=AdultHentaiLocalServerUsage,
-                AdultHentaiLocalServerLimit=AdultHentaiLocalServerLimit,
-                AdultHentaiLocalServerApiURL=AdultHentaiLocalServerApiURL,
-                AdultHentaiLocalServerEndpointsList=AdultHentaiLocalServerEndpointsList,
-                AdultHentaiNekosLifeUsage=AdultHentaiNekosLifeUsage,
-                AdultHentaiNekosLifeLimit=AdultHentaiNekosLifeLimit,
-                AdultHentaiNekosLifeApiURL=AdultHentaiNekosLifeApiURL,
-                AdultHentaiNekosLifeEndpointsList=AdultHentaiNekosLifeEndpointsList
-            )
+                    AdultHentaiMainTitle=AdultHentaiMainTitle,
+                    AdultHentaiLocalServerUsage=AdultHentaiLocalServerUsage,
+                    AdultHentaiLocalServerLimit=AdultHentaiLocalServerLimit,
+                    AdultHentaiLocalServerApiURL=AdultHentaiLocalServerApiURL,
+                    AdultHentaiLocalServerEndpointsList=AdultHentaiLocalServerEndpointsList,
+                    AdultHentaiNekosLifeUsage=AdultHentaiNekosLifeUsage,
+                    AdultHentaiNekosLifeLimit=AdultHentaiNekosLifeLimit,
+                    AdultHentaiNekosLifeApiURL=AdultHentaiNekosLifeApiURL,
+                    AdultHentaiNekosLifeEndpointsList=AdultHentaiNekosLifeEndpointsList
+                )
 
                 return redirect(url_for('admin_settings_nsfw', site='hentai'))
 
