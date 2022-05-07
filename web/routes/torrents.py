@@ -6,14 +6,14 @@ from utils import WebsiteData, count_total_visits_amount, log, logf
 def torrents_index():
     torrents_list = [
         {
-            "title": "Send Boobies",
+            "title": "Torrent Name XYZ ABV 1ffffffffffffffffffffffffffffffffffffffffffffffffffff",
             "size": "6969 MB",
             "link": "LongAssMagnetURL",
             "se": 5,
             "le": 20
         },
         {
-            "title": "Send Pussy Cat",
+            "title": "Torrent Name XYZ dfdf324",
             "size": "6969 MB",
             "link": "LongAssMagnetURL",
             "se": 10,
