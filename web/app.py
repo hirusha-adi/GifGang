@@ -4,14 +4,20 @@ import os
 import time
 from threading import Thread
 
-from flask import Flask, redirect, render_template, request, send_file, url_for, session
+from flask import Flask, render_template
 
-from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings, Update, count_total_visits_amount
-
-from routes.original import about, all_links, index, pins, search_post, restricted, search, search_no_query, public_stats
-from routes.adult import adult_index, adult_pins, adult_categories, adult_stars_no_page, adult_stars, adult_search_post, adult_search_no_query, adult_search, adult_hentai
-from routes.admin import adult_route_main, admin_login_page, admin_login_page_verify, admin_download_log_file, admin_panel_page, admin_save_settings, admin_settings, admin_setting_sfw, admin_settings_nsfw, admin_logout
-
+from routes.admin import (admin_download_log_file, admin_login_page,
+                          admin_login_page_verify, admin_logout,
+                          admin_panel_page, admin_save_settings,
+                          admin_setting_sfw, admin_settings,
+                          admin_settings_nsfw, adult_route_main)
+from routes.adult import (adult_categories, adult_hentai, adult_index,
+                          adult_pins, adult_search, adult_search_no_query,
+                          adult_search_post, adult_stars, adult_stars_no_page)
+from routes.original import (about, all_links, index, pins, public_stats,
+                             restricted, search, search_no_query, search_post)
+from utilities.vars import COUNT, COUNT_TODAY
+from utils import Config, count_total_visits_amount, log
 
 app = Flask(__name__)
 log("Initiated Flask App: 'app'")
@@ -22,8 +28,6 @@ log("Disabled the default `werkzeug` logging")
 app.secret_key = "VerySecret12345"
 
 
-COUNT = None
-COUNT_TODAY = None
 
 app.add_url_rule("/", 'index', index)
 app.add_url_rule("/pins", 'pins', pins)
@@ -35,6 +39,7 @@ app.add_url_rule("/links", 'all_links', all_links)
 app.add_url_rule("/all_links", 'all_links', all_links)
 app.add_url_rule("/restricted", 'restricted', restricted)
 app.add_url_rule("/stats", 'public_stats', public_stats)
+
 app.add_url_rule("/adult", 'adult_index', adult_index)
 app.add_url_rule("/adult/pins", 'adult_pins', adult_pins)
 app.add_url_rule("/adult/categories", 'adult_categories', adult_categories)
@@ -46,6 +51,7 @@ app.add_url_rule("/adult/search_post", 'adult_search_post', adult_search_post)
 app.add_url_rule("/adult/adult_search_no_query", 'adult_search_no_query', adult_search_no_query)
 app.add_url_rule("/adult/search/<query>", 'adult_search', adult_search)
 app.add_url_rule("/adult/hentai", 'adult_hentai', adult_hentai)
+
 app.add_url_rule("/admin", 'adult_route_main', adult_route_main)
 app.add_url_rule("/admin/login", 'admin_login_page', admin_login_page)
 app.add_url_rule("/admin/login/verify", 'admin_login_page_verify', admin_login_page_verify)
