@@ -37,6 +37,13 @@
         text-align:left;
         vertical-align:top
     }
+    table, th, td {
+        border: 1px solid;
+    }
+      
+    table {
+        width: 100%;
+    }
 </style>
 {% endblock %}
 
@@ -50,28 +57,33 @@ Pinned
 
 <!-- Index Torrents Page -->
 {% if show_torrents_index == True %}
-<table class="tg">
-    <thead>
-      <tr>
-        <th class="tg-0pky">Name</th>
-        <th class="tg-0pky">Size</th>
-        <th class="tg-0pky">Download</th>
-        <th class="tg-0pky">SE</th>
-        <th class="tg-0pky">LE</th>
-      </tr>
-    </thead>
-    <tbody>
-        {% for torrent_dict in torrents_list %}
-            <td class="tg-0pky">{{ torrent_dict.title }}</td>
-            <td class="tg-0pky">{{ torrent_dict.size }}</td>
-            <td class="tg-0pky">Button</td>
-            <td class="tg-0pky">{{ torrent_dict.se }}</td>
-            <td class="tg-0pky">{{ torrent_dict.le }}</td>
-        {% endfor %}
-      <tr>
-      </tr>
-    </tbody>
-</table>
+<br>
+<center>
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-0pky">Name</th>
+            <th class="tg-0pky">Size</th>
+            <th class="tg-0pky">Download</th>
+            <th class="tg-0pky">SE</th>
+            <th class="tg-0pky">LE</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for torrent_dict in torrents_list %}
+                <tr>
+                    <td class="tg-0pky">{{ torrent_dict.title }}</td>
+                    <td class="tg-0pky">{{ torrent_dict.size }}</td>
+                    <td class="tg-0pky">Button</td>
+                    <td class="tg-0pky">{{ torrent_dict.se }}</td>
+                    <td class="tg-0pky">{{ torrent_dict.le }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+<br>
+<br>
 {% endif %}
 
 
