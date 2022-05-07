@@ -2,6 +2,7 @@
 - Better route management, Clean Code
 - backend Bug Fixes
 - search bar color fix
+- New pin added at first position in the Pinned List in both SFW and NSFW that will redirect to `/links`
 
 # v1.2
 
