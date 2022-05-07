@@ -20,10 +20,10 @@ def adult_index():
     redtube_list = data["redtube_list"]
 
     log(
-        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_index["title"]}\n\tEPORNER API Usage={eporner_usage}\n\tRedtube API Usage={redtube_usage}', ipaddr=request.remote_addr)
+        f'Returning `adult/index.html`\n\tTitle={WebsiteData.adult_index["title"]}\n\tEPORNER API Usage={eporner_usage}\n\tRedtube API Usage={redtube_usage}', ipaddr=request.remote_addr)
 
     return render_template(
-        "adult_index.html",
+        "adult/index.html",
         web_title=WebsiteData.adult_index["title"],
         eporner_usage=eporner_usage,
         eporner_list=eporner_list[:int(
@@ -44,7 +44,7 @@ def adult_pins():
         f'Returning `adult_pins.html`\n\tTitle={WebsiteData.adult_pins["title"]}')
 
     return render_template(
-        "adult_pins.html",
+        "adult/pins.html",
         web_title=WebsiteData.adult_pins["title"],
         all_body_list=WebsiteData.adult_pins["all_pins_list"],
         title_of_body=WebsiteData.adult_pins["all_pins_title"]
@@ -62,7 +62,7 @@ def adult_categories():
         f'Returning `adult_pins.html`\n\tTitle={WebsiteData.adult_pins["title"]}')
 
     return render_template(
-        "adult_pins.html",
+        "adult/pins.html",
         web_title=WebsiteData.adult_pins["title"],
         all_body_list=WebsiteData.adult_pins["all_categories_list"],
         title_of_body=WebsiteData.adult_pins["all_categories_title"]
@@ -114,10 +114,10 @@ def adult_stars(page):
     show_dots_left = data["show_dots_left"]
 
     log(
-        f'Returning `adult_index.html`\n\tTitle: {WebsiteData.adult_stars["title"].format(page_number=current_page)}\n\tStars Usage: {stars_usage}\n\tCurrent Page: {current_page}\n\tFirst Page: {first_page}\n\tLast Page: {last_page}\n\tPrevious Page 1: {previous_page_1}\n\tPrevious Page 2: {previous_page_2}\n\tPrevious Page 3: {previous_page_3}\n\tPrevious Page 4: {previous_page_4}\n\tNext Page 1: {next_page_1}\n\tNext Page 2: {next_page_2}\n\tNext Page 3: {next_page_3}\n\tNext Page 4: {next_page_4}\n\tShow Left Dots: {show_dots_left}\n\tShow Right Dots: {show_dots_right}', ipaddr=request.remote_addr)
+        f'Returning `adult/index.html`\n\tTitle: {WebsiteData.adult_stars["title"].format(page_number=current_page)}\n\tStars Usage: {stars_usage}\n\tCurrent Page: {current_page}\n\tFirst Page: {first_page}\n\tLast Page: {last_page}\n\tPrevious Page 1: {previous_page_1}\n\tPrevious Page 2: {previous_page_2}\n\tPrevious Page 3: {previous_page_3}\n\tPrevious Page 4: {previous_page_4}\n\tNext Page 1: {next_page_1}\n\tNext Page 2: {next_page_2}\n\tNext Page 3: {next_page_3}\n\tNext Page 4: {next_page_4}\n\tShow Left Dots: {show_dots_left}\n\tShow Right Dots: {show_dots_right}', ipaddr=request.remote_addr)
 
     return render_template(
-        "adult_index.html",
+        "adult/index.html",
         web_title=WebsiteData.adult_stars["title"].format(
             page_number=current_page),
         eporner_usage=False,
@@ -222,10 +222,10 @@ def adult_search(query):
     redtube_list = data["redtube_list"]
 
     log(
-        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_search["title"].format(query=query)}\n\tEPORNER API Usage={eporner_usage}\n\tREDTUBE API Usage={redtube_usage}', ipaddr=request.remote_addr)
+        f'Returning `adult/index.html`\n\tTitle={WebsiteData.adult_search["title"].format(query=query)}\n\tEPORNER API Usage={eporner_usage}\n\tREDTUBE API Usage={redtube_usage}', ipaddr=request.remote_addr)
 
     return render_template(
-        "adult_index.html",
+        "adult/index.html",
         web_title=WebsiteData.adult_search["title"].format(query=query),
         eporner_usage=eporner_usage,
         eporner_list=eporner_list,
@@ -254,10 +254,10 @@ def adult_hentai():
     hentai_nekoslife_list_request_list = data["hentai_nekoslife_list_request_list"]
 
     log(
-        f'Returning `adult_index.html`\n\tTitle={WebsiteData.adult_hentai["title"]}\n\tLocalServer.ml API Usage={hentai_localserverml_api_usage}\n\tNekos.Life API Usage: {hentai_nekoslife_usage}', ipaddr=request.remote_addr)
+        f'Returning `adult/index.html`\n\tTitle={WebsiteData.adult_hentai["title"]}\n\tLocalServer.ml API Usage={hentai_localserverml_api_usage}\n\tNekos.Life API Usage: {hentai_nekoslife_usage}', ipaddr=request.remote_addr)
 
     return render_template(
-        "adult_index.html",
+        "adult/index.html",
         web_title=WebsiteData.adult_hentai["title"],
         hentai_localserverml_api_usage=hentai_localserverml_api_usage,
         hentai_localserverml_api_list=hentai_localserverml_api_list,
