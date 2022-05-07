@@ -5,6 +5,8 @@ import requests
 import random
 from datetime import datetime
 
+from utilities.vars import COUNT, COUNT_TODAY
+
 # The file names and paths of the needed json config files and others
 
 
@@ -874,7 +876,7 @@ class Update:
 
 
 def count_total_visits_amount():
-    from app import COUNT, COUNT_TODAY
+    global COUNT, COUNT_TODAY
 
     # Main
     if not(os.path.isfile(FileNames.count_file)):

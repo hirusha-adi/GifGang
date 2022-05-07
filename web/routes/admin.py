@@ -4,7 +4,7 @@ import services
 import os
 from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings, Update, count_total_visits_amount
 
-from app import COUNT, COUNT_TODAY
+from utilities.vars import COUNT, COUNT_TODAY
 
 
 def adult_route_main():

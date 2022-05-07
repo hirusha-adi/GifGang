@@ -1,0 +1,2 @@
+COUNT = None
+COUNT_TODAY = None

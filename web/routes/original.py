@@ -3,8 +3,7 @@ from flask import Flask, redirect, render_template, request, send_file, url_for,
 import services
 from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings, Update, count_total_visits_amount
 
-from app import COUNT
-
+from utilities.vars import COUNT, COUNT_TODAY
 
 def about():
     count_total_visits_amount()
