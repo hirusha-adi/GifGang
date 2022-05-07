@@ -249,4 +249,4 @@ def public_stats():
     log(f'Request `/stats` - public_stats()',
         ipaddr=request.remote_addr)
 
-    return render_template("sfw/stats.html", request_count=Vars.COUNT)
+    return render_template("sfw/index.html", show_gifgang_stats=True, request_count=Vars.COUNT, web_title="Stats - Public | GifGang")
