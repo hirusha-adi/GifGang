@@ -33,7 +33,7 @@ def admin_login_page():
         session["token"] = ""
 
     return render_template(
-        "admin_login.html"
+        "admin/login.html"
     )
 
 
@@ -113,7 +113,7 @@ def admin_panel_page():
                 log_file_lines_last_5 = []
 
             return render_template(
-                "admin_panel.html",
+                "admin/panel.html",
                 total_requests_all_time=Vars.COUNT,
                 total_requests_last_24h=Vars.COUNT_TODAY,
                 percentage_of_today_from_total=percentage_of_today_from_total,
@@ -623,7 +623,7 @@ def admin_setting_sfw(site):
             site = str(site)
             if site == "important":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=True,
                     import_settings_data=Important,
@@ -639,7 +639,7 @@ def admin_setting_sfw(site):
                 )
             elif site == "index":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=True,
@@ -655,7 +655,7 @@ def admin_setting_sfw(site):
                 )
             elif site == "search":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -671,7 +671,7 @@ def admin_setting_sfw(site):
                 )
             elif site == "pins":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -687,7 +687,7 @@ def admin_setting_sfw(site):
                 )
             elif site == "age":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -703,7 +703,7 @@ def admin_setting_sfw(site):
                 )
             else:
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=True,
                     admin_settings_data=Settings.Admin,
                     show_important_settings=False,
@@ -738,7 +738,7 @@ def admin_settings_nsfw(site):
             site = str(site)
             if site == "pins":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -754,7 +754,7 @@ def admin_settings_nsfw(site):
                 )
             elif site == "stars":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -770,7 +770,7 @@ def admin_settings_nsfw(site):
                 )
             elif site == "search":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -786,7 +786,7 @@ def admin_settings_nsfw(site):
                 )
             elif site == "hentai":
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
@@ -802,7 +802,7 @@ def admin_settings_nsfw(site):
                 )
             else:
                 return render_template(
-                    "admin_settings.html",
+                    "admin/settings.html",
                     show_admin_settings=False,
                     show_important_settings=False,
                     show_index=False,
