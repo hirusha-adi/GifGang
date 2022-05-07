@@ -226,18 +226,19 @@ def search(query):
         ipaddr=request.remote_addr)
 
     return render_template(
-        "sfw/search.html",
+        "sfw/index.html",
         web_title=WebsiteData.search["title"].format(query=query),
-        giphy_usage=giphy_usage,
-        giphy_url_list=giphy_url_list,
-        tenor_usage=tenor_usage,
-        tenor_url_list=tenor_url_list,
-        thecatapi_usage=thecatapi_usage,
-        thecatapi_url_list=thecatapi_url_list,
-        dogceo_usage=dogceo_usage,
-        dogceo_url_list=dogceo_url_list,
-        nekoslife_usage=nekoslife_usage,
-        nekoslife_url_list=nekoslife_url_list
+        search_gifgang_usage = True,
+        search_giphy_usage=giphy_usage,
+        search_giphy_url_list=giphy_url_list,
+        search_tenor_usage=tenor_usage,
+        search_tenor_url_list=tenor_url_list,
+        search_thecatapi_usage=thecatapi_usage,
+        search_thecatapi_url_list=thecatapi_url_list,
+        search_dogceo_usage=dogceo_usage,
+        search_dogceo_url_list=dogceo_url_list,
+        search_nekoslife_usage=nekoslife_usage,
+        search_nekoslife_url_list=nekoslife_url_list
     )
 
 
