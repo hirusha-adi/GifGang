@@ -1,8 +1,8 @@
-from flask import Flask, redirect, render_template, request, send_file, url_for, session
+from flask import redirect, render_template, request, send_file, url_for, session
 
-import services
 import os
-from utils import Config, FileNames, Important, WebsiteData, log, logf, Settings, Update, count_total_visits_amount
+from utils import FileNames, Important, WebsiteData, log, logf, Settings, count_total_visits_amount
+from utilities.update import Update
 
 from utilities.vars import COUNT, COUNT_TODAY
 
