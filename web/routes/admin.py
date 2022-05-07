@@ -3,8 +3,8 @@ import os
 from flask import (redirect, render_template, request, send_file, session,
                    url_for)
 from utils import (FileNames, Important, Settings, Update, WebsiteData,
-                   count_total_visits_amount, log, logf)
-from utils.vars import COUNT, COUNT_TODAY
+                   count_total_visits_amount, log, logf, Vars)
+
 
 
 def adult_route_main():
@@ -85,15 +85,13 @@ def admin_panel_page():
     try:
         if session["token"] == Settings.Admin.token:
 
-            global COUNT, COUNT_TODAY
-
             percentage_of_today_from_total = round(
-                ((COUNT_TODAY/COUNT)*100), 2)
+                ((Vars.COUNT_TODAY/Vars.COUNT)*100), 2)
 
             percentage_target_today = round(
-                ((COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
+                ((Vars.COUNT_TODAY/Settings.Admin.targets_today)*100), 2)
             percentage_target_all = round(
-                ((COUNT/Settings.Admin.targets_all)*100), 2)
+                ((Vars.COUNT/Settings.Admin.targets_all)*100), 2)
 
             try:
                 final_log_file_name = os.listdir(
@@ -116,8 +114,8 @@ def admin_panel_page():
 
             return render_template(
                 "admin_panel.html",
-                total_requests_all_time=COUNT,
-                total_requests_last_24h=COUNT_TODAY,
+                total_requests_all_time=Vars.COUNT,
+                total_requests_last_24h=Vars.COUNT_TODAY,
                 percentage_of_today_from_total=percentage_of_today_from_total,
                 final_log_file_name=final_log_file_name,
                 log_file_lines_last_5=log_file_lines_last_5,
