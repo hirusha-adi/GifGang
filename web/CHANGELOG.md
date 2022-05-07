@@ -1,3 +1,6 @@
+# 1.3
+- Better route management, Clean Code
+
 # v1.2
 
 ## Whats new?
@@ -8,7 +11,7 @@
 3. Color theme changes - [New Color Pallete](https://www.color-hex.com/color-palette/97670)
 4. THE DARK MODE IS ADDED ONLY TO PLUBLICLY AVAILABLE ROUTES. ALL ADMIN ROUTES WILL BE STICKING WITH THIER ORIGINAL THEMES
 
-## Buges
+## Bugs
 
 1. Bad text color and background color in Search bar (input-field)
 
