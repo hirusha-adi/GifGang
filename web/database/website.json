@@ -1222,7 +1222,7 @@
         "all_cat_list": [
             {
                 "name": "Name",
-                "image": "http://hirusha.xyz"
+                "img": "http://hirusha.xyz"
             }
         ]
     }
