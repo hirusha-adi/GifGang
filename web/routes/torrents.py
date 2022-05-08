@@ -1,25 +1,17 @@
 import services
 from flask import redirect, render_template, request, url_for
-from utils import WebsiteData, count_total_visits_amount, log, logf
+from utils import count_total_visits_amount, log, logf
+from db import Torrents
 
 
 def torrents_index():
-    torrents_list = [
-        {
-            "title": "Torrent Name XYZ ABV 1ffffffffffffffffffffffffffffffffffffffffffffffffffff",
-            "size": "6969 MB",
-            "link": "LongAssMagnetURL",
-            "se": 5,
-            "le": 20
-        },
-        {
-            "title": "Torrent Name XYZ dfdf324",
-            "size": "6969 MB",
-            "link": "LongAssMagnetURL",
-            "se": 10,
-            "le": 15
-        },
-    ]
+    count_total_visits_amount()
+    logf(request=request, page="torrents")
+    log(f'Requested `/torrents` - torrents_index()',
+        ipaddr=request.remote_addr)
+
+    torrents_list = Torrents.getAllTorrents()
+
     return render_template(
         "torrents/index.html",
         show_torrents_index=True,
