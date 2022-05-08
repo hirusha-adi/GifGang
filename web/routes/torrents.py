@@ -1,6 +1,6 @@
 import services
 from flask import redirect, render_template, request, url_for
-from utils import count_total_visits_amount, log, logf
+from utils import WebsiteData, count_total_visits_amount, log, logf
 from db import Torrents
 
 
@@ -14,6 +14,8 @@ def torrents_index():
 
     return render_template(
         "torrents/index.html",
+        web_tite="Torrents | GifGang",
+        torrents_usage=True,
         torrents_list=torrents_list,
         torrents_title=f"Pinned Torrents"
     )
@@ -29,8 +31,24 @@ def torrents_pins():
 
     return render_template(
         "torrents/index.html",
+        web_tite="Pins - Torrents | GifGang",
+        torrents_usage=True,
         torrents_list=torrents_list,
         torrents_title=f"Pinned Torrents"
+    )
+
+
+def torrents_categories():
+    count_total_visits_amount()
+    logf(request=request, page="torrents/pins")
+    log(f'Requested `/torrents/pins` - torrents_pins()',
+        ipaddr=request.remote_addr)
+
+    return render_template(
+        "torrents/index.html",
+        web_tite="Pins - Torrents | GifGang",
+        show_categories=True,
+        pins_list=WebsiteData
     )
 
 
@@ -109,6 +127,8 @@ def torrents_search(query):
 
     return render_template(
         "torrents/index.html",
+        web_tite=f"Results for {query} - Torrents | GifGang",
+        torrents_usage=True,
         torrents_list=torrents_list,
         torrents_title=f"Results for {query}"
     )
