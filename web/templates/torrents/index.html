@@ -135,10 +135,9 @@ Pinned
 {% block content %}
 
 <!-- Index Torrents Page -->
-{% if show_torrents_index == True %}
 <br>
 <center>
-  <h1>All Torrents</h1>
+  <h1>{{ torrents_title }}</h1>
   <table class="rwd-table">
     <tr>
       <th>Name</th>
@@ -162,12 +161,12 @@ Pinned
       </td>
     </tr>
     {% endfor %}
+
   </table>
 
 </center>
 <br>
 <br>
-{% endif %}
 
 
 {% endblock %}
