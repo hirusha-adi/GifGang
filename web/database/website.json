@@ -1217,5 +1217,13 @@
                 ]
             }
         }
+    },
+    "torrents_catgories": {
+        "all_cat_list": [
+            {
+                "name": "Name",
+                "image": "http://hirusha.xyz"
+            }
+        ]
     }
 }
