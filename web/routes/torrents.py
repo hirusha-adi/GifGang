@@ -40,8 +40,8 @@ def torrents_pins():
 
 def torrents_channels():
     count_total_visits_amount()
-    logf(request=request, page="torrents/pins")
-    log(f'Requested `/torrents/pins` - torrents_pins()',
+    logf(request=request, page="torrents/channels")
+    log(f'Requested `/torrents/channels` - torrents_channels()',
         ipaddr=request.remote_addr)
 
     return render_template(
