@@ -134,7 +134,8 @@ Pinned
 
 {% block content %}
 
-<!-- Index Torrents Page -->
+<!-- Torrents -->
+{% if torrents_usage == True %}
 <br>
 <center>
   <h1>{{ torrents_title }}</h1>
@@ -167,6 +168,11 @@ Pinned
 </center>
 <br>
 <br>
+{% endif %}
+
+<!-- Categories -->
+{% if show_categories == True %}
+{% endif %}
 
 
 {% endblock %}
