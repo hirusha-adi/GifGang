@@ -15,7 +15,22 @@ def torrents_index():
     return render_template(
         "torrents/index.html",
         torrents_list=torrents_list,
-        torrents_title=f"All Torrents"
+        torrents_title=f"Pinned Torrents"
+    )
+
+
+def torrents_pins():
+    count_total_visits_amount()
+    logf(request=request, page="torrents/pins")
+    log(f'Requested `/torrents/pins` - torrents_pins()',
+        ipaddr=request.remote_addr)
+
+    torrents_list = Torrents.getTorrentsByFilter(page="pins")
+
+    return render_template(
+        "torrents/index.html",
+        torrents_list=torrents_list,
+        torrents_title=f"Pinned Torrents"
     )
 
 
