@@ -1,10 +1,15 @@
-import os, requests, json, time
+import os
+import requests
+import json
+import time
 from datetime import datetime
+
 
 class Vars:
     COUNT = None
     COUNT_TODAY = None
-    
+
+
 class FileNames:
     _cwd = os.getcwd()
 
@@ -110,6 +115,7 @@ class WebsiteData:
     adult_search = _data["adult_search"]
     adult_hentai = _data["adult_hentai"]
 
+
 class Settings:
     class Admin:
         with open(FileNames.admin_settings_file, "r", encoding="utf-8") as _admin_file:
@@ -127,8 +133,6 @@ class Settings:
         _targets = _admin_data["targets"]
         targets_today = _targets["today"]
         targets_all = _targets["all"]
-
-
 
 
 class Config:
@@ -179,7 +183,6 @@ class Config:
             DEV: bool = False
     except KeyError:
         DEV: bool = False
-
 
 
 def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
@@ -256,6 +259,7 @@ def reload_daily_count():
     while True:
         Vars.COUNT_TODAY = 0
         time.sleep(86400)
+
 
 class Update:
     def Important(
@@ -922,4 +926,3 @@ class Update:
 
         with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
             json.dump(WebsiteData._data, _file, indent=4)
-
