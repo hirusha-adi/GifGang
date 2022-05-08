@@ -38,7 +38,7 @@ def torrents_pins():
     )
 
 
-def torrents_categories():
+def torrents_channels():
     count_total_visits_amount()
     logf(request=request, page="torrents/pins")
     log(f'Requested `/torrents/pins` - torrents_pins()',
@@ -46,9 +46,9 @@ def torrents_categories():
 
     return render_template(
         "torrents/index.html",
-        web_tite="Pins - Torrents | GifGang",
+        web_tite="Channels - Torrents | GifGang",
         show_categories=True,
-        pins_list=WebsiteData
+        all_pins_list=WebsiteData.torrents_catgories['all_cat_list']
     )
 
 
