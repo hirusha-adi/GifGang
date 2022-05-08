@@ -172,6 +172,34 @@ Pinned
 
 <!-- Categories -->
 {% if show_categories == True %}
+<!-- Pinned Content List Starts Here -->
+<div class="related-terms-container">
+
+  <h2 class="related-title">All Available Channels</h2>
+
+  <div class="Carousel tags">
+    <div class="frames-container" style="left:-0px;">
+
+      {% for one_obj in all_pins_list %}
+      <!-- Iterate through all pins -->
+      <div class="TrendsTag">
+        <a activeClassName="current" href="{{ url_for('torrents_search', query=one_obj.name) }}">
+          <div class="img" style='background-image: url("{{ one_obj.img }}")'>
+          </div>
+          <div class="info">
+            <span class="searchterm" style="color: white;">
+              {{ one_obj.name }}
+            </span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+</div>
+<!-- Pinned Content List Ends Here -->
 {% endif %}
 
 
