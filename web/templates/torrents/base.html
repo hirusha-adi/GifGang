@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
 
@@ -326,9 +326,10 @@
                 <div class="TopBar">
                     <div class="container">
                         <div class="search-bar-wrapper">
-                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm" style="border-radius: 0px !important;">
-                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off" 
-                                style="color: white !important;">
+                            <form class="SearchBar" action="{{ url_for('search_torrent_post') }}" method="post"
+                                id="SearchForm" style="border-radius: 0px !important;">
+                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off"
+                                    style="color: white !important;">
                                 <span class="iconfont-search" aria-hidden="true"
                                     onclick="document.getElementById('SearchForm').submit();"></span>
                             </form>
@@ -353,7 +354,7 @@
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
                                     <div class="frames-container" style="left:-0px; overflow-x: scroll;">
-                                        
+
                                         <!-- Pin No.0 -->
                                         <div class="TrendsTag">
                                             <a activeClassName="current" href="{{ url_for('all_links') }}">
