@@ -38,6 +38,22 @@ def torrents_pins():
     )
 
 
+def torrent_channel(name):
+    count_total_visits_amount()
+    logf(request=request, page="torrents/channel")
+    log(f'Requested `/torrents/channel` - torrents_channels()',
+        ipaddr=request.remote_addr)
+
+    torrents_list = Torrents.getTorrentsByFilter(page=str(name))
+
+    return render_template(
+        "torrents/index.html",
+        web_tite="Channels - Torrents | GifGang",
+        torrents_usage=True,
+        torrents_list=torrents_list
+    )
+
+
 def torrents_channels():
     count_total_visits_amount()
     logf(request=request, page="torrents/channels")
