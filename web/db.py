@@ -15,6 +15,19 @@ torrents = client['GifGang']['torrents']
 
 class Torrents:
 
+    """
+    {
+        "_id": "",
+        "title": "",
+        "size": 69,
+        "link": "magnet-url",
+        "se": 50,
+        "le": 100,
+        "channel": "other",
+        "page": "index"
+    }
+    """
+
     def getAllTorrents():
         data = []
 
@@ -26,7 +39,7 @@ class Torrents:
             data.append(i)
         return data
 
-    def getTorrentsByFilter(_id=None, title=None, size=None, link=None, se=None, le=None, page=None):
+    def getTorrentsByFilter(_id=None, title=None, size=None, link=None, se=None, le=None, channel=None, page=None):
         data = []
 
         query = {}
@@ -49,6 +62,9 @@ class Torrents:
         if not(le is None):
             query['le'] = le
 
+        if not(channel is None):
+            query['channel'] = channel
+
         if not(page is None):
             query['page'] = page
 
@@ -57,7 +73,7 @@ class Torrents:
 
         return data
 
-    def updateTorrent(update, _id=None, title=None, size=None, link=None, se=None, le=None, page=None):
+    def updateTorrent(update, _id=None, title=None, size=None, link=None, se=None, le=None, channel=None, page=None):
         query = {}
 
         if not(_id is None):
@@ -77,6 +93,9 @@ class Torrents:
 
         if not(le is None):
             query['le'] = le
+
+        if not(channel is None):
+            query['channel'] = channel
 
         if not(page is None):
             query['page'] = page
@@ -98,7 +117,3 @@ class Torrents:
         }):
             data.append(i)
         return data
-
-
-x = Torrents.getTorrentByTitle(title="123")
-print(x)
