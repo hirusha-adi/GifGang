@@ -185,6 +185,9 @@ class Config:
     except KeyError:
         DEV: bool = False
 
+    mogo_username = data["mongodb"]["username"]
+    mogo_password = data["mongodb"]["password"]
+
 
 def log(message: str, ipaddr: str = False, mode: str = "DEBUG"):
     if Config.DEV:
