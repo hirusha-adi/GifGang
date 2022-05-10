@@ -1,7 +1,15 @@
 from pymongo import MongoClient
 from bson import ObjectId
+import urllib.parse
+from utils import Config
 
-client = MongoClient('mongodb://135.181.82.175:27017/')
+
+client = MongoClient('mongodb://%s:%s@135.181.82.175:27017/' %
+                     (
+                         urllib.parse.quote_plus(Config.mogo_username),
+                         urllib.parse.quote_plus(Config.mogo_password)
+                     )
+                     )
 torrents = client['GifGang']['torrents']
 
 
@@ -92,5 +100,5 @@ class Torrents:
         return data
 
 
-x = Torrents.getTorrentByTitle(title="ABV")
+x = Torrents.getTorrentByTitle(title="123")
 print(x)
