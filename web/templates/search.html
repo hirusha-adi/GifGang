@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ web_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+    <style>
+        body {
+            background: #141820;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 3rem;
+            width: 400px;
+        }
+
+        input[type="search"] {
+            -webkit-appearance: none !important;
+            background-clip: padding-box;
+            background-color: white;
+            vertical-align: middle;
+            border-radius: 0.25rem;
+            border: 1px solid #e0e0e5;
+            font-size: 1rem;
+            width: 20.5em;
+            line-height: 2;
+            padding: 0.375rem 1.25rem;
+            -webkit-transition: border-color 0.2s;
+            -moz-transition: border-color 0.2s;
+            transition: border-color 0.2s;
+        }
+
+        input[type="search"]:focus {
+            transition: all 0.5s;
+            box-shadow: 0 0 40px #309fd3;
+            border-color: #309fd3;
+            outline: none;
+        }
+
+        form.search-form {
+            display: inline-block;
+            /* justify-content: center; */
+            width: 100%;
+        }
+
+        label {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            align-self: center;
+            margin-bottom: 0;
+        }
+
+        input.search-field {
+            margin-bottom: 0;
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: auto;
+            align-self: center;
+            height: 51px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        input.search-submit {
+            height: 51px;
+            margin: 0;
+            padding: 1rem 1.3rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+            font-family: "Font Awesome 5 Free";
+            font-size: 1rem;
+        }
+
+        .screen-reader-text {
+            clip: rect(1px, 1px, 1px, 1px);
+            position: absolute !important;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        .button {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.8rem;
+            line-height: 1.15;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            background: #309fd3;
+            color: #1f1e1d;
+            border: 1px solid transparent;
+            vertical-align: middle;
+            text-shadow: none;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+
+        .button:hover,
+        .button:active,
+        .button:focus {
+            cursor: pointer;
+            background: rgb(0, 84, 122);
+            color: #1f1e1d;
+            outline: 0;
+        }
+
+        legend,
+        label {
+            color: white;
+        }
+
+        fieldset {
+            border-radius: 7px;
+        }
+    </style>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', sans-serif;
+        }
+
+        .rad-label {
+            display: flex;
+            align-items: center;
+
+            border-radius: 100px;
+            padding: 14px 16px;
+            margin: 10px 0;
+
+            cursor: pointer;
+            transition: .3s;
+
+            max-width: 150px;
+        }
+
+        .rad-label:hover,
+        .rad-label:focus-within {
+            background: hsla(0, 0%, 80%, .14);
+        }
+
+        .rad-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .rad-design {
+            width: 20px;
+            height: 22px;
+            border-radius: 100px;
+
+            background: linear-gradient(to right bottom, #63b8ff, #174468);
+            position: relative;
+        }
+
+        .rad-design::before {
+            content: '';
+
+            display: inline-block;
+            width: inherit;
+            height: inherit;
+            border-radius: inherit;
+
+            background: hsl(0, 0%, 90%);
+            transform: scale(1.1);
+            transition: .3s;
+        }
+
+        .rad-input:checked+.rad-design::before {
+            transform: scale(0);
+        }
+
+        .rad-text {
+            color: hsl(0, 0%, 60%);
+            margin-left: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 900;
+
+            transition: .3s;
+            align-content: center;
+        }
+
+        .rad-input:checked~.rad-text {
+            color: hsl(0, 0%, 40%);
+        }
+
+
+        .abs-site-link {
+            position: fixed;
+            bottom: 40px;
+            left: 20px;
+            color: hsla(0, 0%, 0%, .5);
+            font-size: 14px;
+        }
+
+        small {
+            color: white;
+        }
+
+        a {
+            color: #63b8ff;
+        }
+
+        fieldset {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <form role="search" method="get" class="search-form form" action="">
+                <label>
+                    <span class="screen-reader-text">Search for...</span>
+                    <input type="search" class="search-field" placeholder="Search for ..." value="" name="query"
+                        title="" />
+                </label>
+                <input type="submit" class="search-submit button" value="&#xf002" />
+                <fieldset>
+                    <center>
+                        <div>
+
+                            <label class="rad-label">
+                                <input type="radio" class="rad-input" name="rad">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">SFW</div>
+                            </label>
+
+                            <label class="rad-label">
+                                <input type="radio" class="rad-input" name="rad">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">NSFW</div>
+                            </label>
+
+                            <label class="rad-label">
+                                <input type="radio" class="rad-input" name="rad">
+                                <div class="rad-design"></div>
+                                <div class="rad-text">Torrents</div>
+                            </label>
+
+                        </div>
+                    </center>
+                </fieldset>
+            </form>
+
+            <br>
+            <br>
+
+            <!-- <fieldset>
+                <center>
+                    <div>
+
+                        <label class="rad-label">
+                            <input type="radio" class="rad-input" name="rad">
+                            <div class="rad-design"></div>
+                            <div class="rad-text">SFW</div>
+                        </label>
+
+                        <label class="rad-label">
+                            <input type="radio" class="rad-input" name="rad">
+                            <div class="rad-design"></div>
+                            <div class="rad-text">NSFW</div>
+                        </label>
+
+                        <label class="rad-label">
+                            <input type="radio" class="rad-input" name="rad">
+                            <div class="rad-design"></div>
+                            <div class="rad-text">Torrents</div>
+                        </label>
+
+                    </div>
+                </center>
+            </fieldset> -->
+
+        </div>
+    </div>
+
+    <small>
+        Made by &copy;
+        <a href="{{ url_for('about') }}">
+            ZeaCeR
+        </a>
+    </small>
+
+</body>
+
+</html>
