@@ -122,10 +122,16 @@
 
         small {
             color: white;
+            font-size: 17px;
         }
 
         a {
             color: #63b8ff;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
         }
     </style>
 
@@ -135,6 +141,8 @@
 
     <div class="wrapper">
         <div class="container">
+            <h1>{{ TITLE }}</h1>
+            <br>
             <form role="search" method="get" class="search-form form" action="">
                 <label>
                     <span class="screen-reader-text">Search for...</span>
@@ -144,16 +152,22 @@
                 <input type="submit" class="search-submit button" value="&#xf002" />
             </form>
 
+            <br>
+            <br>
+            <br>
 
+            <center>
+                <small>
+                    Made by &copy;
+                    <a href="{{ url_for('about') }}">
+                        ZeaCeR
+                    </a>
+                </small>
+            </center>
         </div>
     </div>
 
-    <small>
-        Made by &copy;
-        <a href="{{ url_for('about') }}">
-            ZeaCeR
-        </a>
-    </small>
+
 
 </body>
 
