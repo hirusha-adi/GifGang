@@ -142,24 +142,35 @@ Pinned
   <table class="rwd-table">
     <tr>
       <th>Name</th>
+      <th>Channel</th>
       <th>Size</th>
-      <th>SE</th>
-      <th>LE</th>
-      <th>Download</th>
+      <th>Quality</th>
+      <th>Seeds</th>
     </tr>
 
     {% for torrent_dict in torrents_list %}
     <tr>
-      <td data-th="Name: ">{{ torrent_dict.title }}</td>
+
+      <td data-th="Name: ">
+        <a href="{{ torrent_dict.link }}" target="_blank" rel="noopener noreferrer">
+          {{ torrent_dict.title }}
+        </a>
+      </td>
+
+      <td data-th="Channel: ">{{ torrent_dict.channel }}</td>
       <td data-th="Size: ">{{ torrent_dict.size }}</td>
+      <td data-th="Quality: ">{{ torrent_dict.quality }}</td>
       <td data-th="SE: ">{{ torrent_dict.se }}</td>
-      <td data-th="LE: ">{{ torrent_dict.le }}</td>
-      <td data-th="Download: ">
+
+      <!-- Button -->
+      <!-- 
+        <td data-th="Download: ">
         <button class="dlbutton">
           <i class="fa-solid fa-download" style="color: white; background: #0483aa;"></i>
           Download
         </button>
       </td>
+      -->
     </tr>
     {% endfor %}
 
