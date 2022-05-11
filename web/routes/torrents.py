@@ -44,13 +44,14 @@ def torrent_channel(name):
     log(f'Requested `/torrents/channel/<name>` - torrents_channels()',
         ipaddr=request.remote_addr)
 
-    torrents_list = Torrents.getTorrentsByFilter(page=str(name).lower())
+    torrents_list = Torrents.getTorrentsByFilter(channel=str(name).lower())
 
     return render_template(
         "torrents/index.html",
         web_tite="Channels - Torrents | GifGang",
         torrents_usage=True,
-        torrents_list=torrents_list
+        torrents_list=torrents_list,
+        torrents_title=f"{name}"
     )
 
 
