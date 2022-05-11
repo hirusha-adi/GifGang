@@ -44,7 +44,7 @@ def torrent_channel(name):
     log(f'Requested `/torrents/channel/<name>` - torrents_channels()',
         ipaddr=request.remote_addr)
 
-    torrents_list = Torrents.getTorrentsByFilter(page=str(name))
+    torrents_list = Torrents.getTorrentsByFilter(page=str(name).lower())
 
     return render_template(
         "torrents/index.html",
