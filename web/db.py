@@ -17,14 +17,16 @@ class Torrents:
 
     """
     {
-        "_id": "",
+        "_id": {
+            "$oid": ""
+        },
         "title": "",
-        "size": 69,
-        "link": "magnet-url",
-        "se": 50,
-        "le": 100,
-        "channel": "other",
-        "page": "index"
+        "size": "",
+        "link": "",
+        "quality": "",
+        "se": 5,
+        "channel": "",
+        "page": ""
     }
     """
 
@@ -39,7 +41,7 @@ class Torrents:
             data.append(i)
         return data
 
-    def getTorrentsByFilter(_id=None, title=None, size=None, link=None, se=None, le=None, channel=None, page=None):
+    def getTorrentsByFilter(_id=None, title=None, size=None, link=None, quality=None, se=None, channel=None, page=None):
         data = []
 
         query = {}
@@ -59,8 +61,8 @@ class Torrents:
         if not(se is None):
             query['se'] = se
 
-        if not(le is None):
-            query['le'] = le
+        if not(quality is None):
+            query['quality'] = quality
 
         if not(channel is None):
             query['channel'] = channel
@@ -73,7 +75,7 @@ class Torrents:
 
         return data
 
-    def updateTorrent(update, _id=None, title=None, size=None, link=None, se=None, le=None, channel=None, page=None):
+    def updateTorrent(update, _id=None, title=None, size=None, link=None, quality=None, se=None, channel=None, page=None):
         query = {}
 
         if not(_id is None):
@@ -91,8 +93,8 @@ class Torrents:
         if not(se is None):
             query['se'] = se
 
-        if not(le is None):
-            query['le'] = le
+        if not(quality is None):
+            query['le'] = quality
 
         if not(channel is None):
             query['channel'] = channel
