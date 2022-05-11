@@ -39,7 +39,7 @@ app.add_url_rule("/adult/stars", 'adult_stars_no_page', adult_stars_no_page)
 app.add_url_rule("/adult/pornstars/<page>", 'adult_stars', adult_stars)
 app.add_url_rule("/adult/stars/<page>", 'adult_stars', adult_stars)
 app.add_url_rule("/adult/search_post", 'adult_search_post', adult_search_post, methods=['POST'])
-app.add_url_rule("/adult/adult_search_no_query", 'adult_search_no_query', adult_search_no_query)
+app.add_url_rule("/adult/search", 'adult_search_no_query', adult_search_no_query)
 app.add_url_rule("/adult/search/<query>", 'adult_search', adult_search)
 app.add_url_rule("/adult/hentai", 'adult_hentai', adult_hentai)
 
