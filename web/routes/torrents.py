@@ -17,7 +17,7 @@ def torrents_index():
         web_tite="Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list,
-        torrents_title=f"Pinned Torrents"
+        torrents_title=f"All Torrents"
     )
 
 
