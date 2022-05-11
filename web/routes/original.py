@@ -164,10 +164,13 @@ def search_no_query():
 
     log(f'Request `/search` - search_no_query()',
         ipaddr=request.remote_addr)
-    log(f'Returning the url for `index` - index()\n\tbecause `/search` route was requested without a query',
-        ipaddr=request.remote_addr)
 
-    return redirect(url_for('index'))
+    return render_template(
+        "search.html",
+        search_type="sfw",
+        web_title="SFW | GifGang",
+        search_title="Search for SFW Media"
+    )
 
 
 def search(query):

@@ -134,7 +134,12 @@ def torrents_search_no_query():
     log(f'Request `/torrents/search` - torrents_search_no_query()',
         ipaddr=request.remote_addr)
 
-    return redirect(url_for('torrents_index'))
+    return render_template(
+        "search.html",
+        search_type="torrents",
+        web_title="NSFW Torrents | GifGang",
+        search_title="Search for NSFW Torrents"
+    )
 
 
 def torrents_search(query):

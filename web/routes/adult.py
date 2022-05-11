@@ -196,7 +196,12 @@ def adult_search_no_query():
     log(f'Request `/adult/search` - adult_search_no_query()',
         ipaddr=request.remote_addr)
 
-    return redirect(url_for('adult_index'))
+    return render_template(
+        "search.html",
+        search_type="nsfw",
+        web_title="NSFW Search | GifGang",
+        search_title="Search for NSFW Media"
+    )
 
 
 def adult_search(query):
