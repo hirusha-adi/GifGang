@@ -306,6 +306,18 @@
         #pinno6 {
             background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/972455703992209418/unknown.png");
         }
+
+        #pinno7 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/973839318693072916/unknown.png");
+        }
+
+        #pinno8 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/961851013562789978/green_tick.jpg?size=4096");
+        }
+
+        #pinno9 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/973964273384575056/unknown.png");
+        }
     </style>
 
     {% block more_head %}{% endblock %}
@@ -323,9 +335,10 @@
                 <div class="TopBar">
                     <div class="container">
                         <div class="search-bar-wrapper">
-                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm" style="border-radius: 0px !important;">
-                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off" 
-                                style="color: white !important;">
+                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm"
+                                style="border-radius: 0px !important;">
+                                <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off"
+                                    style="color: white !important;">
                                 <span class="iconfont-search" aria-hidden="true"
                                     onclick="document.getElementById('SearchForm').submit();"></span>
                             </form>
@@ -343,15 +356,12 @@
                         <div class="related-terms-container">
 
                             <!-- Pinned Content List (Main Pins) - START -->
-                            <!-- only 3 will be displayed on mobile -->
-                            <!-- all 5 will be displayed on desktop -->
-                            <h2 class="related-title">{% block pins_title %}{% endblock %}</h2>
+                            <h2 class="related-title">Services</h2>
 
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
                                     <div class="frames-container" style="left:-0px; overflow-x: scroll;">
-                                        
-                                        <!-- Pin No.0 -->
+
                                         <div class="TrendsTag">
                                             <a activeClassName="current" href="{{ url_for('all_links') }}">
                                                 <div class="img" id="pinno6">
@@ -364,19 +374,30 @@
                                             </a>
                                         </div>
 
-                                        <!-- Pin No.1 -->
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('pins') }}">
-                                                <div class="img" id="pinno5">
+                                                href="{{ url_for('restricted') }}">
+                                                <div class="img" id="pinno9">
                                                 </div>
-                                                <div class="info"><span class="searchterm" style="color: white;">
-                                                        View All Pins
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        Search
                                                     </span>
                                                 </div>
                                             </a>
                                         </div>
 
-                                        <!-- Pin No.2 -->
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('restricted') }}">
+                                                <div class="img" id="pinno8">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        NSFW Content
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="{{ url_for('restricted') }}">
                                                 <div class="img" id="pinno4">
@@ -389,7 +410,43 @@
                                             </a>
                                         </div>
 
-                                        <!-- Pin No.3 -->
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('restricted') }}">
+                                                <div class="img" id="pinno7">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        Torrents
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pinned Content List (Main Pins) - END -->
+                        </div>
+
+                        <div class="related-terms-container">
+
+                            <h2 class="related-title">{% block pins_title %}{% endblock %}</h2>
+
+                            <div class="Carousel tags">
+                                <div class="carousel-container TagList">
+                                    <div class="frames-container" style="left:-0px; overflow-x: scroll;">
+
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('pins') }}">
+                                                <div class="img" id="pinno5">
+                                                </div>
+                                                <div class="info"><span class="searchterm" style="color: white;">
+                                                        View All Pins
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="{{ url_for('search', query='Anime') }}">
                                                 <div class="img" id="pinno1">
@@ -402,7 +459,6 @@
                                             </a>
                                         </div>
 
-                                        <!-- Pin No.4 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="{{ url_for('search', query='Cats') }}">
                                                 <div class="img" id="pinno2">
@@ -415,7 +471,6 @@
                                             </a>
                                         </div>
 
-                                        <!-- Pin No.5 -->
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="{{ url_for('search', query='Dogs') }}">
                                                 <div class="img" id="pinno3">
@@ -431,8 +486,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Pinned Content List (Main Pins) - END -->
-
                         </div>
 
                         <!-- Flask inherited content - START -->
