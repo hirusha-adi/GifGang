@@ -309,6 +309,18 @@
         #pinno6 {
             background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/972455703992209418/unknown.png");
         }
+
+        #pinno7 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/973839318693072916/unknown.png");
+        }
+
+        #pinno8 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/961851013562789978/green_tick.jpg?size=4096");
+        }
+
+        #pinno9 {
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/958048810414800926/wp1964775.png?size=4096");
+        }
     </style>
 
     {% block more_head %}{% endblock %}
@@ -347,16 +359,13 @@
                         <div class="related-terms-container">
 
                             <!-- Pinned Content List (Main Pins) - START -->
-                            <!-- only 3 will be displayed on mobile -->
-                            <!-- all 5 will be displayed on desktop -->
-                            <h2 class="related-title">{% block pins_title %}{% endblock %}</h2>
+                            <h2 class="related-title">Services</h2>
 
                             <div class="Carousel tags">
                                 <div class="carousel-container TagList">
                                     <div class="frames-container" style="left:-0px; overflow-x: scroll;">
 
-                                        <!-- Pin No.0 -->
-                                        <div class="TrendsTag">
+                                        <div class="TrendsTag" style="border: 1px solid #969696; padding: 5px 5px 5px">
                                             <a activeClassName="current" href="{{ url_for('all_links') }}">
                                                 <div class="img" id="pinno6">
                                                 </div>
@@ -367,6 +376,56 @@
                                                 </div>
                                             </a>
                                         </div>
+
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('index') }}">
+                                                <div class="img" id="pinno8">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        SFW Content
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('restricted') }}">
+                                                <div class="img" id="pinno4">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        NSFW Content
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('torrents_index') }}">
+                                                <div class="img" id="pinno7">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="searchterm" style="color: white;">
+                                                        Torrents
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Pinned Content List (Main Pins) - END -->
+                        </div>
+
+                        <div class="related-terms-container">
+
+                            <h2 class="related-title">{% block pins_title %}{% endblock %}</h2>
+
+                            <div class="Carousel tags">
+                                <div class="carousel-container TagList">
+                                    <div class="frames-container" style="left:-0px; overflow-x: scroll;">
 
                                         <div class="TrendsTag"><a activeClassName="current"
                                                 href="{{ url_for('torrents_pins') }}">
@@ -391,51 +450,9 @@
                                             </a>
                                         </div>
 
-                                        <!--
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('restricted') }}">
-                                                <div class="img" id="pinno4">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        NSFW Content
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        -->
-
-
-
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Cats') }}">
-                                                <div class="img" id="pinno2">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        Cats
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Dogs') }}">
-                                                <div class="img" id="pinno3">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        Dogs
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <!-- Pinned Content List (Main Pins) - END -->
-
                         </div>
 
                         <!-- Flask inherited content - START -->
