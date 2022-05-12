@@ -22,7 +22,3 @@ def restricted():
         button_yes=WebsiteData.age_verify["buttons"]["yes"],
         button_no=WebsiteData.age_verify["buttons"]["no"],
     )
-
-
-def search_everything_page():
-    return render_template("search.html")
