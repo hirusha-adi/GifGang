@@ -63,7 +63,6 @@ app.add_url_rule("/torrents/channels", 'torrents_channels', torrents_channels, m
 app.add_url_rule("/torrents/channel", 'torrent_channel_no_args', torrent_channel_no_args, methods=['GET'])
 app.add_url_rule("/torrents/channel/<name>", 'torrent_channel', torrent_channel, methods=['GET'])
 
-app.add_url_rule("/test", 'search_everything_page', search_everything_page, methods=['GET'])
 
 
 
