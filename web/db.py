@@ -114,7 +114,8 @@ class Torrents:
         data = []
         for i in torrents.find({
             "title": {
-                "$regex": f'.*{title}*.'
+                "$regex": f'.*{title}*.',
+                "$options": 'i'
             }
         }):
             data.append(i)
