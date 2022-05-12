@@ -4,6 +4,7 @@
     "debug": true,
     "dev_mode": true,
     "mongodb": {
+        "ip": "",
         "username": "",
         "password": ""
     }

@@ -4,10 +4,11 @@ import urllib.parse
 from utils import Config
 
 
-client = MongoClient('mongodb://%s:%s@135.181.82.175:27017/' %
+client = MongoClient('mongodb://%s:%s@%s:27017/' %
                      (
-                         urllib.parse.quote_plus(Config.mogo_username),
-                         urllib.parse.quote_plus(Config.mogo_password)
+                         urllib.parse.quote_plus(Config.mongo_username),
+                         urllib.parse.quote_plus(Config.mobgo_password),
+                         Config.mongo_ip
                      )
                      )
 torrents = client['GifGang']['torrents']
