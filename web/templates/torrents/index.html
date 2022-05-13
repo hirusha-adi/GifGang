@@ -163,8 +163,11 @@ Pinned
       <td data-th="Quality: ">{{ torrent_dict.quality }}</td>
       <td data-th="SE: ">{{ torrent_dict.se }}</td>
 
-      <!-- Button -->
-      <!-- 
+    </tr>
+    {% endfor %}
+
+    <!-- Button -->
+    <!-- 
         <td data-th="Download: ">
         <button class="dlbutton">
           <i class="fa-solid fa-download" style="color: white; background: #0483aa;"></i>
@@ -172,8 +175,6 @@ Pinned
         </button>
       </td>
       -->
-    </tr>
-    {% endfor %}
 
   </table>
   {{ pagination.links }}
