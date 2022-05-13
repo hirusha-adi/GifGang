@@ -54,7 +54,8 @@ app.add_url_rule("/admin/settings/<site>", 'admin_setting_sfw', admin_setting_sf
 app.add_url_rule("/admin/settings/adult/<site>", 'admin_settings_nsfw', admin_settings_nsfw, methods=['GET'])
 app.add_url_rule("/logout", 'admin_logout', admin_logout, methods=['GET'])
 
-app.add_url_rule("/torrents", 'torrents_index', torrents_index, methods=['GET'])
+app.add_url_rule("/torrents", 'torrents_index_no_page', torrents_index_no_page, methods=['GET'])
+app.add_url_rule("/torrents/<page>", 'torrents_index', torrents_index, methods=['GET'])
 app.add_url_rule("/torrents/search", 'torrents_search_no_query', torrents_search_no_query, methods=['GET'])
 app.add_url_rule("/torrents/search/<query>", 'torrents_search', torrents_search, methods=['GET'])
 app.add_url_rule("/torrents/search_post", 'search_torrent_post', search_torrent_post, methods=['POST'])
