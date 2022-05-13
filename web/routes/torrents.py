@@ -8,7 +8,7 @@ from flask_paginate import Pagination
 def torrents_index_no_page():
     count_total_visits_amount()
     logf(request=request, page="torrents")
-    log(f'Requested `/torrents` - torrents_index()',
+    log(f'Requested `/torrents` - torrents_index_no_page()',
         ipaddr=request.remote_addr)
 
     return redirect(url_for('torrents_index', page="1"))
@@ -16,34 +16,42 @@ def torrents_index_no_page():
 
 def torrents_index(page):
     count_total_visits_amount()
-    logf(request=request, page="torrents")
-    log(f'Requested `/torrents` - torrents_index()',
+    logf(request=request, page="torrents/<page>")
+    log(f'Requested `/torrents/<page>` - torrents_index()',
         ipaddr=request.remote_addr)
 
+    print(page)
     try:
         current_page = int(page)
     except:
         return redirect(url_for('torrents_search_no_query'))
 
     torrents_list_all = Torrents.getAllTorrents()
-    torrents_list = torrents_list_all[
-        0:5
-    ]
-
     torrents_list_length = len(torrents_list_all)
 
-    x = Pagination(torrents_list_all, per_page=3, page=1)
-    print(x)
-    print("="*50)
-    print(dir(x))
+    per_page = 25
+
+    pagination = Pagination(
+        torrents_list_all,
+        per_page=per_page,
+        page=current_page,
+        total=torrents_list_length,
+        href=str(url_for('torrents_index', page=1))[:-1] + "{0}"
+
+    )
+
+    min_index = (current_page*per_page) - per_page
+    max_index = (min_index + per_page)
+
+    torrents_list_sliced = torrents_list_all[min_index:max_index]
 
     return render_template(
         "torrents/index.html",
         web_tite="Torrents | GifGang",
         torrents_usage=True,
-        torrents_list=torrents_list,
+        torrents_list=torrents_list_sliced,
         torrents_title=f"All Torrents | Page {current_page}",
-        current_page=current_page,
+        pagination=pagination
     )
 
 
