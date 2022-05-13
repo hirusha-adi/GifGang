@@ -11,6 +11,7 @@ client = MongoClient('mongodb://%s:%s@%s:27017/' %
                          Config.mongo_ip
                      )
                      )
+
 torrents = client['GifGang']['torrents']
 
 
