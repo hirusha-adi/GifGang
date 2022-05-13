@@ -338,11 +338,32 @@
         }
 
         .pagination-page-info b {
-            color: black;
+            color: #0e0a0a;
             background: #6aa6ed;
             padding-left: 2px;
             padding: .1em .25em;
             font-size: 30px;
+        }
+
+        .page-item.disabled .page-link,
+        .page-item.disabled .page-link:focus,
+        .page-item.disabled .page-link:hover {
+            background-color: #0e0a0a;
+            border-color: #ddd;
+            color: #818a91;
+            cursor: not-allowed;
+        }
+
+        .page-link {
+            background-color: #0c0b0b;
+            border: 1px solid #ddd;
+            color: #0275d8;
+            float: left;
+            line-height: 1.5;
+            margin-left: -1px;
+            padding: 0.5rem 0.75rem;
+            position: relative;
+            text-decoration: none;
         }
     </style>
 
