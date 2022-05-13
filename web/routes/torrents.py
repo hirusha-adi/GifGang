@@ -20,7 +20,6 @@ def torrents_index(page):
     log(f'Requested `/torrents/<page>` - torrents_index()',
         ipaddr=request.remote_addr)
 
-    print(page)
     try:
         current_page = int(page)
     except:
@@ -30,6 +29,9 @@ def torrents_index(page):
     torrents_list_length = len(torrents_list_all)
 
     per_page = 25
+    max_possible_page = (torrents_list_length // per_page)+1
+    if current_page > max_possible_page:
+        current_page = max_possible_page
 
     pagination = Pagination(
         torrents_list_all,
