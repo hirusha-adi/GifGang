@@ -2,22 +2,48 @@ import services
 from flask import redirect, render_template, request, url_for
 from utils import WebsiteData, count_total_visits_amount, log, logf
 from database.mongo import Torrents
+from flask_paginate import Pagination
 
 
-def torrents_index():
+def torrents_index_no_page():
     count_total_visits_amount()
     logf(request=request, page="torrents")
     log(f'Requested `/torrents` - torrents_index()',
         ipaddr=request.remote_addr)
 
-    torrents_list = Torrents.getAllTorrents()
+    return redirect(url_for('torrents_index', page="1"))
+
+
+def torrents_index(page):
+    count_total_visits_amount()
+    logf(request=request, page="torrents")
+    log(f'Requested `/torrents` - torrents_index()',
+        ipaddr=request.remote_addr)
+
+    try:
+        current_page = int(page)
+    except:
+        return redirect(url_for('torrents_search_no_query'))
+
+    torrents_list_all = Torrents.getAllTorrents()
+    torrents_list = torrents_list_all[
+        0:5
+    ]
+
+    torrents_list_length = len(torrents_list_all)
+
+    x = Pagination(torrents_list_all, per_page=3, page=1)
+    print(x)
+    print("="*50)
+    print(dir(x))
 
     return render_template(
         "torrents/index.html",
         web_tite="Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list,
-        torrents_title=f"All Torrents"
+        torrents_title=f"All Torrents | Page {current_page}",
+        current_page=current_page,
     )
 
 
