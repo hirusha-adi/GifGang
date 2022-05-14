@@ -57,20 +57,53 @@ def torrents_index(page):
     )
 
 
-def torrents_pins():
+def torrents_pins_no_page():
+    count_total_visits_amount()
+    logf(request=request, page="torrents/pins")
+    log(f'Requested `/torrents/pins` - torrents_pins_no_page()',
+        ipaddr=request.remote_addr)
+    return redirect(url_for('torrents_pins', page=1))
+
+
+def torrents_pins(page):
     count_total_visits_amount()
     logf(request=request, page="torrents/pins")
     log(f'Requested `/torrents/pins` - torrents_pins()',
         ipaddr=request.remote_addr)
 
-    torrents_list = Torrents.getTorrentsByFilter(page="pins")
+    try:
+        current_page = int(page)
+    except:
+        return redirect(url_for('torrents_pins_no_page'))
+
+    torrents_list_all = Torrents.getTorrentsByFilter(page="pins")
+    torrents_list_length = len(torrents_list_all)
+
+    per_page = 25
+    max_possible_page = (torrents_list_length // per_page)+1
+    if current_page > max_possible_page:
+        current_page = max_possible_page
+
+    pagination = Pagination(
+        torrents_list_all,
+        per_page=per_page,
+        page=current_page,
+        total=torrents_list_length,
+        href=str(url_for('torrents_pins', page=1))[:-1] + "{0}"
+    )
+
+    min_index = (current_page*per_page) - per_page
+    max_index = (min_index + per_page)
+
+    torrents_list_sliced = torrents_list_all[min_index:max_index]
 
     return render_template(
         "torrents/index.html",
         web_tite="Pins - Torrents | GifGang",
         torrents_usage=True,
-        torrents_list=torrents_list,
-        torrents_title=f"Pinned Torrents"
+        torrents_list=torrents_list_sliced,
+        torrents_title=f"Pinned Torrents",
+        pagination=pagination
     )
 
 
@@ -86,11 +119,11 @@ def torrent_channel_no_page(name):
 def torrent_channel(name, page):
     count_total_visits_amount()
     logf(request=request, page="torrents/channel/<name>/<page>")
-    log(f'Requested `/torrents/channel/<name>/<page>` - torrents_channels(name, page)',
+    log(f'Requested `/torrents/channel/<name>/<page>` - torrents_channel(name, page)',
         ipaddr=request.remote_addr)
 
     if name is None:
-        log('Returning the url for `torrents_channels` - torrents_channels()\n\tbecause name is None. Nothing to search for!')
+        log('Returning the url for `torrents_channel` - torrents_channels()\n\tbecause name is None. Nothing to search for!')
         return redirect(url_for('torrents_channels'))
 
     if page is None:
