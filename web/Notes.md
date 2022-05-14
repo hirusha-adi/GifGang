@@ -30,6 +30,39 @@ sudo systemctl restart mongodb
 
 - ## Setup - Part 2
 
+1. Create a new user
+
+```
+mongo
+use admin
+```
+
+```
+db.createUser(
+{
+user: "AdminUserName",
+pwd: "SuperSecretPassword",
+roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+}
+)
+```
+
+2. Make login required
+
+```
+sudo nano /etc/mongodb.conf
+```
+
+```
+authorization: enabled
+```
+
+```
+sudo systemctl restart mongod
+```
+
+- ## Setup - Part 2
+
 1. Create a Database named `GifGang`
 2. Create a collection named `torrents`
 
