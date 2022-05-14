@@ -178,7 +178,7 @@ def torrents_search_no_query():
     )
 
 
-def torrents_search(query):
+def torrents_search_no_page(query):
     count_total_visits_amount()
 
     logf(request=request, page=f"torrents/search/{query}")
@@ -189,6 +189,25 @@ def torrents_search(query):
     if query is None:
         log('Returning the url for `torrents_index` - torrents_index()\n\tbecause query is None. Nothing to search for!')
         return redirect(url_for('torrents_index'))
+
+    return redirect(url_for('torrents_search', query=query, page=1))
+
+
+def torrents_search(query, page):
+    count_total_visits_amount()
+
+    logf(request=request, page=f"torrents/search/{query}")
+
+    log(f'Request `/torrents/search/<query>` - torrents_search()',
+        ipaddr=request.remote_addr)
+
+    if query is None:
+        log('Returning the url for `torrents_index` - torrents_index()\n\tbecause query is None. Nothing to search for!')
+        return redirect(url_for('torrents_index'))
+
+    if page is None:
+        log('No page to go, defaulting to 1!')
+        page = 1
 
     torrents_list = Torrents.getTorrentByTitle(title=f"{query}")
 
