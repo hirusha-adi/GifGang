@@ -65,7 +65,8 @@ app.add_url_rule("/torrents/search_post", 'search_torrent_post', search_torrent_
 app.add_url_rule("/torrents/pins", 'torrents_pins', torrents_pins, methods=['GET'])
 app.add_url_rule("/torrents/channels", 'torrents_channels', torrents_channels, methods=['GET'])
 app.add_url_rule("/torrents/channel", 'torrent_channel_no_args', torrent_channel_no_args, methods=['GET'])
-app.add_url_rule("/torrents/channel/<name>", 'torrent_channel', torrent_channel, methods=['GET'])
+app.add_url_rule("/torrents/channel/<name>", 'torrent_channel_no_page', torrent_channel_no_page, methods=['GET'])
+app.add_url_rule("/torrents/channel/<name>/<page>", 'torrent_channel', torrent_channel, methods=['GET'])
 
 
 
