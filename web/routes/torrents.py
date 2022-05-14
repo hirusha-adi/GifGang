@@ -74,20 +74,62 @@ def torrents_pins():
     )
 
 
-def torrent_channel(name):
+def torrent_channel_no_page(name):
     count_total_visits_amount()
-    logf(request=request, page="torrents/channel")
-    log(f'Requested `/torrents/channel/<name>` - torrents_channels()',
+    logf(request=request, page="torrents/channel/<name>")
+    log(f'Requested `/torrents/channel/<name>` - torrent_channel_no_page()',
         ipaddr=request.remote_addr)
 
-    torrents_list = Torrents.getTorrentsByFilter(channel=str(name).lower())
+    return redirect(url_for('torrent_channel', name=name, page=1))
+
+
+def torrent_channel(name, page):
+    count_total_visits_amount()
+    logf(request=request, page="torrents/channel/<name>/<page>")
+    log(f'Requested `/torrents/channel/<name>/<page>` - torrents_channels(name, page)',
+        ipaddr=request.remote_addr)
+
+    if name is None:
+        log('Returning the url for `torrents_channels` - torrents_channels()\n\tbecause name is None. Nothing to search for!')
+        return redirect(url_for('torrents_channels'))
+
+    if page is None:
+        log('No page to go, defaulting to 1!')
+        page = 1
+
+    try:
+        current_page = int(page)
+    except:
+        return redirect(url_for('torrents_search_no_query'))
+
+    torrents_list_all = Torrents.getTorrentsByFilter(channel=str(name).lower())
+    torrents_list_length = len(torrents_list_all)
+
+    per_page = 25
+    max_possible_page = (torrents_list_length // per_page)+1
+    if current_page > max_possible_page:
+        current_page = max_possible_page
+
+    pagination = Pagination(
+        torrents_list_all,
+        per_page=per_page,
+        page=current_page,
+        total=torrents_list_length,
+        href=str(url_for('torrent_channel', name=name, page=1))[:-1] + "{0}"
+    )
+
+    min_index = (current_page*per_page) - per_page
+    max_index = (min_index + per_page)
+
+    torrents_list_sliced = torrents_list_all[min_index:max_index]
 
     return render_template(
         "torrents/index.html",
         web_tite="Channels - Torrents | GifGang",
         torrents_usage=True,
-        torrents_list=torrents_list,
-        torrents_title=f"{name}"
+        torrents_list=torrents_list_sliced,
+        torrents_title=f"{name}",
+        pagination=pagination
     )
 
 
