@@ -62,3 +62,88 @@ sudo systemctl enable mongodb --now
 ```bash
 sudo systemctl disable mongodb
 ```
+
+# Setting up NGINX
+
+- `gifgang.net` is the domain name
+
+1. Install nginx
+
+```bash
+apt install nginx
+systemctl enable nginx --now
+systemctl start nginx
+```
+
+2. Edit the default config file for the first time before setting up SSL
+
+```bash
+nano /etc/nginx/sites-enabled/default
+```
+
+```nginx
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name gifgang.net;
+
+        location / {
+                proxy_pass http://localhost:8080;
+        }
+}
+```
+
+3. Load the new config and stop nginx to get the SSL certificate
+
+```bash
+nginx -t
+nginx -s reload
+sudo apt install certbot -y
+systemctl stop nginx
+certbot certonly --standalone --agree-tos -d gifgang.net,www.gifgang.net
+```
+
+4. Edit the default config file for the second time with new SSL settings
+
+```bash
+nano /etc/nginx/sites-enabled/default
+```
+
+```nginx
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  location / {
+    return 301 https://$host$request_uri;
+  }
+}
+
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  ssl_certificate     /etc/letsencrypt/live/gifgang.net/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/gifgang.net/privkey.pem;
+
+  location / {
+    proxy_pass http://localhost:8080;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Protocol $scheme;
+    proxy_set_header X-Forwarded-Host $http_host;
+  }
+}
+```
+
+5. Restart nginx
+
+```bash
+systemctl start nginx
+nginx -t
+nginx -s reload
+```
+
+You can now load the website with SSL
