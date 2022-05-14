@@ -657,6 +657,42 @@
                             </li>
                             <li>
                                 <a href="#">
+                                    <i class="fa-solid fa-magnet"></i>
+                                    Torrents
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ url_for('torrents_index_no_page') }}">
+                                            <i class="metismenu-icon">
+                                            </i>
+                                            Index
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('torrents_search_no_query') }}">
+                                            <i class="metismenu-icon">
+                                            </i>
+                                            Search
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('torrents_pins', page=1) }}">
+                                            <i class="metismenu-icon">
+                                            </i>
+                                            Pins
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('torrents_channels') }}">
+                                            <i class="metismenu-icon">
+                                            </i>
+                                            Channels
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
                                     <i class="fa-solid fa-link"></i>
                                     Other
                                 </a>
