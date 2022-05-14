@@ -159,7 +159,7 @@ def search_torrent_post():
         f'Returning the url for `torrents_search` with query',
         ipaddr=request.remote_addr)
 
-    return redirect(url_for('torrents_search', query=query))
+    return redirect(url_for('torrents_search_no_page', query=query))
 
 
 def torrents_search_no_query():
@@ -183,7 +183,7 @@ def torrents_search_no_page(query):
 
     logf(request=request, page=f"torrents/search/{query}")
 
-    log(f'Request `/torrents/search/<query>` - torrents_search()',
+    log(f'Request `/torrents/search/<query>` - torrents_search_no_page(query)',
         ipaddr=request.remote_addr)
 
     if query is None:
@@ -196,9 +196,9 @@ def torrents_search_no_page(query):
 def torrents_search(query, page):
     count_total_visits_amount()
 
-    logf(request=request, page=f"torrents/search/{query}")
+    logf(request=request, page=f"torrents/search/{query}/<page>")
 
-    log(f'Request `/torrents/search/<query>` - torrents_search()',
+    log(f'Request `/torrents/search/<query>/<page>` - torrents_search(query, page)',
         ipaddr=request.remote_addr)
 
     if query is None:
@@ -209,12 +209,37 @@ def torrents_search(query, page):
         log('No page to go, defaulting to 1!')
         page = 1
 
-    torrents_list = Torrents.getTorrentByTitle(title=f"{query}")
+    try:
+        current_page = int(page)
+    except:
+        return redirect(url_for('torrents_search_no_query'))
+
+    torrents_list_all = Torrents.getTorrentByTitle(title=f"{query}")
+    torrents_list_length = len(torrents_list_all)
+
+    per_page = 25
+    max_possible_page = (torrents_list_length // per_page)+1
+    if current_page > max_possible_page:
+        current_page = max_possible_page
+
+    pagination = Pagination(
+        torrents_list_all,
+        per_page=per_page,
+        page=current_page,
+        total=torrents_list_length,
+        href=str(url_for('torrents_search', query=query, page=1))[:-1] + "{0}"
+    )
+
+    min_index = (current_page*per_page) - per_page
+    max_index = (min_index + per_page)
+
+    torrents_list_sliced = torrents_list_all[min_index:max_index]
 
     return render_template(
         "torrents/index.html",
         web_tite=f"Results for {query} - Torrents | GifGang",
         torrents_usage=True,
-        torrents_list=torrents_list,
-        torrents_title=f"Results for {query}"
+        torrents_list=torrents_list_sliced,
+        torrents_title=f"Results for {query}",
+        pagination=pagination
     )
