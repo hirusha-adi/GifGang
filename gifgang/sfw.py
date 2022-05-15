@@ -3,8 +3,8 @@ import random as rand
 
 
 class Giphy:
-    def __init__(self):
-        self._api_key = None
+    def __init__(self, api_key):
+        self._api_key = api_key
 
     def random(self, limit: int = 5):
         giphy_url_list = []
@@ -85,8 +85,8 @@ class Picsum:
 
 
 class Tenor:
-    def __init__(self):
-        self._api_key = None
+    def __init__(self, api_key):
+        self._api_key = api_key
 
     def random(self, limit: int = 5, locale: str = "en_US", ar_range: str = "all", contentfilter: str = "off"):
         tenor_url_list = []
@@ -135,7 +135,7 @@ class Cats:
     def __init__(self):
         pass
 
-    def theCatAPI(limit: int = 5, size: str = "med", mime_types: str = "jpg,gif,png", order: str = "RANDOM", has_breeds=0):
+    def theCatAPI(self, limit: int = 5, size: str = "med", mime_types: str = "jpg,gif,png", order: str = "RANDOM", has_breeds=0):
         thecatapi_url_list = []
         r = requests.get(
             f'https://api.thecatapi.com/v1/images/search?limit={limit}&size={size}&mime_types={mime_types}&order={order}&has_breeds={has_breeds}'
@@ -230,7 +230,7 @@ class Dogs:
     def __init__(self):
         pass
 
-    def images(limit: int = 5):
+    def images(self, limit: int = 5):
         final_url_list = []
 
         r = requests.get(f"https://dog.ceo/api/breeds/image/random/{limit}")
