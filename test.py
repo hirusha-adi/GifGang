@@ -1,5 +1,7 @@
 import itertools
 
+# http://rarbgenter.org/torrent/gl6uv19 - BEST
+
 one = [
     "http://rarbgenter.org/torrent/tv85w3b",
     "http://rarbgenter.org/torrent/ctxnzeg",
@@ -26,10 +28,19 @@ two = [
     "http://rarbgenter.org/torrent/kolw485"
 ]
 
-all_items_list = list(itertools.chain(one, two))
+three = [
+    "http://rarbgenter.org/torrent/dz64tbu",
+    "http://rarbgenter.org/torrent/aznmut6",
+    "http://rarbgenter.org/torrent/tkqj4pm",
+    "http://rarbgenter.org/torrent/jg8avu3",
+    "http://rarbgenter.org/torrent/iapv5sl"
+]
+
+all_items_list = list(itertools.chain(one, two, three))
 final_list = []
 for i in all_items_list:
     if not i in final_list:
         final_list.append(i)
+
 
 print(len(final_list))
