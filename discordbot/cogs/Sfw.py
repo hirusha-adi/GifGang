@@ -140,14 +140,15 @@ class Sfw(commands.Cog):
         except:
             text = None
 
+        all_filters = ("blur", "mono", "sepia", "negative", "paint", "pixel")
+
         if not(mode in image_words):  # GIF
             if text is None:
                 final_url = "https://cataas.com/cat/gif"
             else:
                 text = ' '.join(text)
                 filter_name = text.split(" ")[-1]
-                all_filters = ("blur", "mono", "sepia",
-                               "negative", "paint", "pixel")
+
                 if text.split(" ")[-1] in all_filters:
                     processed_text = ' '.join(text.split(" ")[:-1])
                     final_url = f"https://cataas.com/cat/gif/says/{processed_text}?filter={filter_name}"
@@ -163,7 +164,7 @@ class Sfw(commands.Cog):
                                  icon_url=str(self.client.user.avatar_url))
                 embed.set_image(url="attachment://temp.gif")
                 embed.set_footer(
-                    text=f"TENOR - Reuqested by {ctx.author.name}")
+                    text=f"CatAAS - Reuqested by {ctx.author.name}")
                 await ctx.send(file=file, embed=embed)
 
                 self.removeImage(filename="temp.gif")
@@ -178,7 +179,7 @@ class Sfw(commands.Cog):
                 embed.set_thumbnail(
                     url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
                 embed.set_footer(
-                    text=f"TENOR - Reuqested by {ctx.author.name}")
+                    text=f"CatAAS - Reuqested by {ctx.author.name}")
                 await ctx.send(embed=embed)
 
         else:  # Images
@@ -187,8 +188,6 @@ class Sfw(commands.Cog):
             else:
                 text = ' '.join(text)
                 filter_name = text.split(" ")[-1]
-                all_filters = ("blur", "mono", "sepia",
-                               "negative", "paint", "pixel")
                 if text.split(" ")[-1] in all_filters:
                     processed_text = ' '.join(text.split(" ")[:-1])
                     final_url = f"https://cataas.com/cat/says/{processed_text}?filter={filter_name}"
@@ -204,7 +203,7 @@ class Sfw(commands.Cog):
                                  icon_url=str(self.client.user.avatar_url))
                 embed.set_image(url="attachment://temp.png")
                 embed.set_footer(
-                    text=f"TENOR - Reuqested by {ctx.author.name}")
+                    text=f"CatAAS - Reuqested by {ctx.author.name}")
                 await ctx.send(file=file, embed=embed)
 
                 self.removeImage(filename="temp.png")
@@ -219,7 +218,7 @@ class Sfw(commands.Cog):
                 embed.set_thumbnail(
                     url="https://cdn.discordapp.com/attachments/877796755234783273/879298565380386846/sign-red-error-icon-1.png")
                 embed.set_footer(
-                    text=f"TENOR - Reuqested by {ctx.author.name}")
+                    text=f"CatAAS - Reuqested by {ctx.author.name}")
                 await ctx.send(embed=embed)
 
 
