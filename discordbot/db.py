@@ -1,7 +1,7 @@
 import json
 import os
 
-from src.utils import Filenames
+from discordbot.utils import Filenames
 
 
 class Config:
