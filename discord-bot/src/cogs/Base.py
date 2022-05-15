@@ -11,7 +11,7 @@ class Base(commands.Cog):
         self.client = client
         self.start_time = None
 
-        self.client.remove_command('help')
+        # self.client.remove_command('help')
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -145,7 +145,7 @@ class Base(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def help(self, ctx):
+    async def help2(self, ctx):
         await ctx.send("help")
 
 
