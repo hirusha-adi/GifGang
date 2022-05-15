@@ -407,6 +407,7 @@ class Sfw(commands.Cog):
             embed.set_footer(
                 text=f"TheCatAPI - Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
+
         else:
             url = f"https://api.thecatapi.com/v1/images/search?limit=1"
 
