@@ -230,7 +230,7 @@ class Dogs:
     def __init__(self):
         pass
 
-    def images(limit: int = 5):
+    def images(self, limit: int = 5):
         final_url_list = []
 
         r = requests.get(f"https://dog.ceo/api/breeds/image/random/{limit}")
