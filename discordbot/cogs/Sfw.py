@@ -68,20 +68,14 @@ class Sfw(commands.Cog):
         del(picsum)
 
     @commands.command()
-    async def tenor(self, ctx, mode=None, *query):
+    async def tenor(self, ctx, *query):
         random_search_words = (
             "animal", "cat", "dog", "anime", "wallpaper", "scenery", "mountains", "happy", "office"
         )
-        all_modes = ("random", "search")
-        if mode is None:
-            mode = "random"
-        else:
-            if not(mode in all_modes):
-                mode = "random"
 
         tenor = sfw.Tenor(api_key=str(Important.tenor_api_key))
 
-        if mode == "search":
+        if len(query) >= 1:
             images_list = tenor.search(
                 query=' '.join(query),
                 limit=1
