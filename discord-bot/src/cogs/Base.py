@@ -11,6 +11,8 @@ class Base(commands.Cog):
         self.client = client
         self.start_time = None
 
+        self.client.remove_command('help')
+
     @commands.Cog.listener()
     async def on_ready(self):
         print("="*50)
@@ -141,6 +143,10 @@ class Base(commands.Cog):
         )
         embed.set_footer(text=f"Reuqested by {ctx.author.name}")
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def help(self, ctx):
+        await ctx.send("help")
 
 
 def setup(client: commands.Bot):
