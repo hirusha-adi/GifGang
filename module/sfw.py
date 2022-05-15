@@ -3,8 +3,8 @@ import random as rand
 
 
 class Giphy:
-    def __init__(self):
-        self._api_key = None
+    def __init__(self, api_key):
+        self._api_key = api_key
 
     def random(self, limit: int = 5):
         giphy_url_list = []
