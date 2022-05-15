@@ -5,6 +5,7 @@
 - New search pages for every service
 - backend bug fixes
 - redirect to login page if wrong login information is providied instead of the debug mode taking over
+- completed adding all image URLs for [NSFW Categories List](https://github.com/hirusha-adi/GifGang/issues/8) - Thank you OLIVER/Suraj!
 
 # 1.3
 
