@@ -10,6 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="GifGang">
+    <meta name="description" content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://gifgang.net/">
+    <meta property="og:title" content="GifGang">
+    <meta property="og:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="og:image" content="{{ url_for('static', filename='img/GifGangRound.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://gifgang.net/">
+    <meta property="twitter:title" content="GifGang">
+    <meta property="twitter:description"
+        content="a website with Gifs, Images and Videos scraped from many websites at one place!">
+    <meta property="twitter:image" content="{{ url_for('static', filename='img/GifGangRound.png') }}">
+
     <style>
         body {
             background: #141820;
@@ -151,36 +173,36 @@
             <!-- {{ url_for('search_torrent_post') }} -->
 
             {% if search_type == "nsfw" %}
-                <form role="search" method="post" class="search-form form" action="{{ url_for('adult_search_post') }}"
-                    id="SearchForm">
-            {% elif search_type == "torrents" %}
+            <form role="search" method="post" class="search-form form" action="{{ url_for('adult_search_post') }}"
+                id="SearchForm">
+                {% elif search_type == "torrents" %}
                 <form role="search" method="post" class="search-form form" action="{{ url_for('search_torrent_post') }}"
                     id="SearchForm">
-            {% else %}
-                <form role="search" method="post" class="search-form form" action="{{ url_for('search_post') }}"
-                    id="SearchForm">
-            {% endif %}
-                <label>
-                    <span class="screen-reader-text">Search for...</span>
-                    <input type="search" class="search-field" placeholder="Search for ..." value="" name="query"
-                        title="" />
-                </label>
-                <input type="submit" class="search-submit button" value="&#xf002"
-                    onclick="document.getElementById('SearchForm').submit();" />
-            </form>
+                    {% else %}
+                    <form role="search" method="post" class="search-form form" action="{{ url_for('search_post') }}"
+                        id="SearchForm">
+                        {% endif %}
+                        <label>
+                            <span class="screen-reader-text">Search for...</span>
+                            <input type="search" class="search-field" placeholder="Search for ..." value="" name="query"
+                                title="" />
+                        </label>
+                        <input type="submit" class="search-submit button" value="&#xf002"
+                            onclick="document.getElementById('SearchForm').submit();" />
+                    </form>
 
-            <br>
-            <br>
-            <br>
+                    <br>
+                    <br>
+                    <br>
 
-            <center>
-                <small>
-                    Made by &copy;
-                    <a href="{{ url_for('about') }}">
-                        ZeaCeR
-                    </a>
-                </small>
-            </center>
+                    <center>
+                        <small>
+                            Made by &copy;
+                            <a href="{{ url_for('about') }}">
+                                ZeaCeR
+                            </a>
+                        </small>
+                    </center>
 
         </div>
     </div>
