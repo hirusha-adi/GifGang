@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import time
 from datetime import datetime
+from datetime import timedelta
+import urllib.request
 
 
 class Base(commands.Cog):
@@ -16,6 +18,7 @@ class Base(commands.Cog):
         print(f'[*] Discord.py API Version: {discord.__version__}')
         print('[+] Bot is ready to be used!')
         print("="*50)
+        self.start_time = time.time()
         await self.client.change_presence(
             activity=discord.Activity(
                 type=discord.ActivityType.watching,
@@ -108,6 +111,33 @@ class Base(commands.Cog):
         embed.set_author(
             name=str(self.client.user.name),
             icon_url=str(self.client.user.avatar_url)
+        )
+        embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def uptime(self, ctx):
+        embed = discord.Embed(
+            title=f"Uptime",
+            color=0xff0000,
+            timestamp=datetime.utcnow()
+        )
+        embed.set_author(
+            name=str(self.client.user.name),
+            icon_url=str(self.client.user.avatar_url)
+        )
+        embed.add_field(
+            name="Website",
+            value=f"Status Code: `{urllib.request.urlopen('https://gifgang.net').getcode()}`",
+            inline=False
+        )
+        current_time = time.time()
+        difference = int(round(current_time - self.start_time))
+        text = str(timedelta(seconds=difference))
+        embed.add_field(
+            name="Discord Bot",
+            value=f"Running for `{text}`",
+            inline=False
         )
         embed.set_footer(text=f"Reuqested by {ctx.author.name}")
         await ctx.send(embed=embed)
