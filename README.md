@@ -1,6 +1,12 @@
 # GifGang
 
-<br>
+Important Links
+
+- [GifGang (Main Deployment)](https://gifgang.net/links)
+- [GifGang Info Website](https://hirusha-adi.github.io/GifGang/)
+- [GifGang Module](https://github.com/hirusha-adi/GifGang/tree/module)
+- [GifGang Intsaller Scripts](https://github.com/hirusha-adi/GifGang/tree/installer)
+
 <br>
 
 # Current Versions
@@ -8,6 +14,8 @@
 ## Website: `v1.4`
 
 ## Discord Bot: `v1.0`
+
+## Module: `v1.1`
 
 <br>
 <br>
