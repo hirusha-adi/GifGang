@@ -1,4 +1,13 @@
+# 1.4
+
+- Download torrents with the stored Magnet-URLs in MongoDB
+- get torrents list by filtering from uploaded channel name
+- New search pages for every service
+- backend bug fixes
+- redirect to login page if wrong login information is providied instead of the debug mode taking over
+
 # 1.3
+
 - Better route management, Clean Code
 - backend Bug Fixes
 - search bar color fix
