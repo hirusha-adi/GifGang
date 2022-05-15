@@ -65,6 +65,22 @@ class Sfw(commands.Cog):
         embed.set_footer(text=f"PICSUM - Reuqested by {ctx.author.name}")
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def tenor(self, ctx, mode, *query):
+        all_modes = ("random", "search")
+        if mode is None:
+            mode = "random"
+        else:
+            if not(mode in all_modes):
+                mode = "random"
+
+        tenor = sfw.Tenor(api_key=str(Important.giphy_api_key))
+
+        if mode == "search":
+            images_list = tenor.search(query=' '.join(query), limit=1)
+        else:
+            images_list = tenor.random(limit=1)
+
 
 def setup(client: commands.Bot):
     client.add_cog(Sfw(client))
