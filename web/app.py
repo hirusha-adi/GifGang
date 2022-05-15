@@ -4,16 +4,11 @@ from threading import Thread
 
 from flask import Flask, render_template
 
-from routes.admin import (admin_download_log_file, admin_login_page,
-                          admin_login_page_verify, admin_logout,
-                          admin_panel_page, admin_save_settings,
-                          admin_setting_sfw, admin_settings,
-                          admin_settings_nsfw, adult_route_main)
-from routes.adult import (adult_categories, adult_hentai, adult_index,
-                          adult_pins, adult_search, adult_search_no_query,
-                          adult_search_post, adult_stars, adult_stars_no_page)
-from routes.original import (about, all_links, index, pins, public_stats,
-                             restricted, search, search_no_query, search_post)
+from routes.admin import *
+from routes.adult import *
+from routes.original import *
+from routes.torrents import *
+from routes.common import *
 from utils import Config, count_total_visits_amount, log, reload_daily_count
 
 app = Flask(__name__)
@@ -44,7 +39,7 @@ app.add_url_rule("/adult/stars", 'adult_stars_no_page', adult_stars_no_page)
 app.add_url_rule("/adult/pornstars/<page>", 'adult_stars', adult_stars)
 app.add_url_rule("/adult/stars/<page>", 'adult_stars', adult_stars)
 app.add_url_rule("/adult/search_post", 'adult_search_post', adult_search_post, methods=['POST'])
-app.add_url_rule("/adult/adult_search_no_query", 'adult_search_no_query', adult_search_no_query)
+app.add_url_rule("/adult/search", 'adult_search_no_query', adult_search_no_query)
 app.add_url_rule("/adult/search/<query>", 'adult_search', adult_search)
 app.add_url_rule("/adult/hentai", 'adult_hentai', adult_hentai)
 
@@ -58,6 +53,20 @@ app.add_url_rule("/admin/settings", 'admin_settings', admin_settings, methods=['
 app.add_url_rule("/admin/settings/<site>", 'admin_setting_sfw', admin_setting_sfw, methods=['GET'])
 app.add_url_rule("/admin/settings/adult/<site>", 'admin_settings_nsfw', admin_settings_nsfw, methods=['GET'])
 app.add_url_rule("/logout", 'admin_logout', admin_logout, methods=['GET'])
+
+app.add_url_rule("/torrents", 'torrents_index_no_page', torrents_index_no_page, methods=['GET'])
+app.add_url_rule("/torrents/<page>", 'torrents_index', torrents_index, methods=['GET'])
+app.add_url_rule("/torrents/search", 'torrents_search_no_query', torrents_search_no_query, methods=['GET'])
+app.add_url_rule("/torrents/search/<query>", 'torrents_search_no_page', torrents_search_no_page, methods=['GET'])
+app.add_url_rule("/torrents/search/<query>/<page>", 'torrents_search', torrents_search, methods=['GET'])
+app.add_url_rule("/torrents/search_post", 'search_torrent_post', search_torrent_post, methods=['POST'])
+app.add_url_rule("/torrents/pins", 'torrents_pins_no_page', torrents_pins_no_page, methods=['GET'])
+app.add_url_rule("/torrents/pins/<page>", 'torrents_pins', torrents_pins, methods=['GET'])
+app.add_url_rule("/torrents/channels", 'torrents_channels', torrents_channels, methods=['GET'])
+app.add_url_rule("/torrents/channel", 'torrent_channel_no_args', torrent_channel_no_args, methods=['GET'])
+app.add_url_rule("/torrents/channel/<name>", 'torrent_channel_no_page', torrent_channel_no_page, methods=['GET'])
+app.add_url_rule("/torrents/channel/<name>/<page>", 'torrent_channel', torrent_channel, methods=['GET'])
+
 
 
 

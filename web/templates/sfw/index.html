@@ -144,7 +144,7 @@ Pinned
 
 <!-- Links Page -->
 {% if all_links_page == True %}
-<h1>Links - SFW</h1>
+<h1>SFW</h1>
 <ul>
     <li>
         <h2>
@@ -188,7 +188,7 @@ Pinned
     </li>
 </ul>
 
-<h1>Links - NSFW</h1>
+<h1>NSFW</h1>
 <ul>
     <li>
         <h2>
@@ -243,8 +243,44 @@ Pinned
     </li>
 </ul>
 
+<h1>Torrents (NSFW)</h1>
+<ul>
+    <li>
+        <h2>
+            <a href="{{ url_for('torrents_index_no_page') }}">
+                /torrents
+            </a>
+            --> List of all torrents
+        </h2>
+    </li>
+    <li>
+        <h2>
+            <a href="{{ url_for('torrents_search_no_query') }}">
+                /torrents/search
+            </a>
+            --> Search from all torrents
+        </h2>
+    </li>
+    <li>
+        <h2>
+            <a href="{{ url_for('torrents_pins', page=1) }}">
+                /torrents/pins
+            </a>
+            --> All pinned torrents
+        </h2>
+    </li>
+    <li>
+        <h2>
+            <a href="{{ url_for('torrents_channels') }}">
+                /torrents/channels
+            </a>
+            --> Main channels
+        </h2>
+    </li>
+</ul>
 
-<h1>Links - Others</h1>
+
+<h1>Others</h1>
 <ul>
     <li>
         <h2>
@@ -290,7 +326,7 @@ Pinned
     </li>
 </ul>
 
-<h1>Links - Admin</h1>
+<h1>Administration</h1>
 <ul>
     <li>
         <h2>

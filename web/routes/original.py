@@ -157,27 +157,6 @@ def search_post():
     return redirect(url_for('search', query=query))
 
 
-def restricted():
-    count_total_visits_amount()
-
-    logf(request=request, page="restricted")
-
-    log(f'Request `/restricted` - restricted()',
-        ipaddr=request.remote_addr)
-    log(
-        f'Returning `age_verify.html`\n\tTitle={WebsiteData.age_verify["title"]}\n\tBody Title={WebsiteData.age_verify["body_title"]}\n\tBody Text={WebsiteData.age_verify["text"]}\n\tYes Button Text={WebsiteData.age_verify["buttons"]["yes"]}\n\tNo Button Text={WebsiteData.age_verify["buttons"]["no"]}',
-        ipaddr=request.remote_addr)
-
-    return render_template(
-        "age_verify.html",
-        web_title=WebsiteData.age_verify["title"],
-        body_title=WebsiteData.age_verify["body_title"],
-        age_verify_text=WebsiteData.age_verify["text"],
-        button_yes=WebsiteData.age_verify["buttons"]["yes"],
-        button_no=WebsiteData.age_verify["buttons"]["no"],
-    )
-
-
 def search_no_query():
     count_total_visits_amount()
 
@@ -185,10 +164,13 @@ def search_no_query():
 
     log(f'Request `/search` - search_no_query()',
         ipaddr=request.remote_addr)
-    log(f'Returning the url for `index` - index()\n\tbecause `/search` route was requested without a query',
-        ipaddr=request.remote_addr)
 
-    return redirect(url_for('index'))
+    return render_template(
+        "search.html",
+        search_type="sfw",
+        web_title="SFW | GifGang",
+        search_title="Search for SFW Media"
+    )
 
 
 def search(query):
@@ -228,7 +210,7 @@ def search(query):
     return render_template(
         "sfw/index.html",
         web_title=WebsiteData.search["title"].format(query=query),
-        search_gifgang_usage = True,
+        search_gifgang_usage=True,
         search_giphy_usage=giphy_usage,
         search_giphy_url_list=giphy_url_list,
         search_tenor_usage=tenor_usage,

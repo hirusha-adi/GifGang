@@ -13,6 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2a2e95598a.js" crossorigin="anonymous"></script>
+
     <!-- Primary Meta Tags -->
     <meta name="title" content="GifGang">
     <meta name="description" content="a website with Gifs, Images and Videos scraped from many websites at one place!">
@@ -284,7 +287,7 @@
         }
 
         #pinno1 {
-            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/961849885534085130/anime.jpg?size=4096");
+            background-image: url("https://cdn.discordapp.com/attachments/957630505086517308/972903507122331688/unknown.png");
         }
 
         #pinno2 {
@@ -324,6 +327,46 @@
         }
     </style>
 
+    <style>
+        .pagination-page-info {
+            padding: .6em;
+            padding-left: 0;
+            width: 40em;
+            margin: .5em;
+            margin-left: 0;
+            font-size: 30px;
+        }
+
+        .pagination-page-info b {
+            color: #0e0a0a;
+            background: #6aa6ed;
+            padding-left: 2px;
+            padding: .1em .25em;
+            font-size: 30px;
+        }
+
+        .page-item.disabled .page-link,
+        .page-item.disabled .page-link:focus,
+        .page-item.disabled .page-link:hover {
+            background-color: #0e0a0a;
+            border-color: #ddd;
+            color: #818a91;
+            cursor: not-allowed;
+        }
+
+        .page-link {
+            background-color: #0c0b0b;
+            border: 1px solid #ddd;
+            color: #0275d8;
+            float: left;
+            line-height: 1.5;
+            margin-left: -1px;
+            padding: 0.5rem 0.75rem;
+            position: relative;
+            text-decoration: none;
+        }
+    </style>
+
     {% block more_head %}{% endblock %}
 
 </head>
@@ -339,8 +382,8 @@
                 <div class="TopBar">
                     <div class="container">
                         <div class="search-bar-wrapper">
-                            <form class="SearchBar" action="{{ url_for('search_post') }}" method="post" id="SearchForm"
-                                style="border-radius: 0px !important;">
+                            <form class="SearchBar" action="{{ url_for('search_torrent_post') }}" method="post"
+                                id="SearchForm" style="border-radius: 0px !important;">
                                 <input name="q" value="" placeholder="Search for Images and GIFs" autocomplete="off"
                                     style="color: white !important;">
                                 <span class="iconfont-search" aria-hidden="true"
@@ -378,8 +421,8 @@
                                             </a>
                                         </div>
 
-                                        <div class="TrendsTag" style="border: 1px solid #969696; padding: 5px 5px 5px">
-                                            <a activeClassName="current" href="{{ url_for('index') }}">
+                                        <div class="TrendsTag"><a activeClassName="current"
+                                                href="{{ url_for('index') }}">
                                                 <div class="img" id="pinno8">
                                                 </div>
                                                 <div class="info">
@@ -402,8 +445,8 @@
                                             </a>
                                         </div>
 
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('torrents_index_no_page') }}">
+                                        <div class="TrendsTag" style="border: 1px solid #969696; padding: 5px 5px 5px">
+                                            <a activeClassName="current" href="{{ url_for('torrents_index_no_page') }}">
                                                 <div class="img" id="pinno7">
                                                 </div>
                                                 <div class="info">
@@ -429,7 +472,7 @@
                                     <div class="frames-container" style="left:-0px; overflow-x: scroll;">
 
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('pins') }}">
+                                                href="{{ url_for('torrents_pins', page=1) }}">
                                                 <div class="img" id="pinno5">
                                                 </div>
                                                 <div class="info"><span class="searchterm" style="color: white;">
@@ -440,7 +483,7 @@
                                         </div>
 
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search_no_query') }}">
+                                                href="{{ url_for('torrents_search_no_query') }}">
                                                 <div class="img" id="pinno11">
                                                 </div>
                                                 <div class="info">
@@ -452,48 +495,12 @@
                                         </div>
 
                                         <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Anime') }}">
+                                                href="{{ url_for('torrents_channels') }}">
                                                 <div class="img" id="pinno1">
                                                 </div>
                                                 <div class="info">
                                                     <span class="searchterm" style="color: white;">
-                                                        Anime
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Cats') }}">
-                                                <div class="img" id="pinno2">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        Cats
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Dogs') }}">
-                                                <div class="img" id="pinno3">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        Dogs
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <div class="TrendsTag"><a activeClassName="current"
-                                                href="{{ url_for('search', query='Wallpaper') }}">
-                                                <div class="img" id="pinno9">
-                                                </div>
-                                                <div class="info">
-                                                    <span class="searchterm" style="color: white;">
-                                                        Wallpapers
+                                                        Channels
                                                     </span>
                                                 </div>
                                             </a>
