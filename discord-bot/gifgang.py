@@ -2,6 +2,10 @@ import os
 
 import discord
 from discord.ext import commands
+from src.utils import Filenames
+
+with open(Filenames.token_txt, "r", encoding="utf-8") as _token_file:
+    TOKEN = _token_file.read()
 
 client = commands.Bot(command_prefix=db_main.prefix)
 
@@ -35,4 +39,4 @@ async def unloadex(ctx, extension):
         await ctx.send("You do not have permissions to use this command!")
 
 
-client.run(db_main.token)
+client.run(TOKEN)
