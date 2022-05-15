@@ -65,8 +65,13 @@ class Sfw(commands.Cog):
         embed.set_footer(text=f"PICSUM - Reuqested by {ctx.author.name}")
         await ctx.send(embed=embed)
 
+        del(picsum)
+
     @commands.command()
-    async def tenor(self, ctx, mode, *query):
+    async def tenor(self, ctx, mode=None, *query):
+        random_search_words = (
+            "animal", "cat", "dog", "anime", "wallpaper", "scenery", "mountains", "happy", "office"
+        )
         all_modes = ("random", "search")
         if mode is None:
             mode = "random"
@@ -74,12 +79,32 @@ class Sfw(commands.Cog):
             if not(mode in all_modes):
                 mode = "random"
 
-        tenor = sfw.Tenor(api_key=str(Important.giphy_api_key))
+        tenor = sfw.Tenor(api_key=str(Important.tenor_api_key))
 
         if mode == "search":
-            images_list = tenor.search(query=' '.join(query), limit=1)
+            images_list = tenor.search(
+                query=' '.join(query),
+                limit=1
+            )
         else:
-            images_list = tenor.random(limit=1)
+            images_list = tenor.search(
+                query=random.choice(random_search_words),
+                limit=1
+            )
+
+        for image in images_list:
+            embed = discord.Embed(
+                title=image['title'],
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.set_image(url=str(image['url']))
+            embed.set_footer(text=f"TENOR - Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
