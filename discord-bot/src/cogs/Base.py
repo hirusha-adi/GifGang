@@ -14,7 +14,7 @@ class Base(commands.Cog):
         print("="*50)
         print(f'[*] Logged in as {self.client.user.name}')
         print(f'[*] Discord.py API Version: {discord.__version__}')
-        print('Bot is ready to be used!')
+        print('[+] Bot is ready to be used!')
         print("="*50)
         await self.client.change_presence(
             activity=discord.Activity(
@@ -99,8 +99,19 @@ class Base(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def test(self, ctx, sample):
-        await ctx.send("123")
+    async def ping(self, ctx):
+        embed = discord.Embed(
+            title="Pong!",
+            color=0xff0000,
+            description=f"That took you: `{round(self.client.latency * 1000)} ms`",
+            timestamp=datetime.utcnow()
+        )
+        embed.set_author(
+            name=str(self.client.user.name),
+            icon_url=str(self.client.user.avatar_url)
+        )
+        embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+        await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
