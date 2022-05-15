@@ -12,6 +12,7 @@ import requests
 
 
 class Sfw(commands.Cog):
+
     def __init__(self, client: commands.Bot):
         self.client = client
 
@@ -453,6 +454,26 @@ class Sfw(commands.Cog):
                 embed.set_footer(
                     text=f"TheCatAPI - Reuqested by {ctx.author.name}")
                 await ctx.send(embed=embed)
+
+    @commands.command()
+    async def dogs(self, ctx):
+
+        dogs = sfw.Dogs()
+        images_list = dogs.images(limit=1)
+
+        for image in images_list:
+            embed = discord.Embed(
+                title="a Dog",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.set_image(url=str(image))
+            embed.set_footer(text=f"GIPHY - Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
