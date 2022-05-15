@@ -6,7 +6,6 @@ from utils import (FileNames, Important, Settings, Update, WebsiteData,
                    count_total_visits_amount, log, logf, Vars)
 
 
-
 def adult_route_main():
     count_total_visits_amount()
 
@@ -54,6 +53,8 @@ def admin_login_page_verify():
     if (username == Settings.Admin.username) and (password == Settings.Admin.password):
         session["token"] = Settings.Admin.token
         return redirect(url_for("admin_panel_page"))
+    else:
+        return redirect(url_for('admin_login_page'))
 
 
 def admin_download_log_file():
