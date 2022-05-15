@@ -14,6 +14,10 @@ I am not responsible for any bad that happens with this website and i dont promo
 
 3. The default logger is also turned off to increase the privacy of the users
 
+# Torrents
+
+I do not own any torrent that is available in GifGang. All of these torrents were manually selected from `rarbg`. For any copyright issue, please contact me and i will take care of it immediatly
+
 # For any issues, make sure to contact me
 
 and quick actions will be done to resolve these issues
