@@ -7,8 +7,6 @@ import discord
 import requests
 import random
 from discord.ext import commands
-from src.utils.database import Embeds as EmbedsDB
-from src.utils.database import Settings as SettingsDB
 
 
 class TheCat(commands.Cog):
