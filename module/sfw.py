@@ -85,8 +85,8 @@ class Picsum:
 
 
 class Tenor:
-    def __init__(self):
-        self._api_key = None
+    def __init__(self, api_key):
+        self._api_key = api_key
 
     def random(self, limit: int = 5, locale: str = "en_US", ar_range: str = "all", contentfilter: str = "off"):
         tenor_url_list = []
