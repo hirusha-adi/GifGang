@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 from datetime import datetime
 import requests
@@ -44,6 +45,25 @@ class Sfw(commands.Cog):
             await ctx.send(embed=embed)
 
         del(giphy)
+
+    @commands.command()
+    async def picsum(self, ctx):
+
+        picsum = sfw.Picsum()
+        images_list = picsum.images(limit=120, height=500, width=200)
+
+        embed = discord.Embed(
+            title="",
+            color=0xff0000,
+            timestamp=datetime.utcnow()
+        )
+        embed.set_author(
+            name=str(self.client.user.name),
+            icon_url=str(self.client.user.avatar_url)
+        )
+        embed.set_image(url=images_list[random.randint(0, len(images_list)-1)])
+        embed.set_footer(text=f"PICSUM - Reuqested by {ctx.author.name}")
+        await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
