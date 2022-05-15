@@ -1,6 +1,10 @@
-# GifGang - Web App
+# GifGang
 
-# Current Version: `v1.4`
+# Current Versions
+
+## Website: `v1.4`
+
+## Discord Bot: `v1.0`
 
 # SETUP
 
