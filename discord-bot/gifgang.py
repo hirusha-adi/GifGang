@@ -3,8 +3,6 @@ import os
 import discord
 from discord.ext import commands
 
-from bot.database.manager import main as db_main
-
 client = commands.Bot(command_prefix=db_main.prefix)
 
 for filename in os.listdir('./bot/cogs'):
