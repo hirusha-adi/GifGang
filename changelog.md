@@ -1,6 +1,11 @@
+# v1.1
+
+- Bug Fixes
+
 # v1.0
 
 - SFW Classes List:
+
   1. `Giphy`
   2. `Picsum`
   3. `Tenor`
@@ -9,8 +14,7 @@
      2. `CatsAsAService`
   5. `Dogs`
   6. `NekosLife`
-     <br>
-     <br>
+
 - NSFW Classes List:
 
   1. `Eporner`
