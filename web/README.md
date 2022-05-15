@@ -1,5 +1,7 @@
 # GifGang - Web App
 
+# Current Version: `v1.4`
+
 # SETUP
 
 # Setting up MongoDB
