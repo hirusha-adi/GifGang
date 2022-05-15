@@ -1,15 +1,20 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
-import urllib.request
+import requests
+from module import sfw
+from utils import Important
 
 
-class Base(commands.Cog):
+class Sfw(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
     @commands.command()
-    async def uptime(self, ctx):
+    async def giphy(self, ctx, mode, **query):
+
+        giphy = sfw.Giphy(api_key=str(Important.giphy_api_key))
+
         embed = discord.Embed(
             title=f"Uptime",
             color=0xff0000,
@@ -29,4 +34,4 @@ class Base(commands.Cog):
 
 
 def setup(client: commands.Bot):
-    client.add_cog(Base(client))
+    client.add_cog(Sfw(client))
