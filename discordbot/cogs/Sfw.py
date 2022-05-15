@@ -70,9 +70,14 @@ class Sfw(commands.Cog):
     @commands.command()
     async def tenor(self, ctx, *query):
         random_search_words = (
-            "animal", "cat", "dog", "anime", "wallpaper", "scenery", "mountains", "happy", "office"
+            "animal", "cat", "dog", "anime", "wallpaper", "scenery", "mountains", "happy", "office",
+            "perception", "youth", "variety", "refrigerator", "government", "performance", "marriage", "responsibility",
+            "loss", "success", "profession", "feedback", "housing", "chapter", "editor", "bird", "climate", "wife",
+            "presence", "health", "meal", "customer", "dirt", "idea", "satisfaction", "imagination", "employment", "indication",
+            "politics", "anxiety", "manager", "movie", "person", "unit", "session", "temperature", "poem", "construction",
+            "relationship", "departure", "instance", "week", "ratio", "application", "complaint", "activity", "story", "lady",
+            "administration", "psychology",
         )
-
         tenor = sfw.Tenor(api_key=str(Important.tenor_api_key))
 
         if len(query) >= 1:
