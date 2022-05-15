@@ -101,9 +101,8 @@ class Base(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
         embed = discord.Embed(
-            title="Pong!",
+            title=f"Pong!\nThat took you: `{round(self.client.latency * 1000)} ms`",
             color=0xff0000,
-            description=f"That took you: `{round(self.client.latency * 1000)} ms`",
             timestamp=datetime.utcnow()
         )
         embed.set_author(
