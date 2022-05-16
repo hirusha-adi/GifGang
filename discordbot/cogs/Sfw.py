@@ -39,6 +39,26 @@ class Sfw(commands.Cog):
     @commands.command()
     async def giphy(self, ctx, mode=None, *query):
 
+        """
+        Usage:
+            .giphy [mode] [query]
+
+        Arguments:
+            [mode]
+                "trending" / "search" / "random"
+                defaults to "random"
+
+            [query]
+                only needed if [mode] is "search"
+
+        Examples:
+            .giphy                          | works
+            .giphy search happy birthday    | works
+            .giphy trending                 | works
+
+            .giphy search                   | defaults to "random"
+        """
+
         all_modes = ("random", "trending", "search")
         if mode is None:
             mode = "random"
@@ -48,11 +68,14 @@ class Sfw(commands.Cog):
 
         giphy = sfw.Giphy(api_key=str(Important.giphy_api_key))
 
-        if mode == "trending":
-            images_list = giphy.trending(limit=1)
-        elif mode == "search":
-            images_list = giphy.search(query=' '.join(query), limit=1)
-        else:
+        try:
+            if mode == "trending":
+                images_list = giphy.trending(limit=1)
+            elif mode == "search":
+                images_list = giphy.search(query=' '.join(query[1:]), limit=1)
+            else:
+                images_list = giphy.random(limit=1)
+        except IndexError:
             images_list = giphy.random(limit=1)
 
         for image in images_list:
