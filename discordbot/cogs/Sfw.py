@@ -97,6 +97,11 @@ class Sfw(commands.Cog):
     @commands.command()
     async def picsum(self, ctx):
 
+        """
+        Usage:
+            .picsum
+        """
+
         picsum = sfw.Picsum()
         images_list = picsum.images(limit=120, height=500, width=200)
 
