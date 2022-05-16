@@ -83,6 +83,28 @@ class Nsfw(commands.Cog):
     @commands.command()
     async def redtube(self, ctx, *args):
 
+        """
+        Usage:
+            .redtube [mode-or-query]
+
+        Arguments:
+            [mode-or-query]
+                "stars", "star", "pornstar"
+
+                if first word is in above words,
+                    will send a random pornstar
+
+                if not,
+                    will search for result in redtube
+
+                this can be the mode or what to search for
+
+        Examples:
+            .redtube            | works
+            .redtube star       | works - send random pornstar
+            .redtube cumshot    | works
+        """
+
         obj = nsfw.RedTube()
 
         try:
