@@ -129,7 +129,7 @@ class Sfw(commands.Cog):
 
         Arguments:
             [query]
-                what to search for. 
+                what to search for.
                 defaults to a randomly selected word
 
         Exmaples:
