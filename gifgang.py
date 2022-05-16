@@ -70,6 +70,7 @@ app.add_url_rule("/torrents/channel/<name>/<page>", 'torrent_channel', torrent_c
 
 
 app.add_url_rule("/discord", 'discord_index', discord_index, methods=['GET'])
+app.add_url_rule("/discord/join", 'discord_join_server', discord_join_server, methods=['GET'])
 
 
 @app.errorhandler(404)
