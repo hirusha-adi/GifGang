@@ -123,6 +123,20 @@ class Sfw(commands.Cog):
     @commands.command()
     async def tenor(self, ctx, *query):
 
+        """
+        Usage:
+            .tenor [query]
+
+        Arguments:
+            [query]
+                What to search for. 
+                Defaults to a randomly selected word
+
+        Exmaples:
+            .tenor                  | works
+            .tenor good morning     | works
+        """
+
         random_search_words = (
             "animal", "cat", "dog", "anime", "wallpaper", "scenery", "mountains", "happy", "office",
             "perception", "youth", "variety", "refrigerator", "government", "performance", "marriage", "responsibility",
