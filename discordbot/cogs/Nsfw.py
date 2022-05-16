@@ -13,6 +13,21 @@ class Nsfw(commands.Cog):
     @commands.command()
     async def eporner(self, ctx, *args):
 
+        """
+        Usage:
+            .erporner [query]
+
+        Arguments:
+            [query]
+                what to search for
+                defaults to a randomly selected word
+
+        Example:
+            .eporner            | works
+            .eporner cumshot    | works
+            .eporner lesbians   | works
+        """
+
         obj = nsfw.Eporner()
 
         try:
