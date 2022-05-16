@@ -81,7 +81,7 @@ class Sfw(commands.Cog):
         for image in images_list:
             embed = discord.Embed(
                 title=image['title'],
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -107,7 +107,7 @@ class Sfw(commands.Cog):
 
         embed = discord.Embed(
             title="",
-            color=0xff0000,
+            color=0x2699ED,
             timestamp=datetime.utcnow()
         )
         embed.set_author(
@@ -162,7 +162,7 @@ class Sfw(commands.Cog):
         for image in images_list:
             embed = discord.Embed(
                 title=image['title'],
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -549,7 +549,7 @@ class Sfw(commands.Cog):
         for image in images_list:
             embed = discord.Embed(
                 title="a Dog",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(

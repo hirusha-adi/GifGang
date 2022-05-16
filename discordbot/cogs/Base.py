@@ -107,7 +107,7 @@ class Base(commands.Cog):
     async def ping(self, ctx):
         embed = discord.Embed(
             title=f"Pong!\nThat took you: `{round(self.client.latency * 1000)} ms`",
-            color=0xff0000,
+            color=0x2699ED,
             timestamp=datetime.utcnow()
         )
         embed.set_author(
@@ -121,7 +121,7 @@ class Base(commands.Cog):
     async def uptime(self, ctx):
         embed = discord.Embed(
             title=f"Uptime",
-            color=0xff0000,
+            color=0x2699ED,
             timestamp=datetime.utcnow()
         )
         embed.set_author(
@@ -150,7 +150,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Giphy",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -178,7 +178,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Picsum",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -201,7 +201,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Cat As A Service",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -229,7 +229,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Tenor",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -257,7 +257,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | The Cat API",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -285,7 +285,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Eporner",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -313,7 +313,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | RedTube",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -341,7 +341,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow(),
                 description="Send the reponse time of GifGang's Discord Bot"
             )
@@ -360,7 +360,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow(),
                 description="Send the uptime of GifGang"
             )
@@ -379,7 +379,7 @@ class Base(commands.Cog):
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
                 url="https://gifgang.net/discord/help",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow(),
                 description="Send information about GifGang"
             )
@@ -399,7 +399,7 @@ class Base(commands.Cog):
                 title=f"Help for GifGang's Discord Bot",
                 url="https://gifgang.net/discord/help",
                 description="you can run `.help [name]` for additional information",
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(

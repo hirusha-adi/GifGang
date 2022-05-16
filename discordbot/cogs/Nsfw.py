@@ -44,7 +44,7 @@ class Nsfw(commands.Cog):
         embed = discord.Embed(
             title=video["title"],
             url=video["src_url"],
-            color=0xff0000,
+            color=0x2699ED,
             timestamp=datetime.utcnow()
         )
         embed.set_author(
@@ -136,7 +136,7 @@ class Nsfw(commands.Cog):
             embed = discord.Embed(
                 title=video["title"],
                 url=video["src_url"],
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
@@ -173,7 +173,7 @@ class Nsfw(commands.Cog):
             embed = discord.Embed(
                 title=image["title"],
                 url=image["src_url"],
-                color=0xff0000,
+                color=0x2699ED,
                 timestamp=datetime.utcnow()
             )
             embed.set_author(
