@@ -146,35 +146,7 @@ class Base(commands.Cog):
 
     @commands.command()
     async def help2(self, ctx, cmnd=None):
-        if cmnd == "thecatapi":
-            embed = discord.Embed(
-                title=f"Help for GifGang's Discord Bot | The Cat API",
-                url="https://gifgang.net/discord/help",
-                color=0xff0000,
-                timestamp=datetime.utcnow()
-            )
-            embed.set_author(
-                name=str(self.client.user.name),
-                icon_url=str(self.client.user.avatar_url)
-            )
-            embed.add_field(
-                name="Usage:",
-                value=f"```.thecatapi [mode]```",
-                inline=False
-            )
-            embed.add_field(
-                name="Arguments:",
-                value=f'**[mode]**\n`"b" / "breed" / "i" / "img" / "image"`\n`defaults to "image"`',
-                inline=False
-            )
-            embed.add_field(
-                name="Examples:",
-                value=f"`.thecatapi          | works`\n`.thecatapi image    | works`\n`.thecatapi b        | works`\n`.thecatapi breed    | works`",
-                inline=False
-            )
-            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
-            await ctx.send(embed=embed)
-        elif cmnd == "giphy":
+        if cmnd == "giphy":
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Giphy",
                 url="https://gifgang.net/discord/help",
@@ -202,6 +174,114 @@ class Base(commands.Cog):
             )
             embed.set_footer(text=f"Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
+        elif cmnd == "picsum":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | Picsum",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.thecatapi```",
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.picsum`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "cataas":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | Cat As A Service",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.cataas [mode] [text] [filter]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[mode]**\n`"img" / "i" / "image" / "gif"`\n**[text]**\n`any text to add on top of the image`\n`if there is no text, this can be replaced with [filter]`\n**[filter]**\n`"blur" / "mono" / "sepia" / "negative" / "paint" / "pixel"`\n`filter name`\n`defaults to None`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.cataas gif                     | works`\n`.cataas img                     | works`\n`.cataas img hey Babe?           | works`\n`.cataas img Hey babe? sepia     | works`\n`.cataas img sepia               | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "tenor":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | Tenor",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.tenor [query]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[query]**\n`what to search for.`\n`defaults to a randomly selected word`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.tenor                  | works`\n`.tenor good morning     | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "thecatapi":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | The Cat API",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.thecatapi [mode]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[mode]**\n`"b" / "breed" / "i" / "img" / "image"`\n`defaults to "image"`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.thecatapi          | works`\n`.thecatapi image    | works`\n`.thecatapi b        | works`\n`.thecatapi breed    | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+
         else:
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
