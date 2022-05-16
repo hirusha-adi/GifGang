@@ -6,6 +6,7 @@ Important Links
 - [GifGang Info Website](https://hirusha-adi.github.io/GifGang/)
 - [GifGang Module](https://github.com/hirusha-adi/GifGang/tree/module)
 - [GifGang Intsaller Scripts](https://github.com/hirusha-adi/GifGang/tree/installer)
+- [Torrent List Creator](https://github.com/hirusha-adi/GifGang-Data)
 
 <br>
 
