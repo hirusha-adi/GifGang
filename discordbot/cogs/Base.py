@@ -1,9 +1,9 @@
+import time
+import urllib.request
+from datetime import datetime, timedelta
+
 import discord
 from discord.ext import commands
-import time
-from datetime import datetime
-from datetime import timedelta
-import urllib.request
 
 
 class Base(commands.Cog):
