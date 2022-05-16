@@ -9,6 +9,7 @@ from routes.adult import *
 from routes.original import *
 from routes.torrents import *
 from routes.common import *
+from routes.discord import *
 from utils import Config, count_total_visits_amount, log, reload_daily_count
 
 app = Flask(__name__)
@@ -68,6 +69,7 @@ app.add_url_rule("/torrents/channel/<name>", 'torrent_channel_no_page', torrent_
 app.add_url_rule("/torrents/channel/<name>/<page>", 'torrent_channel', torrent_channel, methods=['GET'])
 
 
+app.add_url_rule("/discord", 'discord_index', discord_index, methods=['GET'])
 
 
 @app.errorhandler(404)
