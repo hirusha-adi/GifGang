@@ -129,8 +129,8 @@ class Sfw(commands.Cog):
 
         Arguments:
             [query]
-                What to search for. 
-                Defaults to a randomly selected word
+                what to search for. 
+                defaults to a randomly selected word
 
         Exmaples:
             .tenor                  | works
@@ -175,6 +175,33 @@ class Sfw(commands.Cog):
 
     @commands.command()
     async def cataas(self, ctx, mode=None, *text):
+
+        """
+        Usage:
+            .cataas [mode] [text] [filter]
+
+        Arguments:
+            [mode]
+                "img" / "i" / "image" / "gif"
+
+            [text]
+                any text to add on top of the image
+                if there is no text, 
+                    this can be replaced with [filter]
+
+            [filter]
+                "blur" / "mono" / "sepia" / "negative" / "paint" / "pixel"
+                filter name 
+                defaults to None
+
+        Example:
+            .cataas gif                     | works
+            .cataas img                     | works
+            .cataas img hey Babe?           | works
+            .cataas img Hey babe? sepia     | works
+            .cataas img sepia               | works
+        """
+
         image_words = ["img", "i", "image"]
         if mode is None:
             mode = "gif"
@@ -268,6 +295,23 @@ class Sfw(commands.Cog):
 
     @commands.command()
     async def thecatapi(self, ctx, mode=None):
+
+        """
+        Usage:
+            .thecatapi [mode]
+
+        Arguments:
+            [mode]
+                "b" / "breed" / "i" / "img" / "image"
+                defaults to "image"
+
+        Examples:
+            .thecatapi          | works
+            .thecatapi image    | works
+            .thecatapi b        | works
+            .thecatapi breed    | works
+        """
+
         if mode is None:
             mode = "image"
 
