@@ -282,6 +282,35 @@ class Base(commands.Cog):
             embed.set_footer(text=f"Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
 
+        elif cmnd == "erporner":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | Eporner",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.erporner [query]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[query]**\n`what to search for`\n`defaults to a randomly selected word`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.eporner            | works`\n`.eporner cumshot    | works`\n`.eporner lesbians   | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+
         else:
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
