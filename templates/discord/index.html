@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="{{ web_title }}">
+    <meta property="og:site_name" content="GifGang's Disocrd Bot">
+    <meta property="og:image" content="">
+    <meta property="og:description" content=""">
+    <meta name=" theme-color" content="#07a020">
+    <title>{{ web_title }}</title>
+    <link href="{{ url_for('static', filename='css/libs/bootstrap3.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/discord_index.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#home">
+                    <font size="6" face="icomoon"></font>
+                </a>
+                <a class="navbar-brand" href="#home">
+                    <font size="4">GifGang</font>
+                </a>
+            </div>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="/invite">Invite</a>
+                    </li>
+                    <li>
+                        <a href="/privacy-policy">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="/treehouse">Support</a>
+                    </li>
+                    <li>
+                        <a href="/donate">Donate</a>
+                    </li>
+                    <li>
+                        <a href="/twitter">Twitter</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Features <span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="features">
+                            <li><a href="#ship">Shipping</a></li>
+                            <li><a href="#racing">Racing</a></li>
+                            <li><a href="#spinners">Fidget Spinners</a></li>
+                            <li><a href="#battles">Death Battles</a></li>
+                            <li><a href="#soundboard">Soundboard</a></li>
+                            <li><a href="#phones">Phones</a></li>
+                            <li><a href="#welcomes">Welcome Images</a></li>
+                            <li><a href="#fun">Fun</a></li>
+                            <li><a href="#info">Information</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Header -->
+    <a id="home"></a>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>GifGang's Discord Bot</h1>
+                <p>
+                    Fun! Sounds! Racing! Games! Phones! Pranks!
+                    <br><br>
+                    Type <code>--help</code> to see the commands!
+                </p>
+                <a href="/invite" class="btn btn-primary btn-lg">Add to Discord</a>
+            </div>
+        </div>
+    </header>
+
+    <a id="ship"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Shipping!</h1>
+                    <p>Would two people be the perfect couple? Or should they start looking for someone else? Find out!
+                    </p>
+                    <p>Use <code>--ship @username @secondusername</code> to see how compatible two users are! this bot
+                        will calculate their compatibility using a super-secret algorithm! Want to see how compatible
+                        friends are?
+                        Try the <code>--friendscore</code> command!</p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/ship.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="racing"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Racing!</h1>
+                    <p>Race with your friends to see who comes out on top! There are tons of cars to choose from! From
+                        the 2010 YMC Feral, to the 2120 Kyber Saber!</p>
+                    <p>Use <code>--race [car]</code> to start up a race lobby with your favorite car, or include no car
+                        to get a random car out of your garage!</p>
+                    <p>Use <code>--garage</code> to see all of the cars you have in your garage, with unique stats and
+                        descriptions for every car!</p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/racing.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="spinners"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Fidget Spinners!</h1>
+                    <p>Now you can compete with your friends (and everyone else) to see who can spin a fidget spinner
+                        the longest!</p>
+                    <p>Type <code>--spinner [type]</code> to start spinning your fidget spinner. Replace [type] with the
+                        type of spinner
+                        you want to spin! Some of the available spinner types include: Red, Orange, Yellow, Green, Mint,
+                        Blue, Purple, and Pink</p>
+                    <p>Use <code>--spinner scores</code> to see the current high scores. If you didn't place, don't
+                        worry! Scores only last a
+                        few hours, and you can keep spinning to try to get on top!
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/spinner.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="battles"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Death Battles!</h1>
+                    <p>Battle your friends or your enemies to see who will come out on top!</p>
+                    <p>Just type <code>--deathbattle @username</code> to start a battle with someone, and this bot will
+                        do the rest!</p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/battle.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="soundboard"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Soundboard!</h1>
+                    <p>Play awesome sounds right when you need them!</p>
+                    <p>Check out all of these great sounds!<br>
+                        <code>--airhorn</code>
+                        <code>--brainpower</code>
+                        <code>--cena</code>
+                        <code>--cheer</code>
+                        <code>--cricket</code>
+                        <code>--duel</code>
+                        <code>--easy</code>
+                        <code>--fakeerror</code>
+                        <code>--fakeping</code>
+                        <code>--knocking</code>
+                        <code>--laurel</code>
+                        <code>--leeroy</code>
+                        <code>--myleg</code>
+                        <code>--numberone</code>
+                        <code>--oof</code>
+                        <code>--tooslow</code>
+                        <code>--trombone</code>
+                        <code>--vsauce</code>
+                        <code>--yanny</code>
+                    </p>
+
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/sound.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="phones"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Cross-Server Phones!</h1>
+                    <p>Have you always wanted to talk with other people, even if they aren't on your server? Well now
+                        you can! Just pick up the phone and chat!</p>
+                    <p>There are plenty of phones available!<br>
+                        <code>--speakerphone</code>
+                        <code>--userphone</code>
+                        <code>--eyephone</code>
+                        <code>--flipphone</code>
+                        <code>--scramblephone</code>
+                        <code>--voicephone</code>
+                        <code>--fuwwyphone</code>
+                    </p>
+                    <p>To hang up, just use the same command you used to pick up the phone!</p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/phones.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="welcomes"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Welcome Images!</h1>
+                    <p>Create beautiful welcome images for people that join your server to greet them!</p>
+                    <p>To make these images appear, simply add <b>!welcome!</b> to the topic of the channel, as shown in
+                        the provided image. You can make this bot show leave messages with <b>!goodbye!</b> in the
+                        topic of a channel.</p>
+                    <p>Note: You can't change the background, it is randomly selected from Ygg's favorite pictures.</p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/welcomeimage.png">
+                    <br><br>
+                    <img src="./images/welcomesetup.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="fun"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Fun Commands!</h1>
+                    <p>There are a ton of random things to do while you have this bot on your server!<br>
+                        <code>--pokefusion</code>
+                        <code>--rip</code>
+                        <code>--meme</code>
+                        <code>--joke</code>
+                        <code>--useless</code>
+                        <code>--spoilers</code>
+                        <code>--loading</code>
+                        <code>--gold</code>
+                        <code>--nitro</code>
+                        <code>--quote</code>
+                    </p>
+                    <p>Look at pictures of cute animals!<br>
+                        <code>--bird</code>
+                        <code>--cat</code>
+                        <code>--dog</code>
+                    </p>
+                    <p>Make decisions about life or anything!<br>
+                        <code>--choose First Second ...</code>
+                        <code>--8ball Will I succeed?</code>
+                        <code>--roll 3d20</code>
+                    </p>
+                    <p>Generate images using your profile picture!<br>
+                        <code>--icecream</code>
+                        <code>--toast</code>
+                        <code>--wanted</code>
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/fun.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="info"></a>
+    <div class="feature">
+        <div class="feature-content container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h1>Useful Information!</h1>
+                    <p>Find out information about the server, its members, the bot and more!</p>
+                    <p>Try checking out some info with the following commands!
+                        <code>--avatar @user</code>
+                        <code>--serverinfo</code>
+                        <code>--userinfo @user</code>
+                        <code>--about</code>
+                        <code>--ping</code>
+                        <code>--invite</code>
+                    </p>
+                </div>
+                <div class="col-sm-5">
+                    <img src="./images/info.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/libs/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/libs/bootstrap3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/libs/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/discord_index.js') }}"></script>
+</body>
+
+</html>
