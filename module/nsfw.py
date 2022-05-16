@@ -1,51 +1,11 @@
 import requests
 import random as rand
 
-__random_query_lis = [
-    "amateur",
-    "anal",
-    "asian",
-    "blonde",
-    "bigtits",
-    "blowjob",
-    "creampie",
-    "cumshot",
-    "double penetration",
-    "ebony",
-    "facials",
-    "group",
-    "hentai",
-    "interracial",
-    "latina",
-    "japanese",
-    "lingerie",
-    "lesbian",
-    "masturbation",
-    "mature",
-    "milf",
-    "pov",
-    "public",
-    "redhead",
-    "squirting",
-    "wildcrazy",
-    "teens",
-    "cuckold",
-    "oral",
-    "cumshot facial",
-    "pussy",
-    "pussy licking",
-    "deep throat",
-    "cum on tits",
-    "threesome",
-    "bondage",
-    "bdsm",
-    "celebrity"
-]
-
 
 class Eporner:
     def __init__(self):
-        pass
+        self.__random_query_lis = ["amateur", "anal", "asian", "blonde", "bigtits", "blowjob", "creampie", "cumshot", "double penetration", "ebony", "facials", "group", "hentai", "interracial", "latina", "japanese", "lingerie", "lesbian",
+                                   "masturbation", "mature", "milf", "pov", "public", "redhead", "squirting", "wildcrazy", "teens", "cuckold", "oral", "cumshot facial", "pussy", "pussy licking", "deep throat", "cum on tits", "threesome", "bondage", "bdsm", "celebrity"]
 
     def random(self, limit: int = 5, thumbsize: str = "big", order: str = "top-weekly", format: str = "json"):
         eporner_list = []
@@ -55,7 +15,7 @@ class Eporner:
         _final_url += f'&thumbsize={thumbsize}'
         _final_url += f'&order={order}'
         _final_url += f'&format={format}'
-        _final_url += f'&query={rand.choice(__random_query_lis)}'
+        _final_url += f'&query={rand.choice(self.__random_query_lis)}'
 
         r = requests.get(_final_url)
 
@@ -66,7 +26,13 @@ class Eporner:
                     {
                         "title": result["title"],
                         "url": result["default_thumb"]["src"],
-                        "src_url": result["url"]
+                        "src_url": result["url"],
+                        "keywords": result["keywords"],
+                        "views": result["views"],
+                        "rate": result["rate"],
+                        "uploaded_on": result["added"],
+                        "length": result["length_min"],
+                        "embed": result["embed"]
                     }
                 )
 
@@ -91,7 +57,13 @@ class Eporner:
                     {
                         "title": result["title"],
                         "url": result["default_thumb"]["src"],
-                        "src_url": result["url"]
+                        "src_url": result["url"],
+                        "keywords": result["keywords"],
+                        "views": result["views"],
+                        "rate": result["rate"],
+                        "uploaded_on": result["added"],
+                        "length": result["length_min"],
+                        "embed": result["embed"]
                     }
                 )
 
@@ -100,7 +72,8 @@ class Eporner:
 
 class RedTube:
     def __init__(self):
-        pass
+        self.__random_query_lis = ["amateur", "anal", "asian", "blonde", "bigtits", "blowjob", "creampie", "cumshot", "double penetration", "ebony", "facials", "group", "hentai", "interracial", "latina", "japanese", "lingerie", "lesbian",
+                                   "masturbation", "mature", "milf", "pov", "public", "redhead", "squirting", "wildcrazy", "teens", "cuckold", "oral", "cumshot facial", "pussy", "pussy licking", "deep throat", "cum on tits", "threesome", "bondage", "bdsm", "celebrity"]
 
     def stars(self, page="1", output: str = "json"):
         stars_list = []
@@ -131,7 +104,7 @@ class RedTube:
         _final_url += f'?data=redtube.Videos.searchVideos'
         _final_url += f'&thumbsize={size}'
         _final_url += f'&output={output}'
-        _final_url += f'&search={rand.choice(__random_query_lis)}'
+        _final_url += f'&search={rand.choice(self.__random_query_lis)}'
 
         r = requests.get(_final_url)
         if 300 > r.status_code >= 200:
