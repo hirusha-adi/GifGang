@@ -13,3 +13,12 @@ def discord_index():
         "discord/index.html",
         web_title="Discord Bot | GifGang"
     )
+
+
+def discord_join_server():
+    count_total_visits_amount()
+    logf(request=request, page="discord/join")
+    log(f'Requested `/discord/join` - discord_join_server()',
+        ipaddr=request.remote_addr)
+
+    return redirect("https://discord.gg/MtBKmJfZ64")
