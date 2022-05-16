@@ -21,6 +21,7 @@
     <!-- Navigation -->
     <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
+
             <!-- Logo and responsive toggle -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -30,49 +31,43 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#home">
-                    <font size="6" face="icomoon"></font>
+                    <font size="6" face="icomoon"></font>
                 </a>
                 <a class="navbar-brand" href="#home">
                     <font size="4">GifGang</font>
                 </a>
             </div>
+
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
 
                     <li>
-                        <a href="/invite">Invite</a>
+                        <a href="{{ url_for('discord_join_server') }}">Invite</a>
                     </li>
                     <li>
-                        <a href="/privacy-policy">Privacy Policy</a>
+                        <a href="#">Commands / Help</a>
                     </li>
                     <li>
-                        <a href="/treehouse">Support</a>
+                        <a href="{{ url_for('all_links') }}">All Pages</a>
                     </li>
                     <li>
-                        <a href="/donate">Donate</a>
-                    </li>
-                    <li>
-                        <a href="/twitter">Twitter</a>
+                        <a href="{{ url_for('index') }}">Main Site</a>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                            aria-expanded="false">Features <span class="caret"></span></a>
+                            aria-expanded="false">Pins <span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="features">
-                            <li><a href="#ship">Shipping</a></li>
-                            <li><a href="#racing">Racing</a></li>
-                            <li><a href="#spinners">Fidget Spinners</a></li>
-                            <li><a href="#battles">Death Battles</a></li>
-                            <li><a href="#soundboard">Soundboard</a></li>
-                            <li><a href="#phones">Phones</a></li>
-                            <li><a href="#welcomes">Welcome Images</a></li>
-                            <li><a href="#fun">Fun</a></li>
-                            <li><a href="#info">Information</a></li>
+                            <li><a href="#home">Start</a></li>
+                            <li><a href="#general">General</a></li>
+                            <li><a href="#sfw">SFW</a></li>
+                            <li><a href="#nsfw">NSFW</a></li>
                         </ul>
                     </li>
 
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -86,238 +81,99 @@
             <div class="header-content-inner">
                 <h1>GifGang's Discord Bot</h1>
                 <p>
-                    Fun! Sounds! Racing! Games! Phones! Pranks!
+                    GIFs and Images!
                     <br><br>
-                    Type <code>--help</code> to see the commands!
+                    Type <code>.help</code> to see the commands!
                 </p>
-                <a href="/invite" class="btn btn-primary btn-lg">Add to Discord</a>
+                <a href="{{ url_for('discord_join_server') }}" class="btn btn-primary btn-lg">Join Discord Server</a>
             </div>
         </div>
     </header>
 
-    <a id="ship"></a>
+    <a id="general"></a>
     <div class="feature">
         <div class="feature-content container">
             <div class="row">
                 <div class="col-sm-7">
-                    <h1>Shipping!</h1>
-                    <p>Would two people be the perfect couple? Or should they start looking for someone else? Find out!
+                    <h1>General</h1>
+                    <p>
+                        General commands regarding the bot
                     </p>
-                    <p>Use <code>--ship @username @secondusername</code> to see how compatible two users are! this bot
-                        will calculate their compatibility using a super-secret algorithm! Want to see how compatible
-                        friends are?
-                        Try the <code>--friendscore</code> command!</p>
+                    <p>
+                        Display basic information regarding the discord bot
+                    </p>
                 </div>
                 <div class="col-sm-5">
-                    <img src="./images/ship.png">
+                    <img src="https://cdn.discordapp.com/attachments/957630505086517308/975789560061640714/unknown.png">
                 </div>
             </div>
         </div>
     </div>
 
-    <a id="racing"></a>
+    <a id="sfw"></a>
     <div class="feature">
         <div class="feature-content container">
             <div class="row">
                 <div class="col-sm-7">
-                    <h1>Racing!</h1>
-                    <p>Race with your friends to see who comes out on top! There are tons of cars to choose from! From
-                        the 2010 YMC Feral, to the 2120 Kyber Saber!</p>
-                    <p>Use <code>--race [car]</code> to start up a race lobby with your favorite car, or include no car
-                        to get a random car out of your garage!</p>
-                    <p>Use <code>--garage</code> to see all of the cars you have in your garage, with unique stats and
-                        descriptions for every car!</p>
+                    <h1>SFW!</h1>
+                    <p>
+                        Safe For Work commands covering APIs of
+                        <code>
+                            <a href="https://giphy.com/" target="_blank" rel="noopener noreferrer">
+                                Giphy
+                            </a>
+                        </code>,
+                        <code>
+                            <a href="https://picsum.photos/" target="_blank" rel="noopener noreferrer">
+                                Picsum
+                            </a>
+                        </code>,
+                        <code>
+                            <a href="https://tenor.com/" target="_blank" rel="noopener noreferrer">
+                                Tenor
+                            </a>
+                        </code>,
+                        <code>
+                            <a href="https://cataas.com/#/" target="_blank" rel="noopener noreferrer">
+                                Cat As A Service
+                            </a>
+                        </code>,
+                        <code>
+                            <a href="https://thecatapi.com/" target="_blank" rel="noopener noreferrer">
+                                The Cat API
+                            </a>
+                        </code>
+                    </p>
                 </div>
                 <div class="col-sm-5">
-                    <img src="./images/racing.png">
+                    <img src="https://cdn.discordapp.com/attachments/957630505086517308/975790658843455538/unknown.png">
                 </div>
             </div>
         </div>
     </div>
 
-    <a id="spinners"></a>
+    <a id="nsfw"></a>
     <div class="feature">
         <div class="feature-content container">
             <div class="row">
                 <div class="col-sm-7">
-                    <h1>Fidget Spinners!</h1>
-                    <p>Now you can compete with your friends (and everyone else) to see who can spin a fidget spinner
-                        the longest!</p>
-                    <p>Type <code>--spinner [type]</code> to start spinning your fidget spinner. Replace [type] with the
-                        type of spinner
-                        you want to spin! Some of the available spinner types include: Red, Orange, Yellow, Green, Mint,
-                        Blue, Purple, and Pink</p>
-                    <p>Use <code>--spinner scores</code> to see the current high scores. If you didn't place, don't
-                        worry! Scores only last a
-                        few hours, and you can keep spinning to try to get on top!
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/spinner.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="battles"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Death Battles!</h1>
-                    <p>Battle your friends or your enemies to see who will come out on top!</p>
-                    <p>Just type <code>--deathbattle @username</code> to start a battle with someone, and this bot will
-                        do the rest!</p>
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/battle.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="soundboard"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Soundboard!</h1>
-                    <p>Play awesome sounds right when you need them!</p>
-                    <p>Check out all of these great sounds!<br>
-                        <code>--airhorn</code>
-                        <code>--brainpower</code>
-                        <code>--cena</code>
-                        <code>--cheer</code>
-                        <code>--cricket</code>
-                        <code>--duel</code>
-                        <code>--easy</code>
-                        <code>--fakeerror</code>
-                        <code>--fakeping</code>
-                        <code>--knocking</code>
-                        <code>--laurel</code>
-                        <code>--leeroy</code>
-                        <code>--myleg</code>
-                        <code>--numberone</code>
-                        <code>--oof</code>
-                        <code>--tooslow</code>
-                        <code>--trombone</code>
-                        <code>--vsauce</code>
-                        <code>--yanny</code>
-                    </p>
-
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/sound.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="phones"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Cross-Server Phones!</h1>
-                    <p>Have you always wanted to talk with other people, even if they aren't on your server? Well now
-                        you can! Just pick up the phone and chat!</p>
-                    <p>There are plenty of phones available!<br>
-                        <code>--speakerphone</code>
-                        <code>--userphone</code>
-                        <code>--eyephone</code>
-                        <code>--flipphone</code>
-                        <code>--scramblephone</code>
-                        <code>--voicephone</code>
-                        <code>--fuwwyphone</code>
-                    </p>
-                    <p>To hang up, just use the same command you used to pick up the phone!</p>
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/phones.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="welcomes"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Welcome Images!</h1>
-                    <p>Create beautiful welcome images for people that join your server to greet them!</p>
-                    <p>To make these images appear, simply add <b>!welcome!</b> to the topic of the channel, as shown in
-                        the provided image. You can make this bot show leave messages with <b>!goodbye!</b> in the
-                        topic of a channel.</p>
-                    <p>Note: You can't change the background, it is randomly selected from Ygg's favorite pictures.</p>
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/welcomeimage.png">
-                    <br><br>
-                    <img src="./images/welcomesetup.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="fun"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Fun Commands!</h1>
-                    <p>There are a ton of random things to do while you have this bot on your server!<br>
-                        <code>--pokefusion</code>
-                        <code>--rip</code>
-                        <code>--meme</code>
-                        <code>--joke</code>
-                        <code>--useless</code>
-                        <code>--spoilers</code>
-                        <code>--loading</code>
-                        <code>--gold</code>
-                        <code>--nitro</code>
-                        <code>--quote</code>
-                    </p>
-                    <p>Look at pictures of cute animals!<br>
-                        <code>--bird</code>
-                        <code>--cat</code>
-                        <code>--dog</code>
-                    </p>
-                    <p>Make decisions about life or anything!<br>
-                        <code>--choose First Second ...</code>
-                        <code>--8ball Will I succeed?</code>
-                        <code>--roll 3d20</code>
-                    </p>
-                    <p>Generate images using your profile picture!<br>
-                        <code>--icecream</code>
-                        <code>--toast</code>
-                        <code>--wanted</code>
+                    <h1>NSFW</h1>
+                    <p>
+                        Not Safe For Work commands covering APIs of
+                        <code>
+                            <a href="https://redtube.com/" target="_blank" rel="noopener noreferrer">
+                                Red Tube
+                            </a>
+                        </code>,
+                        <code>
+                            <a href="https://eporner.com/" target="_blank" rel="noopener noreferrer">
+                                E-Porner
+                            </a>
+                        </code>
                     </p>
                 </div>
                 <div class="col-sm-5">
-                    <img src="./images/fun.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a id="info"></a>
-    <div class="feature">
-        <div class="feature-content container">
-            <div class="row">
-                <div class="col-sm-7">
-                    <h1>Useful Information!</h1>
-                    <p>Find out information about the server, its members, the bot and more!</p>
-                    <p>Try checking out some info with the following commands!
-                        <code>--avatar @user</code>
-                        <code>--serverinfo</code>
-                        <code>--userinfo @user</code>
-                        <code>--about</code>
-                        <code>--ping</code>
-                        <code>--invite</code>
-                    </p>
-                </div>
-                <div class="col-sm-5">
-                    <img src="./images/info.png">
+                    <img src="https://cdn.discordapp.com/attachments/957630505086517308/975791510647898132/unknown.png">
                 </div>
             </div>
         </div>
