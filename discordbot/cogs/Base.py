@@ -281,7 +281,6 @@ class Base(commands.Cog):
             )
             embed.set_footer(text=f"Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
-
         elif cmnd == "erporner":
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot | Eporner",
@@ -310,7 +309,34 @@ class Base(commands.Cog):
             )
             embed.set_footer(text=f"Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
-
+        elif cmnd == "redtube":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | RedTube",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.redtube [mode-or-query]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[mode-or-query]**\n`"stars", "star", "pornstar"`\n`if first word is in above words,`\n\t`will send a random pornstar`\n`if not,`\n\t`will search for result in redtube`\n`this can be the mode or what to search for`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.redtube            | works`\n`.redtube star       | works - send random pornstar`\n`.redtube cumshot    | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
         else:
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
