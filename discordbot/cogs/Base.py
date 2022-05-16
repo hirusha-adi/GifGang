@@ -337,6 +337,63 @@ class Base(commands.Cog):
             )
             embed.set_footer(text=f"Reuqested by {ctx.author.name}")
             await ctx.send(embed=embed)
+        elif cmnd == "ping":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow(),
+                description="Send the reponse time of GifGang's Discord Bot"
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.ping```",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "uptime":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow(),
+                description="Send the uptime of GifGang"
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.uptime```",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "about":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow(),
+                description="Send information about GifGang"
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.about```",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
         else:
             embed = discord.Embed(
                 title=f"Help for GifGang's Discord Bot",
