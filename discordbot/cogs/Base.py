@@ -145,8 +145,92 @@ class Base(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def help2(self, ctx):
-        await ctx.send("help")
+    async def help2(self, ctx, cmnd=None):
+        if cmnd == "thecatapi":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | The Cat API",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.thecatapi [mode]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[mode]**\n`"b" / "breed" / "i" / "img" / "image"`\n`defaults to "image"`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.thecatapi          | works`\n`.thecatapi image    | works`\n`.thecatapi b        | works`\n`.thecatapi breed    | works`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        elif cmnd == "giphy":
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot | Giphy",
+                url="https://gifgang.net/discord/help",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="Usage:",
+                value=f"```.giphy [mode] [query]```",
+                inline=False
+            )
+            embed.add_field(
+                name="Arguments:",
+                value=f'**[mode]**\n`"trending" / "search" / "random"`\n`defaults to "random"`\n**[query]**\n`only needed if [mode] is "search"`',
+                inline=False
+            )
+            embed.add_field(
+                name="Examples:",
+                value=f"`.giphy                          | works`\n`.giphy search happy birthday    | works`\n`.giphy trending                 | works`\n`.giphy search                   | defaults to 'random'`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(
+                title=f"Help for GifGang's Discord Bot",
+                url="https://gifgang.net/discord/help",
+                description="you can run `.help [name]` for additional information",
+                color=0xff0000,
+                timestamp=datetime.utcnow()
+            )
+            embed.set_author(
+                name=str(self.client.user.name),
+                icon_url=str(self.client.user.avatar_url)
+            )
+            embed.add_field(
+                name="General",
+                value=f"`ping`\n`uptime`\n`about`",
+                inline=False
+            )
+            embed.add_field(
+                name="SFW Commands",
+                value=f"`giphy [mode] [query]`\n`picsum`\n`tenor [query]`\n`cataas [mode] [text] [filter]`\n`thecatapi [mode]`",
+                inline=False
+            )
+            embed.add_field(
+                name="SFW Commands",
+                value=f"`erporner [query]`\n`redtube [mode-or-query]`",
+                inline=False
+            )
+            embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+            await ctx.send(embed=embed)
 
 
 def setup(client: commands.Bot):
