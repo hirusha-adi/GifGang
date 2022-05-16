@@ -1,6 +1,11 @@
 # GifGang
 
-## THIS HAS NOW BEEN MOVED TO [GifGang](https://github.com/GifGang/GifGang)
+Important Links
+
+- [GifGang (Main Deployment)](https://gifgang.net/links)
+- [GifGang Info Website](https://hirusha-adi.github.io/GifGang/)
+- [GifGang Module](https://github.com/hirusha-adi/GifGang/tree/module)
+- [GifGang Intsaller Scripts](https://github.com/hirusha-adi/GifGang/tree/installer)
 
 <br>
 
