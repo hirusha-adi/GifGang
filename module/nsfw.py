@@ -114,7 +114,13 @@ class RedTube:
                     {
                         "title": result["video"]["title"],
                         "url": result["video"]["default_thumb"],
-                        "src_url": result["video"]["url"]
+                        "src_url": result["video"]["url"],
+                        "views": result["video"]["views"],
+                        "rating": result["video"]["rating"],
+                        "ratings": result["video"]["ratings"],
+                        "embed_url": result["video"]["embed_url"],
+                        "publish_date": result["video"]["publish_date"],
+                        "duration": result["video"]["duration"]
                     }
                 )
 
@@ -137,7 +143,13 @@ class RedTube:
                     {
                         "title": result["video"]["title"],
                         "url": result["video"]["default_thumb"],
-                        "src_url": result["video"]["url"]
+                        "src_url": result["video"]["url"],
+                        "views": result["video"]["views"],
+                        "rating": result["video"]["rating"],
+                        "ratings": result["video"]["ratings"],
+                        "embed_url": result["video"]["embed_url"],
+                        "publish_date": result["video"]["publish_date"],
+                        "duration": result["video"]["duration"]
                     }
                 )
 
