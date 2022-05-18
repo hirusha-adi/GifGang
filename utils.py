@@ -115,6 +115,7 @@ class WebsiteData:
     adult_search = _data["adult_search"]
     adult_hentai = _data["adult_hentai"]
     torrents_catgories = _data["torrents_catgories"]
+    discord = _data["discord"]
 
 
 class Settings:
