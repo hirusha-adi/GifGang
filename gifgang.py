@@ -73,6 +73,7 @@ app.add_url_rule("/discord", 'discord_index', discord_index, methods=['GET'])
 app.add_url_rule("/discord/join", 'discord_join_server', discord_join_server, methods=['GET'])
 app.add_url_rule("/discord/help", 'discord_view_help', discord_view_help, methods=['GET'])
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     count_total_visits_amount()
@@ -83,8 +84,9 @@ def runWebServer():
     reset_count_24h = Thread(target=reload_daily_count)
     reset_count_24h.start()
 
+    _host = f"{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}"
     print(
-        f"[+] The server will run on:\n\t[*] SFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/\n\t[*] NSFW: http://{'localhost' if (Config.host == '0.0.0.0') or (Config.host == '127.0.0.1') else Config.host}:{Config.port}/adult\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
+        f"[+] The server will run on:\n\t[*] SFW: http://{_host}/\n\t[*] NSFW: http://{_host}/adult\n\t[*] Torrents: http://{_host}/torrents\n\t[*] Discord Bot's Website: http://{_host}/discord\n\t[*] Host: {Config.host}\n\t[*] Port: {Config.port}\n\t[*] Debug Mode: {Config.debug}")
     app.run(Config.host,
             port=Config.port,
             debug=Config.debug,
@@ -93,3 +95,4 @@ def runWebServer():
 
 if __name__ == "__main__":
     runWebServer()
+ 
