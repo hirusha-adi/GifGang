@@ -21,4 +21,13 @@ def discord_join_server():
     log(f'Requested `/discord/join` - discord_join_server()',
         ipaddr=request.remote_addr)
 
-    return redirect("https://discord.gg/MtBKmJfZ64")
+    return redirect(WebsiteData.discord["web_links"]["invite_to_server"])
+
+
+def discord_view_help():
+    count_total_visits_amount()
+    logf(request=request, page="discord/help")
+    log(f'Requested `/discord/help` - discord_view_help()',
+        ipaddr=request.remote_addr)
+
+    return redirect(WebsiteData.discord["web_links"]["commands_help_link"])
