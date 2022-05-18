@@ -1289,5 +1289,11 @@
                 "img": "https://cdn.discordapp.com/attachments/957630505086517308/975296713575247902/unknown.png"
             }
         ]
+    },
+    "discord": {
+        "web_links": {
+            "invite_to_server": "https://discord.gg/MtBKmJfZ64",
+            "commands_help_link": "https://hirusha-adikari.gitbook.io/gifgang/discord-bot/commands"
+        }
     }
 }
