@@ -4,21 +4,17 @@ Important Links
 
 - [GifGang (Main Deployment)](https://gifgang.net/links)
 - [GifGang Info Website](https://hirusha-adi.github.io/GifGang/)
+- [GifGang Setup Documentation and Guide](https://hirusha-adikari.gitbook.io/gifgang/)
 - [GifGang Module](https://github.com/hirusha-adi/GifGang/tree/module)
 - [GifGang Intsaller Scripts](https://github.com/hirusha-adi/GifGang/tree/installer)
 - [Torrent List Creator](https://github.com/hirusha-adi/GifGang-Data)
 
-<br>
-
 # Current Versions
 
-## Website: `v1.4`
+## Website: `v1.5`
 
 ## Discord Bot: `v1.0`
 
-## Module: `v1.1`
-
-<br>
 <br>
 
 # SETUP
