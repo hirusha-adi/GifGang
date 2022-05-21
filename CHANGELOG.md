@@ -1,3 +1,9 @@
+# 1.5
+
+- First ready to deploy version with Torrents Support
+- Has a fully featured discord bot with custom help for every command
+- Wrote [documentation in gitbook](https://hirusha-adikari.gitbook.io/gifgang/)
+
 # 1.4
 
 - Download torrents with the stored Magnet-URLs in MongoDB
