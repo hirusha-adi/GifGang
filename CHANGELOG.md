@@ -3,6 +3,8 @@
 - First ready to deploy version with Torrents Support
 - Has a fully featured discord bot with custom help for every command
 - Wrote [documentation in gitbook](https://hirusha-adikari.gitbook.io/gifgang/)
+- backend bug fixes of `/torrents/*`
+- Added Pagination for torrents with `flask-pagination`
 
 # 1.4
 
