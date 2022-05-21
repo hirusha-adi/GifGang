@@ -628,7 +628,6 @@ def admin_setting(site):
         if session["token"] == Settings.Admin.token:
 
             site = str(site)
-            print(site)
             if site in ("main", "sfw"):
                 return render_template(
                     "admin/settings.html",
@@ -647,6 +646,18 @@ def admin_setting(site):
                     adult_search_data=WebsiteData.adult_search,
                     adult_hentai_data=WebsiteData.adult_hentai,
                     adult_index_data=WebsiteData.adult_index,
+                )
+            elif site in ("torrents", "torrent"):
+                return render_template(
+                    "admin/settings.html",
+                    show_all_torrent_settings=True,
+                    torrents_catgories=WebsiteData.torrents_catgories,
+                )
+            elif site in ("discord", "discordbot"):
+                return render_template(
+                    "admin/settings.html",
+                    show_all_discord_settings=True,
+                    discord_data=WebsiteData.discord,
                 )
             else:
                 return render_template(
