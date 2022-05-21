@@ -66,6 +66,14 @@
                 <i class="fa-solid fa-file"></i>
                 NSFW
             </a>
+            <a href="{{ url_for('admin_setting', site='torrents') }}" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Torrents
+            </a>
+            <a href="{{ url_for('admin_setting', site='discord') }}" class="nav-link">
+                <i class="fa-solid fa-file"></i>
+                Discord
+            </a>
             <a href="{{ url_for('admin_panel_page') }}" class="nav-link mb-auto">
                 <i class="fa-solid fa-arrow-left"></i>
                 Admin Panel
@@ -88,6 +96,14 @@
                     <a href="{{ url_for('admin_setting', site='nsfw') }}" class="nav-link">
                         <i class="fa-solid fa-file"></i>
                         NSFW
+                    </a>
+                    <a href="{{ url_for('admin_setting', site='torrents') }}" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Torrents
+                    </a>
+                    <a href="{{ url_for('admin_setting', site='discord') }}" class="nav-link">
+                        <i class="fa-solid fa-file"></i>
+                        Discord
                     </a>
                     <a href="{{ url_for('admin_panel_page') }}" class="nav-link mb-auto">
                         <i class="fa-solid fa-arrow-left"></i>
