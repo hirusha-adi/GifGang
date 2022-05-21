@@ -33,7 +33,7 @@ class Base(commands.Cog):
         embed = discord.Embed(
             title="GifGang",
             color=0xff0000,
-            description="```GifGang - We provide a web-application, a discord bot, a python module + many more serives that will wrap many popular image/gif servcies```",
+            description="```GifGang - We provide a web-application, a discord bot, a python module + many more serives that will wrap many popular image/gif servcies. NOTE that we do not own any media.```",
             timestamp=datetime.utcnow(),
             url="https://gifgang.net/links"
         )
