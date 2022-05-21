@@ -5,6 +5,7 @@
 
 {% block content %}
 
+<!-- Main Settings -->
 {% if show_all_main_settings == True %}
 <!-- Admin Profile Info -->
 <div class="container content clear-fix">
@@ -279,6 +280,7 @@
 </div>
 {% endif %}
 
+<!-- SFW Settings -->
 {% if show_all_sfw_settings == True %}
 <!-- / - Index Settings -->
 <div class="container content clear-fix">
@@ -939,6 +941,7 @@
 </div>
 {% endif %}
 
+<!-- NSFW Settings -->
 {% if show_all_nsfw_settings == True %}
 <!-- /adult - Adult Index Settings-->
 <div class="container content clear-fix">
@@ -1429,5 +1432,10 @@
 </div>
 {% endif %}
 
+{% if show_all_torrent_settings == True %}
+{% endif %}
+
+{% if show_all_discord_settings == True %}
+{% endif %}
 
 {% endblock %}
