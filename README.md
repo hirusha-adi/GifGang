@@ -15,8 +15,6 @@
 
 ## Discord Bot: `v1.0`
 
-<br>
-
 # Installation Guide
 
-Install the web server by following the [documentation written here](https://hirusha-adikari.gitbook.io/gifgang/)
+Install and setup (for self-hosting / deploying) by following the [documentation written here](https://hirusha-adikari.gitbook.io/gifgang/gifgang-1/installation)
