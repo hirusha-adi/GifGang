@@ -609,224 +609,56 @@ def admin_settings():
 
     try:
         if session["token"] == Settings.Admin.token:
-            return redirect(url_for('admin_setting_sfw', site="admin"))
+            return redirect(url_for('admin_setting', site="admin"))
         else:
             return redirect(url_for("admin_login_page"))
     except Exception as e:
         return redirect(url_for("admin_login_page"))
 
 
-def admin_setting_sfw(site):
+def admin_setting(site):
     count_total_visits_amount()
 
-    logf(request=request, page="admin/settings/admin")
+    logf(request=request, page="admin/settings/<site>")
 
-    log(f'Requested `/admin/settings/admin` - admin_settings_admin()',
+    log(f'Requested `/admin/settings/<site>` - admin_setting(site)',
         ipaddr=request.remote_addr)
 
     try:
         if session["token"] == Settings.Admin.token:
 
             site = str(site)
-            if site == "important":
+            print(site)
+            if site in ("main", "sfw"):
                 return render_template(
                     "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=True,
-                    import_settings_data=Important,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "index":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=True,
+                    show_all_sfw_settings=True,
                     index_data=WebsiteData.index,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "search":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=True,
-                    search_data=WebsiteData.search,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "pins":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=True,
-                    pins_data=WebsiteData.pins,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "age":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=True,
                     age_verify_data=WebsiteData.age_verify,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
+                    search_data=WebsiteData.search,
+                    pins_data=WebsiteData.pins,
+                )
+            elif site in ("adult", "nsfw"):
+                return render_template(
+                    "admin/settings.html",
+                    show_all_nsfw_settings=True,
+                    adult_pins_data=WebsiteData.adult_pins,
+                    adult_stars_data=WebsiteData.adult_stars,
+                    adult_search_data=WebsiteData.adult_search,
+                    adult_hentai_data=WebsiteData.adult_hentai,
+                    adult_index_data=WebsiteData.adult_index,
                 )
             else:
                 return render_template(
                     "admin/settings.html",
-                    show_admin_settings=True,
+                    show_all_main_settings=True,
                     admin_settings_data=Settings.Admin,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
+                    import_settings_data=Important,
                 )
         else:
             return redirect(url_for("admin_login_page"))
     except Exception as e:
         print(e)
-        return redirect(url_for("admin_login_page"))
-
-
-def admin_settings_nsfw(site):
-    count_total_visits_amount()
-
-    logf(request=request, page="admin/settings/adult/index")
-
-    log(f'Requested `/admin/settings/adult/index` - admin_settings_adult_index()',
-        ipaddr=request.remote_addr)
-
-    try:
-        if session["token"] == Settings.Admin.token:
-
-            site = str(site)
-            if site == "pins":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=True,
-                    adult_pins_data=WebsiteData.adult_pins,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "stars":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=True,
-                    adult_stars_data=WebsiteData.adult_stars,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-            elif site == "search":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=True,
-                    adult_search_data=WebsiteData.adult_search,
-                    show_adult_hentai=False,
-                )
-            elif site == "hentai":
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=False,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=True,
-                    adult_hentai_data=WebsiteData.adult_hentai,
-                )
-            else:
-                return render_template(
-                    "admin/settings.html",
-                    show_admin_settings=False,
-                    show_important_settings=False,
-                    show_index=False,
-                    show_search=False,
-                    show_pins=False,
-                    show_age_verify=False,
-                    show_adult_index=True,
-                    adult_index_data=WebsiteData.adult_index,
-                    show_adult_pins=False,
-                    show_adult_stars=False,
-                    show_adult_search=False,
-                    show_adult_hentai=False,
-                )
-        else:
-            return redirect(url_for("admin_login_page"))
-
-    except Exception:
         return redirect(url_for("admin_login_page"))
 
 
