@@ -129,13 +129,25 @@ def torrent_channel(name, page):
     if page is None:
         log('No page to go, defaulting to 1!')
         page = 1
-
     try:
         current_page = int(page)
     except:
         return redirect(url_for('torrents_search_no_query'))
 
-    torrents_list_all = Torrents.getTorrentsByFilter(channel=str(name).lower())
+    all_names = []
+    for channel_dict in WebsiteData.torrents_catgories['all_cat_list']:
+        all_names.append(channel_dict["name"].lower())
+
+    name = str(name).lower()
+    if not(name in all_names):
+        name = "other"
+
+    if name == "other":
+        torrents_list_all = Torrents.getTorrentsOtherChannel(nin=all_names)
+    else:
+        torrents_list_all = Torrents.getTorrentsByFilter(
+            channel=str(name).lower()
+        )
     torrents_list_length = len(torrents_list_all)
 
     per_page = 25
