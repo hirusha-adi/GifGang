@@ -3,7 +3,6 @@ from bson import ObjectId
 import urllib.parse
 from utils import Config
 
-
 client = MongoClient('mongodb://%s:%s@%s:27017/' %
                      (
                          urllib.parse.quote_plus(Config.mongo_username),
@@ -75,6 +74,18 @@ class Torrents:
         for i in torrents.find(query):
             data.append(i)
 
+        return data
+
+    def getTorrentsOtherChannel(nin):
+        data = []
+        for i in torrents.find(
+            {
+                "channel": {
+                    "$nin": nin
+                }
+            }
+        ):
+            data.append(i)
         return data
 
     def updateTorrent(update, _id=None, title=None, size=None, link=None, quality=None, se=None, channel=None, page=None):
