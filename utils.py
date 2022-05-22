@@ -337,6 +337,30 @@ class Update:
         with open(FileNames.important_info_file, "w", encoding="utf-8") as _file:
             json.dump(Important._data, _file, indent=4)
 
+    def TorrentsIndex(AdultTorrentsIndexPerPage):
+        try:
+            WebsiteData.torrents_catgories['per_page'] = int(
+                AdultTorrentsIndexPerPage)
+        except:
+            WebsiteData.torrents_catgories['per_page'] = str(
+                AdultTorrentsIndexPerPage)
+
+        WebsiteData._data["torrents_catgories"] = WebsiteData.torrents_catgories
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+
+    def DiscordIndex(DiscordAllInvite, DiscordAllHelp):
+        WebsiteData.discord['web_links']['invite_to_server'] = str(
+            DiscordAllInvite)
+        WebsiteData.discord['web_links']['commands_help_link'] = str(
+            DiscordAllHelp)
+
+        WebsiteData._data["discord"] = WebsiteData.discord
+
+        with open(FileNames.website_info_file, "w", encoding="utf-8") as _file:
+            json.dump(WebsiteData._data, _file, indent=4)
+
     def SettingsAdmin(
         username, password, token, profile_pic, targets_today, targets_all
     ):
