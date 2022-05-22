@@ -8,6 +8,7 @@
 - ### Anonymous User 2
 
   - Made the first Backend for the original version of this project
+  - Helped me setup a reverse proxy with nginx and setup ssl for the site
 
 - ### Anonymous User 3
 
@@ -26,6 +27,3 @@
 
   - Giving me ideas for creating the new frontend
   - Supported in adding images for over half of NSFW Categories
-
-- ### Codepen
-  - Enrico Chiaromonte: [original 404 page.](https://codepen.io/chiaren/pen/qBwKdX)
