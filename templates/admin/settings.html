@@ -1433,9 +1433,105 @@
 {% endif %}
 
 {% if show_all_torrent_settings == True %}
+<!-- /torrents/* - Common Torrent Settings -->
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Torrents -
+        <a href="{{ url_for('torrents_index_no_page') }}">/torrents/*</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form action="{{ url_for('admin_save_settings', mode='torrents', site='all') }}" method="post">
+
+                    <!-- AdultTorrentsIndex -->
+                    <h3>Total Torrents: {{ torrents_list_length }}</h3>
+                    <br>
+                    <div class="form-group">
+                        <label for=AdultTorrentsIndexPerPage>Per Page</label>
+                        <input type="text" class="form-control" id="AdultTorrentsIndexPerPage"
+                            name="AdultTorrentsIndexPerPage" value="{{ torrents_catgories.per_page }}">
+                        <br>
+                    </div>
+
+                    <div class=" row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block"
+                                onClick="javascript:this.form.submit();">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endif %}
 
 {% if show_all_discord_settings == True %}
+<!-- /discord - Discord Settings -->
+<div class="container content clear-fix">
+
+    <!-- Topic -->
+    <h2 class="mt-5 mb-5">Discord -
+        <a href="{{ url_for('torrents_index_no_page') }}">/discord</a>
+    </h2>
+
+    <div class="row" style="height:100%">
+
+        <div class="col-md-9">
+            <div class="container">
+
+                <form action="{{ url_for('admin_save_settings', mode='discord', site='all') }}" method="post">
+
+                    <!-- DiscordAll -->
+                    <div class="form-group">
+                        <label for=DiscordAllInvite>Discord-Server invite URL</label>
+                        <input type="text" class="form-control" id="DiscordAllInvite" name="DiscordAllInvite"
+                            value="{{ discord_data.web_links.invite_to_server }}">
+                        <br>
+                        <label for=DiscordAllHelp>Bot help URL</label>
+                        <input type="text" class="form-control" id="DiscordAllHelp" name="DiscordAllHelp"
+                            value="{{ discord_data.web_links.commands_help_link }}">
+                        <br>
+                    </div>
+
+                    <div class=" row mt-5">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary btn-block"
+                                onClick="javascript:this.form.submit();">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-default btn-block">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endif %}
 
 {% endblock %}
