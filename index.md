@@ -5,33 +5,18 @@
 # What is this?
 
 Simply
-- A website with Images and GIFs
+
+- A website with Images and GIFs, A discord bot, a python module to be used by other developers
 
 Detailed
-- This is a website with both SFW and NSFW GIF's and Images (Some redirecting to Videos in thier original website). This website does NOT own any media displayed. All the media are taken/requested/scraped from many services and the service name is mentioned above every image set to give credit. ( You can call this a lightweight yet modern and powerful wrapper for many websites with media. )
 
-![Screenshot_20220409_074732](https://user-images.githubusercontent.com/36286877/162552859-2efa05fc-8205-4f68-a32a-31ed1f532aad.png)
+- This is a website with both SFW and NSFW GIF's and Images (Some redirecting to Videos in thier original website). This website does NOT own any media displayed. All the media are taken/requested/scraped from many services and the service name is mentioned above every image set to give credit. ( You can call this a lightweight yet modern and powerful wrapper for many websites with media. ). We also provide a discord bot and a python module for other developers
 
+![main_image](https://cdn.discordapp.com/attachments/957630505086517308/977889368477933568/unknown.png)
 
 # Installation Guide
 
-NOTE: You do not need to install this in order to use this web app. You can [cick here](http://gifgang.net) to try out the publicly hosted version. Following the steps below will lead you to hosting your own instance of this website.
-
-### Ubuntu & Debian
-
-run the commands below
-
-```bash
-sudo apt update && sudo apt install wget -y && wget "https://raw.githubusercontent.com/hirusha-adi/GifGang/installer/ubuntu/installer.sh" && chmod +x installer.sh && ./installer.sh
-```
-
-### Arch Linux
-
-run the commands below
-
-```bash
-sudo pacman -Syy wget --noconfirm && wget "https://raw.githubusercontent.com/hirusha-adi/GifGang/installer/arch/installer.sh" && chmod +x installer.sh && ./installer.sh
-```
+## Follow [these steps](https://hirusha-adikari.gitbook.io/gifgang/gifgang-1/installation) to install
 
 ### I have an error while Installation. What should I do?
 
@@ -92,28 +77,80 @@ I am not responsible for any bad that happens with this website and i dont promo
 - Email: `zesta5j7k@gmail.com`
 
 # Image Showcase
+
 - ### `/`
-![Screenshot_20220407_104601](https://user-images.githubusercontent.com/36286877/162125258-03d11344-d5c1-4792-8c03-0f2ee3b8886b.png)
+
+  ![1](https://cdn.discordapp.com/attachments/957630505086517308/977889368477933568/unknown.png)
+  ![2](https://cdn.discordapp.com/attachments/957630505086517308/977889494944600064/unknown.png)
+  ![3](https://cdn.discordapp.com/attachments/957630505086517308/977889594349613116/unknown.png)
+  ![4](https://cdn.discordapp.com/attachments/957630505086517308/977889786952048712/unknown.png)
 
 - ### `/pins`
-![Screenshot_20220407_104750](https://user-images.githubusercontent.com/36286877/162125472-3ae6266d-57bc-449a-acab-b65bb730ddef.png)
 
-- ### `/restricted`
-![Screenshot_20220407_104945](https://user-images.githubusercontent.com/36286877/162125666-ee7b7a5b-2036-4509-9d83-ec2531c22602.png)
+  ![5](https://cdn.discordapp.com/attachments/957630505086517308/977890009938022441/unknown.png)
+
+- ### `/search`
+
+  ![6](https://cdn.discordapp.com/attachments/957630505086517308/977890127856668712/unknown.png)
+
+- ### `/links`
+
+  ![7](https://cdn.discordapp.com/attachments/957630505086517308/977890364453175306/unknown.png)
+  ![8](https://cdn.discordapp.com/attachments/957630505086517308/977890446883844096/unknown.png)
+  ![9](https://cdn.discordapp.com/attachments/957630505086517308/977890504387735582/unknown.png)
+
+- ### `/about`
+
+  ![10](https://cdn.discordapp.com/attachments/957630505086517308/977890665419649044/unknown.png)
+
+- ### `/torrents`
+
+  ![11](https://cdn.discordapp.com/attachments/957630505086517308/977890919703539712/unknown.png)
+  ![12](https://cdn.discordapp.com/attachments/957630505086517308/977891310075777055/unknown.png)
+
+- ### `/torrents/pins`
+
+  ![12](https://cdn.discordapp.com/attachments/957630505086517308/977891456226308136/unknown.png)
+
+- ### `/torrents/channels`
+
+![13](https://cdn.discordapp.com/attachments/957630505086517308/977891899362926612/unknown.png)
+
+- ### `/discord`
+
+  ![14](https://cdn.discordapp.com/attachments/957630505086517308/977892003104845864/unknown.png)
+  ![15](https://cdn.discordapp.com/attachments/957630505086517308/977892031538036736/unknown.png)
+  ![16](https://cdn.discordapp.com/attachments/957630505086517308/977892166183571506/unknown.png)
+  ![17](https://cdn.discordapp.com/attachments/957630505086517308/977892221053464596/unknown.png)
+
+- ### `/admin/login`
+
+  ![18](https://cdn.discordapp.com/attachments/957630505086517308/977892442453987378/unknown.png)
+  ![19](https://cdn.discordapp.com/attachments/957630505086517308/977892535462674452/unknown.png)
+
+- ### `/admin/panel`
+
+  ![20](https://cdn.discordapp.com/attachments/957630505086517308/977892708427374643/unknown.png)
+  ![21](https://cdn.discordapp.com/attachments/957630505086517308/977892848496173086/unknown.png)
+  ![21](https://cdn.discordapp.com/attachments/957630505086517308/977893033561440336/unknown.png)
+
+- ### `/admin/settings`
+
+  ![21](https://cdn.discordapp.com/attachments/957630505086517308/977893206886858782/unknown.png)
+  ![22](https://cdn.discordapp.com/attachments/957630505086517308/977893371500695562/unknown.png)
+
+### NOTE: All the `/adult/*` routes are now also in dark mode
 
 - ### `/adult`
-![Screenshot_20220407_110741 (1)](https://user-images.githubusercontent.com/36286877/162129428-1ea7eff8-7e0e-400d-9b94-5b226294b3dd.png)
-
+  ![Screenshot_20220407_110741 (1)](https://user-images.githubusercontent.com/36286877/162129428-1ea7eff8-7e0e-400d-9b94-5b226294b3dd.png)
 - ### `/adult/categories`
-![unknown (1) (2)](https://user-images.githubusercontent.com/36286877/162131483-2e865b41-853b-41a8-a4df-3093c0a86e3d.png)
+
+  ![unknown (1) (2)](https://user-images.githubusercontent.com/36286877/162131483-2e865b41-853b-41a8-a4df-3093c0a86e3d.png)
 
 - ### `adult/pins`
-![Screenshot_20220407_113918 (2)](https://user-images.githubusercontent.com/36286877/162132765-f96c64a9-28ed-4fec-8c35-3d31897f919a.png)
 
-- ### `about`
-![Screenshot_20220407_155255](https://user-images.githubusercontent.com/36286877/162178447-88ed0918-77c8-4aa2-bf1a-d88a0a1e063b.png)
+  ![Screenshot_20220407_113918 (2)](https://user-images.githubusercontent.com/36286877/162132765-f96c64a9-28ed-4fec-8c35-3d31897f919a.png)
 
-- ### `links`
-![Screenshot_20220407_155431](https://user-images.githubusercontent.com/36286877/162178649-9ada2144-06ef-4434-9368-916131f6e7b7.png)
+- ### `/restricted`
 
-
+  ![23](https://cdn.discordapp.com/attachments/957630505086517308/977890805765255179/unknown.png)
