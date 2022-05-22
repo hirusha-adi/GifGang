@@ -4,7 +4,7 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->    
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap4.min.css') }}">
 
     <!-- Font Awesome -->
@@ -54,49 +54,25 @@
 
         <!-- Mobile Side Bar -->
         <div class="expand-menu nav flex-column">
-            <a href="{{ url_for('admin_setting_sfw', site='admin') }}" class="nav-link mt-auto">
+            <a href="{{ url_for('admin_setting', site='admin') }}" class="nav-link mt-auto">
                 <i class="far fa-user-circle"></i>
-                Admin
+                Main
             </a>
-            <a href="{{ url_for('admin_setting_sfw', site='important') }}" class="nav-link">
-                <i class="fa-solid fa-star"></i>
-                Important
-            </a>
-            <a href="{{ url_for('admin_setting_sfw', site='index') }}" class="nav-link">
+            <a href="{{ url_for('admin_setting', site='sfw') }}" class="nav-link">
                 <i class="fa-solid fa-file"></i>
-                Index
+                SFW
             </a>
-            <a href="{{ url_for('admin_setting_sfw', site='search') }}" class="nav-link">
+            <a href="{{ url_for('admin_setting', site='nsfw') }}" class="nav-link">
                 <i class="fa-solid fa-file"></i>
-                Search
+                NSFW
             </a>
-            <a href="{{ url_for('admin_setting_sfw', site='pins') }}" class="nav-link">
+            <a href="{{ url_for('admin_setting', site='torrents') }}" class="nav-link">
                 <i class="fa-solid fa-file"></i>
-                Pins
+                Torrents
             </a>
-            <a href="{{ url_for('admin_setting_sfw', site='age') }}" class="nav-link">
+            <a href="{{ url_for('admin_setting', site='discord') }}" class="nav-link">
                 <i class="fa-solid fa-file"></i>
-                Age Verify
-            </a>
-            <a href="{{ url_for('admin_settings_nsfw', site='admin') }}" class="nav-link">
-                <i class="fa-solid fa-file"></i>
-                Adult Index
-            </a>
-            <a href="{{ url_for('admin_settings_nsfw', site='pins') }}" class="nav-link">
-                <i class="fa-solid fa-file"></i>
-                Adult Pins
-            </a>
-            <a href="{{ url_for('admin_settings_nsfw', site='stars') }}" class="nav-link">
-                <i class="fa-solid fa-file"></i>
-                Adult Stars
-            </a>
-            <a href="{{ url_for('admin_settings_nsfw', site='search') }}" class="nav-link">
-                <i class="fa-solid fa-file"></i>
-                Adult Search
-            </a>
-            <a href="{{ url_for('admin_settings_nsfw', site='hentai') }}" class="nav-link">
-                <i class="fa-solid fa-file"></i>
-                Adult Hentai
+                Discord
             </a>
             <a href="{{ url_for('admin_panel_page') }}" class="nav-link mb-auto">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -109,49 +85,25 @@
             <!-- Desktop Side Bar -->
             <div class="col-md-3 d-none d-md-block" style="height:100%">
                 <div class="container-fluid nav sidebar flex-column">
-                    <a href="{{ url_for('admin_setting_sfw', site='admin') }}" class="nav-link mt-auto">
+                    <a href="{{ url_for('admin_setting', site='admin') }}" class="nav-link mt-auto">
                         <i class="far fa-user-circle"></i>
                         Admin
                     </a>
-                    <a href="{{ url_for('admin_setting_sfw', site='important') }}" class="nav-link">
+                    <a href="{{ url_for('admin_setting', site='sfw') }}" class="nav-link">
                         <i class="fa-solid fa-star"></i>
-                        Important
+                        SFW
                     </a>
-                    <a href="{{ url_for('admin_setting_sfw', site='index') }}" class="nav-link">
+                    <a href="{{ url_for('admin_setting', site='nsfw') }}" class="nav-link">
                         <i class="fa-solid fa-file"></i>
-                        Index
+                        NSFW
                     </a>
-                    <a href="{{ url_for('admin_setting_sfw', site='search') }}" class="nav-link">
+                    <a href="{{ url_for('admin_setting', site='torrents') }}" class="nav-link">
                         <i class="fa-solid fa-file"></i>
-                        Search
+                        Torrents
                     </a>
-                    <a href="{{ url_for('admin_setting_sfw', site='pins') }}" class="nav-link">
+                    <a href="{{ url_for('admin_setting', site='discord') }}" class="nav-link">
                         <i class="fa-solid fa-file"></i>
-                        Pins
-                    </a>
-                    <a href="{{ url_for('admin_setting_sfw', site='age') }}" class="nav-link">
-                        <i class="fa-solid fa-file"></i>
-                        Age Verify
-                    </a>
-                    <a href="{{ url_for('admin_settings_nsfw', site='index') }}" class="nav-link">
-                        <i class="fa-solid fa-file"></i>
-                        Adult Index
-                    </a>
-                    <a href="{{ url_for('admin_settings_nsfw', site='pins') }}" class="nav-link">
-                        <i class="fa-solid fa-file"></i>
-                        Adult Pins
-                    </a>
-                    <a href="{{ url_for('admin_settings_nsfw', site='stars') }}" class="nav-link">
-                        <i class="fa-solid fa-file"></i>
-                        Adult Stars
-                    </a>
-                    <a href="{{ url_for('admin_settings_nsfw', site='search') }}" class="nav-link">
-                        <i class="fa-solid fa-file"></i>
-                        Adult Search
-                    </a>
-                    <a href="{{ url_for('admin_settings_nsfw', site='hentai') }}" class="nav-link mb-auto">
-                        <i class="fa-solid fa-file"></i>
-                        Adult Hentai
+                        Discord
                     </a>
                     <a href="{{ url_for('admin_panel_page') }}" class="nav-link mb-auto">
                         <i class="fa-solid fa-arrow-left"></i>
@@ -183,4 +135,3 @@
 </body>
 
 </html>
-

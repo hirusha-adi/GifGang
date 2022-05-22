@@ -3,6 +3,7 @@
 - ### Anonymous User 1
 
   - Main sponsor
+  - Idea for the `discord bot` service
 
 - ### Anonymous User 2
 
@@ -24,6 +25,7 @@
 - ### `OLIVER#0673`
 
   - Giving me ideas for creating the new frontend
+  - Supported in adding images for over half of NSFW Categories
 
 - ### Codepen
   - Enrico Chiaromonte: [original 404 page.](https://codepen.io/chiaren/pen/qBwKdX)

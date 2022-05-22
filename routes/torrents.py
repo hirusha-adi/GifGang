@@ -28,7 +28,11 @@ def torrents_index(page):
     torrents_list_all = Torrents.getAllTorrents()
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -49,7 +53,7 @@ def torrents_index(page):
 
     return render_template(
         "torrents/index.html",
-        web_tite="Torrents | GifGang",
+        web_title="Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list_sliced,
         torrents_title=f"All Torrents | Page {current_page}",
@@ -79,7 +83,11 @@ def torrents_pins(page):
     torrents_list_all = Torrents.getTorrentsByFilter(page="pins")
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -99,7 +107,7 @@ def torrents_pins(page):
 
     return render_template(
         "torrents/index.html",
-        web_tite="Pins - Torrents | GifGang",
+        web_title="Pins - Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list_sliced,
         torrents_title=f"Pinned Torrents",
@@ -150,7 +158,11 @@ def torrent_channel(name, page):
         )
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -170,7 +182,7 @@ def torrent_channel(name, page):
 
     return render_template(
         "torrents/index.html",
-        web_tite="Channels - Torrents | GifGang",
+        web_title="Channels - Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list_sliced,
         torrents_title=f"{name}",
@@ -195,7 +207,7 @@ def torrents_channels():
 
     return render_template(
         "torrents/index.html",
-        web_tite="Channels - Torrents | GifGang",
+        web_title="Channels - Torrents | GifGang",
         show_categories=True,
         all_pins_list=WebsiteData.torrents_catgories['all_cat_list']
     )
@@ -304,7 +316,11 @@ def torrents_search(query, page):
     torrents_list_all = Torrents.getTorrentByTitle(title=f"{query}")
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -324,7 +340,7 @@ def torrents_search(query, page):
 
     return render_template(
         "torrents/index.html",
-        web_tite=f"Results for {query} - Torrents | GifGang",
+        web_title=f"Results for {query} - Torrents | GifGang",
         torrents_usage=True,
         torrents_list=torrents_list_sliced,
         torrents_title=f"Results for {query}",

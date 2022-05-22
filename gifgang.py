@@ -51,8 +51,7 @@ app.add_url_rule("/admin/download/log/latest", 'admin_download_log_file', admin_
 app.add_url_rule("/admin/panel", 'admin_panel_page', admin_panel_page, methods=['GET'])
 app.add_url_rule("/admin/settings/<mode>/<site>", 'admin_save_settings', admin_save_settings, methods=['POST'])
 app.add_url_rule("/admin/settings", 'admin_settings', admin_settings, methods=['GET'])
-app.add_url_rule("/admin/settings/<site>", 'admin_setting_sfw', admin_setting_sfw, methods=['GET'])
-app.add_url_rule("/admin/settings/adult/<site>", 'admin_settings_nsfw', admin_settings_nsfw, methods=['GET'])
+app.add_url_rule("/admin/settings/<site>", 'admin_setting', admin_setting, methods=['GET'])
 app.add_url_rule("/logout", 'admin_logout', admin_logout, methods=['GET'])
 
 app.add_url_rule("/torrents", 'torrents_index_no_page', torrents_index_no_page, methods=['GET'])

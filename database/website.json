@@ -1219,6 +1219,7 @@
         }
     },
     "torrents_catgories": {
+        "per_page": 25,
         "all_cat_list": [
             {
                 "name": "BLACKED",

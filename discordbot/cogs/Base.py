@@ -28,6 +28,22 @@ class Base(commands.Cog):
             )
         )
 
+    @commands.command()
+    async def about(self, ctx):
+        embed = discord.Embed(
+            title="GifGang",
+            color=0xff0000,
+            description="```GifGang - We provide a web-application, a discord bot, a python module + many more serives that will wrap many popular image/gif servcies. NOTE that we do not own any media.```",
+            timestamp=datetime.utcnow(),
+            url="https://gifgang.net/links"
+        )
+        embed.set_author(
+            name=str(self.client.user.name),
+            icon_url=str(self.client.user.avatar_url)
+        )
+        embed.set_footer(text=f"Reuqested by {ctx.author.name}")
+        await ctx.send(embed=embed)
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
 
