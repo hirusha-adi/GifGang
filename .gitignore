@@ -28,3 +28,4 @@ dist/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+database/.fuse_hidden0000007700000003
