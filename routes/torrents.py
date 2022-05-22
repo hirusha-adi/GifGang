@@ -28,7 +28,11 @@ def torrents_index(page):
     torrents_list_all = Torrents.getAllTorrents()
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -79,7 +83,11 @@ def torrents_pins(page):
     torrents_list_all = Torrents.getTorrentsByFilter(page="pins")
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -150,7 +158,11 @@ def torrent_channel(name, page):
         )
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
@@ -304,7 +316,11 @@ def torrents_search(query, page):
     torrents_list_all = Torrents.getTorrentByTitle(title=f"{query}")
     torrents_list_length = len(torrents_list_all)
 
-    per_page = 25
+    try:
+        per_page = int(WebsiteData.torrents_catgories['per_page'])
+    except:
+        per_page = 25
+
     max_possible_page = (torrents_list_length // per_page)+1
     if current_page > max_possible_page:
         current_page = max_possible_page
