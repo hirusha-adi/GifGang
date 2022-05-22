@@ -1,7 +1,8 @@
 # Web App Files
-web/count.txt
-web/frontend
-web/logs/*
+logs/*
+count.txt
+count-today.txt
+token.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -27,13 +28,3 @@ dist/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-count-today.txt
-web.fuse_hidden0000171700000002
-database/.fuse_hidden000016dd00000003
-database/.fuse_hidden0000196b00000005
-database/.fuse_hidden0000194700000004
-web.fuse_hidden0000171700000006
-static/img/.fuse_hidden0000034600000001
-templates/torrents/.fuse_hidden0000051000000001
-token.txt
-count.txt
