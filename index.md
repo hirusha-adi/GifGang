@@ -2,6 +2,8 @@
 
 ## [Image Show-Case - Click Here](#image-showcase)
 
+## [Documentation - Click Here](https://hirusha-adikari.gitbook.io/gifgang/)
+
 # What is this?
 
 Simply
@@ -39,6 +41,7 @@ Detailed
 
 # :)
 
+- This project is no longer under active development.
 - Starring this project will support me!
 - Make sure to [open an Issue](https://github.com/hirusha-adi/GifGang/issues/new/choose) if something is wrong or if you want to request a new feature in the future version
 - If you are interested in adding your code to this project, feel free to [open a pull request](https://github.com/hirusha-adi/GifGang/compare) anytime!
@@ -54,8 +57,6 @@ The list of servcies that are wrapped by this project
 - [Tenor](https://tenor.com/gifapi/documentation)
 - [TheCatAPI](https://thecatapi.com/)
 - [DogAPI (DogCEO)](https://dog.ceo/dog-api/)
-- [Unsplash](https://unsplash.com/developers) - Incomplete ( Difficulties of getting a token )
-- [Imgur](https://api.imgur.com/) - Incomplete ( Difficulties with bad URLs returned from the API )
 
 ## NSFW
 
