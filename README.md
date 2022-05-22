@@ -11,9 +11,9 @@
 
 # Current Versions
 
-## Website: `v1.5`
+## Website: `v1.6`
 
-## Discord Bot: `v1.0`
+## Discord Bot: `v1.1`
 
 # Installation Guide
 
