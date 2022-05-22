@@ -4,6 +4,7 @@ from flask import (redirect, render_template, request, send_file, session,
                    url_for)
 from utils import (FileNames, Important, Settings, Update, WebsiteData,
                    count_total_visits_amount, log, logf, Vars)
+from database.mongo import Torrents
 
 
 def adult_route_main():
@@ -474,7 +475,7 @@ def admin_save_settings(mode, site):
                         AdultIndexhRedTubeAPIUrl=AdultIndexhRedTubeAPIUrl
                     )
 
-                    return redirect(url_for('admin_settings_nsfw', site='index'))
+                    return redirect(url_for('admin_setting', site='index'))
 
                 elif site == "pins":
 
@@ -490,7 +491,7 @@ def admin_save_settings(mode, site):
                         AdultCategoriesTitle=AdultCategoriesTitle
                     )
 
-                    return redirect(url_for('admin_settings_nsfw', site='pins'))
+                    return redirect(url_for('admin_setting', site='pins'))
 
                 elif site == "stars":
 
@@ -511,7 +512,7 @@ def admin_save_settings(mode, site):
                         AdultStarsRedTubeApiURL=AdultStarsRedTubeApiURL
                     )
 
-                    return redirect(url_for('admin_settings_nsfw', site='stars'))
+                    return redirect(url_for('admin_setting', site='stars'))
 
                 elif site == "search":
 
@@ -554,7 +555,7 @@ def admin_save_settings(mode, site):
                         AdultSearchRedTubeApiURL=AdultSearchRedTubeApiURL
                     )
 
-                    return redirect(url_for('admin_settings_nsfw', site='search'))
+                    return redirect(url_for('admin_setting', site='search'))
 
                 elif site == "hentai":
 
@@ -591,7 +592,27 @@ def admin_save_settings(mode, site):
                         AdultHentaiNekosLifeEndpointsList=AdultHentaiNekosLifeEndpointsList
                     )
 
-                    return redirect(url_for('admin_settings_nsfw', site='hentai'))
+                    return redirect(url_for('admin_setting', site='hentai'))
+
+            elif mode == "torrents":
+                if site == "all":
+                    AdultTorrentsIndexPerPage = request.form.get(
+                        'AdultTorrentsIndexPerPage'
+                    )
+                    Update.TorrentsIndex(
+                        AdultTorrentsIndexPerPage=AdultTorrentsIndexPerPage
+                    )
+                return redirect(url_for('admin_setting', site='torrents'))
+
+            elif mode == "discord":
+                if site == "all":
+                    DiscordAllInvite = request.form.get('DiscordAllInvite')
+                    DiscordAllHelp = request.form.get('DiscordAllHelp')
+                    Update.DiscordIndex(
+                        DiscordAllInvite=DiscordAllInvite,
+                        DiscordAllHelp=DiscordAllHelp
+                    )
+                return redirect(url_for('admin_setting', site='discord'))
 
         else:
             return redirect(url_for("admin_login_page"))
@@ -648,10 +669,13 @@ def admin_setting(site):
                     adult_index_data=WebsiteData.adult_index,
                 )
             elif site in ("torrents", "torrent"):
+                torrents_list_all = Torrents.getAllTorrents()
+                torrents_list_length = len(torrents_list_all)
                 return render_template(
                     "admin/settings.html",
                     show_all_torrent_settings=True,
                     torrents_catgories=WebsiteData.torrents_catgories,
+                    torrents_list_length=torrents_list_length,
                 )
             elif site in ("discord", "discordbot"):
                 return render_template(
