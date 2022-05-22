@@ -1,3 +1,14 @@
+# 1.6
+
+- Final Version
+- Stable discord bot
+- Stable web-application / web-server
+- Uses MongoDB to store torrents (has a json that is easily importable with over 625 torrents)
+- Admin Panel is stable
+- Most parts are customizable using the Admin Settings
+- All main and important settings are stored in JSON for easy customization from the user's end
+- It took me 2.5 months to come here. (I coded while working on other projects and managing with my school studies)
+
 # 1.5
 
 - First ready to deploy version with Torrents Support
